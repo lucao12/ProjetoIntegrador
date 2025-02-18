@@ -1,0 +1,296 @@
+[
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.UsuarioControllerView",
+    "Method": "Cadastro",
+    "RelativePath": "cadastro",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.UsuarioController",
+    "Method": "CadastroAdmin",
+    "RelativePath": "cadastroAdmin",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ProjetoIntegrador.ViewModel.UsuarioCadastroAdminViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.PedidosController",
+    "Method": "VerificaPedidos",
+    "RelativePath": "candidatarNutri/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.UsuarioController",
+    "Method": "DeleteAsync",
+    "RelativePath": "delete/user/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.UsuarioController",
+    "Method": "DeleteYourselfAsync",
+    "RelativePath": "delete/yourself",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.UsuarioControllerView",
+    "Method": "HomeAdmin",
+    "RelativePath": "HomeAdmin",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.UsuarioControllerView",
+    "Method": "HomeNutri",
+    "RelativePath": "HomeNutri",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.UsuarioControllerView",
+    "Method": "HomeUsuario",
+    "RelativePath": "HomeUsuario",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.UsuarioController",
+    "Method": "LoginAsync",
+    "RelativePath": "login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ProjetoIntegrador.ViewModel.UsuarioLoginViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.UsuarioControllerView",
+    "Method": "Login",
+    "RelativePath": "login",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.UsuarioControllerView",
+    "Method": "Home",
+    "RelativePath": "Redirecionando",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.UsuarioController",
+    "Method": "GetRole",
+    "RelativePath": "role",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.UsuarioController",
+    "Method": "SignUpAsync",
+    "RelativePath": "signup",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ProjetoIntegrador.ViewModel.UsuarioCadastroViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.UsuarioController",
+    "Method": "UpdateAdminAsync",
+    "RelativePath": "update/user/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "ProjetoIntegrador.ViewModel.UsuarioUpdateAdminViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.UsuarioController",
+    "Method": "UpdateAsync",
+    "RelativePath": "update/user/yourself",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ProjetoIntegrador.ViewModel.UsuarioUpdateViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.UsuarioController",
+    "Method": "GetByIdAsync",
+    "RelativePath": "user/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.UsuarioController",
+    "Method": "GetYourselfAsync",
+    "RelativePath": "user/yourself",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.UsuarioController",
+    "Method": "GetAllAsync",
+    "RelativePath": "users",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.UsuarioController",
+    "Method": "GetNutrisAsync",
+    "RelativePath": "users/nutris",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.PedidosController",
+    "Method": "VerificaPedidosNutri",
+    "RelativePath": "validar/pedido/{pedidoId}/{aceito}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pedidoId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "aceito",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.PedidosController",
+    "Method": "VerificaPedidosAceitosNutri",
+    "RelativePath": "verifica/aceitos/nutri",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.PedidosController",
+    "Method": "VerificaPedidos",
+    "RelativePath": "verifica/pedidos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.PedidosController",
+    "Method": "VerificaPedidosNutri",
+    "RelativePath": "verifica/pedidos/nutri",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

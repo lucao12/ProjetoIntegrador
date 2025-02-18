@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\projetoI-main\\wwwroot\\App_Data\\teste.db",
+      "PackagePath": "staticwebassets\\App_Data\\teste.db"
+    },
+    {
+      "Id": "D:\\projetoI-main\\wwwroot\\App_Data\\teste.db-shm",
+      "PackagePath": "staticwebassets\\App_Data\\teste.db-shm"
+    },
+    {
+      "Id": "D:\\projetoI-main\\wwwroot\\App_Data\\teste.db-wal",
+      "PackagePath": "staticwebassets\\App_Data\\teste.db-wal"
+    },
+    {
+      "Id": "D:\\projetoI-main\\wwwroot\\js\\script.js",
+      "PackagePath": "staticwebassets\\js\\script.js"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.ProjetoIntegrador.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.ProjetoIntegrador.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.ProjetoIntegrador.props",
+      "PackagePath": "build\\ProjetoIntegrador.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.ProjetoIntegrador.props",
+      "PackagePath": "buildMultiTargeting\\ProjetoIntegrador.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.ProjetoIntegrador.props",
+      "PackagePath": "buildTransitive\\ProjetoIntegrador.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -1,0 +1,2 @@
+D:\projetoI-main\wwwroot\App_Data\teste.db-shm
+D:\projetoI-main\wwwroot\App_Data\teste.db-wal

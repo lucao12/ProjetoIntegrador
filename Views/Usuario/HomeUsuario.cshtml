@@ -1,0 +1,248 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Home User</h1>
+
+        <div class="mb-4">
+            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#settingsModal">Configurações</button>
+            <button class="btn btn-danger ms-2" onclick="logout()">Logout</button>
+        </div>
+
+        <!-- Modal de Configurações -->
+        <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="settingsModalLabel">Configurações da Conta</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="settingsForm">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Nome</label>
+                                <input type="text" class="form-control" id="name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">E-mail</label>
+                                <input type="email" class="form-control" id="email">
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Telefone</label>
+                                <input type="text" class="form-control" id="phone">
+                            </div>
+                            <div class="mb-3">
+                                <label for="oldPassword" class="form-label">Senha Antiga</label>
+                                <input type="password" class="form-control" id="oldPassword">
+                            </div>
+                            <div class="mb-3">
+                                <label for="newPassword" class="form-label">Nova Senha</label>
+                                <input type="password" class="form-control" id="newPassword">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary" onclick="saveChanges()">Salvar alterações</button>
+                        <button type="button" class="btn btn-danger" onclick="deleteAccount()">Deletar conta</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="content"></div>
+    </div>
+
+    <script>
+        function loadContent() {
+            const token = localStorage.getItem("token");
+            if (!token) {
+                window.location.href = "/login";
+                return;
+            }
+
+            fetch("/verifica/pedidos", {
+                method: "GET",
+                headers: {
+                    "Authorization": `Bearer ${token}`,
+                    "Content-Type": "application/json"
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.pedido) {
+                    document.getElementById('content').innerHTML = '<p>Aguardando nutricionista...</p>';
+                } else {
+                    loadNutricionistas(token);
+                }
+            })
+            .catch(error => {
+                console.error("Erro ao verificar pedidos:", error);
+            });
+
+            // Chama a requisição para preencher o modal com os dados do usuário
+            fetch("/user/yourself", {
+                method: "GET",
+                headers: {
+                    "Authorization": `Bearer ${token}`,
+                    "Content-Type": "application/json"
+                }
+            })
+            .then(response => response.json())
+            .then(user => {
+                if (user) {
+                    // Preenche os campos do modal com os dados do usuário
+                    document.getElementById("name").value = user.nome;
+                    document.getElementById("email").value = user.email;
+                    document.getElementById("phone").value = user.telefone || '';
+                }
+            })
+            .catch(error => {
+                console.error("Erro ao carregar dados do usuário:", error);
+            });
+        }
+
+        function loadNutricionistas(token) {
+            fetch("/users/nutris", {
+                method: "GET",
+                headers: {
+                    "Authorization": `Bearer ${token}`,
+                    "Content-Type": "application/json"
+                }
+            })
+            .then(response => response.json())
+            .then(nutricionistas => {
+                const content = document.getElementById('content');
+                content.innerHTML = '';
+
+                nutricionistas.forEach(nutri => {
+                    const nutriCard = document.createElement('div');
+                    nutriCard.classList.add('card', 'mb-3');
+                    nutriCard.innerHTML = `
+                        <div class="card-body">
+                            <h5 class="card-title">${nutri.nome}</h5>
+                            <p class="card-text">${nutri.email}</p>
+                            <button class="btn btn-primary" onclick="enviarPedido(${nutri.id})">Enviar Pedido</button>
+                            <input type="hidden" id="nutriId_${nutri.id}" value="${nutri.id}">
+                        </div>
+                    `;
+                    content.appendChild(nutriCard);
+                });
+            })
+            .catch(error => {
+                console.error("Erro ao carregar nutricionistas:", error);
+            });
+        }
+
+        function enviarPedido(nutriId) {
+            const token = localStorage.getItem("token");
+
+            fetch(`/candidatarNutri/${nutriId}`, {
+                method: "POST",
+                headers: {
+                    "Authorization": `Bearer ${token}`,
+                    "Content-Type": "application/json"
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Erro ao enviar pedido.");
+                }
+                alert("Pedido enviado com sucesso!");
+                loadContent();
+            })
+            .catch(error => {
+                console.error("Erro ao enviar pedido:", error);
+                alert("Erro ao enviar pedido.");
+            });
+        }
+
+        function saveChanges() {
+            const token = localStorage.getItem("token");
+
+            console.log(token)
+
+            const userData = {
+                Nome: document.getElementById("name").value,
+                Telefone: document.getElementById("phone").value,
+                Email:  document.getElementById("email").value,
+                SenhaAntiga: document.getElementById("oldPassword").value,
+                NovaSenha: document.getElementById("newPassword").value.trim() === "" ? null : document.getElementById("newPassword").value
+            };
+
+            console.log(userData)
+
+            fetch("/update/user/yourself", {
+                method: "PUT",
+                headers: {
+                    "Authorization": `Bearer ${token}`,
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(userData)
+            })
+            .then(async response => {
+                const json = await response.json();
+
+            if (!response.ok) {
+                let errorMessage = "Erro ao salvar";
+
+                if (json.error) {
+                    errorMessage = json.error;
+                } else if (json.errors) {
+                    const firstErrorKey = Object.keys(json.errors)[0];
+                    if (json.errors[firstErrorKey] && json.errors[firstErrorKey].length > 0) {
+                        errorMessage = json.errors[firstErrorKey][0];
+                    }
+                }
+
+                throw new Error(errorMessage);
+            }
+                alert("Alterações salvas com sucesso! \nFaça Login novamente");
+                logout(); // Recarrega as informações no modal
+            })
+            .catch(error => {
+                console.error("Erro ao salvar alterações:", error);
+                alert("Erro ao salvar alterações.");
+            });
+        }
+
+        function deleteAccount() {
+            const token = localStorage.getItem("token");
+
+            fetch("/delete/yourself", {
+                method: "DELETE",
+                headers: {
+                    "Authorization": `Bearer ${token}`,
+                    "Content-Type": "application/json"
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Erro ao deletar conta.");
+                }
+                alert("Conta deletada com sucesso!");
+                localStorage.removeItem("token");
+                window.location.href = "/login";
+            })
+            .catch(error => {
+                console.error("Erro ao deletar conta:", error);
+                alert("Erro ao deletar conta.");
+            });
+        }
+
+        function logout() {
+            localStorage.removeItem("token");
+            window.location.href = "/login";
+        }
+
+        document.addEventListener('DOMContentLoaded', loadContent);
+    </script>
+</body>
+</html>
