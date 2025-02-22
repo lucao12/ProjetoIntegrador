@@ -137,7 +137,8 @@ namespace ProjetoIntegrador.Controllers
                 }
 
                 var pedido = await _context.Pedidos
-                    .Include(p => p.Usuario) 
+                    .Include(p => p.Usuario)
+                    .Include(p => p.Nutricionista)
                     .FirstOrDefaultAsync(x => x.Usuario.Id == usuario.Id);
 
                 if(pedido == null)

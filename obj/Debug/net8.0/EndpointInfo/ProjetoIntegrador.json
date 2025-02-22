@@ -168,6 +168,37 @@
         }
       }
     },
+    "/mudasenha": {
+      "post": {
+        "tags": [
+          "Usuario"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioMudaSenhaViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioMudaSenhaViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioMudaSenhaViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/cadastroAdmin": {
       "post": {
         "tags": [
@@ -192,6 +223,18 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/verificaAdmCriou": {
+      "get": {
+        "tags": [
+          "Usuario"
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -461,9 +504,7 @@
             "format": "email"
           },
           "senha": {
-            "maxLength": 100,
-            "minLength": 8,
-            "pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[\\p{P}\\p{S}])[A-Za-z\\d\\p{P}\\p{S}]{8,}$",
+            "minLength": 1,
             "type": "string"
           },
           "telefone": {
@@ -527,10 +568,18 @@
             "format": "email"
           },
           "senha": {
-            "maxLength": 100,
-            "minLength": 8,
-            "pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[\\p{P}\\p{S}])[A-Za-z\\d\\p{P}\\p{S}]{8,}$",
+            "minLength": 1,
             "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UsuarioMudaSenhaViewModel": {
+        "type": "object",
+        "properties": {
+          "senha": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -551,9 +600,10 @@
             "nullable": true
           },
           "senha": {
-            "maxLength": 100,
-            "minLength": 8,
-            "pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[\\p{P}\\p{S}])[A-Za-z\\d\\p{P}\\p{S}]{8,}$",
+            "type": "string",
+            "nullable": true
+          },
+          "role": {
             "type": "string",
             "nullable": true
           },

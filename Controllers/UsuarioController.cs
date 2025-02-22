@@ -115,6 +115,57 @@ namespace ProjetoIntegrador.Controllers
                 return StatusCode(500, new { error = "Erro interno do servidor!" });
             }
         }
+        [Authorize]
+        [HttpPost]
+        [Route(template: "mudasenha")]
+        public async Task<IActionResult> MudaSenhaAsync(
+            [FromBody] UsuarioMudaSenhaViewModel model)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                var userEmail = User.FindFirstValue(ClaimTypes.Email);
+                var userFind = await _context.Usuarios.FirstOrDefaultAsync(x => x.Email == userEmail);
+                var id = userFind.Id;
+                var user = await _context.Usuarios.FirstOrDefaultAsync(x => x.Id == id);
+
+                if (user == null)
+                {
+                    return BadRequest(new
+                    {
+                        error = "Usuário não encontrado!"
+                    });
+                }
+
+                var user2 = await _context.AdmCriou.FirstOrDefaultAsync(x => x.User.Id == id);
+                var userCriado = await _context.Usuarios.FirstOrDefaultAsync(x => x.Id == id);
+
+                if (user2 == null || userCriado == null) {
+                    return BadRequest(new { error = "Usuário não encontrado!" });
+                }
+
+                var salt = _hashServices.GenerateSalt();
+
+                var hashedPassword = _hashServices.GenerateHash(model.Senha, salt);
+
+                userCriado.Senha = hashedPassword;
+                userCriado.Hash = Convert.ToBase64String(salt);
+
+                _context.Usuarios.Update(userCriado);
+
+                _context.AdmCriou.Remove(user2);
+                await _context.SaveChangesAsync();
+                return Ok("Senha alterada");
+            }
+            catch
+            {
+                return StatusCode(500, new { error = "Erro interno do servidor!" });
+            }
+        }
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [Route(template: "cadastroAdmin")]
@@ -149,13 +200,63 @@ namespace ProjetoIntegrador.Controllers
                     Telefone = model.Telefone ?? ""
                 };
 
+                var newAdm = new AdmCriou
+                {
+                    User = newUser,
+                    Criou = true
+                };
+
                 await _context.Usuarios.AddAsync(newUser);
+                await _context.AdmCriou.AddAsync(newAdm);
                 await _context.SaveChangesAsync();
                 return Created($"{newUser.Id}", newUser);
             }
             catch
             {
                 return StatusCode(500, new { error = "Erro interno do servidor!" });
+            }
+        }
+
+        [Authorize]
+        [HttpGet]
+        [Route(template: "verificaAdmCriou")]
+        public async Task<IActionResult> GetVerificaAllAsync()
+        {
+            try
+            {
+                var userEmail = User.FindFirstValue(ClaimTypes.Email);
+                var userFind = await _context.Usuarios.FirstOrDefaultAsync(x => x.Email == userEmail);
+                var id = userFind.Id;
+                var user = await _context.Usuarios.FirstOrDefaultAsync(x => x.Id == id);
+
+                if (user == null)
+                {
+                    return BadRequest(new
+                    {
+                        error = "Usuário não encontrado!"
+                    });
+                }
+
+                var admCriou = await _context.AdmCriou.FirstOrDefaultAsync(x => x.User.Id == user.Id && x.Criou == true);
+
+                if (admCriou == null) {
+                    return Ok(new
+                    {
+                        error = "Não"
+                    });
+                }
+
+                return Ok(new
+                {
+                    Sim = "Sim"
+                });
+            }
+            catch
+            {
+                return StatusCode(500, new
+                {
+                    error = "Erro interno do servidor!"
+                });
             }
         }
         [Authorize(Roles = "Admin")]
@@ -465,10 +566,30 @@ namespace ProjetoIntegrador.Controllers
                     }
                 }
 
+                bool verificador = false;
+
+                if(model.Senha != null && _hashServices.GenerateHash(model.Senha, Convert.FromBase64String(user.Hash)) != user.Senha)
+                {
+
+                    verificador = true;
+                }
+
                 user.Nome = (model.Nome != null && model.Nome != user.Nome) ? model.Nome : user.Nome;
                 user.Email = (model.Email != null && model.Email != user.Email) ? model.Email : user.Email;
                 user.Senha = (model.Senha != null && _hashServices.GenerateHash(model.Senha, Convert.FromBase64String(user.Hash)) != user.Senha) ? _hashServices.GenerateHash(model.Senha, Convert.FromBase64String(user.Hash)) : user.Senha;
                 user.Telefone = (model.Telefone != null && model.Telefone != user.Telefone) ? model.Telefone : user.Telefone;
+                user.Role = (model.Role != null && model.Role != user.Role) ? model.Role : user.Role;
+
+                if (verificador)
+                {
+                    var newAdm = new AdmCriou
+                    {
+                        User = user,
+                        Criou = true
+                    };
+
+                    await _context.AdmCriou.AddAsync(newAdm);
+                }
 
                 _context.Usuarios.Update(user);
                 await _context.SaveChangesAsync();

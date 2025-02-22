@@ -22,59 +22,13 @@
             .user-card .user-info {
                 margin-bottom: 10px;
             }
-
-        .btn-logout {
-            margin-right: 10px;
-        }
     </style>
 </head>
 <body>
-
     <div class="container">
         <h1 class="mt-4">Home Admin</h1>
-
-        <button class="btn btn-danger btn-logout mt-4" onclick="logout()">Logout</button>
-
+        <button class="btn btn-danger mt-4" onclick="logout()">Logout</button>
         <button class="btn btn-primary mt-4" data-bs-toggle="modal" data-bs-target="#cadastroModal">Cadastrar Nova Pessoa</button>
-
-        <div class="modal fade" id="cadastroModal" tabindex="-1" aria-labelledby="cadastroModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="cadastroModalLabel">Cadastro de Admin</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="cadastroForm">
-                            <div class="mb-3">
-                                <label for="nome" class="form-label">Nome</label>
-                                <input type="text" class="form-control" id="nome" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="telefone" class="form-label">Telefone</label>
-                                <input type="text" class="form-control" id="telefone">
-                            </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="senha" class="form-label">Senha</label>
-                                <input type="password" class="form-control" id="senha" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="role" class="form-label">Role</label>
-                                <select class="form-select" id="role" required>
-                                    <option value="Admin">Admin</option>
-                                    <option value="Nutri">Nutri</option>
-                                </select>
-                            </div>
-                            <button type="submit" class="btn btn-success">Cadastrar</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <div class="user-list">
             <h3 class="mt-4">Lista de Usuários</h3>
@@ -82,15 +36,174 @@
         </div>
     </div>
 
+    <div class="modal fade" id="cadastroModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Cadastro de Admin</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="cadastroForm">
+                        <input type="hidden" id="editUserId">
+                        <div class="mb-3">
+                            <label for="nome" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="nome" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="telefone" class="form-label">Telefone</label>
+                            <input type="text" class="form-control" id="telefone">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="senha" class="form-label">Senha</label>
+                            <input type="password" class="form-control" id="senha">
+                        </div>
+                        <div class="mb-3">
+                            <label for="role" class="form-label">Role</label>
+                            <select class="form-select" id="role" required>
+                                <option value="Admin">Admin</option>
+                                <option value="Nutri">Nutri</option>
+                                <option value="User">User</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-success">Salvar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="changePasswordModalLabel">Alterar Senha</h5>
+                </div>
+                <div class="modal-body">
+                    <form id="changePasswordForm">
+                        <div class="mb-3">
+                            <label for="newPasswordAdmin" class="form-label">Nova Senha</label>
+                            <input type="password" class="form-control" id="newPasswordAdmin" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="changePassword()">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         function loadUsers() {
-            const token = localStorage.getItem("token");
-            if (!token) {
-                window.location.href = "/login";
-                return;
-            }
-
             fetch("/users", {
+                headers: { "Authorization": `Bearer ${localStorage.getItem("token")}` }
+            })
+            .then(response => response.json())
+            .then(users => {
+                const container = document.getElementById('userListContainer');
+                container.innerHTML = '';
+                users.forEach(user => {
+                    const userCard = document.createElement('div');
+                    userCard.classList.add('user-card');
+                    userCard.innerHTML = `
+                        <div class="user-info"><strong>Nome:</strong> ${user.nome}</div>
+                        <div class="user-info"><strong>Email:</strong> ${user.email}</div>
+                        <div class="user-info"><strong>Role:</strong> ${user.role}</div>
+                        <button class="btn btn-primary btn-sm" onclick="editUser(${user.id})">Editar</button>
+                        <button class="btn btn-danger btn-sm" onclick="deleteUser(${user.id})">Excluir</button>
+                    `;
+                    container.appendChild(userCard);
+                });
+            })
+            .catch(error => console.error("Erro ao carregar usuários:", error));
+        }
+
+        function deleteUser(id) {
+            fetch(`/delete/user/${id}`, {
+                method: "DELETE",
+                headers: { "Authorization": `Bearer ${localStorage.getItem("token")}` }
+            })
+            .then(() => {
+                 alert("Usuário deletado!");
+                loadUsers()
+            })
+            .catch(error => alert("Erro ao excluir usuário"));
+        }
+
+        function editUser(id) {
+            fetch(`/user/${id}`, {
+                headers: { "Authorization": `Bearer ${localStorage.getItem("token")}` }
+            })
+            .then(response => response.json())
+            .then(user => {
+                document.getElementById("editUserId").value = user.id;
+                document.getElementById("nome").value = user.nome;
+                document.getElementById("telefone").value = user.telefone;
+                document.getElementById("email").value = user.email;
+                document.getElementById("senha").value = "";
+                document.getElementById("role").value = user.role;
+                new bootstrap.Modal(document.getElementById("cadastroModal")).show();
+            });
+        }
+
+                document.getElementById("cadastroModal").addEventListener("hidden.bs.modal", function () {
+            document.getElementById("editUserId").value = "";
+            document.getElementById("cadastroForm").reset();
+        });
+
+
+        document.getElementById("cadastroForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const id = document.getElementById("editUserId").value;
+            const data = {
+                nome: document.getElementById("nome").value,
+                telefone: document.getElementById("telefone").value,
+                email: document.getElementById("email").value,
+                senha: document.getElementById("senha").value,
+                role: document.getElementById("role").value
+            };
+            const method = id ? "PUT" : "POST";
+            const url = id ? `/update/user/${id}` : "/cadastroAdmin";
+            const token = localStorage.getItem("token");
+            console.log("Bearer " + token);
+            console.log(JSON.stringify(data));
+            fetch(url, {
+                method,
+                headers: {
+                    "Authorization": "Bearer " + token,
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            })
+            .then(() => {
+                if(url == "/cadastroAdmin"){
+                     alert("Usuário adicionado!");
+                }else{
+                    alert("Usuário atualizado!");
+                }
+                loadUsers();
+                        const modal = bootstrap.Modal.getInstance(document.getElementById("cadastroModal"));
+        if (modal) modal.hide();
+
+                document.getElementById("editUserId").value = "",
+                document.getElementById("cadastroForm").reset();
+            })
+            .catch(error => {
+                document.getElementById("editUserId").value = "",
+                document.getElementById("cadastroForm").reset();
+                alert("Erro ao salvar usuário")
+            });
+        });
+
+        function verificaAdmCriou() {
+            const token = localStorage.getItem("token");
+
+            fetch("/verificaAdmCriou", {
                 method: "GET",
                 headers: {
                     "Authorization": `Bearer ${token}`,
@@ -98,77 +211,56 @@
                 }
             })
             .then(response => response.json())
-            .then(users => {
-                const userListContainer = document.getElementById('userListContainer');
-                userListContainer.innerHTML = '';
-
-                users.forEach(user => {
-                    const userCard = document.createElement('div');
-                    userCard.classList.add('user-card');
-
-                    userCard.innerHTML = `
-                        <div class="user-info">
-                            <strong>Nome:</strong> ${user.nome}
-                        </div>
-                        <div class="user-info">
-                            <strong>Email:</strong> ${user.email}
-                        </div>
-                        <div class="user-info">
-                            <strong>Role:</strong> ${user.role}
-                        </div>
-                    `;
-
-                    userListContainer.appendChild(userCard);
-                });
+            .then(data => {
+                console.log(data);
+                if (data.sim) {
+                    const changePasswordModal = new bootstrap.Modal(document.getElementById('changePasswordModal'));
+                    changePasswordModal.show();
+                }else{
+                    loadUsers();
+                }
             })
             .catch(error => {
-                console.error("Erro ao carregar usuários:", error);
+                console.error("Erro ao verificar administrador:", error);
             });
         }
 
-        document.getElementById('cadastroForm').addEventListener('submit', function(event) {
-            event.preventDefault();
+        document.getElementById("changePasswordModal").addEventListener("hidden.bs.modal", function () {
+           verificaAdmCriou();
+        });
 
-            const nome = document.getElementById('nome').value;
-            const telefone = document.getElementById('telefone').value;
-            const email = document.getElementById('email').value;
-            const senha = document.getElementById('senha').value;
-            const role = document.getElementById('role').value;
-
-            const data = {
-                nome,
-                telefone,
-                email,
-                senha,
-                role
-            };
-
+        function changePassword() {
             const token = localStorage.getItem("token");
+            const newPassword = document.getElementById("newPasswordAdmin").value.trim();
 
-            fetch("/cadastroAdmin", {
+            if (!newPassword) {
+                alert("Por favor, insira uma nova senha.");
+                return;
+            }
+
+            fetch("/mudasenha", {
                 method: "POST",
                 headers: {
                     "Authorization": `Bearer ${token}`,
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(data)
+                body: JSON.stringify({ senha: newPassword })
             })
             .then(response => {
                 if (!response.ok) {
-                    throw new Error("Erro ao cadastrar o admin");
+                    throw new Error("Erro ao alterar senha.");
                 }
-                return response.json();
-            })
-            .then(() => {
-                loadUsers();
-                document.getElementById('cadastroForm').reset();
-                const modal = new bootstrap.Modal(document.getElementById('cadastroModal'));
-                modal.hide();
+                alert("Senha alterada com sucesso! Faça login novamente.");
+                logout();
             })
             .catch(error => {
-                console.error("Erro:", error);
-                alert("Erro ao cadastrar o admin");
+                console.error("Erro ao alterar senha:", error);
+                alert("Erro ao alterar senha.");
             });
+        }
+
+        document.getElementById("changePasswordModal").addEventListener("hidden.bs.modal", function () {
+           verificaAdmCriou();
         });
 
         function logout() {
@@ -176,8 +268,7 @@
             window.location.href = "/login";
         }
 
-        document.addEventListener('DOMContentLoaded', loadUsers);
+        document.addEventListener('DOMContentLoaded', verificaAdmCriou);
     </script>
-
 </body>
 </html>

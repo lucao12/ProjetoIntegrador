@@ -27,8 +27,12 @@ namespace ProjetoIntegrador.ViewModel
         [EmailAddress(ErrorMessage = "Campo email deve ser um endereço de email válido")]
         public string Email { get; set; }
         [Required(ErrorMessage = "Campo senha é de preenchimento obrigatório")]
-        [StringLength(100, MinimumLength = 8, ErrorMessage = "A senha deve ter entre 8 e 100 caracteres")]
-        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\p{P}\p{S}])[A-Za-z\d\p{P}\p{S}]{8,}$", ErrorMessage = "A senha deve conter no mínimo 8 caracteres, com pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial")]
+        //[StringLength(100, MinimumLength = 8, ErrorMessage = "A senha deve ter entre 8 e 100 caracteres")]
+        //[RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\p{P}\p{S}])[A-Za-z\d\p{P}\p{S}]{8,}$", ErrorMessage = "A senha deve conter no mínimo 8 caracteres, com pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial")]
+        public string Senha { get; set; }
+    }
+    public class UsuarioMudaSenhaViewModel
+    {
         public string Senha { get; set; }
     }
     public class UsuarioUpdateViewModel
@@ -53,9 +57,11 @@ namespace ProjetoIntegrador.ViewModel
         public string? Nome { get; set; }
         [EmailAddress(ErrorMessage = "Campo email deve ser um endereço de email válido")]
         public string? Email { get; set; }
-        [StringLength(100, MinimumLength = 8, ErrorMessage = "A senha deve ter entre 8 e 100 caracteres")]
-        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\p{P}\p{S}])[A-Za-z\d\p{P}\p{S}]{8,}$", ErrorMessage = "A senha deve conter no mínimo 8 caracteres, com pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial")]
+        //[StringLength(100, MinimumLength = 8, ErrorMessage = "A senha deve ter entre 8 e 100 caracteres")]
+        //[RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\p{P}\p{S}])[A-Za-z\d\p{P}\p{S}]{8,}$", ErrorMessage = "A senha deve conter no mínimo 8 caracteres, com pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial")]
         public string? Senha { get; set; }
+
+        public string? Role { get; set; }
 
         public string? Telefone { get; set; }
     }
@@ -69,8 +75,8 @@ namespace ProjetoIntegrador.ViewModel
         [EmailAddress(ErrorMessage = "Campo email deve ser um endereço de email válido")]
         public string Email { get; set; }
         [Required(ErrorMessage = "Campo senha é de preenchimento obrigatório")]
-        [StringLength(100, MinimumLength = 8, ErrorMessage = "A senha deve ter entre 8 e 100 caracteres")]
-        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\p{P}\p{S}])[A-Za-z\d\p{P}\p{S}]{8,}$", ErrorMessage = "A senha deve conter no mínimo 8 caracteres, com pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial")]
+        //[StringLength(100, MinimumLength = 8, ErrorMessage = "A senha deve ter entre 8 e 100 caracteres")]
+        //[RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\p{P}\p{S}])[A-Za-z\d\p{P}\p{S}]{8,}$", ErrorMessage = "A senha deve conter no mínimo 8 caracteres, com pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial")]
         public string Senha { get; set; }
         public string? Telefone { get; set; }
         public string Role { get; set; }

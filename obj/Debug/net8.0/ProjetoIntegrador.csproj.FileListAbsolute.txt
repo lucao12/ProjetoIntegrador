@@ -564,4 +564,5 @@ D:\projetoI-main\obj\Debug\net8.0\refint\ProjetoIntegrador.dll
 D:\projetoI-main\obj\Debug\net8.0\ProjetoIntegrador.pdb
 D:\projetoI-main\obj\Debug\net8.0\ProjetoIntegrador.genruntimeconfig.cache
 D:\projetoI-main\obj\Debug\net8.0\ref\ProjetoIntegrador.dll
+D:\projetoI-main\obj\Debug\net8.0\ProjetoIntegrador.sourcelink.json
 D:\projetoI-main\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

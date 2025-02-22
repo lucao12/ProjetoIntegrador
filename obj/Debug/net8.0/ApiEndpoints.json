@@ -124,6 +124,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "ProjetoIntegrador.Controllers.UsuarioController",
+    "Method": "MudaSenhaAsync",
+    "RelativePath": "mudasenha",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ProjetoIntegrador.ViewModel.UsuarioMudaSenhaViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "ProjetoIntegrador.Controllers.UsuarioControllerView",
     "Method": "Home",
     "RelativePath": "Redirecionando",
@@ -287,6 +303,16 @@
     "ContainingType": "ProjetoIntegrador.Controllers.PedidosController",
     "Method": "VerificaPedidosNutri",
     "RelativePath": "verifica/pedidos/nutri",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.UsuarioController",
+    "Method": "GetVerificaAllAsync",
+    "RelativePath": "verificaAdmCriou",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
