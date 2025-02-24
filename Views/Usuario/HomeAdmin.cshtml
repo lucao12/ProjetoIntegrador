@@ -1,37 +1,182 @@
 ﻿<!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            padding: 20px;
+            width: 100%;
+            max-width: 900px;
+            transition: background-color 0.3s;
+
+        }
+
+        h1 {
+            color: #343a40;
+        }
+
+        h3 {
+            color: #343a40;
+        }
+
+        .btn {
+            margin-top: 10px;
+        }
+
         .user-list {
             margin-top: 20px;
         }
 
         .user-card {
+            padding: 20px;
             margin-bottom: 15px;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            transition: background-color 0.3s, color 0.3s;
+            width: 100%;
         }
 
-            .user-card .user-info {
-                margin-bottom: 10px;
-            }
+        .user-card .user-info {
+            margin-bottom: 10px;
+        }
+
+        .user-card .btn {
+            margin-right: 5px;
+        }
+
+        /* Modo Noturno */
+        body.dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+
+        .dark-mode .user-card {
+            background-color: #1e1e1e;
+        }
+
+        .dark-mode .card {
+            background-color: #1e1e1e;
+            color: white;
+        }
+
+        .dark-mode h1 {
+            color: white;
+        }
+
+        .dark-mode h3 {
+            color: white;
+        }
+
+        .dark-mode .form-control {
+            background-color: #333;
+            color: white;
+            border: 1px solid #555;
+        }
+
+        .dark-mode .form-control::placeholder {
+            color: #bbb;
+        }
+
+        .dark-mode .input-group-text {
+            background-color: #333;
+            color: white;
+        }
+
+        .dark-mode .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+
+        .dark-mode .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .dark-mode .modal-content {
+            background-color: #1e1e1e;
+            color: white;
+        }
+
+        .dark-mode .modal-header,
+        .dark-mode .modal-body,
+        .dark-mode .modal-footer {
+            background-color: #1e1e1e;
+        }
+
+        .dark-mode .modal-header .btn-close {
+            color: white;
+        }
+
+        .dark-mode .form-control {
+            background-color: #333;
+            color: white;
+            border: 1px solid #555;
+        }
+
+        .dark-mode .form-control::placeholder {
+            color: #bbb;
+        }
+
+        .dark-mode .form-select {
+            background-color: #444;
+            color: white;
+            border: 1px solid #555;
+        }
+
+        .btn-dark-mode {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #343a40;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #userListContainer {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 10px;
+            padding: 10px;
+        }
     </style>
 </head>
+
 <body>
+    <button id="toggleDarkMode" class="btn-dark-mode">
+        <i class="fas fa-moon"></i>
+    </button>
     <div class="container">
-        <h1 class="mt-4">Home Admin</h1>
-        <button class="btn btn-danger mt-4" onclick="logout()">Logout</button>
-        <button class="btn btn-primary mt-4" data-bs-toggle="modal" data-bs-target="#cadastroModal">Cadastrar Nova Pessoa</button>
+        <h1 class="mt-4" style="text-align: center;">Home Admin</h1>
+        <div style="text-align: center;"> <button class="btn btn-danger mt-4" onclick="logout()" style="text-align: center;">Logout</button>
+            <button class="btn btn-primary mt-4" data-bs-toggle="modal" data-bs-target="#cadastroModal"
+                style="text-align: center;">Cadastrar Nova
+                Pessoa</button>
+        </div>
 
         <div class="user-list">
-            <h3 class="mt-4">Lista de Usuários</h3>
+            <h3 class="mt-4" style="text-align: center;">Lista de Usuários</h3>
             <div id="userListContainer"></div>
         </div>
     </div>
@@ -77,7 +222,8 @@
         </div>
     </div>
 
-    <div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModalLabel" aria-hidden="true">
+    <div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -103,24 +249,24 @@
             fetch("/users", {
                 headers: { "Authorization": `Bearer ${localStorage.getItem("token")}` }
             })
-            .then(response => response.json())
-            .then(users => {
-                const container = document.getElementById('userListContainer');
-                container.innerHTML = '';
-                users.forEach(user => {
-                    const userCard = document.createElement('div');
-                    userCard.classList.add('user-card');
-                    userCard.innerHTML = `
+                .then(response => response.json())
+                .then(users => {
+                    const container = document.getElementById('userListContainer');
+                    container.innerHTML = '';
+                    users.forEach(user => {
+                        const userCard = document.createElement('div');
+                        userCard.classList.add('user-card');
+                        userCard.innerHTML = `
                         <div class="user-info"><strong>Nome:</strong> ${user.nome}</div>
                         <div class="user-info"><strong>Email:</strong> ${user.email}</div>
                         <div class="user-info"><strong>Role:</strong> ${user.role}</div>
                         <button class="btn btn-primary btn-sm" onclick="editUser(${user.id})">Editar</button>
                         <button class="btn btn-danger btn-sm" onclick="deleteUser(${user.id})">Excluir</button>
                     `;
-                    container.appendChild(userCard);
-                });
-            })
-            .catch(error => console.error("Erro ao carregar usuários:", error));
+                        container.appendChild(userCard);
+                    });
+                })
+                .catch(error => console.error("Erro ao carregar usuários:", error));
         }
 
         function deleteUser(id) {
@@ -128,36 +274,36 @@
                 method: "DELETE",
                 headers: { "Authorization": `Bearer ${localStorage.getItem("token")}` }
             })
-            .then(() => {
-                 alert("Usuário deletado!");
-                loadUsers()
-            })
-            .catch(error => alert("Erro ao excluir usuário"));
+                .then(() => {
+                    alert("Usuário deletado!");
+                    loadUsers()
+                })
+                .catch(error => alert("Erro ao excluir usuário"));
         }
 
         function editUser(id) {
             fetch(`/user/${id}`, {
                 headers: { "Authorization": `Bearer ${localStorage.getItem("token")}` }
             })
-            .then(response => response.json())
-            .then(user => {
-                document.getElementById("editUserId").value = user.id;
-                document.getElementById("nome").value = user.nome;
-                document.getElementById("telefone").value = user.telefone;
-                document.getElementById("email").value = user.email;
-                document.getElementById("senha").value = "";
-                document.getElementById("role").value = user.role;
-                new bootstrap.Modal(document.getElementById("cadastroModal")).show();
-            });
+                .then(response => response.json())
+                .then(user => {
+                    document.getElementById("editUserId").value = user.id;
+                    document.getElementById("nome").value = user.nome;
+                    document.getElementById("telefone").value = user.telefone;
+                    document.getElementById("email").value = user.email;
+                    document.getElementById("senha").value = "";
+                    document.getElementById("role").value = user.role;
+                    new bootstrap.Modal(document.getElementById("cadastroModal")).show();
+                });
         }
 
-                document.getElementById("cadastroModal").addEventListener("hidden.bs.modal", function () {
+        document.getElementById("cadastroModal").addEventListener("hidden.bs.modal", function () {
             document.getElementById("editUserId").value = "";
             document.getElementById("cadastroForm").reset();
         });
 
 
-        document.getElementById("cadastroForm").addEventListener("submit", function(event) {
+        document.getElementById("cadastroForm").addEventListener("submit", function (event) {
             event.preventDefault();
             const id = document.getElementById("editUserId").value;
             const data = {
@@ -180,24 +326,24 @@
                 },
                 body: JSON.stringify(data)
             })
-            .then(() => {
-                if(url == "/cadastroAdmin"){
-                     alert("Usuário adicionado!");
-                }else{
-                    alert("Usuário atualizado!");
-                }
-                loadUsers();
-                        const modal = bootstrap.Modal.getInstance(document.getElementById("cadastroModal"));
-        if (modal) modal.hide();
+                .then(() => {
+                    if (url == "/cadastroAdmin") {
+                        alert("Usuário adicionado!");
+                    } else {
+                        alert("Usuário atualizado!");
+                    }
+                    loadUsers();
+                    const modal = bootstrap.Modal.getInstance(document.getElementById("cadastroModal"));
+                    if (modal) modal.hide();
 
-                document.getElementById("editUserId").value = "",
-                document.getElementById("cadastroForm").reset();
-            })
-            .catch(error => {
-                document.getElementById("editUserId").value = "",
-                document.getElementById("cadastroForm").reset();
-                alert("Erro ao salvar usuário")
-            });
+                    document.getElementById("editUserId").value = "",
+                        document.getElementById("cadastroForm").reset();
+                })
+                .catch(error => {
+                    document.getElementById("editUserId").value = "",
+                        document.getElementById("cadastroForm").reset();
+                    alert("Erro ao salvar usuário")
+                });
         });
 
         function verificaAdmCriou() {
@@ -210,23 +356,23 @@
                     "Content-Type": "application/json"
                 }
             })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                if (data.sim) {
-                    const changePasswordModal = new bootstrap.Modal(document.getElementById('changePasswordModal'));
-                    changePasswordModal.show();
-                }else{
-                    loadUsers();
-                }
-            })
-            .catch(error => {
-                console.error("Erro ao verificar administrador:", error);
-            });
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.sim) {
+                        const changePasswordModal = new bootstrap.Modal(document.getElementById('changePasswordModal'));
+                        changePasswordModal.show();
+                    } else {
+                        loadUsers();
+                    }
+                })
+                .catch(error => {
+                    console.error("Erro ao verificar administrador:", error);
+                });
         }
 
         document.getElementById("changePasswordModal").addEventListener("hidden.bs.modal", function () {
-           verificaAdmCriou();
+            verificaAdmCriou();
         });
 
         function changePassword() {
@@ -246,21 +392,21 @@
                 },
                 body: JSON.stringify({ senha: newPassword })
             })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error("Erro ao alterar senha.");
-                }
-                alert("Senha alterada com sucesso! Faça login novamente.");
-                logout();
-            })
-            .catch(error => {
-                console.error("Erro ao alterar senha:", error);
-                alert("Erro ao alterar senha.");
-            });
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Erro ao alterar senha.");
+                    }
+                    alert("Senha alterada com sucesso! Faça login novamente.");
+                    logout();
+                })
+                .catch(error => {
+                    console.error("Erro ao alterar senha:", error);
+                    alert("Erro ao alterar senha.");
+                });
         }
 
         document.getElementById("changePasswordModal").addEventListener("hidden.bs.modal", function () {
-           verificaAdmCriou();
+            verificaAdmCriou();
         });
 
         function logout() {
@@ -269,6 +415,30 @@
         }
 
         document.addEventListener('DOMContentLoaded', verificaAdmCriou);
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleButton = document.getElementById("toggleDarkMode");
+            const body = document.body;
+
+            if (localStorage.getItem("dark-mode") === "enabled") {
+                body.classList.add("dark-mode");
+                toggleButton.innerHTML = '<i class="fas fa-sun"></i>';
+            }
+
+            toggleButton.addEventListener("click", function () {
+                body.classList.toggle("dark-mode");
+
+                if (body.classList.contains('dark-mode')) {
+                    localStorage.setItem('dark-mode', 'enabled');
+                    toggleButton.innerHTML = '<i class="fas fa-sun"></i>';
+                } else {
+                    localStorage.setItem('dark-mode', 'disabled');
+                    toggleButton.innerHTML = '<i class="fas fa-moon"></i>';
+                }
+            });
+        });
+
     </script>
 </body>
+
 </html>
