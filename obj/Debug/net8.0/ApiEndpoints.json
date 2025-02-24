@@ -198,6 +198,22 @@
   },
   {
     "ContainingType": "ProjetoIntegrador.Controllers.UsuarioController",
+    "Method": "UpdateSocialAsync",
+    "RelativePath": "update/user/social",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ProjetoIntegrador.ViewModel.NutriSocailUpdateViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.UsuarioController",
     "Method": "UpdateAsync",
     "RelativePath": "update/user/yourself",
     "HttpMethod": "PUT",

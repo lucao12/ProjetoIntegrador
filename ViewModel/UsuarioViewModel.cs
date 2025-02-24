@@ -42,14 +42,25 @@ namespace ProjetoIntegrador.ViewModel
         public string? Nome { get; set; }
         [EmailAddress(ErrorMessage = "Campo email deve ser um endereço de email válido")]
         public string? Email { get; set; }
+        public string? Sexo { get; set; }
+        public int? Idade { get; set; }
+        public double? Peso { get; set; }
+        public double? Altura { get; set; }
         [Required]
-        [StringLength(100, MinimumLength = 8, ErrorMessage = "A senha deve ter entre 8 e 100 caracteres")]
-        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\p{P}\p{S}])[A-Za-z\d\p{P}\p{S}]{8,}$", ErrorMessage = "A senha deve conter no mínimo 8 caracteres, com pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial")]
+        //[StringLength(100, MinimumLength = 8, ErrorMessage = "A senha deve ter entre 8 e 100 caracteres")]
+        //[RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\p{P}\p{S}])[A-Za-z\d\p{P}\p{S}]{8,}$", ErrorMessage = "A senha deve conter no mínimo 8 caracteres, com pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial")]
         public string SenhaAntiga { get; set; }
+        //[Required]
+        //[StringLength(100, MinimumLength = 8, ErrorMessage = "A senha deve ter entre 8 e 100 caracteres")]
+        //[RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\p{P}\p{S}])[A-Za-z\d\p{P}\p{S}]{8,}$", ErrorMessage = "A senha deve conter no mínimo 8 caracteres, com pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial")]
         public string? NovaSenha { get; set; }
-
         public string? Telefone { get; set; }
     }
+    public class NutriSocailUpdateViewModel
+    {
+        public string? Instagram { get; set; }
+    }
+
     public class UsuarioUpdateAdminViewModel
     {
         [StringLength(100, ErrorMessage = "O nome deve ter no máximo 100 caracteres")]

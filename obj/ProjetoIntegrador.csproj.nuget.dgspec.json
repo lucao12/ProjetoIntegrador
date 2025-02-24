@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\projetoI-main\\ProjetoIntegrador.csproj": {}
+    "D:\\ProjetoIntegrador-main\\ProjetoIntegrador.csproj": {}
   },
   "projects": {
-    "D:\\projetoI-main\\ProjetoIntegrador.csproj": {
+    "D:\\ProjetoIntegrador-main\\ProjetoIntegrador.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\projetoI-main\\ProjetoIntegrador.csproj",
+        "projectUniqueName": "D:\\ProjetoIntegrador-main\\ProjetoIntegrador.csproj",
         "projectName": "ProjetoIntegrador",
-        "projectPath": "D:\\projetoI-main\\ProjetoIntegrador.csproj",
+        "projectPath": "D:\\ProjetoIntegrador-main\\ProjetoIntegrador.csproj",
         "packagesPath": "C:\\Users\\lucao\\.nuget\\packages\\",
-        "outputPath": "D:\\projetoI-main\\obj\\",
+        "outputPath": "D:\\ProjetoIntegrador-main\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -65,6 +65,10 @@
               "target": "Package",
               "version": "[8.0.0, )"
             },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
               "version": "[8.0.0, )"
@@ -75,9 +79,17 @@
               "target": "Package",
               "version": "[8.0.0, )"
             },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.6.2, )"
+            },
+            "Swashbuckle.AspNetCore.Annotations": {
+              "target": "Package",
+              "version": "[7.2.0, )"
             }
           },
           "imports": [

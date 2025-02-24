@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -64,10 +65,44 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <!-- Botão de Logout -->
         <button class="btn btn-danger" id="btnLogout">Logout</button>
+        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#settingsModal" id="btnsocial">
+            Redes
+            Sociais
+        </button>
+
+        <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="settingsModalLabel">Redes Sociais</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="settingsForm">
+                            <div class="mb-3">
+                                <label for="instagram" class="form-label">Instagram</label>
+                                <input type="text" id="instagram" class="form-control"
+                                       placeholder="Digite o seu arroba">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary" onclick="saveChangesocial()">
+                            Salvar
+                            alterações
+                        </button>
+                        <button type="button" class="btn btn-danger" onclick="deleteAccount()">Deletar conta</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <h2>Pedidos Nutricionista</h2>
 
@@ -84,7 +119,8 @@
         </div>
 
 
-        <div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModalLabel" aria-hidden="true">
+        <div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModalLabel"
+             aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -107,53 +143,53 @@
     </div>
 
     <script>
-        $(document).ready(function() {
-           const token = localStorage.getItem("token");
+        $(document).ready(function () {
+            const token = localStorage.getItem("token");
             if (!token) {
                 window.location.href = "/login";
                 return;
             }
 
-            function logout(){
+            function logout() {
                 localStorage.removeItem("token");
                 window.location.href = "/login";
             }
             window.logout = logout;
 
             // Função de Logout
-            $('#btnLogout').click(function() {
+            $('#btnLogout').click(function () {
                 localStorage.removeItem("token");
                 window.location.href = "/login";  // Redireciona para a página de login
             });
 
-            function Verifica(){
+            function Verifica() {
                 fetch("/verificaAdmCriou", {
-                method: "GET",
-                headers: {
-                    "Authorization": `Bearer ${token}`,
-                    "Content-Type": "application/json"
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                if (data.sim) {
-                    const changePasswordModal = new bootstrap.Modal(document.getElementById('changePasswordModal'));
-                    changePasswordModal.show();
-                }else{
-                    carregarPedidosPendentes();
-            carregarPedidosAceitos();
-                }
-            })
-            .catch(error => {
-                console.error("Erro ao verificar administrador:", error);
-            });
+                    method: "GET",
+                    headers: {
+                        "Authorization": `Bearer ${token}`,
+                        "Content-Type": "application/json"
+                    }
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.sim) {
+                            const changePasswordModal = new bootstrap.Modal(document.getElementById('changePasswordModal'));
+                            changePasswordModal.show();
+                        } else {
+                            carregarPedidosPendentes();
+                            carregarPedidosAceitos();
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Erro ao verificar administrador:", error);
+                    });
             }
 
 
-             document.getElementById("changePasswordModal").addEventListener("hidden.bs.modal", function () {
-           Verifica();
-        });
+            document.getElementById("changePasswordModal").addEventListener("hidden.bs.modal", function () {
+                Verifica();
+            });
 
             function carregarPedidosPendentes() {
                 $.ajax({
@@ -162,14 +198,14 @@
                     headers: {
                         'Authorization': 'Bearer ' + token
                     },
-                    success: function(data) {
+                    success: function (data) {
                         var pedidos = data.pedido;
                         $('#listPedidos').empty();
                         $('#noPedidosPendentes').empty();
 
                         let contador = 0;
                         if (pedidos && pedidos.length > 0) {
-                            pedidos.forEach(function(pedido) {
+                            pedidos.forEach(function (pedido) {
                                 console.log(pedido);
                                 $('#listPedidos').append(`
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -186,42 +222,42 @@
                             $('#noPedidosPendentes').html('<p class="alert alert-info">Não há pedidos pendentes</p>');
                         }
                     },
-                    error: function() {
+                    error: function () {
                         alert('Erro ao carregar pedidos.');
                     }
                 });
             }
 
             function changePassword() {
-            const token = localStorage.getItem("token");
-            const newPassword = document.getElementById("newPasswordAdmin").value.trim();
+                const token = localStorage.getItem("token");
+                const newPassword = document.getElementById("newPasswordAdmin").value.trim();
 
-            if (!newPassword) {
-                alert("Por favor, insira uma nova senha.");
-                return;
-            }
-
-            fetch("/mudasenha", {
-                method: "POST",
-                headers: {
-                    "Authorization": `Bearer ${token}`,
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ senha: newPassword })
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error("Erro ao alterar senha.");
+                if (!newPassword) {
+                    alert("Por favor, insira uma nova senha.");
+                    return;
                 }
-                alert("Senha alterada com sucesso! Faça login novamente.");
-                logout();
-            })
-            .catch(error => {
-                console.error("Erro ao alterar senha:", error);
-                alert("Erro ao alterar senha.");
-            });
-        }
-         window.changePassword = changePassword;
+
+                fetch("/mudasenha", {
+                    method: "POST",
+                    headers: {
+                        "Authorization": `Bearer ${token}`,
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ senha: newPassword })
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error("Erro ao alterar senha.");
+                        }
+                        alert("Senha alterada com sucesso! Faça login novamente.");
+                        logout();
+                    })
+                    .catch(error => {
+                        console.error("Erro ao alterar senha:", error);
+                        alert("Erro ao alterar senha.");
+                    });
+            }
+            window.changePassword = changePassword;
 
 
             function carregarPedidosAceitos() {
@@ -231,13 +267,13 @@
                     headers: {
                         'Authorization': 'Bearer ' + token
                     },
-                    success: function(data) {
+                    success: function (data) {
                         var pedidosAceitos = data.pedido;
                         $('#listPedidosAceitos').empty(); // Limpa a lista de pedidos aceitos
                         $('#noPedidosAceitos').empty(); // Limpa a mensagem de "não tem"
 
                         if (pedidosAceitos && pedidosAceitos.length > 0) {
-                            pedidosAceitos.forEach(function(pedido) {
+                            pedidosAceitos.forEach(function (pedido) {
                                 $('#listPedidosAceitos').append(`
                                     <li class="list-group-item">
                                         ${pedido.usuario.nome} - ${pedido.usuario.email}
@@ -248,7 +284,7 @@
                             $('#noPedidosAceitos').html('<p class="alert alert-info">Não há pedidos aceitos</p>');
                         }
                     },
-                    error: function() {
+                    error: function () {
                         alert('Erro ao carregar pedidos aceitos.');
                     }
                 });
@@ -262,12 +298,12 @@
                     headers: {
                         'Authorization': 'Bearer ' + token
                     },
-                    success: function() {
+                    success: function () {
                         alert('Pedido atualizado com sucesso!');
                         carregarPedidosPendentes(); // Recarrega a lista de pedidos pendentes
                         carregarPedidosAceitos();   // Recarrega a lista de pedidos aceitos
                     },
-                    error: function() {
+                    error: function () {
                         alert('Erro ao atualizar pedido.');
                     }
                 });
@@ -277,6 +313,73 @@
             // Carregar os pedidos na página
             Verifica();
         });
+        function deleteAccount() {
+            const token = localStorage.getItem("token");
+
+            fetch("/delete/yourself", {
+                method: "DELETE",
+                headers: {
+                    "Authorization": `Bearer ${token}`,
+                    "Content-Type": "application/json"
+                }
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Erro ao deletar conta.");
+                    }
+                    alert("Conta deletada com sucesso!");
+                    localStorage.removeItem("token");
+                    window.location.href = "/login";
+                })
+                .catch(error => {
+                    console.error("Erro ao deletar conta:", error);
+                    alert("Erro ao deletar conta.");
+                });
+        }
+        function saveChangesocial() {
+            const token = localStorage.getItem("token");
+            console.log(token)
+
+            const userData = {
+                Instagram: document.getElementById("instagram").value,
+            };
+
+            console.log(userData)
+
+            fetch("/update/user/social", {
+                method: "PUT",
+                headers: {
+                    "Authorization": `Bearer ${token}`,
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(userData)
+            })
+                .then(async response => {
+                    const json = await response.json();
+
+                    if (!response.ok) {
+                        let errorMessage = "Erro ao salvar";
+
+                        if (json.error) {
+                            errorMessage = json.error;
+                        } else if (json.errors) {
+                            const firstErrorKey = Object.keys(json.errors)[0];
+                            if (json.errors[firstErrorKey] && json.errors[firstErrorKey].length > 0) {
+                                errorMessage = json.errors[firstErrorKey][0];
+                            }
+                        }
+
+                        throw new Error(errorMessage);
+                    }
+                    alert("Alterações salvas com sucesso! \nFaça Login novamente");
+                    logout(); // Recarrega as informações no modal
+                })
+                .catch(error => {
+                    console.error("Erro ao salvar alterações:", error);
+                    alert("Erro ao salvar alterações.");
+                });
+        }
     </script>
 </body>
+
 </html>

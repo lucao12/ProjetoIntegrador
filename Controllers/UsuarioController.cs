@@ -17,11 +17,13 @@ namespace ProjetoIntegrador.Controllers
         private readonly AppDbContext _context;
         private readonly IHashServices _hashServices;
         private readonly ITokenServices _tokenServices;
-        public UsuarioController(AppDbContext context, IHashServices hashServices, ITokenServices tokenServices)
+        private readonly IImageServices _imageServices;
+        public UsuarioController(AppDbContext context, IHashServices hashServices, ITokenServices tokenServices, IImageServices imageServices)
         {
             _context = context;
             _hashServices = hashServices;
             _tokenServices = tokenServices;
+            _imageServices = imageServices;
         }
         [HttpPost]
         [Route(template: "login")]
@@ -103,7 +105,13 @@ namespace ProjetoIntegrador.Controllers
                     Senha = hashedPassword,
                     Role = "User",
                     Hash = Convert.ToBase64String(salt),
-                    Telefone = model.Telefone ?? ""
+                    Telefone = model.Telefone ?? "",
+                    Altura = null,
+                    Idade = null,
+                    Peso = null,
+                    Sexo = null,
+                    Foto = null,
+                    Instagram = null
                 };
 
                 await _context.Usuarios.AddAsync(newUser);
@@ -466,8 +474,106 @@ namespace ProjetoIntegrador.Controllers
         [Authorize]
         [HttpPut]
         [Route(template: "update/user/yourself")]
-        public async Task<IActionResult> UpdateAsync(
-            [FromBody] UsuarioUpdateViewModel model)
+        public async Task<IActionResult> UpdateAsync([FromBody] UsuarioUpdateViewModel model)
+        {
+            try
+            {
+                var userEmail = User.FindFirstValue(ClaimTypes.Email);
+                var user = await _context.Usuarios.FirstOrDefaultAsync(x => x.Email == userEmail);
+
+                if (user == null)
+                {
+                    return BadRequest(new { error = "Usuário não encontrado!" });
+                }
+
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                if (model.Email != null)
+                {
+                    var verificaEmail = await _context.Usuarios.FirstOrDefaultAsync(x => x.Email == model.Email.ToLower());
+                    if (verificaEmail != null && verificaEmail != user)
+                    {
+                        return BadRequest(new { error = "Email já cadastrado!" });
+                    }
+                }
+
+                if (_hashServices.GenerateHash(model.SenhaAntiga, Convert.FromBase64String(user.Hash)) != user.Senha)
+                {
+                    return Unauthorized(new { error = "Senha inválida!" });
+                }
+
+                user.Nome = model.Nome ?? user.Nome;
+                user.Email = model.Email ?? user.Email;
+                user.Sexo = model.Sexo ?? user.Sexo;
+                user.Idade = model.Idade ?? user.Idade;
+                user.Peso = model.Peso ?? user.Peso;
+                user.Altura = model.Altura ?? user.Altura;
+                user.Senha = (model.NovaSenha != null && _hashServices.GenerateHash(model.NovaSenha, Convert.FromBase64String(user.Hash)) != user.Senha)
+                    ? _hashServices.GenerateHash(model.NovaSenha, Convert.FromBase64String(user.Hash))
+                    : user.Senha;
+                user.Telefone = model.Telefone ?? user.Telefone;
+
+                _context.Usuarios.Update(user);
+                await _context.SaveChangesAsync();
+
+                return Ok(new { sucesso = "Usuário atualizado com sucesso!" });
+            }
+            catch
+            {
+                return StatusCode(500, new { error = "Erro interno do servidor!" });
+            }
+        }
+        [ApiExplorerSettings(IgnoreApi = true)]
+        [Authorize]
+        [HttpPut]
+        [Route("update/user/photo")]
+        [Consumes("multipart/form-data")]
+        public async Task<IActionResult> UpdateUserPhoto([FromForm] IFormFile Foto)
+        {
+            try
+            {
+                var userEmail = User.FindFirstValue(ClaimTypes.Email);
+                var user = await _context.Usuarios.FirstOrDefaultAsync(x => x.Email == userEmail);
+
+                if (user == null)
+                {
+                    return BadRequest(new { error = "Usuário não encontrado!" });
+                }
+
+                if (Foto == null || Foto.Length == 0)
+                {
+                    return BadRequest(new { error = "Nenhuma foto enviada!" });
+                }
+
+                // Converte a imagem para um array de bytes
+                using (var memoryStream = new MemoryStream())
+                {
+                    await Foto.CopyToAsync(memoryStream);
+                    var imageBytes = memoryStream.ToArray();
+
+                    // Enviar para Imgur (ou outro serviço)
+                    var imageUrl = await _imageServices.UploadImageAsync(imageBytes);
+                    user.Foto = imageUrl;
+                }
+
+                _context.Usuarios.Update(user);
+                await _context.SaveChangesAsync();
+
+                return Ok(new { sucesso = "Foto atualizada com sucesso!", fotoUrl = user.Foto });
+            }
+            catch
+            {
+                return StatusCode(500, new { error = "Erro interno do servidor!" });
+            }
+        }
+        [Authorize(Roles = "Nutri")]
+        [HttpPut]
+        [Route(template: "update/user/social")]
+        public async Task<IActionResult> UpdateSocialAsync(
+            [FromBody] NutriSocailUpdateViewModel model)
         {
             try
             {
@@ -489,30 +595,7 @@ namespace ProjetoIntegrador.Controllers
                     return BadRequest(ModelState);
                 }
 
-                if (model.Email != null)
-                {
-                    var verificaEmail = await _context.Usuarios.FirstOrDefaultAsync(x => x.Email == model.Email.ToLower());
-                    if (verificaEmail != null && verificaEmail != user)
-                    {
-                        return BadRequest(new
-                        {
-                            error = "Email já cadastrado!"
-                        });
-                    }
-                }
-
-                if (_hashServices.GenerateHash(model.SenhaAntiga, Convert.FromBase64String(user.Hash)) != user.Senha)
-                {
-                    return Unauthorized(new
-                    {
-                        error = "Senha inválida!"
-                    });
-                }
-
-                user.Nome = (model.Nome != null && model.Nome != user.Nome) ? model.Nome : user.Nome;
-                user.Email = (model.Email != null && model.Email != user.Email) ? model.Email : user.Email;
-                user.Senha = (model.NovaSenha != null && _hashServices.GenerateHash(model.NovaSenha, Convert.FromBase64String(user.Hash)) != user.Senha) ? _hashServices.GenerateHash(model.NovaSenha, Convert.FromBase64String(user.Hash)) : user.Senha;
-                user.Telefone = (model.Telefone != null && model.Telefone != user.Telefone) ? model.Telefone : user.Telefone;
+                user.Instagram = (model.Instagram != null && model.Instagram != user.Instagram) ? model.Instagram : user.Instagram;
 
                 _context.Usuarios.Update(user);
                 await _context.SaveChangesAsync();

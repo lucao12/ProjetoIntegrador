@@ -1,4 +1,5 @@
 wwwroot\App_Data\teste.db
 wwwroot\App_Data\teste.db-shm
 wwwroot\App_Data\teste.db-wal
+wwwroot\default.png
 wwwroot\js\script.js

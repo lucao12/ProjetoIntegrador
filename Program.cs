@@ -42,6 +42,7 @@ class Program
             new string[] { }
         }
     });
+            c.OperationFilter<SwaggerFileOperationFilter>();
         });
         builder.Services.AddCors(options =>
         {
@@ -75,6 +76,7 @@ class Program
         });
         builder.Services.AddTransient<IHashServices, HashServices>();
         builder.Services.AddTransient<ITokenServices, TokenServices>();
+        builder.Services.AddTransient<IImageServices, ImageServices>();
         var app = builder.Build();
 
         if (app.Environment.IsDevelopment())

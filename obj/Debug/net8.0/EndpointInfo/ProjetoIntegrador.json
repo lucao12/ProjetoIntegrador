@@ -379,6 +379,37 @@
         }
       }
     },
+    "/update/user/social": {
+      "put": {
+        "tags": [
+          "Usuario"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NutriSocailUpdateViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NutriSocailUpdateViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/NutriSocailUpdateViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/update/user/{id}": {
       "put": {
         "tags": [
@@ -484,6 +515,16 @@
   },
   "components": {
     "schemas": {
+      "NutriSocailUpdateViewModel": {
+        "type": "object",
+        "properties": {
+          "instagram": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "UsuarioCadastroAdminViewModel": {
         "required": [
           "email",
@@ -632,10 +673,27 @@
             "format": "email",
             "nullable": true
           },
+          "sexo": {
+            "type": "string",
+            "nullable": true
+          },
+          "idade": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "peso": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "altura": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
           "senhaAntiga": {
-            "maxLength": 100,
-            "minLength": 8,
-            "pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[\\p{P}\\p{S}])[A-Za-z\\d\\p{P}\\p{S}]{8,}$",
+            "minLength": 1,
             "type": "string"
           },
           "novaSenha": {
