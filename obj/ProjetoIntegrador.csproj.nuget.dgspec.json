@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\fonses\\Desktop\\ProjetoIntegrador\\ProjetoIntegrador.csproj": {}
+    "C:\\Users\\lucca\\Downloads\\ProjetoIntegrador\\ProjetoIntegrador.csproj": {}
   },
   "projects": {
-    "C:\\Users\\fonses\\Desktop\\ProjetoIntegrador\\ProjetoIntegrador.csproj": {
+    "C:\\Users\\lucca\\Downloads\\ProjetoIntegrador\\ProjetoIntegrador.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fonses\\Desktop\\ProjetoIntegrador\\ProjetoIntegrador.csproj",
+        "projectUniqueName": "C:\\Users\\lucca\\Downloads\\ProjetoIntegrador\\ProjetoIntegrador.csproj",
         "projectName": "ProjetoIntegrador",
-        "projectPath": "C:\\Users\\fonses\\Desktop\\ProjetoIntegrador\\ProjetoIntegrador.csproj",
-        "packagesPath": "C:\\Users\\fonses\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fonses\\Desktop\\ProjetoIntegrador\\obj\\",
+        "projectPath": "C:\\Users\\lucca\\Downloads\\ProjetoIntegrador\\ProjetoIntegrador.csproj",
+        "packagesPath": "C:\\Users\\lucca\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lucca\\Downloads\\ProjetoIntegrador\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "F:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\fonses\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lucca\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -44,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -110,7 +110,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

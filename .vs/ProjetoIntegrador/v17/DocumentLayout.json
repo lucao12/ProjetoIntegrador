@@ -1,9 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\fonses\\Desktop\\ProjetoIntegrador\\",
+  "WorkspaceRootPath": "C:\\Users\\lucca\\Downloads\\ProjetoIntegrador\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\fonses\\desktop\\projetointegrador\\views\\usuario\\homeusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucca\\downloads\\projetointegrador\\views\\usuario\\homenutri.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:views\\usuario\\homenutri.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucca\\downloads\\projetointegrador\\views\\usuario\\homeusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:views\\usuario\\homeusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
@@ -19,12 +23,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "HomeNutri.cshtml",
+              "DocumentMoniker": "C:\\Users\\lucca\\Downloads\\ProjetoIntegrador\\Views\\Usuario\\HomeNutri.cshtml",
+              "RelativeDocumentMoniker": "Views\\Usuario\\HomeNutri.cshtml",
+              "ToolTip": "C:\\Users\\lucca\\Downloads\\ProjetoIntegrador\\Views\\Usuario\\HomeNutri.cshtml",
+              "RelativeToolTip": "Views\\Usuario\\HomeNutri.cshtml",
+              "ViewState": "AgIAAKsBAAAAAAAAAAAUwL4BAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-09T20:10:36.731Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "HomeUsuario.cshtml",
-              "DocumentMoniker": "C:\\Users\\fonses\\Desktop\\ProjetoIntegrador\\Views\\Usuario\\HomeUsuario.cshtml",
+              "DocumentMoniker": "C:\\Users\\lucca\\Downloads\\ProjetoIntegrador\\Views\\Usuario\\HomeUsuario.cshtml",
               "RelativeDocumentMoniker": "Views\\Usuario\\HomeUsuario.cshtml",
-              "ToolTip": "C:\\Users\\fonses\\Desktop\\ProjetoIntegrador\\Views\\Usuario\\HomeUsuario.cshtml",
+              "ToolTip": "C:\\Users\\lucca\\Downloads\\ProjetoIntegrador\\Views\\Usuario\\HomeUsuario.cshtml",
               "RelativeToolTip": "Views\\Usuario\\HomeUsuario.cshtml",
-              "ViewState": "AgIAAJsAAAAAAAAAAAAgwKoAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAAYCAAAAAAAAAAAUwBwCAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-02-23T20:11:31.631Z",
               "EditorCaption": ""

@@ -5,6 +5,60 @@
     "version": "v1"
   },
   "paths": {
+    "/EnviarMensagem": {
+      "post": {
+        "tags": [
+          "Mensagem"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnvioMensagemViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnvioMensagemViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnvioMensagemViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/PegarMensagem/{id}": {
+      "get": {
+        "tags": [
+          "Mensagem"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/candidatarNutri/{id}": {
       "post": {
         "tags": [
@@ -515,6 +569,20 @@
   },
   "components": {
     "schemas": {
+      "EnvioMensagemViewModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "mensagem": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "NutriSocailUpdateViewModel": {
         "type": "object",
         "properties": {

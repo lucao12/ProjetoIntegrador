@@ -25,7 +25,8 @@ namespace ProjetoIntegrador.Migrations
                     Altura = table.Column<double>(type: "REAL", nullable: true),
                     Role = table.Column<string>(type: "TEXT", nullable: false),
                     Telefone = table.Column<string>(type: "TEXT", nullable: false),
-                    Instagram = table.Column<string>(type: "TEXT", nullable: false),
+                    Instagram = table.Column<string>(type: "TEXT", nullable: true),
+                    Foto = table.Column<string>(type: "TEXT", nullable: true),
                     Hash = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
@@ -48,6 +49,33 @@ namespace ProjetoIntegrador.Migrations
                     table.ForeignKey(
                         name: "FK_AdmCriou_Usuarios_UserId",
                         column: x => x.UserId,
+                        principalTable: "Usuarios",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Mensagem",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: false),
+                    NutricionistaId = table.Column<int>(type: "INTEGER", nullable: false),
+                    Mensage = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Mensagem", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Mensagem_Usuarios_NutricionistaId",
+                        column: x => x.NutricionistaId,
+                        principalTable: "Usuarios",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Mensagem_Usuarios_UsuarioId",
+                        column: x => x.UsuarioId,
                         principalTable: "Usuarios",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -86,6 +114,16 @@ namespace ProjetoIntegrador.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Mensagem_NutricionistaId",
+                table: "Mensagem",
+                column: "NutricionistaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Mensagem_UsuarioId",
+                table: "Mensagem",
+                column: "UsuarioId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Pedidos_NutricionistaId",
                 table: "Pedidos",
                 column: "NutricionistaId");
@@ -101,6 +139,9 @@ namespace ProjetoIntegrador.Migrations
         {
             migrationBuilder.DropTable(
                 name: "AdmCriou");
+
+            migrationBuilder.DropTable(
+                name: "Mensagem");
 
             migrationBuilder.DropTable(
                 name: "Pedidos");

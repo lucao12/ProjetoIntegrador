@@ -3,8 +3,8 @@
   "ManifestType": "Build",
   "Endpoints": [
     {
-      "Route": "App_Data/teste.bkbkbks1xu.db",
-      "AssetFile": "App_Data/teste.db",
+      "Route": "App_Data/teste.5ipweew5fc.db-wal",
+      "AssetFile": "App_Data/teste.db-wal",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -17,7 +17,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "45056"
+          "Value": "0"
         },
         {
           "Name": "Content-Type",
@@ -25,25 +25,25 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"dc0FCqqPtC2QV7fN4nnoBei7ZE2MGIrumnEnlz+HhGA=\""
+          "Value": "\"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 24 Feb 2025 20:41:55 GMT"
+          "Value": "Sun, 09 Mar 2025 19:53:29 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "bkbkbks1xu"
+          "Value": "5ipweew5fc"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-dc0FCqqPtC2QV7fN4nnoBei7ZE2MGIrumnEnlz+HhGA="
+          "Value": "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
         },
         {
           "Name": "label",
-          "Value": "App_Data/teste.db"
+          "Value": "App_Data/teste.db-wal"
         }
       ]
     },
@@ -62,7 +62,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "45056"
+          "Value": "53248"
         },
         {
           "Name": "Content-Type",
@@ -70,17 +70,181 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"dc0FCqqPtC2QV7fN4nnoBei7ZE2MGIrumnEnlz+HhGA=\""
+          "Value": "\"7V4UBFESFK1G4N7qXlrzC+An8aN2fyiJOgCHTMeY9cg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 24 Feb 2025 20:41:55 GMT"
+          "Value": "Sun, 09 Mar 2025 18:34:16 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-dc0FCqqPtC2QV7fN4nnoBei7ZE2MGIrumnEnlz+HhGA="
+          "Value": "sha256-7V4UBFESFK1G4N7qXlrzC+An8aN2fyiJOgCHTMeY9cg="
+        }
+      ]
+    },
+    {
+      "Route": "App_Data/teste.db-shm",
+      "AssetFile": "App_Data/teste.db-shm",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "32768"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/Uyf2pzT+a58lisN3zcjIpTVVYDhqhZaoGEpuFSTies=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 09 Mar 2025 19:53:29 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-/Uyf2pzT+a58lisN3zcjIpTVVYDhqhZaoGEpuFSTies="
+        }
+      ]
+    },
+    {
+      "Route": "App_Data/teste.db-wal",
+      "AssetFile": "App_Data/teste.db-wal",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "0"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 09 Mar 2025 19:53:29 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
+        }
+      ]
+    },
+    {
+      "Route": "App_Data/teste.xbxd3clmbu.db-shm",
+      "AssetFile": "App_Data/teste.db-shm",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "32768"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/Uyf2pzT+a58lisN3zcjIpTVVYDhqhZaoGEpuFSTies=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 09 Mar 2025 19:53:29 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "xbxd3clmbu"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-/Uyf2pzT+a58lisN3zcjIpTVVYDhqhZaoGEpuFSTies="
+        },
+        {
+          "Name": "label",
+          "Value": "App_Data/teste.db-shm"
+        }
+      ]
+    },
+    {
+      "Route": "App_Data/teste.xzmm18k1ie.db",
+      "AssetFile": "App_Data/teste.db",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "53248"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7V4UBFESFK1G4N7qXlrzC+An8aN2fyiJOgCHTMeY9cg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 09 Mar 2025 18:34:16 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "xzmm18k1ie"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7V4UBFESFK1G4N7qXlrzC+An8aN2fyiJOgCHTMeY9cg="
+        },
+        {
+          "Name": "label",
+          "Value": "App_Data/teste.db"
         }
       ]
     },
@@ -111,7 +275,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 24 Feb 2025 19:24:38 GMT"
+          "Value": "Sun, 09 Mar 2025 16:50:59 GMT"
         }
       ],
       "EndpointProperties": [
@@ -156,7 +320,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 24 Feb 2025 19:24:38 GMT"
+          "Value": "Sun, 09 Mar 2025 16:50:59 GMT"
         }
       ],
       "EndpointProperties": [
@@ -193,7 +357,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 24 Feb 2025 19:24:38 GMT"
+          "Value": "Sun, 09 Mar 2025 16:50:59 GMT"
         }
       ],
       "EndpointProperties": [
@@ -238,7 +402,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 24 Feb 2025 19:24:38 GMT"
+          "Value": "Sun, 09 Mar 2025 16:50:59 GMT"
         }
       ],
       "EndpointProperties": [

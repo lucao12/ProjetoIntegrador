@@ -68,6 +68,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "ProjetoIntegrador.Controllers.MensagemController",
+    "Method": "EnviarMensagem",
+    "RelativePath": "EnviarMensagem",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ProjetoIntegrador.ViewModel.EnvioMensagemViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "ProjetoIntegrador.Controllers.UsuarioControllerView",
     "Method": "HomeAdmin",
     "RelativePath": "HomeAdmin",
@@ -134,6 +150,22 @@
       {
         "Name": "model",
         "Type": "ProjetoIntegrador.ViewModel.UsuarioMudaSenhaViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.MensagemController",
+    "Method": "PegarMensagem",
+    "RelativePath": "PegarMensagem/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],

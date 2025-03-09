@@ -13,5 +13,6 @@ namespace ProjetoIntegrador.Data
         public DbSet<Usuarios> Usuarios { get; set; }
         public DbSet<UserNutri> Pedidos { get; set; }
         public DbSet<AdmCriou> AdmCriou { get; set; }
+        public DbSet<Mensagem> Mensagem { get; set; }
     }
 }

@@ -11,8 +11,8 @@ using ProjetoIntegrador.Data;
 namespace ProjetoIntegrador.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250224020111_arrumarBanco")]
-    partial class arrumarBanco
+    [Migration("20250309180206_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,6 +37,31 @@ namespace ProjetoIntegrador.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("AdmCriou");
+                });
+
+            modelBuilder.Entity("ProjetoIntegrador.Models.Mensagem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Mensage")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("NutricionistaId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NutricionistaId");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("Mensagem");
                 });
 
             modelBuilder.Entity("ProjetoIntegrador.Models.UserNutri", b =>
@@ -125,6 +150,25 @@ namespace ProjetoIntegrador.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ProjetoIntegrador.Models.Mensagem", b =>
+                {
+                    b.HasOne("ProjetoIntegrador.Models.Usuarios", "Nutricionista")
+                        .WithMany()
+                        .HasForeignKey("NutricionistaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProjetoIntegrador.Models.Usuarios", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Nutricionista");
+
+                    b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("ProjetoIntegrador.Models.UserNutri", b =>

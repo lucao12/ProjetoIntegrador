@@ -384,12 +384,52 @@
 
                         if (pedidosAceitos && pedidosAceitos.length > 0) {
                             pedidosAceitos.forEach(function (pedido) {
-                                $('#listPedidosAceitos').append(`
+                                $('#listPedidosAceitos').html(`
                                     <li class="list-group-item">
                                         ${pedido.usuario.nome} - ${pedido.usuario.email}
+                                        <button class="btn btn-outline-dark" data-bs-toggle="modal"
+                                      data-bs-target="#ChatModal">Chat com o ${pedido.usuario.nome}</button>
+                                      <div class="modal fade" id="ChatModal" tabindex="-1" aria-labelledby="settingsModalLabel"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="settingsModalLabel">Chat com o ${pedido.usuario.nome}</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form id="ChatForm">
+                                                        <form>
+                                                            <div id="ChatTextForm">
+                                                            </div>
+                                                        </form>
+                                                            <input type="text" id="mensagem" name="mensagem" placeholder="Digite sua mensagem">
+                                                            <button type="button" class="btn btn-primary" onclick="EnviarMensagens(${pedido.usuario.id})">Enviar</button>
+                                                        </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                   </div>
                                     </li>
+                                    
                                 `);
+                                document.getElementById("ChatModal").addEventListener("shown.bs.modal", function () {
+                                    const nutricionistaId = pedido.usuario.id;
+                                    cronJob = setInterval(() => fetchMensagens(nutricionistaId), 1000);
+                                    fetchMensagens(nutricionistaId);
+                                });
+
+                                document.getElementById("ChatModal").addEventListener("hidden.bs.modal", function () {
+                                    if (cronJob) {
+                                        clearInterval(cronJob);
+                                        cronJob = null;
+                                    }
+                                });
                             });
+                            
                         } else {
                             $('#noPedidosAceitos').html('<p class="alert alert-info">Não há pedidos aceitos</p>');
                         }
@@ -399,7 +439,63 @@
                     }
                 });
             }
+            window.EnviarMensagens = function(idEnvio)  {
+                const token = localStorage.getItem("token");
 
+                fetch(`/EnviarMensagem`, {
+                    method: "POST",
+                    headers: {
+                        "Authorization": `Bearer ${token}`,
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        id: idEnvio,
+                        mensagem: document.getElementById('mensagem').value
+
+                    })
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error("Erro ao enviar pedido.");
+                        }
+                        alert("Mensagem enviada com sucesso!");
+                        document.getElementById('mensagem').value = ""
+                    })
+                    .catch(error => {
+                        console.error("Erro ao enviar mensagem:", error);
+                        alert("Erro ao enviar mensagem.");
+                    });
+            }
+            async function fetchMensagens(nutricionistaId) {
+                const token = localStorage.getItem("token");
+                fetch(`/PegarMensagem/${nutricionistaId}`, {
+                    method: "GET",
+                    headers: {
+                        "Authorization": `Bearer ${token}`,
+                        "Content-Type": "application/json"
+                    }
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Erro ao buscar mensagens: ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(mensagens => {
+                    // Atualizar a área de chat
+                    const chatBox = document.getElementById("ChatTextForm");
+                    chatBox.innerHTML = ""; // Limpa o chat antes de adicionar novas mensagens
+
+                    mensagens.forEach(msg => {
+                        const p = document.createElement("p");
+                        p.textContent = msg.mensage; // Supondo que a mensagem tenha um campo 'texto'
+                        chatBox.appendChild(p);
+                    });
+                })
+                .catch(error => {
+                    console.error("Erro ao buscar mensagens:", error);
+                });
+            }
             function aceitarRejeitarPedido(pedidoId, aceito) {
                 console.log(token);
                 $.ajax({
