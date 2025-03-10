@@ -614,6 +614,7 @@
           },
           "senha": {
             "minLength": 1,
+            "pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[\\p{P}\\p{S}])[A-Za-z\\d\\p{P}\\p{S}]{8,}$",
             "type": "string"
           },
           "telefone": {
@@ -678,6 +679,7 @@
           },
           "senha": {
             "minLength": 1,
+            "pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[\\p{P}\\p{S}])[A-Za-z\\d\\p{P}\\p{S}]{8,}$",
             "type": "string"
           }
         },
@@ -687,6 +689,7 @@
         "type": "object",
         "properties": {
           "senha": {
+            "pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[\\p{P}\\p{S}])[A-Za-z\\d\\p{P}\\p{S}]{8,}$",
             "type": "string",
             "nullable": true
           }
@@ -709,6 +712,7 @@
             "nullable": true
           },
           "senha": {
+            "pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[\\p{P}\\p{S}])[A-Za-z\\d\\p{P}\\p{S}]{8,}$",
             "type": "string",
             "nullable": true
           },
@@ -762,9 +766,11 @@
           },
           "senhaAntiga": {
             "minLength": 1,
+            "pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[\\p{P}\\p{S}])[A-Za-z\\d\\p{P}\\p{S}]{8,}$",
             "type": "string"
           },
           "novaSenha": {
+            "pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[\\p{P}\\p{S}])[A-Za-z\\d\\p{P}\\p{S}]{8,}$",
             "type": "string",
             "nullable": true
           },

@@ -1,23 +1,27 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\lucca\\Downloads\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db",
+      "Id": "D:\\projetoHoje\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db",
       "PackagePath": "staticwebassets\\App_Data\\teste.db"
     },
     {
-      "Id": "C:\\Users\\lucca\\Downloads\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-shm",
+      "Id": "D:\\projetoHoje\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-shm",
       "PackagePath": "staticwebassets\\App_Data\\teste.db-shm"
     },
     {
-      "Id": "C:\\Users\\lucca\\Downloads\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-wal",
+      "Id": "D:\\projetoHoje\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-wal",
       "PackagePath": "staticwebassets\\App_Data\\teste.db-wal"
     },
     {
-      "Id": "C:\\Users\\lucca\\Downloads\\ProjetoIntegrador\\wwwroot\\default.png",
+      "Id": "D:\\projetoHoje\\ProjetoIntegrador\\wwwroot\\NovaPasta\\loader.css",
+      "PackagePath": "staticwebassets\\NovaPasta\\loader.css"
+    },
+    {
+      "Id": "D:\\projetoHoje\\ProjetoIntegrador\\wwwroot\\default.png",
       "PackagePath": "staticwebassets\\default.png"
     },
     {
-      "Id": "C:\\Users\\lucca\\Downloads\\ProjetoIntegrador\\wwwroot\\js\\script.js",
+      "Id": "D:\\projetoHoje\\ProjetoIntegrador\\wwwroot\\js\\script.js",
       "PackagePath": "staticwebassets\\js\\script.js"
     },
     {

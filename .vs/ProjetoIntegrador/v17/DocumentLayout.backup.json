@@ -1,122 +1,12 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\lucca\\Downloads\\ProjetoIntegrador\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucca\\downloads\\projetointegrador\\views\\usuario\\homeusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:views\\usuario\\homeusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucca\\downloads\\projetointegrador\\controllers\\mensagemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:controllers\\mensagemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucca\\downloads\\projetointegrador\\models\\mensagem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:models\\mensagem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucca\\downloads\\projetointegrador\\controllers\\pedidoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:controllers\\pedidoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucca\\downloads\\projetointegrador\\viewmodel\\mensagemviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:viewmodel\\mensagemviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucca\\downloads\\projetointegrador\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "WorkspaceRootPath": "D:\\projetoHoje\\ProjetoIntegrador\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 5,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Mensagem.cs",
-              "DocumentMoniker": "C:\\Users\\lucca\\Downloads\\ProjetoIntegrador\\Models\\Mensagem.cs",
-              "RelativeDocumentMoniker": "Models\\Mensagem.cs",
-              "ToolTip": "C:\\Users\\lucca\\Downloads\\ProjetoIntegrador\\Models\\Mensagem.cs",
-              "RelativeToolTip": "Models\\Mensagem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T19:06:24.773Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UsuarioController.cs",
-              "DocumentMoniker": "C:\\Users\\lucca\\Downloads\\ProjetoIntegrador\\Controllers\\UsuarioController.cs",
-              "RelativeDocumentMoniker": "Controllers\\UsuarioController.cs",
-              "ToolTip": "C:\\Users\\lucca\\Downloads\\ProjetoIntegrador\\Controllers\\UsuarioController.cs",
-              "RelativeToolTip": "Controllers\\UsuarioController.cs",
-              "ViewState": "AgIAAP8AAAAAAAAAAAAmwBYBAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T18:55:00.102Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "PedidosController.cs",
-              "DocumentMoniker": "C:\\Users\\lucca\\Downloads\\ProjetoIntegrador\\Controllers\\PedidosController.cs",
-              "RelativeDocumentMoniker": "Controllers\\PedidosController.cs",
-              "ToolTip": "C:\\Users\\lucca\\Downloads\\ProjetoIntegrador\\Controllers\\PedidosController.cs",
-              "RelativeToolTip": "Controllers\\PedidosController.cs",
-              "ViewState": "AgIAAHQAAAAAAAAAAAAwwJEAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T18:36:33.292Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "MensagemViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\lucca\\Downloads\\ProjetoIntegrador\\ViewModel\\MensagemViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModel\\MensagemViewModel.cs",
-              "ToolTip": "C:\\Users\\lucca\\Downloads\\ProjetoIntegrador\\ViewModel\\MensagemViewModel.cs",
-              "RelativeToolTip": "ViewModel\\MensagemViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T18:12:50.445Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MensagemController.cs",
-              "DocumentMoniker": "C:\\Users\\lucca\\Downloads\\ProjetoIntegrador\\Controllers\\MensagemController.cs",
-              "RelativeDocumentMoniker": "Controllers\\MensagemController.cs",
-              "ToolTip": "C:\\Users\\lucca\\Downloads\\ProjetoIntegrador\\Controllers\\MensagemController.cs",
-              "RelativeToolTip": "Controllers\\MensagemController.cs",
-              "ViewState": "AgIAAFAAAAAAAAAAAAAwwGcAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T18:09:12.698Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "HomeUsuario.cshtml",
-              "DocumentMoniker": "C:\\Users\\lucca\\Downloads\\ProjetoIntegrador\\Views\\Usuario\\HomeUsuario.cshtml",
-              "RelativeDocumentMoniker": "Views\\Usuario\\HomeUsuario.cshtml",
-              "ToolTip": "C:\\Users\\lucca\\Downloads\\ProjetoIntegrador\\Views\\Usuario\\HomeUsuario.cshtml*",
-              "RelativeToolTip": "Views\\Usuario\\HomeUsuario.cshtml*",
-              "ViewState": "AgIAAFgBAAAAAAAAAAAUwFsBAABKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-23T20:11:31.631Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

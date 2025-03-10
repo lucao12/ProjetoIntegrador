@@ -7,6 +7,8 @@
     <title>Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="~/NovaPasta/loader.css">
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -189,6 +191,10 @@
 </head>
 
 <body>
+    <div class="overlay" id="loader-container" style="display: none;">
+        <div class="loader"></div>
+    </div>
+
     <button id="toggleDarkMode" class="btn-dark-mode">
         <i class="fas fa-moon"></i>
     </button>
@@ -300,6 +306,14 @@
     </div>
 
     <script>
+        function ColocaCarregando() {
+            document.getElementById("loader-container").style.display = "flex";
+        }
+
+        function TiraCarregando() {
+            document.getElementById("loader-container").style.display = "none";
+        }
+
         function cardNutricionista(nutricionista) {
             
             const contentDiv = document.getElementById("content");
@@ -572,6 +586,8 @@
                         if (document.getElementById("altura").value > 0) {
                             console.log(token)
 
+                            ColocaCarregando();
+
                             const userData = {
                                 Nome: document.getElementById("name").value,
                                 Telefone: document.getElementById("phone").value,
@@ -599,6 +615,7 @@
 
                                     if (!response.ok) {
                                         let errorMessage = "Erro ao salvar";
+                                        TiraCarregando();
 
                                         if (json.error) {
                                             errorMessage = json.error;
@@ -615,53 +632,65 @@
 
                                     const fileInput = document.getElementById("profilePhoto");
 
-                                    if (fileInput.files.length === 0) {
-                                        alert("Por favor, selecione uma foto para enviar.");
-                                        return;
-                                    }
-
                                     const formData = new FormData();
-                                    formData.append("Foto", fileInput.files[0]); // Adiciona a foto
+                                            if (fileInput.files.length > 0) {
+                                                formData.append("Foto", fileInput.files[0]); // Adiciona a foto ao FormData
+                                            }
 
                                     try {
-                                        const response = await fetch("/update/user/photo", {
-                                            method: "PUT",
-                                            headers: {
-                                                "Authorization": `Bearer ${token}`
-                                            },
-                                            body: formData
-                                        });
+                                             // Verifica se há dados para enviar
+                                            if (formData.has("Foto")) {
+                                                const response = await fetch("/update/user/photo", {
+                                                    method: "PUT",
+                                                    headers: {
+                                                        "Authorization": `Bearer ${token}`
+                                                    },
+                                                    body: formData
+                                                });
 
-                                        const result = await response.json();
+                                                const result = await response.json();
 
-                                        if (response.ok) {
-                                            alert("Alterações salvas com sucesso! \nFaça Login novamente");
-                                            logout(); // Recarrega as informações no modal
-                                        } else {
-                                            alert(result.error || "Erro ao atualizar a foto.");
-                                        }
+                                                if (response.ok) {
+                                                    TiraCarregando();
+                                                    alert("Alterações salvas com sucesso! \nFaça Login novamente");
+                                                    logout(); // Recarrega as informações no modal
+                                                } else {
+                                                    TiraCarregando();
+                                                    alert(result.error || "Erro ao atualizar a foto.");
+                                                }
+                                            } else {
+                                                TiraCarregando();
+                                                    alert("Alterações salvas com sucesso! \nFaça Login novamente");
+                                                    logout(); // Recarrega as informações no modal
+                                            }
                                     } catch (error) {
+                                        TiraCarregando();
                                         console.error("Erro ao enviar a foto:", error);
                                     }
                                 })
                                 .catch(error => {
+                                    TiraCarregando();
                                     console.error("Erro ao salvar alterações:", error);
                                     alert("Erro ao salvar alterações.");
                                 });
                         } else {
+                            TiraCarregando();
                             console.error("Digite uma altura");
                             alert("Digite uma altura");
                         }
                     } else {
+                        TiraCarregando();
                         console.error("Digite um peso");
                         alert("Digite um peso");
                     }
                 } else {
+                    TiraCarregando();
                     console.error("Escolha um sexo");
                     alert("Escolha um sexo");
                 }
             }
             else {
+                TiraCarregando();
                 console.error("Digite uma idade entre 18 anos e 99 anos");
                 alert("Digite uma idade entre 18 anos e 99 anos");
             }
@@ -744,14 +773,14 @@
             })
                 .then(response => {
                     if (!response.ok) {
-                        throw new Error("Erro ao alterar senha.");
+                        throw new Error("A senha deve conter no mínimo 8 caracteres, com pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial.");
                     }
                     alert("Senha alterada com sucesso! Faça login novamente.");
                     logout();
                 })
                 .catch(error => {
                     console.error("Erro ao alterar senha:", error);
-                    alert("Erro ao alterar senha.");
+                    alert("A senha deve conter no mínimo 8 caracteres, com pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial.");
                 });
         }
 
