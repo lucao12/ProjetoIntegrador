@@ -94,7 +94,9 @@ namespace ProjetoIntegrador.Controllers
                 }
 
                 var mensagens = await _context.Mensagem
-                .Where(m => ( m.Usuario == usuario || m.Usuario == recebe) && (m.Nutricionista == usuario || m.Nutricionista == recebe))
+                .Where(m => (m.Usuario == usuario || m.Usuario == recebe)
+                         && (m.Nutricionista == usuario || m.Nutricionista == recebe))
+                .OrderBy(m => m.Id)
                 .ToListAsync();
                 if (recebe == null)
                 {

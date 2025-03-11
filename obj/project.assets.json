@@ -3383,23 +3383,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\lucao\\.nuget\\packages\\": {},
+    "C:\\Users\\lucasmiranda\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\projetoHoje\\ProjetoIntegrador\\ProjetoIntegrador.csproj",
+      "projectUniqueName": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\ProjetoIntegrador.csproj",
       "projectName": "ProjetoIntegrador",
-      "projectPath": "D:\\projetoHoje\\ProjetoIntegrador\\ProjetoIntegrador.csproj",
-      "packagesPath": "C:\\Users\\lucao\\.nuget\\packages\\",
-      "outputPath": "D:\\projetoHoje\\ProjetoIntegrador\\obj\\",
+      "projectPath": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\ProjetoIntegrador.csproj",
+      "packagesPath": "C:\\Users\\lucasmiranda\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\lucao\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\lucasmiranda\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
