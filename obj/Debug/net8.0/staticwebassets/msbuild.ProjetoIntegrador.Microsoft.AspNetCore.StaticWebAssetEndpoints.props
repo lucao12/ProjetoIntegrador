@@ -6,6 +6,12 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"215yu4yykx"},{"Name":"integrity","Value":"sha256-9lsAXTmjgvskWmetXJNjYajfg3gh9I7V4zb5s4GW7qg="},{"Name":"label","Value":"_content/ProjetoIntegrador/App_Data/teste.db"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"53248"},{"Name":"Content-Type","Value":"application/octet-stream"},{"Name":"ETag","Value":"\u00229lsAXTmjgvskWmetXJNjYajfg3gh9I7V4zb5s4GW7qg=\u0022"},{"Name":"Last-Modified","Value":"Wed, 12 Mar 2025 16:48:51 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ProjetoIntegrador/App_Data/teste.54e43sz2wk.db-shm">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Data\teste.db-shm'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"54e43sz2wk"},{"Name":"integrity","Value":"sha256-daO1bRII1XNrmXLrOzdgTfv11KOrl4cd3fr1t15KWd4="},{"Name":"label","Value":"_content/ProjetoIntegrador/App_Data/teste.db-shm"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"32768"},{"Name":"Content-Type","Value":"application/octet-stream"},{"Name":"ETag","Value":"\u0022daO1bRII1XNrmXLrOzdgTfv11KOrl4cd3fr1t15KWd4=\u0022"},{"Name":"Last-Modified","Value":"Wed, 12 Mar 2025 19:54:00 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/ProjetoIntegrador/App_Data/teste.db">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Data\teste.db'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
@@ -15,8 +21,8 @@
     <StaticWebAssetEndpoint Include="_content/ProjetoIntegrador/App_Data/teste.db-shm">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Data\teste.db-shm'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-7OuWSzB\u002BYNnJeospwybdYVh2NLdOB3EbXG\u002By2vWODT4="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"32768"},{"Name":"Content-Type","Value":"application/octet-stream"},{"Name":"ETag","Value":"\u00227OuWSzB\u002BYNnJeospwybdYVh2NLdOB3EbXG\u002By2vWODT4=\u0022"},{"Name":"Last-Modified","Value":"Wed, 12 Mar 2025 16:48:51 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-daO1bRII1XNrmXLrOzdgTfv11KOrl4cd3fr1t15KWd4="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"32768"},{"Name":"Content-Type","Value":"application/octet-stream"},{"Name":"ETag","Value":"\u0022daO1bRII1XNrmXLrOzdgTfv11KOrl4cd3fr1t15KWd4=\u0022"},{"Name":"Last-Modified","Value":"Wed, 12 Mar 2025 19:54:00 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/ProjetoIntegrador/App_Data/teste.db-wal">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Data\teste.db-wal'))</AssetFile>
@@ -29,12 +35,6 @@
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"l67ivzwzip"},{"Name":"integrity","Value":"sha256-I2CJdrRhAZ\u002BT2bV\u002BLgiEbjW8OiR0G20SnbPZ0qIpjr0="},{"Name":"label","Value":"_content/ProjetoIntegrador/App_Data/teste.db-wal"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"90672"},{"Name":"Content-Type","Value":"application/octet-stream"},{"Name":"ETag","Value":"\u0022I2CJdrRhAZ\u002BT2bV\u002BLgiEbjW8OiR0G20SnbPZ0qIpjr0=\u0022"},{"Name":"Last-Modified","Value":"Wed, 12 Mar 2025 16:48:51 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/ProjetoIntegrador/App_Data/teste.orbisbe6x8.db-shm">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Data\teste.db-shm'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"orbisbe6x8"},{"Name":"integrity","Value":"sha256-7OuWSzB\u002BYNnJeospwybdYVh2NLdOB3EbXG\u002By2vWODT4="},{"Name":"label","Value":"_content/ProjetoIntegrador/App_Data/teste.db-shm"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"32768"},{"Name":"Content-Type","Value":"application/octet-stream"},{"Name":"ETag","Value":"\u00227OuWSzB\u002BYNnJeospwybdYVh2NLdOB3EbXG\u002By2vWODT4=\u0022"},{"Name":"Last-Modified","Value":"Wed, 12 Mar 2025 16:48:51 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/ProjetoIntegrador/default.hc6qofo4g5.png">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\default.png'))</AssetFile>

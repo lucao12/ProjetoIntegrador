@@ -8,6 +8,7 @@ using ProjetoIntegrador.Models;
 using ProjetoIntegrador.ViewModel;
 using System.Security.Claims;
 using System.Text;
+using System.Text.Json;
 
 
 namespace ProjetoIntegrador.Controllers
@@ -33,10 +34,10 @@ namespace ProjetoIntegrador.Controllers
         {
             try
             {
-                string prompt = $"Forneça apenas os valores de macronutrientes, micronutrientes e calorias em 100 gramas de {model.ingrediente}. Responda no formato: \nCalorias: X kcal\nCarboidratos: Y g\nProteínas: Z g\nGorduras: W g\nVitaminas e Minerais: (lista de principais nutrientes)";
+                string prompt = $"Forneça apenas os valores de macronutrientes, micronutrientes e calorias em 100 gramas de {model.ingrediente}. Responda no formato: \nCalorias: X kcal\nCarboidratos: Y g\nProteínas: Z g\nGorduras: W g\nVitaminas e Minerais: (lista de principais nutrientes). Não use nenhum tipo de acento" ;
                 string response = await SendRequestToGemini(prompt);
 
-                return Ok(response);
+                return Ok(StringToJson(response));
             }
             catch
             {
@@ -70,6 +71,35 @@ namespace ProjetoIntegrador.Controllers
                 dynamic jsonResponse = JsonConvert.DeserializeObject(responseString);
                 return jsonResponse?.candidates?[0]?.content?.parts?[0]?.text ?? "Nenhuma resposta recebida.";
             }
+        }
+        public static string StringToJson(string nutritionString)
+        {
+            var nutritionData = new Dictionary<string, object>(); // Use object to handle different value types
+
+            string[] lines = nutritionString.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+
+            foreach (string line in lines)
+            {
+                string[] parts = line.Split(':');
+                if (parts.Length == 2)
+                {
+                    string key = parts[0].Trim();
+                    string valueString = parts[1].Trim();
+
+                    // Try to parse value as number (int or float), otherwise treat as string
+                    if (double.TryParse(valueString.Split(' ')[0], out double numericValue)) // Handle units like "89 kcal"
+                    {
+                        nutritionData[key] = numericValue;
+                    }
+                    else
+                    {
+                        nutritionData[key] = valueString;
+                    }
+                }
+            }
+
+            string jsonString = System.Text.Json.JsonSerializer.Serialize(nutritionData, new JsonSerializerOptions { WriteIndented = true }); // Pretty print JSON
+            return jsonString;
         }
 
     }

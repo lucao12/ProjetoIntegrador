@@ -30,8 +30,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>orbisbe6x8</Fingerprint>
-      <Integrity>7OuWSzB+YNnJeospwybdYVh2NLdOB3EbXG+y2vWODT4=</Integrity>
+      <Fingerprint>54e43sz2wk</Fingerprint>
+      <Integrity>daO1bRII1XNrmXLrOzdgTfv11KOrl4cd3fr1t15KWd4=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Data\teste.db-shm'))</OriginalItemSpec>
