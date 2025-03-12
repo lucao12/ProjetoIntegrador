@@ -3389,11 +3389,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\ProjetoIntegrador.csproj",
+      "projectUniqueName": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\ProjetoIntegrador.csproj",
       "projectName": "ProjetoIntegrador",
-      "projectPath": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\ProjetoIntegrador.csproj",
+      "projectPath": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\ProjetoIntegrador.csproj",
       "packagesPath": "C:\\Users\\lucasmiranda\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\obj\\",
+      "outputPath": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

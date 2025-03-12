@@ -1,57 +1,65 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\",
+  "WorkspaceRootPath": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucasmiranda\\downloads\\projetointegrador-main\\projetointegrador-main\\views\\usuario\\homeusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:views\\usuario\\homeusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucasmiranda\\desktop\\pi\\projetointegrador\\controllers\\ingredientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:controllers\\ingredientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucasmiranda\\downloads\\projetointegrador-main\\projetointegrador-main\\views\\usuario\\homeadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:views\\usuario\\homeadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucasmiranda\\downloads\\projetointegrador-main\\projetointegrador-main\\views\\usuario\\homenutri.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:views\\usuario\\homenutri.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucasmiranda\\downloads\\projetointegrador-main\\projetointegrador-main\\views\\usuario\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:views\\usuario\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucasmiranda\\downloads\\projetointegrador-main\\projetointegrador-main\\controllers\\mensagemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:controllers\\mensagemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucasmiranda\\downloads\\projetointegrador-main\\projetointegrador-main\\controllers\\pedidoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucasmiranda\\desktop\\pi\\projetointegrador\\controllers\\pedidoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:controllers\\pedidoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucasmiranda\\downloads\\projetointegrador-main\\projetointegrador-main\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucasmiranda\\desktop\\pi\\projetointegrador\\viewmodel\\ingredientesviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:viewmodel\\ingredientesviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucasmiranda\\desktop\\pi\\projetointegrador\\controllers\\mensagemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:controllers\\mensagemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucasmiranda\\desktop\\pi\\projetointegrador\\views\\usuario\\homenutri.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:views\\usuario\\homenutri.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucasmiranda\\desktop\\pi\\projetointegrador\\views\\usuario\\homeusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:views\\usuario\\homeusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucasmiranda\\desktop\\pi\\projetointegrador\\views\\usuario\\homeadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:views\\usuario\\homeadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucasmiranda\\desktop\\pi\\projetointegrador\\views\\usuario\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:views\\usuario\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucasmiranda\\desktop\\pi\\projetointegrador\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucasmiranda\\downloads\\projetointegrador-main\\projetointegrador-main\\models\\mensagem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucasmiranda\\desktop\\pi\\projetointegrador\\models\\mensagem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:models\\mensagem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucasmiranda\\downloads\\projetointegrador-main\\projetointegrador-main\\models\\usernutri.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucasmiranda\\desktop\\pi\\projetointegrador\\models\\usernutri.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:models\\usernutri.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucasmiranda\\downloads\\projetointegrador-main\\projetointegrador-main\\views\\usuario\\cadastro.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucasmiranda\\desktop\\pi\\projetointegrador\\views\\usuario\\cadastro.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:views\\usuario\\cadastro.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucasmiranda\\downloads\\projetointegrador-main\\projetointegrador-main\\models\\usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucasmiranda\\desktop\\pi\\projetointegrador\\models\\usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:models\\usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucasmiranda\\downloads\\projetointegrador-main\\projetointegrador-main\\models\\admcriou.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucasmiranda\\desktop\\pi\\projetointegrador\\models\\admcriou.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:models\\admcriou.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucasmiranda\\downloads\\projetointegrador-main\\projetointegrador-main\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucasmiranda\\desktop\\pi\\projetointegrador\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -62,29 +70,54 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "HomeUsuario.cshtml",
-              "DocumentMoniker": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\Views\\Usuario\\HomeUsuario.cshtml",
-              "RelativeDocumentMoniker": "Views\\Usuario\\HomeUsuario.cshtml",
-              "ToolTip": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\Views\\Usuario\\HomeUsuario.cshtml*",
-              "RelativeToolTip": "Views\\Usuario\\HomeUsuario.cshtml*",
-              "ViewState": "AgIAAHEBAAAAAAAAAAAQwIoBAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-11T15:20:00.811Z",
+              "DocumentIndex": 2,
+              "Title": "IngredientesViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\ViewModel\\IngredientesViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModel\\IngredientesViewModel.cs",
+              "ToolTip": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\ViewModel\\IngredientesViewModel.cs",
+              "RelativeToolTip": "ViewModel\\IngredientesViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T16:50:24.946Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
+              "Title": "IngredientesController.cs",
+              "DocumentMoniker": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\Controllers\\IngredientesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\IngredientesController.cs",
+              "ToolTip": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\Controllers\\IngredientesController.cs",
+              "RelativeToolTip": "Controllers\\IngredientesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAACZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T16:49:22.011Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "HomeUsuario.cshtml",
+              "DocumentMoniker": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\Views\\Usuario\\HomeUsuario.cshtml",
+              "RelativeDocumentMoniker": "Views\\Usuario\\HomeUsuario.cshtml",
+              "ToolTip": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\Views\\Usuario\\HomeUsuario.cshtml",
+              "RelativeToolTip": "Views\\Usuario\\HomeUsuario.cshtml",
+              "ViewState": "AgIAAG4BAAAAAAAAAAAQwH8BAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-11T15:20:00.811Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "MensagemController.cs",
-              "DocumentMoniker": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\Controllers\\MensagemController.cs",
+              "DocumentMoniker": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\Controllers\\MensagemController.cs",
               "RelativeDocumentMoniker": "Controllers\\MensagemController.cs",
-              "ToolTip": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\Controllers\\MensagemController.cs*",
-              "RelativeToolTip": "Controllers\\MensagemController.cs*",
+              "ToolTip": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\Controllers\\MensagemController.cs",
+              "RelativeToolTip": "Controllers\\MensagemController.cs",
               "ViewState": "AgIAAEIAAAAAAAAAAAAowGgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-11T15:17:47.316Z",
@@ -92,146 +125,137 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "UsuarioController.cs",
-              "DocumentMoniker": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\Controllers\\UsuarioController.cs",
+              "DocumentMoniker": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\Controllers\\UsuarioController.cs",
               "RelativeDocumentMoniker": "Controllers\\UsuarioController.cs",
-              "ToolTip": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\Controllers\\UsuarioController.cs",
+              "ToolTip": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\Controllers\\UsuarioController.cs",
               "RelativeToolTip": "Controllers\\UsuarioController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T15:17:45.484Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-11T15:17:45.484Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "PedidosController.cs",
-              "DocumentMoniker": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\Controllers\\PedidosController.cs",
+              "DocumentMoniker": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\Controllers\\PedidosController.cs",
               "RelativeDocumentMoniker": "Controllers\\PedidosController.cs",
-              "ToolTip": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\Controllers\\PedidosController.cs",
+              "ToolTip": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\Controllers\\PedidosController.cs",
               "RelativeToolTip": "Controllers\\PedidosController.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-11T15:17:42.216Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "HomeNutri.cshtml",
-              "DocumentMoniker": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\Views\\Usuario\\HomeNutri.cshtml",
+              "DocumentMoniker": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\Views\\Usuario\\HomeNutri.cshtml",
               "RelativeDocumentMoniker": "Views\\Usuario\\HomeNutri.cshtml",
-              "ToolTip": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\Views\\Usuario\\HomeNutri.cshtml",
+              "ToolTip": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\Views\\Usuario\\HomeNutri.cshtml",
               "RelativeToolTip": "Views\\Usuario\\HomeNutri.cshtml",
-              "ViewState": "AgIAABMCAAAAAAAAAAAUwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACICAAAAAAAAAAAUwEMCAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-11T15:17:36.825Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\Views\\Usuario\\Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\Views\\Usuario\\Login.cshtml",
               "RelativeDocumentMoniker": "Views\\Usuario\\Login.cshtml",
-              "ToolTip": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\Views\\Usuario\\Login.cshtml",
+              "ToolTip": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\Views\\Usuario\\Login.cshtml",
               "RelativeToolTip": "Views\\Usuario\\Login.cshtml",
               "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-11T15:17:34.059Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-11T15:17:34.059Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "HomeAdmin.cshtml",
-              "DocumentMoniker": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\Views\\Usuario\\HomeAdmin.cshtml",
+              "DocumentMoniker": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\Views\\Usuario\\HomeAdmin.cshtml",
               "RelativeDocumentMoniker": "Views\\Usuario\\HomeAdmin.cshtml",
-              "ToolTip": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\Views\\Usuario\\HomeAdmin.cshtml",
+              "ToolTip": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\Views\\Usuario\\HomeAdmin.cshtml",
               "RelativeToolTip": "Views\\Usuario\\HomeAdmin.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-11T15:17:33.387Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Cadastro.cshtml",
-              "DocumentMoniker": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\Views\\Usuario\\Cadastro.cshtml",
-              "RelativeDocumentMoniker": "Views\\Usuario\\Cadastro.cshtml",
-              "ToolTip": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\Views\\Usuario\\Cadastro.cshtml",
-              "RelativeToolTip": "Views\\Usuario\\Cadastro.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-11T15:17:32.793Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Usuarios.cs",
-              "DocumentMoniker": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\Models\\Usuarios.cs",
-              "RelativeDocumentMoniker": "Models\\Usuarios.cs",
-              "ToolTip": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\Models\\Usuarios.cs",
-              "RelativeToolTip": "Models\\Usuarios.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T15:17:27.95Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "UserNutri.cs",
-              "DocumentMoniker": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\Models\\UserNutri.cs",
-              "RelativeDocumentMoniker": "Models\\UserNutri.cs",
-              "ToolTip": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\Models\\UserNutri.cs",
-              "RelativeToolTip": "Models\\UserNutri.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T15:17:27.352Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Mensagem.cs",
-              "DocumentMoniker": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\Models\\Mensagem.cs",
-              "RelativeDocumentMoniker": "Models\\Mensagem.cs",
-              "ToolTip": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\Models\\Mensagem.cs",
-              "RelativeToolTip": "Models\\Mensagem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T15:17:26.785Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T15:17:25.093Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-11T15:17:33.387Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
+              "Title": "Cadastro.cshtml",
+              "DocumentMoniker": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\Views\\Usuario\\Cadastro.cshtml",
+              "RelativeDocumentMoniker": "Views\\Usuario\\Cadastro.cshtml",
+              "ToolTip": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\Views\\Usuario\\Cadastro.cshtml",
+              "RelativeToolTip": "Views\\Usuario\\Cadastro.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-11T15:17:32.793Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Usuarios.cs",
+              "DocumentMoniker": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\Models\\Usuarios.cs",
+              "RelativeDocumentMoniker": "Models\\Usuarios.cs",
+              "ToolTip": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\Models\\Usuarios.cs",
+              "RelativeToolTip": "Models\\Usuarios.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T15:17:27.95Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UserNutri.cs",
+              "DocumentMoniker": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\Models\\UserNutri.cs",
+              "RelativeDocumentMoniker": "Models\\UserNutri.cs",
+              "ToolTip": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\Models\\UserNutri.cs",
+              "RelativeToolTip": "Models\\UserNutri.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T15:17:27.352Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Mensagem.cs",
+              "DocumentMoniker": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\Models\\Mensagem.cs",
+              "RelativeDocumentMoniker": "Models\\Mensagem.cs",
+              "ToolTip": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\Models\\Mensagem.cs",
+              "RelativeToolTip": "Models\\Mensagem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T15:17:26.785Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T15:17:25.093Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "AdmCriou.cs",
-              "DocumentMoniker": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\Models\\AdmCriou.cs",
+              "DocumentMoniker": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\Models\\AdmCriou.cs",
               "RelativeDocumentMoniker": "Models\\AdmCriou.cs",
-              "ToolTip": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\Models\\AdmCriou.cs",
+              "ToolTip": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\Models\\AdmCriou.cs",
               "RelativeToolTip": "Models\\AdmCriou.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T15:17:07.417Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-11T15:17:07.417Z"
             }
           ]
         }

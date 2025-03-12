@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "UUr70RRbTDokzPWFAB31+XsPuuJhmndqchIhzz/zlRo=",
+  "Hash": "j1KNChVZeOP+2/VyqioUqX9e8cGECp4ueW5rV2FcxrI=",
   "Source": "ProjetoIntegrador",
   "BasePath": "_content/ProjetoIntegrador",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "ProjetoIntegrador\\wwwroot",
       "Source": "ProjetoIntegrador",
-      "ContentRoot": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\wwwroot\\",
       "BasePath": "_content/ProjetoIntegrador",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\wwwroot\\App_Data\\teste.db",
+      "Identity": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db",
       "SourceId": "ProjetoIntegrador",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\wwwroot\\",
       "BasePath": "_content/ProjetoIntegrador",
       "RelativePath": "App_Data/teste#[.{fingerprint}]?.db",
       "AssetKind": "All",
@@ -38,10 +38,10 @@
       "OriginalItemSpec": "wwwroot\\App_Data\\teste.db"
     },
     {
-      "Identity": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\wwwroot\\App_Data\\teste.db-shm",
+      "Identity": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-shm",
       "SourceId": "ProjetoIntegrador",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\wwwroot\\",
       "BasePath": "_content/ProjetoIntegrador",
       "RelativePath": "App_Data/teste#[.{fingerprint}]?.db-shm",
       "AssetKind": "All",
@@ -52,17 +52,17 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "q7wvtmi4p1",
-      "Integrity": "1ikdeHR6Fhdf+15Z5qLPAuUnsA8Qie6qMWodOAzuWXM=",
+      "Fingerprint": "orbisbe6x8",
+      "Integrity": "7OuWSzB+YNnJeospwybdYVh2NLdOB3EbXG+y2vWODT4=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\App_Data\\teste.db-shm"
     },
     {
-      "Identity": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\wwwroot\\App_Data\\teste.db-wal",
+      "Identity": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-wal",
       "SourceId": "ProjetoIntegrador",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\wwwroot\\",
       "BasePath": "_content/ProjetoIntegrador",
       "RelativePath": "App_Data/teste#[.{fingerprint}]?.db-wal",
       "AssetKind": "All",
@@ -73,17 +73,17 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "7z6kdal6qj",
-      "Integrity": "rToSdkVONnb6EH9/TdtusKI7w50lDg236JuPagfvm/A=",
+      "Fingerprint": "l67ivzwzip",
+      "Integrity": "I2CJdrRhAZ+T2bV+LgiEbjW8OiR0G20SnbPZ0qIpjr0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\App_Data\\teste.db-wal"
     },
     {
-      "Identity": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\wwwroot\\default.png",
+      "Identity": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\wwwroot\\default.png",
       "SourceId": "ProjetoIntegrador",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\wwwroot\\",
       "BasePath": "_content/ProjetoIntegrador",
       "RelativePath": "default#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -101,10 +101,10 @@
       "OriginalItemSpec": "wwwroot\\default.png"
     },
     {
-      "Identity": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\wwwroot\\js\\script.js",
+      "Identity": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\wwwroot\\js\\script.js",
       "SourceId": "ProjetoIntegrador",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\wwwroot\\",
       "BasePath": "_content/ProjetoIntegrador",
       "RelativePath": "js/script#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -115,17 +115,17 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "hporv6i3i0",
-      "Integrity": "KxMmI8qbbUPShcbQMsSMIVGrXpO08MPDfKHTYnpDJwA=",
+      "Fingerprint": "exvrtjijx8",
+      "Integrity": "nty7bakO8SyKU7CaI19BIDEklgNb1xiBOP+RpjCAIm0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\script.js"
     },
     {
-      "Identity": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\wwwroot\\NovaPasta\\loader.css",
+      "Identity": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\wwwroot\\NovaPasta\\loader.css",
       "SourceId": "ProjetoIntegrador",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\wwwroot\\",
       "BasePath": "_content/ProjetoIntegrador",
       "RelativePath": "NovaPasta/loader#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -136,8 +136,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "x5jgnipgk5",
-      "Integrity": "+6vyAPgZRWfy7aXdNSKTNDZ0F5lXuPPddKIeq1eLp5o=",
+      "Fingerprint": "51mxwi15a7",
+      "Integrity": "Nxo4ke4NMmTkLdznI8d/iapt2x+/91J2Do8ZDdHhYqw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\NovaPasta\\loader.css"
@@ -146,7 +146,7 @@
   "Endpoints": [
     {
       "Route": "App_Data/teste.215yu4yykx.db",
-      "AssetFile": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\wwwroot\\App_Data\\teste.db",
+      "AssetFile": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -167,7 +167,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 19:49:08 GMT"
+          "Value": "Wed, 12 Mar 2025 16:48:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -190,53 +190,8 @@
       ]
     },
     {
-      "Route": "App_Data/teste.7z6kdal6qj.db-wal",
-      "AssetFile": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\wwwroot\\App_Data\\teste.db-wal",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "74192"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/octet-stream"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"rToSdkVONnb6EH9/TdtusKI7w50lDg236JuPagfvm/A=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 11 Mar 2025 15:16:36 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "7z6kdal6qj"
-        },
-        {
-          "Name": "label",
-          "Value": "App_Data/teste.db-wal"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-rToSdkVONnb6EH9/TdtusKI7w50lDg236JuPagfvm/A="
-        }
-      ]
-    },
-    {
       "Route": "App_Data/teste.db",
-      "AssetFile": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\wwwroot\\App_Data\\teste.db",
+      "AssetFile": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -257,7 +212,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 19:49:08 GMT"
+          "Value": "Wed, 12 Mar 2025 16:48:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -273,7 +228,7 @@
     },
     {
       "Route": "App_Data/teste.db-shm",
-      "AssetFile": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\wwwroot\\App_Data\\teste.db-shm",
+      "AssetFile": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-shm",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -290,11 +245,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"1ikdeHR6Fhdf+15Z5qLPAuUnsA8Qie6qMWodOAzuWXM=\""
+          "Value": "\"7OuWSzB+YNnJeospwybdYVh2NLdOB3EbXG+y2vWODT4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 11 Mar 2025 15:16:13 GMT"
+          "Value": "Wed, 12 Mar 2025 16:48:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -304,13 +259,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-1ikdeHR6Fhdf+15Z5qLPAuUnsA8Qie6qMWodOAzuWXM="
+          "Value": "sha256-7OuWSzB+YNnJeospwybdYVh2NLdOB3EbXG+y2vWODT4="
         }
       ]
     },
     {
       "Route": "App_Data/teste.db-wal",
-      "AssetFile": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\wwwroot\\App_Data\\teste.db-wal",
+      "AssetFile": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-wal",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -319,7 +274,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "74192"
+          "Value": "90672"
         },
         {
           "Name": "Content-Type",
@@ -327,11 +282,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"rToSdkVONnb6EH9/TdtusKI7w50lDg236JuPagfvm/A=\""
+          "Value": "\"I2CJdrRhAZ+T2bV+LgiEbjW8OiR0G20SnbPZ0qIpjr0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 11 Mar 2025 15:16:36 GMT"
+          "Value": "Wed, 12 Mar 2025 16:48:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -341,13 +296,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-rToSdkVONnb6EH9/TdtusKI7w50lDg236JuPagfvm/A="
+          "Value": "sha256-I2CJdrRhAZ+T2bV+LgiEbjW8OiR0G20SnbPZ0qIpjr0="
         }
       ]
     },
     {
-      "Route": "App_Data/teste.q7wvtmi4p1.db-shm",
-      "AssetFile": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\wwwroot\\App_Data\\teste.db-shm",
+      "Route": "App_Data/teste.l67ivzwzip.db-wal",
+      "AssetFile": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-wal",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -356,7 +311,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "32768"
+          "Value": "90672"
         },
         {
           "Name": "Content-Type",
@@ -364,11 +319,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"1ikdeHR6Fhdf+15Z5qLPAuUnsA8Qie6qMWodOAzuWXM=\""
+          "Value": "\"I2CJdrRhAZ+T2bV+LgiEbjW8OiR0G20SnbPZ0qIpjr0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 11 Mar 2025 15:16:13 GMT"
+          "Value": "Wed, 12 Mar 2025 16:48:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -378,7 +333,52 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "q7wvtmi4p1"
+          "Value": "l67ivzwzip"
+        },
+        {
+          "Name": "label",
+          "Value": "App_Data/teste.db-wal"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-I2CJdrRhAZ+T2bV+LgiEbjW8OiR0G20SnbPZ0qIpjr0="
+        }
+      ]
+    },
+    {
+      "Route": "App_Data/teste.orbisbe6x8.db-shm",
+      "AssetFile": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-shm",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "32768"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7OuWSzB+YNnJeospwybdYVh2NLdOB3EbXG+y2vWODT4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 12 Mar 2025 16:48:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "orbisbe6x8"
         },
         {
           "Name": "label",
@@ -386,13 +386,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-1ikdeHR6Fhdf+15Z5qLPAuUnsA8Qie6qMWodOAzuWXM="
+          "Value": "sha256-7OuWSzB+YNnJeospwybdYVh2NLdOB3EbXG+y2vWODT4="
         }
       ]
     },
     {
       "Route": "default.hc6qofo4g5.png",
-      "AssetFile": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\wwwroot\\default.png",
+      "AssetFile": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\wwwroot\\default.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -413,7 +413,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 19:49:08 GMT"
+          "Value": "Wed, 12 Mar 2025 16:48:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -437,7 +437,7 @@
     },
     {
       "Route": "default.png",
-      "AssetFile": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\wwwroot\\default.png",
+      "AssetFile": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\wwwroot\\default.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -458,7 +458,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 19:49:08 GMT"
+          "Value": "Wed, 12 Mar 2025 16:48:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -473,8 +473,8 @@
       ]
     },
     {
-      "Route": "js/script.hporv6i3i0.js",
-      "AssetFile": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\wwwroot\\js\\script.js",
+      "Route": "js/script.exvrtjijx8.js",
+      "AssetFile": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\wwwroot\\js\\script.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -483,7 +483,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6962"
+          "Value": "7148"
         },
         {
           "Name": "Content-Type",
@@ -491,11 +491,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"KxMmI8qbbUPShcbQMsSMIVGrXpO08MPDfKHTYnpDJwA=\""
+          "Value": "\"nty7bakO8SyKU7CaI19BIDEklgNb1xiBOP+RpjCAIm0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 19:49:08 GMT"
+          "Value": "Wed, 12 Mar 2025 16:48:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -505,7 +505,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "hporv6i3i0"
+          "Value": "exvrtjijx8"
         },
         {
           "Name": "label",
@@ -513,13 +513,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-KxMmI8qbbUPShcbQMsSMIVGrXpO08MPDfKHTYnpDJwA="
+          "Value": "sha256-nty7bakO8SyKU7CaI19BIDEklgNb1xiBOP+RpjCAIm0="
         }
       ]
     },
     {
       "Route": "js/script.js",
-      "AssetFile": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\wwwroot\\js\\script.js",
+      "AssetFile": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\wwwroot\\js\\script.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -528,7 +528,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6962"
+          "Value": "7148"
         },
         {
           "Name": "Content-Type",
@@ -536,11 +536,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"KxMmI8qbbUPShcbQMsSMIVGrXpO08MPDfKHTYnpDJwA=\""
+          "Value": "\"nty7bakO8SyKU7CaI19BIDEklgNb1xiBOP+RpjCAIm0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 19:49:08 GMT"
+          "Value": "Wed, 12 Mar 2025 16:48:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -550,13 +550,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-KxMmI8qbbUPShcbQMsSMIVGrXpO08MPDfKHTYnpDJwA="
+          "Value": "sha256-nty7bakO8SyKU7CaI19BIDEklgNb1xiBOP+RpjCAIm0="
         }
       ]
     },
     {
-      "Route": "NovaPasta/loader.css",
-      "AssetFile": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\wwwroot\\NovaPasta\\loader.css",
+      "Route": "NovaPasta/loader.51mxwi15a7.css",
+      "AssetFile": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\wwwroot\\NovaPasta\\loader.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -565,7 +565,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "540"
+          "Value": "571"
         },
         {
           "Name": "Content-Type",
@@ -573,48 +573,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"+6vyAPgZRWfy7aXdNSKTNDZ0F5lXuPPddKIeq1eLp5o=\""
+          "Value": "\"Nxo4ke4NMmTkLdznI8d/iapt2x+/91J2Do8ZDdHhYqw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 19:49:08 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-+6vyAPgZRWfy7aXdNSKTNDZ0F5lXuPPddKIeq1eLp5o="
-        }
-      ]
-    },
-    {
-      "Route": "NovaPasta/loader.x5jgnipgk5.css",
-      "AssetFile": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\wwwroot\\NovaPasta\\loader.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "540"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"+6vyAPgZRWfy7aXdNSKTNDZ0F5lXuPPddKIeq1eLp5o=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 19:49:08 GMT"
+          "Value": "Wed, 12 Mar 2025 16:48:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -624,7 +587,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "x5jgnipgk5"
+          "Value": "51mxwi15a7"
         },
         {
           "Name": "label",
@@ -632,7 +595,44 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-+6vyAPgZRWfy7aXdNSKTNDZ0F5lXuPPddKIeq1eLp5o="
+          "Value": "sha256-Nxo4ke4NMmTkLdznI8d/iapt2x+/91J2Do8ZDdHhYqw="
+        }
+      ]
+    },
+    {
+      "Route": "NovaPasta/loader.css",
+      "AssetFile": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\wwwroot\\NovaPasta\\loader.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "571"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Nxo4ke4NMmTkLdznI8d/iapt2x+/91J2Do8ZDdHhYqw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 12 Mar 2025 16:48:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Nxo4ke4NMmTkLdznI8d/iapt2x+/91J2Do8ZDdHhYqw="
         }
       ]
     }

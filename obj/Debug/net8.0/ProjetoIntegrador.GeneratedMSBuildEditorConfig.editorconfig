@@ -9,37 +9,37 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ProjetoIntegrador
 build_property.RootNamespace = ProjetoIntegrador
-build_property.ProjectDir = C:\Users\lucasmiranda\Downloads\ProjetoIntegrador-main\ProjetoIntegrador-main\
+build_property.ProjectDir = C:\Users\lucasmiranda\Desktop\pi\ProjetoIntegrador\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\lucasmiranda\Downloads\ProjetoIntegrador-main\ProjetoIntegrador-main
+build_property.MSBuildProjectDirectory = C:\Users\lucasmiranda\Desktop\pi\ProjetoIntegrador
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/lucasmiranda/Downloads/ProjetoIntegrador-main/ProjetoIntegrador-main/Views/Usuario/Cadastro.cshtml]
+[C:/Users/lucasmiranda/Desktop/pi/ProjetoIntegrador/Views/Usuario/Cadastro.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xDYWRhc3Ryby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/lucasmiranda/Downloads/ProjetoIntegrador-main/ProjetoIntegrador-main/Views/Usuario/HomeAdmin.cshtml]
+[C:/Users/lucasmiranda/Desktop/pi/ProjetoIntegrador/Views/Usuario/HomeAdmin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xIb21lQWRtaW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/lucasmiranda/Downloads/ProjetoIntegrador-main/ProjetoIntegrador-main/Views/Usuario/HomeNutri.cshtml]
+[C:/Users/lucasmiranda/Desktop/pi/ProjetoIntegrador/Views/Usuario/HomeNutri.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xIb21lTnV0cmkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/lucasmiranda/Downloads/ProjetoIntegrador-main/ProjetoIntegrador-main/Views/Usuario/HomeUsuario.cshtml]
+[C:/Users/lucasmiranda/Desktop/pi/ProjetoIntegrador/Views/Usuario/HomeUsuario.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xIb21lVXN1YXJpby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/lucasmiranda/Downloads/ProjetoIntegrador-main/ProjetoIntegrador-main/Views/Usuario/Login.cshtml]
+[C:/Users/lucasmiranda/Desktop/pi/ProjetoIntegrador/Views/Usuario/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/lucasmiranda/Downloads/ProjetoIntegrador-main/ProjetoIntegrador-main/Views/Usuario/Redirecionando.cshtml]
+[C:/Users/lucasmiranda/Desktop/pi/ProjetoIntegrador/Views/Usuario/Redirecionando.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xSZWRpcmVjaW9uYW5kby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

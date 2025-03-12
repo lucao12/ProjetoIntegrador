@@ -1,27 +1,27 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\wwwroot\\App_Data\\teste.db",
+      "Id": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db",
       "PackagePath": "staticwebassets\\App_Data\\teste.db"
     },
     {
-      "Id": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\wwwroot\\App_Data\\teste.db-shm",
+      "Id": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-shm",
       "PackagePath": "staticwebassets\\App_Data\\teste.db-shm"
     },
     {
-      "Id": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\wwwroot\\App_Data\\teste.db-wal",
+      "Id": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-wal",
       "PackagePath": "staticwebassets\\App_Data\\teste.db-wal"
     },
     {
-      "Id": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\wwwroot\\NovaPasta\\loader.css",
+      "Id": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\wwwroot\\NovaPasta\\loader.css",
       "PackagePath": "staticwebassets\\NovaPasta\\loader.css"
     },
     {
-      "Id": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\wwwroot\\default.png",
+      "Id": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\wwwroot\\default.png",
       "PackagePath": "staticwebassets\\default.png"
     },
     {
-      "Id": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador-main\\ProjetoIntegrador-main\\wwwroot\\js\\script.js",
+      "Id": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\wwwroot\\js\\script.js",
       "PackagePath": "staticwebassets\\js\\script.js"
     },
     {

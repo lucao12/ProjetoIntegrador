@@ -5,6 +5,37 @@
     "version": "v1"
   },
   "paths": {
+    "/EnviarIngrediente": {
+      "post": {
+        "tags": [
+          "Ingredientes"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IngredientesViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IngredientesViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/IngredientesViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/EnviarMensagem": {
       "post": {
         "tags": [
@@ -577,6 +608,16 @@
             "format": "int32"
           },
           "mensagem": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IngredientesViewModel": {
+        "type": "object",
+        "properties": {
+          "ingrediente": {
             "type": "string",
             "nullable": true
           }
