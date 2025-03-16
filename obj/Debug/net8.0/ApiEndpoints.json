@@ -68,22 +68,6 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "ProjetoIntegrador.Controllers.IngredientesController",
-    "Method": "EnviarMensagem",
-    "RelativePath": "EnviarIngrediente",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "model",
-        "Type": "ProjetoIntegrador.ViewModel.IngredientesViewModel",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "ProjetoIntegrador.Controllers.MensagemController",
     "Method": "EnviarMensagem",
     "RelativePath": "EnviarMensagem",

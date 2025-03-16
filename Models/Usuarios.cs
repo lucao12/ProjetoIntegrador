@@ -13,6 +13,7 @@
         public string Role { get; set; }
         public string Telefone { get; set; }
         public string? Instagram { get; set; }
+        public ICollection<AlimentoUsuario> Alimento { get; set; }
         public string? Foto { get; set; }
         public string Hash { get; set; }
     }

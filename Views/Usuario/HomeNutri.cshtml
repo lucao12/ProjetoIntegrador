@@ -129,14 +129,14 @@
         }
 
         .dark-mode .modal-content {
-        background-color: #1e1e1e;
+            background-color: #1e1e1e;
             color: white;
         }
 
         .dark-mode .modal-header,
         .dark-mode .modal-body,
         .dark-mode .modal-footer {
-        background-color: #1e1e1e;
+            background-color: #1e1e1e;
         }
 
         .dark-mode .modal-header .btn-close {
@@ -171,6 +171,86 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
+
+        #ChatTextForm {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 10px;
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        .chat-message {
+            max-width: 70%;
+            padding: 10px;
+            border-radius: 8px;
+            position: relative;
+            word-wrap: break-word;
+        }
+
+        .chat-message.usuario {
+            align-self: flex-end;
+            background-color: #007bff;
+            color: white;
+        }
+
+        .chat-message.nutricionista {
+            align-self: flex-start;
+            background-color: #e9ecef;
+            color: black;
+        }
+
+        .chat-message strong {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+            color: inherit;
+        }
+
+        .chat-input {
+            display: flex;
+            gap: 10px;
+            padding: 10px;
+            background-color: #fff;
+            border-top: 1px solid #ccc;
+        }
+
+        .chat-input input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .chat-input input[type="text"]:focus {
+            border-color: #007bff;
+        }
+
+        .chat-input button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .chat-input button:hover {
+            background-color: #0056b3;
+        }
+
+        .chat-input button:active {
+            background-color: #004080;
+        }
     </style>
 </head>
 
@@ -186,13 +266,12 @@
 
         <div class="mb-4 text-center">
             <img id="profileImage" src="~/default.png" alt="Foto de perfil" class="rounded-circle" width="150"
-                 height="150">
+                height="150">
         </div>
 
         <!-- Botões no canto superior direito -->
         <div class="button-container">
-            <button class="btn btn-outline-dark" data-bs-toggle="modal"
-                    data-bs-target="#settingsModal">
+            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#settingsModal">
                 Configurações
             </button>
             <button class="btn btn-danger" id="btnLogout">
@@ -205,7 +284,7 @@
 
         <!-- Modal de Configurações -->
         <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel"
-             aria-hidden="true">
+            aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -237,14 +316,6 @@
                             <div class="mb-3">
                                 <label for="idade" class="form-label">Idade</label>
                                 <input type="number" class="form-control" id="idade" min="18" max="99" step="18">
-                            </div>
-                            <div class="mb-3">
-                                <label for="peso" class="form-label">Peso (Kg)</label>
-                                <input type="number" class="form-control" id="peso" min="0" step="1">
-                            </div>
-                            <div class="mb-3">
-                                <label for="altura" class="form-label">Altura (cm)</label>
-                                <input type="number" class="form-control" id="altura" min="0" step="1">
                             </div>
                             <div class="mb-3">
                                 <label for="profilePhoto" class="form-label">Foto</label>
@@ -487,14 +558,13 @@
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form id="ChatForm">
-                                                        <form>
-                                                            <div id="ChatTextForm">
-                                                            </div>
-                                                        </form>
+                                                    <div id="ChatContainer">
+                                                        <div id="ChatTextForm"></div>
+                                                        <div class="chat-input">
                                                             <input type="text" id="mensagem" name="mensagem" placeholder="Digite sua mensagem">
                                                             <button type="button" class="btn btn-primary" onclick="EnviarMensagens(${pedido.usuario.id})">Enviar</button>
-                                                        </form>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -518,7 +588,7 @@
                                     }
                                 });
                             });
-                            
+
                         } else {
                             $('#noPedidosAceitos').html('<p class="alert alert-info">Não há pedidos aceitos</p>');
                         }
@@ -528,7 +598,7 @@
                     }
                 });
             }
-            window.EnviarMensagens = function(idEnvio)  {
+            window.EnviarMensagens = function (idEnvio) {
                 const token = localStorage.getItem("token");
 
                 fetch(`/EnviarMensagem`, {
@@ -547,7 +617,6 @@
                         if (!response.ok) {
                             throw new Error("Erro ao enviar pedido.");
                         }
-                        alert("Mensagem enviada com sucesso!");
                         document.getElementById('mensagem').value = ""
                     })
                     .catch(error => {
@@ -556,7 +625,11 @@
                     });
             }
             async function fetchMensagens(nutricionistaId) {
+                console.log("fetchMensagens chamado com ID:", nutricionistaId);
+
                 const token = localStorage.getItem("token");
+                console.log("Token recuperado:", token);
+
                 fetch(`/PegarMensagem/${nutricionistaId}`, {
                     method: "GET",
                     headers: {
@@ -564,27 +637,60 @@
                         "Content-Type": "application/json"
                     }
                 })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`Erro ao buscar mensagens: ${response.statusText}`);
-                    }
-                    return response.json();
-                })
-                .then(mensagens => {
-                    // Atualizar a área de chat
-                    const chatBox = document.getElementById("ChatTextForm");
-                    chatBox.innerHTML = ""; // Limpa o chat antes de adicionar novas mensagens
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`Erro ao buscar mensagens: ${response.statusText}`);
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log("Dados recebidos do backend:", data);
 
-                    mensagens.forEach(msg => {
-                        const p = document.createElement("p");
-                        p.textContent = msg.nutricionista.role + " " + msg.nutricionista.nome + " - " + msg.mensage; // Supondo que a mensagem tenha um campo 'texto'
-                        chatBox.appendChild(p);
+                        const chatBox = document.getElementById("ChatTextForm");
+                        console.log("Elemento ChatTextForm:", chatBox);
+
+                        if (!chatBox) {
+                            console.error("Elemento ChatTextForm não encontrado!");
+                            return;
+                        }
+
+                        chatBox.innerHTML = ""; // Limpa o chat antes de adicionar novas mensagens
+
+                        // Combina as mensagens do usuário e do nutricionista em uma única lista
+                        const todasMensagens = [
+                            ...data.mensagensUsuario.map(msg => ({ ...msg, tipo: "usuario" })),
+                            ...data.mensagensNutricionista.map(msg => ({ ...msg, tipo: "nutricionista" }))
+                        ];
+
+                        // Ordena as mensagens pelo ID
+                        todasMensagens.sort((a, b) => a.id - b.id);
+
+                        console.log("Mensagens ordenadas:", todasMensagens);
+
+                        // Exibe as mensagens na ordem correta
+                        todasMensagens.forEach(msg => {
+                            console.log("Adicionando mensagem:", msg);
+                            const div = document.createElement("div");
+                            div.classList.add("chat-message", msg.tipo);
+
+                            if (msg.remetente === "Usuário") {
+                                div.innerHTML = `<strong>Você:</strong> ${msg.mensagem}`;
+                            } else {
+                                div.innerHTML = `<strong>Nutricionista:</strong> ${msg.mensagem}`;
+                            }
+
+                            chatBox.appendChild(div);
+                        });
+
+                        // Rola automaticamente para a última mensagem
+                        chatBox.scrollTop = chatBox.scrollHeight;
+                    })
+                    .catch(error => {
+                        console.error("Erro ao buscar mensagens:", error);
                     });
-                })
-                .catch(error => {
-                    console.error("Erro ao buscar mensagens:", error);
-                });
             }
+
+
             function aceitarRejeitarPedido(pedidoId, aceito) {
                 console.log(token);
                 $.ajax({
@@ -634,110 +740,96 @@
 
         function saveChanges() {
             const token = localStorage.getItem("token");
-            if (document.getElementById("idade").value < 99 && document.getElementById("idade").value > 18) {
+            if (document.getElementById("idade").value < 99 && document.getElementById("idade").value >= 18) {
                 console.log(document.getElementById("sex").value)
                 if (document.getElementById("sex").value == "masculino" || document.getElementById("sex").value == "feminino") {
-                    if (document.getElementById("peso").value > 0) {
-                        if (document.getElementById("altura").value > 0) {
-                            console.log(token)
+                    console.log(token)
 
-                            ColocaCarregando();
+                    ColocaCarregando();
 
-                            const userData = {
-                                Nome: document.getElementById("name").value,
-                                Telefone: document.getElementById("phone").value,
-                                Email: document.getElementById("email").value,
-                                Sexo: document.getElementById("sex").value,
-                                Idade: document.getElementById("idade").value,
-                                Peso: document.getElementById("peso").value,
-                                Altura: document.getElementById("altura").value,
-                                SenhaAntiga: document.getElementById("oldPassword").value,
-                                NovaSenha: document.getElementById("newPassword").value.trim() === "" ? null : document.getElementById("newPassword").value
-                            };
+                    const userData = {
+                        Nome: document.getElementById("name").value,
+                        Telefone: document.getElementById("phone").value,
+                        Email: document.getElementById("email").value,
+                        Sexo: document.getElementById("sex").value,
+                        Idade: document.getElementById("idade").value,
+                        SenhaAntiga: document.getElementById("oldPassword").value,
+                        NovaSenha: document.getElementById("newPassword").value.trim() === "" ? null : document.getElementById("newPassword").value
+                    };
 
-                            console.log(userData)
+                    console.log(userData)
 
-                            fetch("/update/user/yourself", {
-                                method: "PUT",
-                                headers: {
-                                    "Authorization": `Bearer ${token}`,
-                                    "Content-Type": "application/json"
-                                },
-                                body: JSON.stringify(userData)
-                            })
-                                .then(async response => {
-                                    const json = await response.json();
+                    fetch("/update/user/yourself", {
+                        method: "PUT",
+                        headers: {
+                            "Authorization": `Bearer ${token}`,
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(userData)
+                    })
+                        .then(async response => {
+                            const json = await response.json();
 
-                                    if (!response.ok) {
-                                        let errorMessage = "Erro ao salvar";
-                                        TiraCarregando();
+                            if (!response.ok) {
+                                let errorMessage = "Erro ao salvar";
+                                TiraCarregando();
 
-                                        if (json.error) {
-                                            errorMessage = json.error;
-                                        } else if (json.errors) {
-                                            const firstErrorKey = Object.keys(json.errors)[0];
-                                            if (json.errors[firstErrorKey] && json.errors[firstErrorKey].length > 0) {
-                                                errorMessage = json.errors[firstErrorKey][0];
-                                            }
-                                        }
-
-                                        throw new Error(errorMessage);
+                                if (json.error) {
+                                    errorMessage = json.error;
+                                } else if (json.errors) {
+                                    const firstErrorKey = Object.keys(json.errors)[0];
+                                    if (json.errors[firstErrorKey] && json.errors[firstErrorKey].length > 0) {
+                                        errorMessage = json.errors[firstErrorKey][0];
                                     }
+                                }
+
+                                throw new Error(errorMessage);
+                            }
 
 
-                                    const fileInput = document.getElementById("profilePhoto");
+                            const fileInput = document.getElementById("profilePhoto");
 
-                                    const formData = new FormData();
-                                            if (fileInput.files.length > 0) {
-                                                formData.append("Foto", fileInput.files[0]); // Adiciona a foto ao FormData
-                                            }
+                            const formData = new FormData();
+                            if (fileInput.files.length > 0) {
+                                formData.append("Foto", fileInput.files[0]); // Adiciona a foto ao FormData
+                            }
 
-                                    try {
-                                             // Verifica se há dados para enviar
-                                            if (formData.has("Foto")) {
-                                                const response = await fetch("/update/user/photo", {
-                                                    method: "PUT",
-                                                    headers: {
-                                                        "Authorization": `Bearer ${token}`
-                                                    },
-                                                    body: formData
-                                                });
+                            try {
+                                // Verifica se há dados para enviar
+                                if (formData.has("Foto")) {
+                                    const response = await fetch("/update/user/photo", {
+                                        method: "PUT",
+                                        headers: {
+                                            "Authorization": `Bearer ${token}`
+                                        },
+                                        body: formData
+                                    });
 
-                                                const result = await response.json();
+                                    const result = await response.json();
 
-                                                if (response.ok) {
-                                                    TiraCarregando();
-                                                    alert("Alterações salvas com sucesso! \nFaça Login novamente");
-                                                    logout(); // Recarrega as informações no modal
-                                                } else {
-                                                    TiraCarregando();
-                                                    alert(result.error || "Erro ao atualizar a foto.");
-                                                }
-                                            } else {
-                                                TiraCarregando();
-                                                    alert("Alterações salvas com sucesso! \nFaça Login novamente");
-                                                    logout(); // Recarrega as informações no modal
-                                            }
-                                    } catch (error) {
+                                    if (response.ok) {
                                         TiraCarregando();
-                                        console.error("Erro ao enviar a foto:", error);
+                                        alert("Alterações salvas com sucesso! \nFaça Login novamente");
+                                        logout(); // Recarrega as informações no modal
+                                    } else {
+                                        TiraCarregando();
+                                        alert(result.error || "Erro ao atualizar a foto.");
                                     }
-                                })
-                                .catch(error => {
+                                } else {
                                     TiraCarregando();
-                                    console.error("Erro ao salvar alterações:", error);
-                                    alert("Erro ao salvar alterações.");
-                                });
-                        } else {
+                                    alert("Alterações salvas com sucesso! \nFaça Login novamente");
+                                    logout(); // Recarrega as informações no modal
+                                }
+                            } catch (error) {
+                                TiraCarregando();
+                                console.error("Erro ao enviar a foto:", error);
+                            }
+                        })
+                        .catch(error => {
                             TiraCarregando();
-                            console.error("Digite uma altura");
-                            alert("Digite uma altura");
-                        }
-                    } else {
-                        TiraCarregando();
-                        console.error("Digite um peso");
-                        alert("Digite um peso");
-                    }
+                            console.error("Erro ao salvar alterações:", error);
+                            alert("Erro ao salvar alterações.");
+                        });
                 } else {
                     TiraCarregando();
                     console.error("Escolha um sexo");
@@ -817,8 +909,6 @@
                         document.getElementById("email").value = user.email;
                         document.getElementById("phone").value = user.telefone || '';
                         document.getElementById("sex").value = user.sexo || '';
-                        document.getElementById("peso").value = user.peso || '';
-                        document.getElementById("altura").value = user.altura || '';
                         document.getElementById("idade").value = user.idade || '';
 
                         if (user.foto) {

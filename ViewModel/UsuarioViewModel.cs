@@ -52,6 +52,7 @@ namespace ProjetoIntegrador.ViewModel
         [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\p{P}\p{S}])[A-Za-z\d\p{P}\p{S}]{8,}$", ErrorMessage = "A senha deve conter no mínimo 8 caracteres, com pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial")]
         public string? NovaSenha { get; set; }
         public string? Telefone { get; set; }
+        public List<int>? AlimentosAlergicosIds { get; set; } // Lista dos IDs dos alimentos alérgicos
     }
     public class NutriSocailUpdateViewModel
     {

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\ProjetoIntegrador.csproj": {}
+    "C:\\Users\\fonses\\Desktop\\ProjetoIntegrador\\ProjetoIntegrador.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\ProjetoIntegrador.csproj": {
+    "C:\\Users\\fonses\\Desktop\\ProjetoIntegrador\\ProjetoIntegrador.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\ProjetoIntegrador.csproj",
+        "projectUniqueName": "C:\\Users\\fonses\\Desktop\\ProjetoIntegrador\\ProjetoIntegrador.csproj",
         "projectName": "ProjetoIntegrador",
-        "projectPath": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\ProjetoIntegrador.csproj",
-        "packagesPath": "C:\\Users\\lucasmiranda\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lucasmiranda\\Desktop\\pi\\ProjetoIntegrador\\obj\\",
+        "projectPath": "C:\\Users\\fonses\\Desktop\\ProjetoIntegrador\\ProjetoIntegrador.csproj",
+        "packagesPath": "C:\\Users\\fonses\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\fonses\\Desktop\\ProjetoIntegrador\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "F:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\lucasmiranda\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\fonses\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -51,6 +50,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Google_GenerativeAI": {
+              "target": "Package",
+              "version": "[2.3.0, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[8.0.0, )"
@@ -90,6 +93,10 @@
             "Swashbuckle.AspNetCore.Annotations": {
               "target": "Package",
               "version": "[7.2.0, )"
+            },
+            "System.Text.Json": {
+              "target": "Package",
+              "version": "[9.0.3, )"
             }
           },
           "imports": [

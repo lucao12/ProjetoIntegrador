@@ -30,6 +30,12 @@ namespace ProjetoIntegrador.Controllers
             return View("~/Views/Usuario/HomeUsuario.cshtml");
         }
         [HttpGet]
+        [Route("virtual-select.min.js")]
+        public IActionResult VirtualSelect()
+        {
+            return View("~/Views/Usuario/virtual-select.min.js");
+        }
+        [HttpGet]
         [Route("HomeAdmin")]
         public IActionResult HomeAdmin()
         {

@@ -12,6 +12,7 @@ class Program
 {
     public static void Main(string[] args)
     {
+
         var builder = WebApplication.CreateBuilder(args);
 
         var key = Encoding.UTF8.GetBytes(Settings.Secret);
