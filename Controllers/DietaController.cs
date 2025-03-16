@@ -143,7 +143,61 @@ namespace ProjetoIntegrador.Controllers
             {
                 return StatusCode(500, new { error = "Erro interno do servidor!" });
             }
-        }         
+        }
+
+
+        [Authorize]
+        [HttpGet]
+        [Route("/receberDieta")]
+        public async Task<IActionResult> GetDieta()
+        {
+            try
+            {
+                var userId = User.FindFirstValue(ClaimTypes.Email);
+
+
+
+                var usuario = await _context.Usuarios
+                    .FirstOrDefaultAsync(u => u.Email == userId);
+
+                if(usuario == null)
+                {
+                    return BadRequest(new
+                    {
+                        erro = "Usuário não encontrado."
+                    });
+                }
+
+
+                var dieta = await _context.Dieta
+                    .Include(x => x.Usuario)
+                    .Include(x => x.Nutricionista)
+                    .Include(x => x.Cafe)
+                        .ThenInclude(x => x.Alimentos) // Carregar alimentos de cafe
+                    .Include(x => x.Almoco)
+                        .ThenInclude(x => x.Alimentos) // Carregar alimentos de almoco
+                    .Include(x => x.CafeDT)
+                        .ThenInclude(x => x.Alimentos) // Carregar alimentos de cafeDT
+                    .Include(x => x.Janta)
+                        .ThenInclude(x => x.Alimentos) // Carregar alimentos de janta
+                    .FirstOrDefaultAsync(x => x.Usuario.Id == usuario.Id);
+
+
+                if (dieta == null)
+                {
+                    return BadRequest(new
+                    {
+                        erro = "Dieta não encontrada."
+                    });
+                }
+
+                return Ok(dieta);
+            }
+            catch
+            {
+                return StatusCode(500, new { error = "Erro interno do servidor!" });
+            }
+        }
 
     }
 }

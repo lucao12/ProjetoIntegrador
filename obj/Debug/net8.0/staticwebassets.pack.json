@@ -1,27 +1,35 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\lucca\\Downloads\\Nova pasta (2)\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db",
+      "Id": "D:\\ProjetoIntegrador-16\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db",
       "PackagePath": "staticwebassets\\App_Data\\teste.db"
     },
     {
-      "Id": "C:\\Users\\lucca\\Downloads\\Nova pasta (2)\\ProjetoIntegrador\\wwwroot\\NovaPasta\\loader.css",
+      "Id": "D:\\ProjetoIntegrador-16\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-shm",
+      "PackagePath": "staticwebassets\\App_Data\\teste.db-shm"
+    },
+    {
+      "Id": "D:\\ProjetoIntegrador-16\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-wal",
+      "PackagePath": "staticwebassets\\App_Data\\teste.db-wal"
+    },
+    {
+      "Id": "D:\\ProjetoIntegrador-16\\ProjetoIntegrador\\wwwroot\\NovaPasta\\loader.css",
       "PackagePath": "staticwebassets\\NovaPasta\\loader.css"
     },
     {
-      "Id": "C:\\Users\\lucca\\Downloads\\Nova pasta (2)\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.css",
+      "Id": "D:\\ProjetoIntegrador-16\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.css",
       "PackagePath": "staticwebassets\\css\\virtual-select.min.css"
     },
     {
-      "Id": "C:\\Users\\lucca\\Downloads\\Nova pasta (2)\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.js",
+      "Id": "D:\\ProjetoIntegrador-16\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.js",
       "PackagePath": "staticwebassets\\css\\virtual-select.min.js"
     },
     {
-      "Id": "C:\\Users\\lucca\\Downloads\\Nova pasta (2)\\ProjetoIntegrador\\wwwroot\\default.png",
+      "Id": "D:\\ProjetoIntegrador-16\\ProjetoIntegrador\\wwwroot\\default.png",
       "PackagePath": "staticwebassets\\default.png"
     },
     {
-      "Id": "C:\\Users\\lucca\\Downloads\\Nova pasta (2)\\ProjetoIntegrador\\wwwroot\\js\\script.js",
+      "Id": "D:\\ProjetoIntegrador-16\\ProjetoIntegrador\\wwwroot\\js\\script.js",
       "PackagePath": "staticwebassets\\js\\script.js"
     },
     {

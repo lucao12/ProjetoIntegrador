@@ -44,6 +44,44 @@ namespace ProjetoIntegrador.Controllers
                 return StatusCode(500, new { error = "Erro interno do servidor!" });
             }
         }
+
+        [Authorize]
+        [HttpPost]
+        [Route("/SalvarIngrediente")]
+        public async Task<IActionResult> SalvarIngredienteAsync(
+            [FromBody] AddIngredientesViewModel model)
+        {
+            try
+            {
+                var alimentoExiste = await _context.Alimentos.FirstOrDefaultAsync(x => x.Nome.ToLower() == model.nome);
+                if(alimentoExiste != null)
+                {
+                    return BadRequest(new
+                    {
+                        erro = "Alimento já cadastrado!"
+                    });
+                }
+                var newIngrediente = new Alimento
+                {
+                    Nome = model.nome,
+                    Calorias = model.calorias,
+                    Carboidratos = model.carboidratos,
+                    Gorduras = model.gorduras,
+                    Proteinas = model.proteinas,
+                    VitaminasEMinerais = model.vitaminaseminerais
+                };
+
+                await _context.Alimentos.AddAsync(newIngrediente);
+                await _context.SaveChangesAsync();
+
+                return Ok();
+            }
+            catch
+            {
+                return StatusCode(500, new { error = "Erro interno do servidor!" });
+            }
+        }
+
         static async Task<string> SendRequestToGemini(string prompt)
         {
             using (HttpClient client = new HttpClient())

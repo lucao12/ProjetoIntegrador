@@ -17,6 +17,29 @@
         }
       }
     },
+    "/alimentos/getAlimentosid/{alimentoId}": {
+      "get": {
+        "tags": [
+          "Alimentos"
+        ],
+        "parameters": [
+          {
+            "name": "alimentoId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/alimentos/salvarAlimentos": {
       "post": {
         "tags": [
@@ -71,6 +94,49 @@
         }
       }
     },
+    "/enviardieta": {
+      "post": {
+        "tags": [
+          "Dieta"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DietaViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DietaViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DietaViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/receberDieta": {
+      "get": {
+        "tags": [
+          "Dieta"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/EnviarIngrediente": {
       "post": {
         "tags": [
@@ -91,6 +157,37 @@
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/IngredientesViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/SalvarIngrediente": {
+      "post": {
+        "tags": [
+          "Ingredientes"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddIngredientesViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddIngredientesViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddIngredientesViewModel"
               }
             }
           }
@@ -678,6 +775,36 @@
   },
   "components": {
     "schemas": {
+      "AddIngredientesViewModel": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string",
+            "nullable": true
+          },
+          "calorias": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "carboidratos": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "proteinas": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "gorduras": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "vitaminaseminerais": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "AlimentoUsuarioViewModel": {
         "type": "object",
         "properties": {
@@ -690,6 +817,44 @@
             "items": {
               "type": "integer",
               "format": "int32"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DietaViewModel": {
+        "type": "object",
+        "properties": {
+          "idUsuario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cafe": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Int32Int32KeyValuePair"
+            },
+            "nullable": true
+          },
+          "almoco": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Int32Int32KeyValuePair"
+            },
+            "nullable": true
+          },
+          "cafeDT": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Int32Int32KeyValuePair"
+            },
+            "nullable": true
+          },
+          "janta": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Int32Int32KeyValuePair"
             },
             "nullable": true
           }
@@ -716,6 +881,20 @@
           "ingrediente": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Int32Int32KeyValuePair": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "value": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false

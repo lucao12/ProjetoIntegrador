@@ -11,6 +11,22 @@
   },
   {
     "ContainingType": "ProjetoIntegrador.Controllers.AlimentosController",
+    "Method": "GetAlimentosbyId",
+    "RelativePath": "alimentos/getAlimentosid/{alimentoId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "alimentoId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.AlimentosController",
     "Method": "GetAlimentosUsuario",
     "RelativePath": "alimentos/getAlimentosUsuario/{usuarioId}",
     "HttpMethod": "GET",
@@ -107,6 +123,22 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.DietaController",
+    "Method": "EnviarDieta",
+    "RelativePath": "enviardieta",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ProjetoIntegrador.ViewModel.DietaViewModel",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -230,6 +262,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "ProjetoIntegrador.Controllers.DietaController",
+    "Method": "GetDieta",
+    "RelativePath": "receberDieta",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "ProjetoIntegrador.Controllers.UsuarioControllerView",
     "Method": "Home",
     "RelativePath": "Redirecionando",
@@ -247,6 +289,22 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.IngredientesController",
+    "Method": "SalvarIngredienteAsync",
+    "RelativePath": "SalvarIngrediente",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ProjetoIntegrador.ViewModel.AddIngredientesViewModel",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {

@@ -85,13 +85,12 @@ class Program
             app.UseSwagger();
             app.UseSwaggerUI();
         }
-
+        app.UseCors("AllowAllOrigins");
         app.UseHttpsRedirection();
         app.UseAuthentication();
         app.UseAuthorization();
         app.MapControllers();
         app.UseStaticFiles();
-        app.UseCors("AllowAllOrigins");
         app.Run();
     }
 

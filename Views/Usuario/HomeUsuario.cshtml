@@ -439,32 +439,33 @@
                     data-silent-initial-value-set="true">
                     </div>
                     <button class="btn btn-outline-dark" onclick="salvarAlimentosAlergicos()">Salvar</button>
-                    <button class="btn btn-outline-dark" data-bs-toggle="modal"
-                data-bs-target="#modalAddAlimentos">Adicionar Alimento Alergicos</button>
+                @*     <button class="btn btn-outline-dark" data-bs-toggle="modal" *@
+                @* data-bs-target="#modalAddAlimentos">Adicionar Alimento Alergicos</button> *@
                 </div>
             </div>
             </div>
         </div>
-        <div class="modal fade" id="modalAddAlimentos" tabindex="-1"
-            aria-labelledby="addAlimentosModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="addAlimentosModalLabel">Adicionar Novo Alimento</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <input type="text" id="inputAlimento" class="form-control" placeholder="Digite o nome do alimento" />
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" onclick="salvarAlimentos()">Salvar</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    </div>
-                        <div id="dadosRecebidos" class="modal-body mt-3" style="display: none;">
-                    </div>
-                </div>
-            </div>
-        </div>
+
+        @* <div class="modal fade" id="modalAddAlimentos" tabindex="-1" *@
+        @*     aria-labelledby="addAlimentosModalLabel" aria-hidden="true"> *@
+        @*     <div class="modal-dialog"> *@
+        @*         <div class="modal-content"> *@
+        @*             <div class="modal-header"> *@
+        @*                 <h5 class="modal-title" id="addAlimentosModalLabel">Adicionar Novo Alimento</h5> *@
+        @*                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> *@
+        @*             </div> *@
+        @*             <div class="modal-body"> *@
+        @*                 <input type="text" id="inputAlimento" class="form-control" placeholder="Digite o nome do alimento" /> *@
+        @*             </div> *@
+        @*             <div class="modal-footer"> *@
+        @*                 <button type="button" class="btn btn-primary" onclick="salvarAlimentos()">Salvar</button> *@
+        @*                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button> *@
+        @*             </div> *@
+        @*                 <div id="dadosRecebidos" class="modal-body mt-3" style="display: none;"> *@
+        @*             </div> *@
+        @*         </div> *@
+        @*     </div> *@
+        @* </div> *@
 
         <div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModalLabel"
             aria-hidden="true">
@@ -488,6 +489,25 @@
             </div>
         </div>
 
+    <div class="modal fade" id="modalDieta" tabindex="-1" aria-labelledby="modalDietaLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalDietaLabel">Sua Dieta</h5>
+                </div>
+                <div class="modal-body">
+                    <form id="modalDietaForm">
+                        <div id="modalDietaBody" class="mb-3">
+                            
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
         <div id="IMC"></div>
 
         <div class="container d-flex justify-content-center align-items-center">
@@ -503,6 +523,7 @@
         function TiraCarregando() {
             document.getElementById("loader-container").style.display = "none";
         }
+
 
         function cardNutricionista(nutricionista) {
             
@@ -521,6 +542,11 @@
                     <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#ChatModal">
                         Chat com o ${nutricionista.nome}
                     </button>
+
+                     <button  id="abrirDieta" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#modalDieta">
+                        Abrir Dieta
+                    </button>
+
 
                     <!-- Modal do Chat -->
                     <div class="modal fade" id="ChatModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
@@ -555,6 +581,61 @@
                 cronJob = setInterval(() => fetchMensagens(nutricionistaId), 1000);
                 fetchMensagens(nutricionistaId);
             });
+
+            document.getElementById('abrirDieta').addEventListener('click', function () {
+            const token = localStorage.getItem('token'); 
+
+            if (!token) {
+                alert('Token não encontrado!');
+                return;
+            }
+
+            fetch('/receberDieta', {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro na requisição');
+                }
+                return response.json(); 
+            })
+            .then(data => {
+
+                console.log(data);
+
+                //Colocar a dieta aqui
+                function formatarArray(array) {
+                    return array.map(item => {
+                        const alimentos = item.alimentos.nome ? item.alimentos.nome : "sem alimentos especificados";
+                        return `${item.quantidade} porção(ões) de ${alimentos}`;
+                    }).join(", ");
+                }
+
+                // Povoando os dados na modal
+                const modalBody = document.getElementById('modalDietaBody');
+
+                const cafe = formatarArray(data.cafe);
+                const almoco = formatarArray(data.almoco);
+                const cafeDT = formatarArray(data.cafeDT);
+                const janta = formatarArray(data.janta);
+
+                modalBody.innerHTML = `
+                    <p><strong>Café da manhã:</strong> ${cafe}</p>
+                    <p><strong>Almoço:</strong> ${almoco}</p>
+                    <p><strong>Café da tarde:</strong> ${cafeDT}</p>
+                    <p><strong>Janta:</strong> ${janta}</p>
+                `;
+
+            })
+            .catch(error => {
+                console.error('Erro ao buscar a dieta:', error);
+                alert('Você ainda não possui uma dieta');
+            });
+        });
 
             document.getElementById("ChatModal").addEventListener("hidden.bs.modal", function () {
                 if (cronJob) {
@@ -1114,7 +1195,7 @@
 
             console.log("Dados a serem enviados:", dados);
 
-            fetch("http://localhost:5037/alimentos/salvarAlimentos", {
+            fetch("https://localhost:7268/alimentos/salvarAlimentos", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -1155,7 +1236,7 @@
             }
 
             // Primeiro, buscar todos os alimentos disponíveis
-            fetch("http://localhost:5037/alimentos/getAlimentos", {
+            fetch("https://localhost:7268/alimentos/getAlimentos", {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -1173,7 +1254,7 @@
 
                 // Buscar os alimentos já selecionados pelo usuário
                 // Buscar os alimentos já selecionados pelo usuário
-                fetch(`http://localhost:5037/alimentos/getAlimentosUsuario/${usuarioId}`, {
+                fetch(`https://localhost:7268/alimentos/getAlimentosUsuario/${usuarioId}`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",

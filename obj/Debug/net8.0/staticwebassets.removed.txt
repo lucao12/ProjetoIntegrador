@@ -1,0 +1,2 @@
+D:\ProjetoIntegrador-16\ProjetoIntegrador\wwwroot\App_Data\teste.db-shm
+D:\ProjetoIntegrador-16\ProjetoIntegrador\wwwroot\App_Data\teste.db-wal

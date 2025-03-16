@@ -3,7 +3,52 @@
   "ManifestType": "Build",
   "Endpoints": [
     {
-      "Route": "App_Data/teste.cg3ytvqa9p.db",
+      "Route": "App_Data/teste.5ipweew5fc.db-wal",
+      "AssetFile": "App_Data/teste.db-wal",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "0"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 16 Mar 2025 22:43:31 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "5ipweew5fc"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
+        },
+        {
+          "Name": "label",
+          "Value": "App_Data/teste.db-wal"
+        }
+      ]
+    },
+    {
+      "Route": "App_Data/teste.a47wt8t5u1.db",
       "AssetFile": "App_Data/teste.db",
       "Selectors": [],
       "ResponseHeaders": [
@@ -25,21 +70,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"/H7cRsvn1IBMj69DR0/7/X6cwgRHNiR4Y2Sx6O104Zs=\""
+          "Value": "\"CllBa+fQBfsrR/zqkD2gZ/gnK5KAqxsVoYypLZBtnYw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 19:34:25 GMT"
+          "Value": "Sun, 16 Mar 2025 22:31:08 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "cg3ytvqa9p"
+          "Value": "a47wt8t5u1"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-/H7cRsvn1IBMj69DR0/7/X6cwgRHNiR4Y2Sx6O104Zs="
+          "Value": "sha256-CllBa+fQBfsrR/zqkD2gZ/gnK5KAqxsVoYypLZBtnYw="
         },
         {
           "Name": "label",
@@ -70,17 +115,136 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"/H7cRsvn1IBMj69DR0/7/X6cwgRHNiR4Y2Sx6O104Zs=\""
+          "Value": "\"CllBa+fQBfsrR/zqkD2gZ/gnK5KAqxsVoYypLZBtnYw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 19:34:25 GMT"
+          "Value": "Sun, 16 Mar 2025 22:31:08 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-/H7cRsvn1IBMj69DR0/7/X6cwgRHNiR4Y2Sx6O104Zs="
+          "Value": "sha256-CllBa+fQBfsrR/zqkD2gZ/gnK5KAqxsVoYypLZBtnYw="
+        }
+      ]
+    },
+    {
+      "Route": "App_Data/teste.db-shm",
+      "AssetFile": "App_Data/teste.db-shm",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "32768"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/Uyf2pzT+a58lisN3zcjIpTVVYDhqhZaoGEpuFSTies=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 16 Mar 2025 23:03:01 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-/Uyf2pzT+a58lisN3zcjIpTVVYDhqhZaoGEpuFSTies="
+        }
+      ]
+    },
+    {
+      "Route": "App_Data/teste.db-wal",
+      "AssetFile": "App_Data/teste.db-wal",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "0"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 16 Mar 2025 22:43:31 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
+        }
+      ]
+    },
+    {
+      "Route": "App_Data/teste.xbxd3clmbu.db-shm",
+      "AssetFile": "App_Data/teste.db-shm",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "32768"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/Uyf2pzT+a58lisN3zcjIpTVVYDhqhZaoGEpuFSTies=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 16 Mar 2025 23:03:01 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "xbxd3clmbu"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-/Uyf2pzT+a58lisN3zcjIpTVVYDhqhZaoGEpuFSTies="
+        },
+        {
+          "Name": "label",
+          "Value": "App_Data/teste.db-shm"
         }
       ]
     },
@@ -111,7 +275,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 15:03:03 GMT"
+          "Value": "Sun, 16 Mar 2025 20:19:44 GMT"
         }
       ],
       "EndpointProperties": [
@@ -156,7 +320,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 15:03:03 GMT"
+          "Value": "Sun, 16 Mar 2025 20:19:44 GMT"
         }
       ],
       "EndpointProperties": [
@@ -193,7 +357,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 15:03:03 GMT"
+          "Value": "Sun, 16 Mar 2025 20:19:44 GMT"
         }
       ],
       "EndpointProperties": [
@@ -238,7 +402,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 15:03:03 GMT"
+          "Value": "Sun, 16 Mar 2025 20:19:44 GMT"
         }
       ],
       "EndpointProperties": [
@@ -275,7 +439,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 15:03:03 GMT"
+          "Value": "Sun, 16 Mar 2025 20:19:44 GMT"
         }
       ],
       "EndpointProperties": [
@@ -320,7 +484,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 15:03:03 GMT"
+          "Value": "Sun, 16 Mar 2025 20:19:44 GMT"
         }
       ],
       "EndpointProperties": [
@@ -357,7 +521,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 15:03:03 GMT"
+          "Value": "Sun, 16 Mar 2025 20:19:44 GMT"
         }
       ],
       "EndpointProperties": [
@@ -402,7 +566,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 15:03:03 GMT"
+          "Value": "Sun, 16 Mar 2025 20:19:44 GMT"
         }
       ],
       "EndpointProperties": [
@@ -439,7 +603,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 15:03:03 GMT"
+          "Value": "Sun, 16 Mar 2025 20:19:44 GMT"
         }
       ],
       "EndpointProperties": [
@@ -484,7 +648,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 15:03:03 GMT"
+          "Value": "Sun, 16 Mar 2025 20:19:44 GMT"
         }
       ],
       "EndpointProperties": [
