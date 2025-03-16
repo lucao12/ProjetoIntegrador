@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\lucca\\Downloads\\Nova pasta (2)\\ProjetoIntegrador\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucca\\downloads\\nova pasta (2)\\projetointegrador\\views\\usuario\\homenutri.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:views\\usuario\\homenutri.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucca\\downloads\\nova pasta (2)\\projetointegrador\\views\\usuario\\homeusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:views\\usuario\\homeusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -21,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucca\\downloads\\nova pasta (2)\\projetointegrador\\controllers\\mensagemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:controllers\\mensagemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucca\\downloads\\nova pasta (2)\\projetointegrador\\views\\usuario\\homenutri.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:views\\usuario\\homenutri.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucca\\downloads\\nova pasta (2)\\projetointegrador\\views\\usuario\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -62,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
@@ -74,8 +74,7 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T15:17:25.093Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-11T15:17:25.093Z"
             },
             {
               "$type": "Document",
@@ -87,8 +86,7 @@
               "RelativeToolTip": "Controllers\\UsuarioController.cs",
               "ViewState": "AgIAAEACAAAAAAAAAAAAAEgCAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T15:17:45.484Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-11T15:17:45.484Z"
             },
             {
               "$type": "Document",
@@ -100,8 +98,7 @@
               "RelativeToolTip": "Controllers\\PedidosController.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T15:17:42.216Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-11T15:17:42.216Z"
             },
             {
               "$type": "Document",
@@ -113,38 +110,37 @@
               "RelativeToolTip": "Views\\Usuario\\Login.cshtml",
               "ViewState": "AgIAACMBAAAAAAAAAAAmwCsBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-11T15:17:34.059Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-11T15:17:34.059Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "HomeUsuario.cshtml",
               "DocumentMoniker": "C:\\Users\\lucca\\Downloads\\Nova pasta (2)\\ProjetoIntegrador\\Views\\Usuario\\HomeUsuario.cshtml",
               "RelativeDocumentMoniker": "Views\\Usuario\\HomeUsuario.cshtml",
               "ToolTip": "C:\\Users\\lucca\\Downloads\\Nova pasta (2)\\ProjetoIntegrador\\Views\\Usuario\\HomeUsuario.cshtml",
               "RelativeToolTip": "Views\\Usuario\\HomeUsuario.cshtml",
-              "ViewState": "AgIAAE4CAAAAAAAAAAAAAGUCAABMAAAAAAAAAA==",
+              "ViewState": "AgIAADACAAAAAAAAAAAAAIECAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-11T15:20:00.811Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "HomeNutri.cshtml",
               "DocumentMoniker": "C:\\Users\\lucca\\Downloads\\Nova pasta (2)\\ProjetoIntegrador\\Views\\Usuario\\HomeNutri.cshtml",
               "RelativeDocumentMoniker": "Views\\Usuario\\HomeNutri.cshtml",
               "ToolTip": "C:\\Users\\lucca\\Downloads\\Nova pasta (2)\\ProjetoIntegrador\\Views\\Usuario\\HomeNutri.cshtml",
               "RelativeToolTip": "Views\\Usuario\\HomeNutri.cshtml",
-              "ViewState": "AgIAALoAAAAAAAAAAAAswNIAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAGkCAAAAAAAAAAAqwL0CAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-11T15:17:36.825Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "MensagemController.cs",
               "DocumentMoniker": "C:\\Users\\lucca\\Downloads\\Nova pasta (2)\\ProjetoIntegrador\\Controllers\\MensagemController.cs",
               "RelativeDocumentMoniker": "Controllers\\MensagemController.cs",
@@ -152,12 +148,11 @@
               "RelativeToolTip": "Controllers\\MensagemController.cs",
               "ViewState": "AgIAAEIAAAAAAAAAAAAowGgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T15:17:47.316Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-11T15:17:47.316Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "HomeAdmin.cshtml",
               "DocumentMoniker": "C:\\Users\\lucca\\Downloads\\Nova pasta (2)\\ProjetoIntegrador\\Views\\Usuario\\HomeAdmin.cshtml",
               "RelativeDocumentMoniker": "Views\\Usuario\\HomeAdmin.cshtml",
@@ -165,12 +160,11 @@
               "RelativeToolTip": "Views\\Usuario\\HomeAdmin.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-11T15:17:33.387Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-11T15:17:33.387Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Cadastro.cshtml",
               "DocumentMoniker": "C:\\Users\\lucca\\Downloads\\Nova pasta (2)\\ProjetoIntegrador\\Views\\Usuario\\Cadastro.cshtml",
               "RelativeDocumentMoniker": "Views\\Usuario\\Cadastro.cshtml",
@@ -178,12 +172,11 @@
               "RelativeToolTip": "Views\\Usuario\\Cadastro.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-11T15:17:32.793Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-11T15:17:32.793Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Usuarios.cs",
               "DocumentMoniker": "C:\\Users\\lucca\\Downloads\\Nova pasta (2)\\ProjetoIntegrador\\Models\\Usuarios.cs",
               "RelativeDocumentMoniker": "Models\\Usuarios.cs",
@@ -191,8 +184,7 @@
               "RelativeToolTip": "Models\\Usuarios.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T15:17:27.95Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-11T15:17:27.95Z"
             },
             {
               "$type": "Document",

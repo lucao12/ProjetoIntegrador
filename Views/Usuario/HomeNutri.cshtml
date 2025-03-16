@@ -653,8 +653,14 @@
                             console.error("Elemento ChatTextForm não encontrado!");
                             return;
                         }
+                        const lastStrong = chatBox.querySelectorAll("strong[data-id]");
+                        const lastId = lastStrong.length > 0 ? lastStrong[lastStrong.length - 1].getAttribute("data-id") : null;
 
-                        chatBox.innerHTML = ""; // Limpa o chat antes de adicionar novas mensagens
+                        if (lastId !== null) {
+                            console.log("Último data-id:", lastId);
+                        } else {
+                            console.log("Nenhuma mensagem encontrada.");
+                        }
 
                         // Combina as mensagens do usuário e do nutricionista em uma única lista
                         const todasMensagens = [
@@ -667,23 +673,28 @@
 
                         console.log("Mensagens ordenadas:", todasMensagens);
 
-                        // Exibe as mensagens na ordem correta
-                        todasMensagens.forEach(msg => {
-                            console.log("Adicionando mensagem:", msg);
-                            const div = document.createElement("div");
-                            div.classList.add("chat-message", msg.tipo);
+                        const maiorId = todasMensagens.at(-1)?.id ?? null;
+                        console.log(maiorId)
+                        if (maiorId != lastId) {
+                            chatBox.innerHTML = ""; // Limpa o chat apenas se houver uma nova mensagem
 
-                            if (msg.remetente === "Usuário") {
-                                div.innerHTML = `<strong>Você:</strong> ${msg.mensagem}`;
-                            } else {
-                                div.innerHTML = `<strong>Nutricionista:</strong> ${msg.mensagem}`;
-                            }
+                            todasMensagens.forEach(msg => {
+                                console.log("Adicionando mensagem:", msg);
+                                const div = document.createElement("div");
+                                div.classList.add("chat-message", msg.tipo);
 
-                            chatBox.appendChild(div);
-                        });
+                                if (msg.remetente === "Usuário") {
+                                    div.innerHTML = `<strong data-id="${msg.id}">Você:</strong> ${msg.mensagem}`;
+                                } else {
+                                    div.innerHTML = `<strong data-id="${msg.id}">Paciente:</strong> ${msg.mensagem}`;
+                                }
 
-                        // Rola automaticamente para a última mensagem
-                        chatBox.scrollTop = chatBox.scrollHeight;
+                                chatBox.appendChild(div);
+                            });
+
+                            // Rola automaticamente para a última mensagem
+                            chatBox.scrollTop = chatBox.scrollHeight;
+                        }
                     })
                     .catch(error => {
                         console.error("Erro ao buscar mensagens:", error);
