@@ -1,2 +1,0 @@
-C:\Users\felipefonseca\Desktop\ProjetoIntegrador-main\wwwroot\App_Data\teste.db-shm
-C:\Users\felipefonseca\Desktop\ProjetoIntegrador-main\wwwroot\App_Data\teste.db-wal

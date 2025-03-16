@@ -5,6 +5,103 @@
     "version": "v1"
   },
   "paths": {
+    "/alimentos/getAlimentos": {
+      "get": {
+        "tags": [
+          "Alimentos"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/alimentos/salvarAlimentos": {
+      "post": {
+        "tags": [
+          "Alimentos"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AlimentoUsuarioViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AlimentoUsuarioViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AlimentoUsuarioViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/alimentos/getAlimentosUsuario/{usuarioId}": {
+      "get": {
+        "tags": [
+          "Alimentos"
+        ],
+        "parameters": [
+          {
+            "name": "usuarioId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/EnviarIngrediente": {
+      "post": {
+        "tags": [
+          "Ingredientes"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IngredientesViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IngredientesViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/IngredientesViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/EnviarMensagem": {
       "post": {
         "tags": [
@@ -542,6 +639,18 @@
         }
       }
     },
+    "/virtual-select.min.js": {
+      "get": {
+        "tags": [
+          "UsuarioControllerView"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/HomeAdmin": {
       "get": {
         "tags": [
@@ -569,6 +678,24 @@
   },
   "components": {
     "schemas": {
+      "AlimentoUsuarioViewModel": {
+        "type": "object",
+        "properties": {
+          "usuarioId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "alimentoIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "EnvioMensagemViewModel": {
         "type": "object",
         "properties": {
@@ -577,6 +704,16 @@
             "format": "int32"
           },
           "mensagem": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IngredientesViewModel": {
+        "type": "object",
+        "properties": {
+          "ingrediente": {
             "type": "string",
             "nullable": true
           }
@@ -776,6 +913,14 @@
           },
           "telefone": {
             "type": "string",
+            "nullable": true
+          },
+          "alimentosAlergicosIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
             "nullable": true
           }
         },

@@ -1,5 +1,47 @@
 [
   {
+    "ContainingType": "ProjetoIntegrador.Controllers.AlimentosController",
+    "Method": "GetAlimentos",
+    "RelativePath": "alimentos/getAlimentos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.AlimentosController",
+    "Method": "GetAlimentosUsuario",
+    "RelativePath": "alimentos/getAlimentosUsuario/{usuarioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "usuarioId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.AlimentosController",
+    "Method": "SalvarAlimentos",
+    "RelativePath": "alimentos/salvarAlimentos",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dados",
+        "Type": "ProjetoIntegrador.ViewModel.AlimentoUsuarioViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "ProjetoIntegrador.Controllers.UsuarioControllerView",
     "Method": "Cadastro",
     "RelativePath": "cadastro",
@@ -65,6 +107,22 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.IngredientesController",
+    "Method": "EnviarMensagem",
+    "RelativePath": "EnviarIngrediente",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ProjetoIntegrador.ViewModel.IngredientesViewModel",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -361,6 +419,16 @@
     "ContainingType": "ProjetoIntegrador.Controllers.UsuarioController",
     "Method": "GetVerificaAllAsync",
     "RelativePath": "verificaAdmCriou",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.UsuarioControllerView",
+    "Method": "VirtualSelect",
+    "RelativePath": "virtual-select.min.js",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

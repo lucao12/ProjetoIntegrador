@@ -12,47 +12,11 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>36tntjq7g0</Fingerprint>
-      <Integrity>lUPCFJL8WlTT8NKTBikuHp2Z7KUf4+4JDwZ4fNaraKA=</Integrity>
+      <Fingerprint>lemdcqw33r</Fingerprint>
+      <Integrity>raYtaJa0GGULytIpV9aOVjRnCtoWRkVarhUcZbv/A+M=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Data\teste.db'))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Data\teste.db-shm'))">
-      <SourceType>Package</SourceType>
-      <SourceId>ProjetoIntegrador</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/ProjetoIntegrador</BasePath>
-      <RelativePath>App_Data/teste.db-shm</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>2rlin2j50z</Fingerprint>
-      <Integrity>YpJOHNllj3ryIqjg8To2qZBP3K3EfsAwhByhTyjQAsU=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Data\teste.db-shm'))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Data\teste.db-wal'))">
-      <SourceType>Package</SourceType>
-      <SourceId>ProjetoIntegrador</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/ProjetoIntegrador</BasePath>
-      <RelativePath>App_Data/teste.db-wal</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>grrfjbdj91</Fingerprint>
-      <Integrity>tDYptmcelxPm2KXHUKZADxRA28lvAtBR56aNfScrp3g=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Data\teste.db-wal'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\default.png'))">
       <SourceType>Package</SourceType>
@@ -84,8 +48,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>hporv6i3i0</Fingerprint>
-      <Integrity>KxMmI8qbbUPShcbQMsSMIVGrXpO08MPDfKHTYnpDJwA=</Integrity>
+      <Fingerprint>exvrtjijx8</Fingerprint>
+      <Integrity>nty7bakO8SyKU7CaI19BIDEklgNb1xiBOP+RpjCAIm0=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\script.js'))</OriginalItemSpec>
@@ -102,8 +66,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>x5jgnipgk5</Fingerprint>
-      <Integrity>+6vyAPgZRWfy7aXdNSKTNDZ0F5lXuPPddKIeq1eLp5o=</Integrity>
+      <Fingerprint>51mxwi15a7</Fingerprint>
+      <Integrity>Nxo4ke4NMmTkLdznI8d/iapt2x+/91J2Do8ZDdHhYqw=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\NovaPasta\loader.css'))</OriginalItemSpec>
