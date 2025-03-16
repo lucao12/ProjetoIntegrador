@@ -1775,7 +1775,6 @@ C:\Users\lucca\Downloads\Nova pasta (2)\ProjetoIntegrador\obj\Debug\net8.0\stati
 C:\Users\lucca\Downloads\Nova pasta (2)\ProjetoIntegrador\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.ProjetoIntegrador.props
 C:\Users\lucca\Downloads\Nova pasta (2)\ProjetoIntegrador\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.ProjetoIntegrador.props
 C:\Users\lucca\Downloads\Nova pasta (2)\ProjetoIntegrador\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\lucca\Downloads\Nova pasta (2)\ProjetoIntegrador\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\lucca\Downloads\Nova pasta (2)\ProjetoIntegrador\obj\Debug\net8.0\ProjetoI.E3B468F8.Up2Date
 C:\Users\lucca\Downloads\Nova pasta (2)\ProjetoIntegrador\obj\Debug\net8.0\ProjetoIntegrador.dll
 C:\Users\lucca\Downloads\Nova pasta (2)\ProjetoIntegrador\obj\Debug\net8.0\refint\ProjetoIntegrador.dll

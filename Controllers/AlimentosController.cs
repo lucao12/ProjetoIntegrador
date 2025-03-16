@@ -45,7 +45,29 @@ namespace ProjetoIntegrador.Controllers
                 return StatusCode(500, new { error = "Erro interno do servidor!" });
             }
         }
+        [Authorize]
+        [HttpGet("getAlimentosid/{alimentoId:int}")]
+        public async Task<IActionResult> GetAlimentosbyId([FromRoute] int alimentoId)
+        {
+            try
+            {
+                var alimento = await _context.Alimentos
+                    .Where(a => a.Id == alimentoId)
+                    .Select(a => new { a.Id, a.Nome }) 
+                    .FirstOrDefaultAsync(); 
 
+                if (alimento == null) // Se o alimento não for encontrado
+                {
+                    return NotFound(new { error = "Alimento não encontrado!" }); // Retorna erro 404
+                }
+
+                return Ok(alimento); // Retorna o alimento encontrado
+            }
+            catch
+            {
+                return StatusCode(500, new { error = "Erro interno do servidor!" }); // Retorna erro 500
+            }
+        }
         [Authorize]
         [HttpPost("salvarAlimentos")]
         public async Task<IActionResult> SalvarAlimentos([FromBody] AlimentoUsuarioViewModel dados)

@@ -1,4 +1,0 @@
-wwwroot\App_Data\teste.db
-wwwroot\default.png
-wwwroot\js\script.js
-wwwroot\NovaPasta\loader.css

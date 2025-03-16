@@ -16,6 +16,9 @@ namespace ProjetoIntegrador.Data
         public DbSet<UserNutri> Pedidos { get; set; }
         public DbSet<AdmCriou> AdmCriou { get; set; }
         public DbSet<Mensagem> Mensagem { get; set; }
+        public DbSet<Dieta> Dieta { get; set; }
+        public DbSet<AlimentoQuantidade> AlimentoQuantidade { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

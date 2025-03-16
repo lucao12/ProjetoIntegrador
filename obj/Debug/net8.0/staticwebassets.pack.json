@@ -9,6 +9,14 @@
       "PackagePath": "staticwebassets\\NovaPasta\\loader.css"
     },
     {
+      "Id": "C:\\Users\\lucca\\Downloads\\Nova pasta (2)\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.css",
+      "PackagePath": "staticwebassets\\css\\virtual-select.min.css"
+    },
+    {
+      "Id": "C:\\Users\\lucca\\Downloads\\Nova pasta (2)\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.js",
+      "PackagePath": "staticwebassets\\css\\virtual-select.min.js"
+    },
+    {
       "Id": "C:\\Users\\lucca\\Downloads\\Nova pasta (2)\\ProjetoIntegrador\\wwwroot\\default.png",
       "PackagePath": "staticwebassets\\default.png"
     },

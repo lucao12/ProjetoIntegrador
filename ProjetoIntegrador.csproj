@@ -31,6 +31,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\css\virtual-select.min.css" />
+    <None Include="wwwroot\css\virtual-select.min.js" />
     <None Include="wwwroot\js\script.js" />
   </ItemGroup>
 

@@ -36,6 +36,111 @@ namespace ProjetoIntegrador.Migrations
                     b.ToTable("AdmCriou");
                 });
 
+            modelBuilder.Entity("ProjetoIntegrador.Models.Alimento", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("Calorias")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("Carboidratos")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("Gorduras")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("Proteinas")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("VitaminasEMinerais")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Alimentos");
+                });
+
+            modelBuilder.Entity("ProjetoIntegrador.Models.AlimentoQuantidade", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("AlimentosId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("DietaId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("DietaId1")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("DietaId2")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("DietaId3")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Quantidade")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AlimentosId");
+
+                    b.HasIndex("DietaId");
+
+                    b.HasIndex("DietaId1");
+
+                    b.HasIndex("DietaId2");
+
+                    b.HasIndex("DietaId3");
+
+                    b.ToTable("AlimentoQuantidade");
+                });
+
+            modelBuilder.Entity("ProjetoIntegrador.Models.AlimentoUsuario", b =>
+                {
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("AlimentoId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("UsuarioId", "AlimentoId");
+
+                    b.HasIndex("AlimentoId");
+
+                    b.ToTable("AlimentosUsuarios");
+                });
+
+            modelBuilder.Entity("ProjetoIntegrador.Models.Dieta", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("NutricionistaId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NutricionistaId");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("Dieta");
+                });
+
             modelBuilder.Entity("ProjetoIntegrador.Models.Mensagem", b =>
                 {
                     b.Property<int>("Id")
@@ -149,6 +254,71 @@ namespace ProjetoIntegrador.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("ProjetoIntegrador.Models.AlimentoQuantidade", b =>
+                {
+                    b.HasOne("ProjetoIntegrador.Models.Alimento", "Alimentos")
+                        .WithMany()
+                        .HasForeignKey("AlimentosId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProjetoIntegrador.Models.Dieta", null)
+                        .WithMany("Almoco")
+                        .HasForeignKey("DietaId");
+
+                    b.HasOne("ProjetoIntegrador.Models.Dieta", null)
+                        .WithMany("Cafe")
+                        .HasForeignKey("DietaId1");
+
+                    b.HasOne("ProjetoIntegrador.Models.Dieta", null)
+                        .WithMany("CafeDT")
+                        .HasForeignKey("DietaId2");
+
+                    b.HasOne("ProjetoIntegrador.Models.Dieta", null)
+                        .WithMany("Janta")
+                        .HasForeignKey("DietaId3");
+
+                    b.Navigation("Alimentos");
+                });
+
+            modelBuilder.Entity("ProjetoIntegrador.Models.AlimentoUsuario", b =>
+                {
+                    b.HasOne("ProjetoIntegrador.Models.Alimento", "Alimento")
+                        .WithMany()
+                        .HasForeignKey("AlimentoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProjetoIntegrador.Models.Usuarios", "Usuario")
+                        .WithMany("Alimento")
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Alimento");
+
+                    b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("ProjetoIntegrador.Models.Dieta", b =>
+                {
+                    b.HasOne("ProjetoIntegrador.Models.Usuarios", "Nutricionista")
+                        .WithMany()
+                        .HasForeignKey("NutricionistaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProjetoIntegrador.Models.Usuarios", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Nutricionista");
+
+                    b.Navigation("Usuario");
+                });
+
             modelBuilder.Entity("ProjetoIntegrador.Models.Mensagem", b =>
                 {
                     b.HasOne("ProjetoIntegrador.Models.Usuarios", "Nutricionista")
@@ -185,6 +355,22 @@ namespace ProjetoIntegrador.Migrations
                     b.Navigation("Nutricionista");
 
                     b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("ProjetoIntegrador.Models.Dieta", b =>
+                {
+                    b.Navigation("Almoco");
+
+                    b.Navigation("Cafe");
+
+                    b.Navigation("CafeDT");
+
+                    b.Navigation("Janta");
+                });
+
+            modelBuilder.Entity("ProjetoIntegrador.Models.Usuarios", b =>
+                {
+                    b.Navigation("Alimento");
                 });
 #pragma warning restore 612, 618
         }
