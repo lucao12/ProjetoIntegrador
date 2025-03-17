@@ -139,21 +139,6 @@
         button {
             margin: 5px;
         }
-
-        .modal-content {
-            border-radius: 10px;
-        }
-
-        .modal-header {
-            background-color: #007bff;
-            color: white;
-            border-radius: 10px 10px 0 0;
-        }
-
-        .modal-footer button {
-            width: 100%;
-        }
-
         input,
         select {
             margin-bottom: 10px;
@@ -270,6 +255,18 @@
             background-color: #f9f9f9;
         }
 
+        #ChatTextForm {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 10px;
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
         .chat-message {
             max-width: 70%;
             padding: 10px;
@@ -345,7 +342,7 @@
         <div class="loader"></div>
     </div>
 
-    <button id="toggleDarkMode" class="btn-dark-mode">
+    <button style="display: none" id="toggleDarkMode" class="btn-dark-mode">
         <i class="fas fa-moon"></i>
     </button>
     <div class="container mt-4">
@@ -553,19 +550,16 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="settingsModalLabel">Chat com o ${nutricionista.nome}</h5>
+                                    <h5 class="modal-title" id="settingsModalLabel">Chat</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <!-- Área de exibição das mensagens -->
-                                    <div id="ChatTextForm"></div>
-
-                                    <!-- Input e botão de envio -->
-                                    <div class="chat-input">
-                                        <input type="text" id="mensagem" name="mensagem" placeholder="Digite sua mensagem">
-                                        <button type="button" class="btn btn-primary" onclick="EnviarMensagem(${nutricionista.id})">
-                                            Enviar
-                                        </button>
+                                    <div id="ChatContainer">
+                                        <div id="ChatTextForm"></div>
+                                        <div class="chat-input">
+                                            <input type="text" id="mensagem" name="mensagem" placeholder="Digite sua mensagem">
+                                            <button type="button" class="btn btn-primary" id="btnEnviarMensagem">Enviar</button>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
@@ -707,7 +701,7 @@
                                 if (msg.remetente === "Usuário") {
                                     div.innerHTML = `<strong data-id="${msg.id}">Você:</strong> ${msg.mensagem}`;
                                 } else {
-                                    div.innerHTML = `<strong data-id="${msg.id}">Paciente:</strong> ${msg.mensagem}`;
+                                    div.innerHTML = `<strong data-id="${msg.id}">Nutricionista:</strong> ${msg.mensagem}`;
                                 }
 
                                 chatBox.appendChild(div);
@@ -1195,7 +1189,7 @@
 
             console.log("Dados a serem enviados:", dados);
 
-            fetch("https://localhost:7268/alimentos/salvarAlimentos", {
+            fetch("/alimentos/salvarAlimentos", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -1236,7 +1230,7 @@
             }
 
             // Primeiro, buscar todos os alimentos disponíveis
-            fetch("https://localhost:7268/alimentos/getAlimentos", {
+            fetch("/alimentos/getAlimentos", {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -1253,8 +1247,7 @@
                 console.log("Alimentos recebidos:", data);
 
                 // Buscar os alimentos já selecionados pelo usuário
-                // Buscar os alimentos já selecionados pelo usuário
-                fetch(`https://localhost:7268/alimentos/getAlimentosUsuario/${usuarioId}`, {
+                fetch(`/alimentos/getAlimentosUsuario/${usuarioId}`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",

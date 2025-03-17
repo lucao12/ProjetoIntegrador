@@ -834,23 +834,82 @@
             margin-top: 15px;
         }
 
+        /* Estilo para cada item da lista */
         .list-group-item {
-            background-color: #ffffff;
+            display: flex;
+            justify-content: space-between; /* Alinha os elementos à esquerda e à direita */
+            align-items: center; /* Centraliza verticalmente */
+            padding: 10px;
             border: 1px solid #ddd;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        /* Estilo para o conteúdo à esquerda (nome e e-mail) */
+        .list-group-item .user-info {
+            flex: 1; /* Ocupa o espaço disponível à esquerda */
+        }
+
+        /* Estilo para o container dos botões */
+        .list-group-item .button-container {
+            display: flex;
+            gap: 10px; /* Espaçamento entre os botões */
+        }
+
+        #listPedidosAceitos {
+            list-style-type: none;
+            padding: 0;
+        }
+        .btn-outline-dark {
+            border: 1px solid #343a40;
+            color: #343a40;
+            background-color: transparent;
+        }
+
+        .btn-outline-dark:hover {
+            background-color: #343a40;
+            color: #fff;
+        }   
+        
+        /* Estilo para o input de mensagem */
+        .chat-input {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+
+        .chat-input button {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 3px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .chat-input button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Estilo para o alerta de não há pedidos aceitos */
+        .alert {
+            padding: 10px;
             border-radius: 5px;
             margin-bottom: 10px;
         }
 
-        .list-group-item button {
-            margin-left: 10px;
-        }
-
-        .list-group-item span {
-            font-weight: bold;
-        }
-
-        #pedidosAceitos {
-            margin-top: 30px;
+        .alert-info {
+            background-color: #d1ecf1;
+            border-color: #bee5eb;
+            color: #0c5460;
         }
 
         .alert-custom {
@@ -1040,6 +1099,51 @@
         .chat-input button:active {
             background-color: #004080;
         }
+
+        .alimento-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .alimento-container input {
+            flex: 1;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 14px;
+        }
+
+        .alimento-container input:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        .alimento-container label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .alimento-container .remove-button {
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .alimento-container .remove-button:hover {
+            background-color: #c82333;
+        }
     </style>
 </head>
 
@@ -1048,7 +1152,7 @@
         <div class="loader"></div>
     </div>
 
-    <button id="toggleDarkMode" class="btn-dark-mode">
+    <button style="display: none" id="toggleDarkMode" class="btn-dark-mode">
         <i class="fas fa-moon"></i>
     </button>
     <div class="container">
@@ -1241,9 +1345,10 @@
                                 <div id="labelsinputs"></div>
                             </div>
                         </div>
-                        <button type="button" class="btn btn-secondary" onclick="EnviaDieta()">Enviar</button>
                     </div>
                     <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" onclick="EnviaDieta()">Enviar</button>
+
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                     </div>
                 </div>
@@ -1399,7 +1504,6 @@
             }
             window.changePassword = changePassword;
 
-
             function carregarPedidosAceitos() {
                 $.ajax({
                     url: '/verifica/aceitos/nutri',
@@ -1409,59 +1513,38 @@
                     },
                     success: function (data) {
                         var pedidosAceitos = data.pedido;
-                        $('#listPedidosAceitos').empty(); // Limpa a lista de pedidos aceitos
-                        $('#noPedidosAceitos').empty(); // Limpa a mensagem de "não tem"
+                        $('#listPedidosAceitos').empty();
+                        $('#noPedidosAceitos').empty();
 
                         if (pedidosAceitos && pedidosAceitos.length > 0) {
                             pedidosAceitos.forEach(function (pedido) {
-                                $('#listPedidosAceitos').html(`
+                                $('#listPedidosAceitos').append(`
                                     <li class="list-group-item">
                                         ${pedido.usuario.nome} - ${pedido.usuario.email}
-                                        <button class="btn btn-outline-dark" data-bs-toggle="modal"
-                                      data-bs-target="#ChatModal">Chat com o ${pedido.usuario.nome}</button>
-                                      <button class="btn btn-outline-dark" data-bs-toggle="modal"
-                                      data-bs-target="#EnviaDietaModal" data-id="${pedido.usuario.id}">Enviar dieta para ${pedido.usuario.nome}</button>
-                                      <div class="modal fade" id="ChatModal" tabindex="-1" aria-labelledby="settingsModalLabel"
-                                        aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="settingsModalLabel">Chat com o ${pedido.usuario.nome}</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div id="ChatContainer">
-                                                        <div id="ChatTextForm"></div>
-                                                        <div class="chat-input">
-                                                            <input type="text" id="mensagem" name="mensagem" placeholder="Digite sua mensagem">
-                                                            <button type="button" class="btn btn-primary" onclick="EnviarMensagens(${pedido.usuario.id})">Enviar</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                   </div>
-                                   
+                                        <label class="idUser" style="display: none">${pedido.usuario.id}</label>
+                                        <button class="btn btn-outline-dark btn-chat" data-id="${pedido.usuario.id}" data-bs-toggle="modal" data-bs-target="#ChatModal">Chat com ${pedido.usuario.nome}</button>
+                                        <button class="btn btn-outline-dark btn-enviar-dieta" data-id="${pedido.usuario.id}" data-bs-toggle="modal" data-bs-target="#EnviaDietaModal">Enviar dieta para ${pedido.usuario.nome}</button>
                                     </li>
-                                    
                                 `);
-                                document.getElementById("ChatModal").addEventListener("shown.bs.modal", function () {
-                                    const nutricionistaId = pedido.usuario.id;
-                                    cronJob = setInterval(() => fetchMensagens(nutricionistaId), 1000);
-                                    fetchMensagens(nutricionistaId);
-                                });
+                            });
 
-                                document.getElementById("ChatModal").addEventListener("hidden.bs.modal", function () {
-                                    if (cronJob) {
-                                        clearInterval(cronJob);
-                                        cronJob = null;
-                                    }
+                            // Adiciona eventos corretamente após a criação dos elementos
+                            document.querySelectorAll('.btn-chat').forEach(button => {
+                                button.addEventListener('click', function () {
+                                    const idUser = this.getAttribute('data-id');
+                                    console.log("Abrindo chat para o ID:", idUser);
+                                    localStorage.setItem('idUser', idUser);
+                                    fetchMensagens(idUser);
                                 });
                             });
 
+                            document.querySelectorAll('.btn-enviar-dieta').forEach(button => {
+                                button.addEventListener('click', function () {
+                                    const idUser = this.getAttribute('data-id');
+                                    localStorage.setItem('idUser', idUser);
+                                    carregarAlimentos(idUser);
+                                });
+                            });
                         } else {
                             $('#noPedidosAceitos').html('<p class="alert alert-info">Não há pedidos aceitos</p>');
                         }
@@ -1471,6 +1554,55 @@
                     }
                 });
             }
+
+            // Modais fixos no HTML
+            document.body.insertAdjacentHTML("beforeend", `
+                <div class="modal fade" id="ChatModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="settingsModalLabel">Chat</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div id="ChatContainer">
+                                    <div id="ChatTextForm"></div>
+                                    <div class="chat-input">
+                                        <input type="text" id="mensagem" name="mensagem" placeholder="Digite sua mensagem">
+                                        <button type="button" class="btn btn-primary" id="btnEnviarMensagem">Enviar</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `);
+
+            document.getElementById("ChatModal").addEventListener("shown.bs.modal", function () {
+                const nutricionistaId = localStorage.getItem("idUser");
+                if (nutricionistaId) {
+                    console.log("Iniciando atualização do chat para:", nutricionistaId);
+                    cronJob = setInterval(() => fetchMensagens(nutricionistaId), 1000);
+                    fetchMensagens(nutricionistaId);
+                }
+            });
+
+            document.getElementById("ChatModal").addEventListener("hidden.bs.modal", function () {
+                if (cronJob) {
+                    clearInterval(cronJob);
+                    cronJob = null;
+                }
+            });
+
+            // Evento para enviar mensagem
+            document.getElementById("btnEnviarMensagem").addEventListener("click", function () {
+                const idUser = localStorage.getItem("idUser");
+                EnviarMensagens(idUser);
+            });
+
             window.EnviarMensagens = function (idEnvio) {
                 const token = localStorage.getItem("token");
 
@@ -1497,6 +1629,7 @@
                         alert("Erro ao enviar mensagem.");
                     });
             }
+            
             async function fetchMensagens(nutricionistaId) {
                 console.log("fetchMensagens chamado com ID:", nutricionistaId);
 
@@ -1510,70 +1643,60 @@
                         "Content-Type": "application/json"
                     }
                 })
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error(`Erro ao buscar mensagens: ${response.statusText}`);
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
-                        console.log("Dados recebidos do backend:", data);
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Erro ao buscar mensagens: ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log("Dados recebidos do backend:", data);
 
-                        const chatBox = document.getElementById("ChatTextForm");
-                        console.log("Elemento ChatTextForm:", chatBox);
+                    const chatBox = document.getElementById("ChatTextForm");
+                    console.log("Elemento ChatTextForm:", chatBox);
 
-                        if (!chatBox) {
-                            console.error("Elemento ChatTextForm não encontrado!");
-                            return;
-                        }
-                        const lastStrong = chatBox.querySelectorAll("strong[data-id]");
-                        const lastId = lastStrong.length > 0 ? lastStrong[lastStrong.length - 1].getAttribute("data-id") : null;
+                    if (!chatBox) {
+                        console.error("Elemento ChatTextForm não encontrado!");
+                        return;
+                    }
 
-                        if (lastId !== null) {
-                            console.log("Último data-id:", lastId);
+                    // Combina as mensagens do usuário e do nutricionista em uma única lista
+                    const todasMensagens = [
+                        ...data.mensagensUsuario.map(msg => ({ ...msg, tipo: "usuario" })),
+                        ...data.mensagensNutricionista.map(msg => ({ ...msg, tipo: "nutricionista" }))
+                    ];
+
+                    // Ordena as mensagens pelo ID (garantindo ordem correta)
+                    todasMensagens.sort((a, b) => a.id - b.id);
+
+                    console.log("Mensagens ordenadas:", todasMensagens);
+
+                    // Limpa o chat antes de renderizar
+                    chatBox.innerHTML = "";
+
+                    // Adiciona todas as mensagens ao chat
+                    todasMensagens.forEach(msg => {
+                        console.log("Adicionando mensagem:", msg);
+                        const div = document.createElement("div");
+                        div.classList.add("chat-message", msg.tipo);
+
+                        if (msg.tipo === "usuario") {
+                            div.innerHTML = `<strong data-id="${msg.id}">Você:</strong> ${msg.mensagem}`;
                         } else {
-                            console.log("Nenhuma mensagem encontrada.");
+                            div.innerHTML = `<strong data-id="${msg.id}">Paciente:</strong> ${msg.mensagem}`;
                         }
 
-                        // Combina as mensagens do usuário e do nutricionista em uma única lista
-                        const todasMensagens = [
-                            ...data.mensagensUsuario.map(msg => ({ ...msg, tipo: "usuario" })),
-                            ...data.mensagensNutricionista.map(msg => ({ ...msg, tipo: "nutricionista" }))
-                        ];
-
-                        // Ordena as mensagens pelo ID
-                        todasMensagens.sort((a, b) => a.id - b.id);
-
-                        console.log("Mensagens ordenadas:", todasMensagens);
-
-                        const maiorId = todasMensagens.at(-1)?.id ?? null;
-                        console.log(maiorId)
-                        if (maiorId != lastId) {
-                            chatBox.innerHTML = ""; // Limpa o chat apenas se houver uma nova mensagem
-
-                            todasMensagens.forEach(msg => {
-                                console.log("Adicionando mensagem:", msg);
-                                const div = document.createElement("div");
-                                div.classList.add("chat-message", msg.tipo);
-
-                                if (msg.remetente === "Usuário") {
-                                    div.innerHTML = `<strong data-id="${msg.id}">Você:</strong> ${msg.mensagem}`;
-                                } else {
-                                    div.innerHTML = `<strong data-id="${msg.id}">Paciente:</strong> ${msg.mensagem}`;
-                                }
-
-                                chatBox.appendChild(div);
-                            });
-
-                            // Rola automaticamente para a última mensagem
-                            chatBox.scrollTop = chatBox.scrollHeight;
-                        }
-                    })
-                    .catch(error => {
-                        console.error("Erro ao buscar mensagens:", error);
+                        chatBox.appendChild(div);
                     });
-            }
 
+                    setTimeout(() => {
+                        chatBox.scrollTop = chatBox.scrollHeight;
+                    }, 10);
+                })
+                .catch(error => {
+                    console.error("Erro ao buscar mensagens:", error);
+                });
+            }
 
             function aceitarRejeitarPedido(pedidoId, aceito) {
                 console.log(token);
@@ -1811,7 +1934,10 @@
                             multiple: true,
                             maxWidth: "600px"
             });
-            carregarAlimentos();
+
+            // Recupera o idUser do localStorage
+            const idUser = localStorage.getItem('idUser');
+    
             const toggleButton = document.getElementById("toggleDarkMode");
             const body = document.body;
 
@@ -1834,22 +1960,25 @@
 
             loadContent();
         });
-         function carregarAlimentos() {
-            console.log("teste")
-            const token = localStorage.getItem("token"); // Pegando o token do localStorage
-            const usuarioId = localStorage.getItem("usuarioId"); // Pegando o ID do usuário
+        
+        function carregarAlimentos(idUser) {
+            const token = localStorage.getItem("token");
+            const userLogado = localStorage.getItem("usuarioId");
 
-            if (!token || !usuarioId) {
+            console.log("ID do usuário recebido:", idUser);
+            console.log("ID do usuário logado:", userLogado);
+
+            if (!token || !userLogado) {
                 console.error("Usuário não autenticado! O token ou usuário não foram encontrados.");
                 return;
             }
 
             // Primeiro, buscar todos os alimentos disponíveis
-             fetch("https://localhost:7268/alimentos/getAlimentos", {
+            fetch("/alimentos/getAlimentos", {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token}` // Enviando o token corretamente
+                    "Authorization": `Bearer ${token}`
                 }
             })
             .then(response => {
@@ -1859,12 +1988,10 @@
                 return response.json();
             })
             .then(data => {
-                console.log("1");
                 console.log("Alimentos recebidos:", data);
-                console.log("1.2");
 
-                // Buscar os alimentos já selecionados pelo usuário
-                fetch(`https://localhost:7268/alimentos/getAlimentosUsuario/${usuarioId}`, {
+                // Buscar os alimentos já selecionados pelo usuário logado (para verificar permissões)
+                fetch(`/alimentos/getAlimentosUsuario/${userLogado}`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
@@ -1873,7 +2000,6 @@
                     }
                 })
                 .then(response => {
-                    console.log("2");
                     if (!response.ok) {
                         throw new Error(`Erro ao obter alimentos do usuário: ${response.status}`);
                     }
@@ -1882,169 +2008,212 @@
                 .then(alimentosUsuario => {
                     let alimentosSelecionados = alimentosUsuario.map(alimento => alimento.id);
 
-                    console.log("3");
-                    // Inicializar o VirtualSelect, se ainda não estiver
-                    let selectAlimento = document.getElementById('virtual-cafe');
-                    let selectAlimento2 = document.getElementById('virtual-almoco');
-                    let selectAlimento3 = document.getElementById('virtual-cafedt');
-                    let selectAlimento4 = document.getElementById('virtual-janta');
+                    // Buscar os alimentos já selecionados pelo idUser (para bloquear no VirtualSelect)
+                    fetch(`/alimentos/getAlimentosUsuario/${idUser}`, {
+                        method: "GET",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Access-Control-Allow-Origin": "*",
+                            "Authorization": `Bearer ${token}`
+                        }
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`Erro ao obter alimentos do usuário: ${response.status}`);
+                        }
+                        return response.json();
+                    })
+                    .then(alimentosBloqueados => {
+                        let alimentosBloqueadosIds = alimentosBloqueados.map(alimento => alimento.id);
 
-                    console.log(document.getElementById('virtual-cafe'));
-                    if (selectAlimento && selectAlimento2 && selectAlimento3 && selectAlimento4) {
+                        // Inicializar o VirtualSelect, se ainda não estiver
+                        let selectAlimento = document.getElementById('virtual-cafe');
+                        let selectAlimento2 = document.getElementById('virtual-almoco');
+                        let selectAlimento3 = document.getElementById('virtual-cafedt');
+                        let selectAlimento4 = document.getElementById('virtual-janta');
+
+                        if (selectAlimento && selectAlimento2 && selectAlimento3 && selectAlimento4) {
+                            console.log("Inicializando VirtualSelect...");
+
+                            // Se já existe um VirtualSelect, destruí-lo antes de recriar
+                            if (selectAlimento.virtualSelect) {
+                                selectAlimento.virtualSelect.destroy();
+                            }
+                            if (selectAlimento2.virtualSelect) {
+                                selectAlimento2.virtualSelect.destroy();
+                            }
+                            if (selectAlimento3.virtualSelect) {
+                                selectAlimento3.virtualSelect.destroy();
+                            }
+                            if (selectAlimento4.virtualSelect) {
+                                selectAlimento4.virtualSelect.destroy();
+                            }
+
+                            // Criar um array de opções para o VirtualSelect
+                            let options = data.map(alimento => ({
+                                value: alimento.id,
+                                label: alimento.nome
+                            }));
+
+                            // Inicializa o VirtualSelect para todos os elementos, incluindo os itens desabilitados
+                            VirtualSelect.init({
+                                ele: selectAlimento,
+                                search: true,
+                                multiple: true,
+                                maxWidth: "600px",
+                                options: options,
+                                disabledOptions: alimentosBloqueadosIds // Desabilita os alimentos bloqueados
+                            });
+
+                            VirtualSelect.init({
+                                ele: selectAlimento2,
+                                search: true,
+                                multiple: true,
+                                maxWidth: "600px",
+                                options: options,
+                                disabledOptions: alimentosBloqueadosIds
+                            });
+
+                            VirtualSelect.init({
+                                ele: selectAlimento3,
+                                search: true,
+                                multiple: true,
+                                maxWidth: "600px",
+                                options: options,
+                                disabledOptions: alimentosBloqueadosIds
+                            });
+
+                            VirtualSelect.init({
+                                ele: selectAlimento4,
+                                search: true,
+                                multiple: true,
+                                maxWidth: "600px",
+                                options: options,
+                                disabledOptions: alimentosBloqueadosIds
+                            });
                         
-                        console.log("banana")
-                        // Inicializa o VirtualSelect para todos os elementos
-                        VirtualSelect.init({
-                            ele: selectAlimento,
-                            search: true,
-                            multiple: true,
-                            maxWidth: "600px"
-                        });
-                        VirtualSelect.init({
-                            ele: selectAlimento2,
-                            search: true,
-                            multiple: true,
-                            maxWidth: "600px"
-                        });
-                        VirtualSelect.init({
-                            ele: selectAlimento3,
-                            search: true,
-                            multiple: true,
-                            maxWidth: "600px"
-                        });
-                        VirtualSelect.init({
-                            ele: selectAlimento4,
-                            search: true,
-                            multiple: true,
-                            maxWidth: "600px"
-                        });
+                            // Marcar os alimentos selecionados (se necessário)
+                            selectAlimento.setValue(alimentosSelecionados);
+                            selectAlimento2.setValue(alimentosSelecionados);
+                            selectAlimento3.setValue(alimentosSelecionados);
+                            selectAlimento4.setValue(alimentosSelecionados);
 
-                        // Adicionar as opções ao VirtualSelect
-                        data.forEach(alimento => {
-                            selectAlimento.addOption({
-                                value: alimento.id,
-                                label: alimento.nome
+                            // Usar 'beforeClose' para obter os valores após o fechamento do VirtualSelect
+                            $('#virtual-cafe').on('beforeClose', function() {
+                                const selecionados = selectAlimento.value; // Pega os valores selecionados
+                                console.log("Alimentos selecionados (café):", selecionados);
+                                recriarLabels(selecionados, 'virtual-cafe');
                             });
-                            selectAlimento2.addOption({
-                                value: alimento.id,
-                                label: alimento.nome
+
+                            $('#virtual-almoco').on('beforeClose', function() {
+                                const selecionados = selectAlimento2.value; // Pega os valores selecionados
+                                console.log("Alimentos selecionados (almoço):", selecionados);
+                                recriarLabels(selecionados, 'virtual-almoco');
                             });
-                            selectAlimento3.addOption({
-                                value: alimento.id,
-                                label: alimento.nome
+
+                            $('#virtual-cafedt').on('beforeClose', function() {
+                                const selecionados = selectAlimento3.value; // Pega os valores selecionados
+                                console.log("Alimentos selecionados (café da tarde):", selecionados);
+                                recriarLabels(selecionados, 'virtual-cafedt');
                             });
-                            selectAlimento4.addOption({
-                                value: alimento.id,
-                                label: alimento.nome
+
+                            $('#virtual-janta').on('beforeClose', function() {
+                                const selecionados = selectAlimento4.value; // Pega os valores selecionados
+                                console.log("Alimentos selecionados (janta):", selecionados);
+                                recriarLabels(selecionados, 'virtual-janta');
                             });
-                        });
-
-                        // Marcar os alimentos selecionados
-                        selectAlimento.setValue(alimentosSelecionados);
-                        selectAlimento2.setValue(alimentosSelecionados);
-                        selectAlimento3.setValue(alimentosSelecionados);
-                        selectAlimento4.setValue(alimentosSelecionados);
-
-                        // Usar 'afterClose' para obter os valores após o fechamento do VirtualSelect
-                        $('#virtual-cafe').on('beforeClose', function() {
-                            const selecionados = selectAlimento.value; // Pega os valores selecionados
-                            console.log("Alimentos selecionados (café):", selecionados);
-                            recriarLabels(selecionados, 'virtual-cafe');
-                        });
-
-                        $('#virtual-almoco').on('beforeClose', function() {
-                            const selecionados = selectAlimento2.value; // Pega os valores selecionados
-                            console.log("Alimentos selecionados (almoço):", selecionados);
-                            recriarLabels(selecionados, 'virtual-almoco');
-                        });
-
-                        $('#virtual-cafedt').on('beforeClose', function() {
-                            const selecionados = selectAlimento3.value; // Pega os valores selecionados
-                            console.log("Alimentos selecionados (café da tarde):", selecionados);
-                            recriarLabels(selecionados, 'virtual-cafedt');
-                        });
-
-                        $('#virtual-janta').on('beforeClose', function() {
-                            const selecionados = selectAlimento4.value; // Pega os valores selecionados
-                            console.log("Alimentos selecionados (janta):", selecionados);
-                            recriarLabels(selecionados, 'virtual-janta');
-                        });
-                    }
+                        }
+                    })
+                    .catch(error => console.error("Erro ao carregar alimentos bloqueados:", error));
                 })
                 .catch(error => console.error("Erro ao carregar alimentos do usuário:", error));
             })
             .catch(error => console.error("Erro ao carregar alimentos:", error));
         }
-        function recriarLabels(alimentosSelecionados, containerId) {
-            const token = localStorage.getItem("token");
-            const container = document.getElementById(containerId); // O contêiner onde os labels serão criados
+        
+function recriarLabels(alimentosSelecionados, containerId) {
+    const token = localStorage.getItem("token");
+    const container = document.getElementById(containerId); // O contêiner onde os labels serão criados
 
-            // Seleciona o elemento pai do VirtualSelect para adicionar os labels abaixo dele
-            const virtualSelectParent = container.parentElement; 
-            console.log(virtualSelectParent)
-            const labelsContainer = virtualSelectParent.querySelector(`#labelsinputs`);
-            labelsContainer.classList.add('labels-container'); 
+    // Seleciona o elemento pai do VirtualSelect
+    const virtualSelectParent = container.parentElement;
+    console.log(virtualSelectParent);
 
-            // Limpa o conteúdo anterior antes de recriar os labels
-            labelsContainer.innerHTML = '';
+    // Verifica se já existe um labelsContainer, se não, cria um novo
+    let labelsContainer = virtualSelectParent.querySelector("#labelsinputs");
 
-            // Percorrer os alimentos selecionados (IDs) e fazer o fetch de cada alimento
-            alimentosSelecionados.forEach(alimentoId => {
-                // Fazer o fetch para pegar o alimento com o ID correspondente
-                fetch(`https://localhost:7268/alimentos/getAlimentosid/${alimentoId}`,{
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token}` // Enviando o token corretamente
-                }
-                }).then(response => {
-                        if (!response.ok) {
-                            throw new Error('Erro ao carregar alimento');
-                        }
-                        return response.json();
-                    })
-                    .then(alimento => {
-                        // Criar o label para o alimento
-                        const label = document.createElement('label');
-                        label.textContent = alimento.nome; // Nome do alimento
+    if (!labelsContainer) {
+        labelsContainer = document.createElement("div");
+        labelsContainer.id = "labelsinputs";
+        labelsContainer.classList.add("labels-container");
+        virtualSelectParent.appendChild(labelsContainer);
+    }
 
-                        // Criar o input para a quantidade
-                        const input = document.createElement('input');
-                        input.type = 'number'; // Tipo de input para digitar números
-                        input.name = `${alimento.id}`; // Nome do input com o ID do alimento
-                        input.placeholder = `Quantidade de ${alimento.nome} em gramas/mls`;
+    // Limpa o conteúdo anterior antes de recriar os labels
+    labelsContainer.innerHTML = "";
 
-                        // Criar um container para o label e o input (opcional para melhor controle)
-                        const alimentoContainer = document.createElement('div');
-                        alimentoContainer.classList.add('alimento-container'); // Adiciona uma classe para controle de estilo
+    // Evita chamadas duplicadas
+    if (!alimentosSelecionados || alimentosSelecionados.length === 0) return;
 
-                        // Adicionar o label e o input ao contêiner do alimento
-                        alimentoContainer.appendChild(label);
-                        alimentoContainer.appendChild(input);
-                        labelsContainer.appendChild(alimentoContainer); // Adiciona o conjunto label + input ao contêiner de labels
-                    })
-                    .catch(error => {
-                        console.error('Erro ao carregar alimento:', error);
-                    });
-            });
+    // Percorrer os alimentos selecionados (IDs) e fazer o fetch de cada alimento
+    alimentosSelecionados.forEach(alimentoId => {
+        fetch(`/alimentos/getAlimentosid/${alimentoId}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Erro ao carregar alimento");
+            }
+            return response.json();
+        })
+        .then(alimento => {
+            // Verifica se o label já existe para evitar duplicação
+            if (labelsContainer.querySelector(`[data-id="${alimento.id}"]`)) return;
 
-            // Adicionar o contêiner de labels abaixo do VirtualSelect
-            virtualSelectParent.appendChild(labelsContainer);
-        }
+            // Criar o label para o alimento
+            const label = document.createElement("label");
+            label.textContent = alimento.nome;
+            label.setAttribute("data-id", alimento.id); // Marca o label com um identificador único
 
-                $('#EnviaDietaModal').on('show.bs.modal', function (event) {
-            var button = event.relatedTarget; // O botão que disparou o modal
-            var idUsuario = button.getAttribute('data-id'); // Captura o ID do usuário
-            var modal = $(this); // Referência ao modal
+            // Criar o input para a quantidade
+            const input = document.createElement("input");
+            input.type = "number";
+            input.name = `${alimento.id}`;
+            input.placeholder = `Quantidade de ${alimento.nome} em gramas/mls`;
 
-            // Aqui você pode salvar o idUsuario para ser utilizado no envio
+            // Criar um container para o label e o input
+            const alimentoContainer = document.createElement("div");
+            alimentoContainer.classList.add("alimento-container");
+
+            // Adicionar o label e o input ao contêiner do alimento
+            alimentoContainer.appendChild(label);
+            alimentoContainer.appendChild(input);
+            labelsContainer.appendChild(alimentoContainer);
+        })
+        .catch(error => {
+            console.error("Erro ao carregar alimento:", error);
+        });
+    });
+}
+
+
+        $('#EnviaDietaModal').on('show.bs.modal', function (event) {
+            @* carregarAlimentos(); *@
+
+            var button = event.relatedTarget;
+            var idUsuario = button.getAttribute('data-id');
+            var modal = $(this);
+
             modal.find('.modal-body').data('usuario-id', idUsuario);
         });
         async function EnviaDieta() {
 
             var modal = $('#EnviaDietaModal');
             var idUsuario = modal.find('.modal-body').data('usuario-id'); // Recupera o ID do usuário
-
             console.log(idUsuario);
 
             const token = localStorage.getItem("token");
@@ -2103,7 +2272,7 @@
 
             try {
                 // Enviando a requisição POST com os dados
-                const response = await fetch('https://localhost:7268/enviardieta', {
+                const response = await fetch('/enviardieta', {
                     method: 'POST',  // Tipo de requisição
                     headers: {
                         'Content-Type': 'application/json', 

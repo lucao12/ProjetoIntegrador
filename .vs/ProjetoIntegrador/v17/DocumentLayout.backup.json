@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\ProjetoIntegrador-16\\ProjetoIntegrador\\",
+  "WorkspaceRootPath": "C:\\Users\\fonses\\Desktop\\ProjetoIntegrador\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|d:\\projetointegrador-16\\projetointegrador\\views\\usuario\\homeusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\fonses\\desktop\\projetointegrador\\views\\usuario\\homeusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:views\\usuario\\homeusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
@@ -20,11 +20,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "HomeUsuario.cshtml",
-              "DocumentMoniker": "D:\\ProjetoIntegrador-16\\ProjetoIntegrador\\Views\\Usuario\\HomeUsuario.cshtml",
+              "DocumentMoniker": "C:\\Users\\fonses\\Desktop\\ProjetoIntegrador\\Views\\Usuario\\HomeUsuario.cshtml",
               "RelativeDocumentMoniker": "Views\\Usuario\\HomeUsuario.cshtml",
-              "ToolTip": "D:\\ProjetoIntegrador-16\\ProjetoIntegrador\\Views\\Usuario\\HomeUsuario.cshtml",
+              "ToolTip": "C:\\Users\\fonses\\Desktop\\ProjetoIntegrador\\Views\\Usuario\\HomeUsuario.cshtml",
               "RelativeToolTip": "Views\\Usuario\\HomeUsuario.cshtml",
-              "ViewState": "AgIAAFMCAAAAAAAAAAAUwGwCAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAAFMCAAAAAAAAAAAUwGQCAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-16T22:27:54.385Z",
               "EditorCaption": ""

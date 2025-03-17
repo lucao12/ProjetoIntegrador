@@ -12,8 +12,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>a47wt8t5u1</Fingerprint>
-      <Integrity>CllBa+fQBfsrR/zqkD2gZ/gnK5KAqxsVoYypLZBtnYw=</Integrity>
+      <Fingerprint>rj5lnnm1eb</Fingerprint>
+      <Integrity>V+IE76tPz1JvQunHLnXzPmDjrbimvT5WzMMYL/R2n8M=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Data\teste.db'))</OriginalItemSpec>
@@ -30,8 +30,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>xbxd3clmbu</Fingerprint>
-      <Integrity>/Uyf2pzT+a58lisN3zcjIpTVVYDhqhZaoGEpuFSTies=</Integrity>
+      <Fingerprint>z9fwbcipny</Fingerprint>
+      <Integrity>qe9cI9xV0IPIOeZyGTSNjXVLcTdXTTGKvc2mi7pOzYI=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Data\teste.db-shm'))</OriginalItemSpec>
@@ -48,8 +48,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>5ipweew5fc</Fingerprint>
-      <Integrity>47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=</Integrity>
+      <Fingerprint>t8q669mo8w</Fingerprint>
+      <Integrity>XbRXX1mzHvE9bpuAQjojevQCf/ltndSS8f+vjLZXP2k=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Data\teste.db-wal'))</OriginalItemSpec>
