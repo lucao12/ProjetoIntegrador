@@ -1,49 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\",
+  "WorkspaceRootPath": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucca\\downloads\\projeto\\projetointegrador\\controllers\\dietacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:controllers\\dietacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucca\\downloads\\projeto\\projetointegrador\\models\\alimentoquantidade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:models\\alimentoquantidade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucca\\downloads\\projeto\\projetointegrador\\models\\dieta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:models\\dieta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucca\\downloads\\projeto\\projetointegrador\\models\\dietasemana.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:models\\dietasemana.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\sdk\\9.0.200\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucca\\downloads\\projeto\\projetointegrador\\models\\alimentousuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:models\\alimentousuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucca\\downloads\\projeto\\projetointegrador\\viewmodel\\dietaviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:viewmodel\\dietaviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucca\\downloads\\projeto\\projetointegrador\\views\\usuario\\homenutri.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:views\\usuario\\homenutri.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucca\\downloads\\projeto\\projetointegrador\\views\\usuario\\homeusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|d:\\projetointegrador\\projetointegrador\\views\\usuario\\homeusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:views\\usuario\\homeusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucca\\downloads\\projeto\\projetointegrador\\views\\usuario\\homeadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:views\\usuario\\homeadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|d:\\projetointegrador\\projetointegrador\\controllers\\dietacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:controllers\\dietacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucca\\downloads\\projeto\\projetointegrador\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|d:\\projetointegrador\\projetointegrador\\views\\usuario\\homenutri.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:views\\usuario\\homenutri.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -53,132 +22,28 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Microsoft.NET.Sdk.StaticWebAssets.targets",
-              "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\9.0.200\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.200\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
-              "ToolTip": "C:\\Program Files\\dotnet\\sdk\\9.0.200\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.200\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
-              "ViewState": "AgIAAH8CAAAAAAAAAAAIwJUCAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2025-03-23T18:43:42.218Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "AlimentoQuantidade.cs",
-              "DocumentMoniker": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\Models\\AlimentoQuantidade.cs",
-              "RelativeDocumentMoniker": "Models\\AlimentoQuantidade.cs",
-              "ToolTip": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\Models\\AlimentoQuantidade.cs",
-              "RelativeToolTip": "Models\\AlimentoQuantidade.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-23T18:41:16.033Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "HomeAdmin.cshtml",
-              "DocumentMoniker": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\Views\\Usuario\\HomeAdmin.cshtml",
-              "RelativeDocumentMoniker": "Views\\Usuario\\HomeAdmin.cshtml",
-              "ToolTip": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\Views\\Usuario\\HomeAdmin.cshtml",
-              "RelativeToolTip": "Views\\Usuario\\HomeAdmin.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-23T18:31:07.816Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\Data\\AppDbContext.cs",
-              "RelativeToolTip": "Data\\AppDbContext.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAA5wBoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-23T18:08:09.853Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "DietaController.cs",
-              "DocumentMoniker": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\Controllers\\DietaController.cs",
+              "DocumentMoniker": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\Controllers\\DietaController.cs",
               "RelativeDocumentMoniker": "Controllers\\DietaController.cs",
-              "ToolTip": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\Controllers\\DietaController.cs",
+              "ToolTip": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\Controllers\\DietaController.cs",
               "RelativeToolTip": "Controllers\\DietaController.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAcwDwAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAALMAAAAAAAAAAAAwwMsAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-23T17:38:17.126Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "DietaViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\ViewModel\\DietaViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModel\\DietaViewModel.cs",
-              "ToolTip": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\ViewModel\\DietaViewModel.cs",
-              "RelativeToolTip": "ViewModel\\DietaViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-23T17:33:37.312Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DietaSemana.cs",
-              "DocumentMoniker": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\Models\\DietaSemana.cs",
-              "RelativeDocumentMoniker": "Models\\DietaSemana.cs",
-              "ToolTip": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\Models\\DietaSemana.cs",
-              "RelativeToolTip": "Models\\DietaSemana.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-23T17:30:22.651Z",
+              "WhenOpened": "2025-03-23T20:04:12.346Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Dieta.cs",
-              "DocumentMoniker": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\Models\\Dieta.cs",
-              "RelativeDocumentMoniker": "Models\\Dieta.cs",
-              "ToolTip": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\Models\\Dieta.cs",
-              "RelativeToolTip": "Models\\Dieta.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-23T17:29:38.755Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AlimentoUsuario.cs",
-              "DocumentMoniker": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\Models\\AlimentoUsuario.cs",
-              "RelativeDocumentMoniker": "Models\\AlimentoUsuario.cs",
-              "ToolTip": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\Models\\AlimentoUsuario.cs",
-              "RelativeToolTip": "Models\\AlimentoUsuario.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-23T17:29:49.699Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
               "Title": "HomeNutri.cshtml",
-              "DocumentMoniker": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\Views\\Usuario\\HomeNutri.cshtml",
+              "DocumentMoniker": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\Views\\Usuario\\HomeNutri.cshtml",
               "RelativeDocumentMoniker": "Views\\Usuario\\HomeNutri.cshtml",
-              "ToolTip": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\Views\\Usuario\\HomeNutri.cshtml",
+              "ToolTip": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\Views\\Usuario\\HomeNutri.cshtml",
               "RelativeToolTip": "Views\\Usuario\\HomeNutri.cshtml",
               "ViewState": "AgIAAG8JAAAAAAAAAAAEwD0JAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -187,13 +52,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 0,
               "Title": "HomeUsuario.cshtml",
-              "DocumentMoniker": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\Views\\Usuario\\HomeUsuario.cshtml",
+              "DocumentMoniker": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\Views\\Usuario\\HomeUsuario.cshtml",
               "RelativeDocumentMoniker": "Views\\Usuario\\HomeUsuario.cshtml",
-              "ToolTip": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\Views\\Usuario\\HomeUsuario.cshtml",
-              "RelativeToolTip": "Views\\Usuario\\HomeUsuario.cshtml",
-              "ViewState": "AgIAAFIBAAAAAAAAAAAawGcBAABNAAAAAAAAAA==",
+              "ToolTip": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\Views\\Usuario\\HomeUsuario.cshtml*",
+              "RelativeToolTip": "Views\\Usuario\\HomeUsuario.cshtml*",
+              "ViewState": "AgIAAAMCAAAAAAAAAAAkwBQCAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-16T22:27:54.385Z",
               "EditorCaption": ""

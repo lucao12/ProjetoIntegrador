@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LQ4sHrkqJJSXuGyo7u6a4QhrpyJlG99fNGXoHryL9RY=",
+  "Hash": "Px1LIzRFu3Cw+My6fe2H1oDJxpJ823w8c0Nndecb7t0=",
   "Source": "ProjetoIntegrador",
   "BasePath": "_content/ProjetoIntegrador",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "ProjetoIntegrador\\wwwroot",
       "Source": "ProjetoIntegrador",
-      "ContentRoot": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\wwwroot\\",
+      "ContentRoot": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\",
       "BasePath": "_content/ProjetoIntegrador",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db",
+      "Identity": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db",
       "SourceId": "ProjetoIntegrador",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\wwwroot\\",
+      "ContentRoot": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\",
       "BasePath": "_content/ProjetoIntegrador",
       "RelativePath": "App_Data/teste#[.{fingerprint}]?.db",
       "AssetKind": "All",
@@ -31,17 +31,17 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "9z9ml2qny4",
-      "Integrity": "BbkQSTmcJF1yljFqSNlqLKEIz9ZaWOzCrruvgf29P/o=",
+      "Fingerprint": "0xr6s9g1zh",
+      "Integrity": "LI1XffQJ20HbbkVA69KOZfCcOs+Uz6Jb1a50v2mTDOU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\App_Data\\teste.db"
     },
     {
-      "Identity": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.css",
+      "Identity": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.css",
       "SourceId": "ProjetoIntegrador",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\wwwroot\\",
+      "ContentRoot": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\",
       "BasePath": "_content/ProjetoIntegrador",
       "RelativePath": "css/virtual-select.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -59,10 +59,10 @@
       "OriginalItemSpec": "wwwroot\\css\\virtual-select.min.css"
     },
     {
-      "Identity": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.js",
+      "Identity": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.js",
       "SourceId": "ProjetoIntegrador",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\wwwroot\\",
+      "ContentRoot": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\",
       "BasePath": "_content/ProjetoIntegrador",
       "RelativePath": "css/virtual-select.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -80,10 +80,10 @@
       "OriginalItemSpec": "wwwroot\\css\\virtual-select.min.js"
     },
     {
-      "Identity": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\wwwroot\\default.png",
+      "Identity": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\default.png",
       "SourceId": "ProjetoIntegrador",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\wwwroot\\",
+      "ContentRoot": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\",
       "BasePath": "_content/ProjetoIntegrador",
       "RelativePath": "default#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -101,10 +101,10 @@
       "OriginalItemSpec": "wwwroot\\default.png"
     },
     {
-      "Identity": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\wwwroot\\js\\script.js",
+      "Identity": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\js\\script.js",
       "SourceId": "ProjetoIntegrador",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\wwwroot\\",
+      "ContentRoot": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\",
       "BasePath": "_content/ProjetoIntegrador",
       "RelativePath": "js/script#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -122,10 +122,10 @@
       "OriginalItemSpec": "wwwroot\\js\\script.js"
     },
     {
-      "Identity": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\wwwroot\\NovaPasta\\loader.css",
+      "Identity": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\NovaPasta\\loader.css",
       "SourceId": "ProjetoIntegrador",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\wwwroot\\",
+      "ContentRoot": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\",
       "BasePath": "_content/ProjetoIntegrador",
       "RelativePath": "NovaPasta/loader#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -145,8 +145,8 @@
   ],
   "Endpoints": [
     {
-      "Route": "App_Data/teste.9z9ml2qny4.db",
-      "AssetFile": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db",
+      "Route": "App_Data/teste.0xr6s9g1zh.db",
+      "AssetFile": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -163,11 +163,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"BbkQSTmcJF1yljFqSNlqLKEIz9ZaWOzCrruvgf29P/o=\""
+          "Value": "\"LI1XffQJ20HbbkVA69KOZfCcOs+Uz6Jb1a50v2mTDOU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 23 Mar 2025 19:20:51 GMT"
+          "Value": "Sun, 23 Mar 2025 20:54:28 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -177,7 +177,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "9z9ml2qny4"
+          "Value": "0xr6s9g1zh"
         },
         {
           "Name": "label",
@@ -185,13 +185,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-BbkQSTmcJF1yljFqSNlqLKEIz9ZaWOzCrruvgf29P/o="
+          "Value": "sha256-LI1XffQJ20HbbkVA69KOZfCcOs+Uz6Jb1a50v2mTDOU="
         }
       ]
     },
     {
       "Route": "App_Data/teste.db",
-      "AssetFile": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db",
+      "AssetFile": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -208,11 +208,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"BbkQSTmcJF1yljFqSNlqLKEIz9ZaWOzCrruvgf29P/o=\""
+          "Value": "\"LI1XffQJ20HbbkVA69KOZfCcOs+Uz6Jb1a50v2mTDOU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 23 Mar 2025 19:20:51 GMT"
+          "Value": "Sun, 23 Mar 2025 20:54:28 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -222,13 +222,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-BbkQSTmcJF1yljFqSNlqLKEIz9ZaWOzCrruvgf29P/o="
+          "Value": "sha256-LI1XffQJ20HbbkVA69KOZfCcOs+Uz6Jb1a50v2mTDOU="
         }
       ]
     },
     {
       "Route": "css/virtual-select.min.8vgn74yz30.js",
-      "AssetFile": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.js",
+      "AssetFile": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -249,7 +249,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 23 Mar 2025 15:14:19 GMT"
+          "Value": "Sun, 23 Mar 2025 19:54:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -273,7 +273,7 @@
     },
     {
       "Route": "css/virtual-select.min.css",
-      "AssetFile": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.css",
+      "AssetFile": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -294,7 +294,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 23 Mar 2025 15:14:19 GMT"
+          "Value": "Sun, 23 Mar 2025 19:54:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -310,7 +310,7 @@
     },
     {
       "Route": "css/virtual-select.min.hyh2dotrp4.css",
-      "AssetFile": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.css",
+      "AssetFile": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -331,7 +331,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 23 Mar 2025 15:14:19 GMT"
+          "Value": "Sun, 23 Mar 2025 19:54:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -355,7 +355,7 @@
     },
     {
       "Route": "css/virtual-select.min.js",
-      "AssetFile": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.js",
+      "AssetFile": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -376,7 +376,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 23 Mar 2025 15:14:19 GMT"
+          "Value": "Sun, 23 Mar 2025 19:54:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -392,7 +392,7 @@
     },
     {
       "Route": "default.hc6qofo4g5.png",
-      "AssetFile": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\wwwroot\\default.png",
+      "AssetFile": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\default.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -413,7 +413,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 23 Mar 2025 15:14:19 GMT"
+          "Value": "Sun, 23 Mar 2025 19:54:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -437,7 +437,7 @@
     },
     {
       "Route": "default.png",
-      "AssetFile": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\wwwroot\\default.png",
+      "AssetFile": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\default.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -458,7 +458,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 23 Mar 2025 15:14:19 GMT"
+          "Value": "Sun, 23 Mar 2025 19:54:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -474,7 +474,7 @@
     },
     {
       "Route": "js/script.exvrtjijx8.js",
-      "AssetFile": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\wwwroot\\js\\script.js",
+      "AssetFile": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\js\\script.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -495,7 +495,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 23 Mar 2025 15:14:19 GMT"
+          "Value": "Sun, 23 Mar 2025 19:54:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -519,7 +519,7 @@
     },
     {
       "Route": "js/script.js",
-      "AssetFile": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\wwwroot\\js\\script.js",
+      "AssetFile": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\js\\script.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -540,7 +540,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 23 Mar 2025 15:14:19 GMT"
+          "Value": "Sun, 23 Mar 2025 19:54:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -556,7 +556,7 @@
     },
     {
       "Route": "NovaPasta/loader.51mxwi15a7.css",
-      "AssetFile": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\wwwroot\\NovaPasta\\loader.css",
+      "AssetFile": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\NovaPasta\\loader.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -577,7 +577,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 23 Mar 2025 15:14:19 GMT"
+          "Value": "Sun, 23 Mar 2025 19:54:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -601,7 +601,7 @@
     },
     {
       "Route": "NovaPasta/loader.css",
-      "AssetFile": "C:\\Users\\lucca\\Downloads\\projeto\\ProjetoIntegrador\\wwwroot\\NovaPasta\\loader.css",
+      "AssetFile": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\NovaPasta\\loader.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -622,7 +622,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 23 Mar 2025 15:14:19 GMT"
+          "Value": "Sun, 23 Mar 2025 19:54:54 GMT"
         },
         {
           "Name": "Cache-Control",

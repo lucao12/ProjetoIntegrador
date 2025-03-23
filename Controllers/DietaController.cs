@@ -193,11 +193,12 @@ namespace ProjetoIntegrador.Controllers
                     .Include(x => x.Dietas)
                         .ThenInclude(x => x.Janta)
                         .ThenInclude(x => x.Alimentos)
-                    .FirstOrDefaultAsync(x => x.Usuario.Id == usuario.Id);
+                    .Where(x => x.Usuario.Id == usuario.Id)
+                    .ToListAsync();
 
 
 
-                if (dietaSemana == null)
+                if (dietaSemana == null || dietaSemana.Count == 0)
                 {
                     return BadRequest(new
                     {
