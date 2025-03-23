@@ -32,11 +32,8 @@ namespace ProjetoIntegrador.Controllers
         {
             try
             {
-                List<AlimentoQuantidade> cafe = new List<AlimentoQuantidade>();
-                List<AlimentoQuantidade> almoco = new List<AlimentoQuantidade>();
-                List<AlimentoQuantidade> cafedt = new List<AlimentoQuantidade>();
-                List<AlimentoQuantidade> janta = new List<AlimentoQuantidade>();
-
+                
+                List<Dieta> DietaList = new List<Dieta>();
                 var userId = User.FindFirstValue(ClaimTypes.Email);
                 var nutri = await _context.Usuarios
                     .FirstOrDefaultAsync(u => u.Email == userId);
@@ -53,89 +50,103 @@ namespace ProjetoIntegrador.Controllers
                 {
                     return NotFound(new { error = "Usuário não encontrado" });
                 }
-
-                foreach (var item in model.Cafe)
+                foreach (var itens in model.Dietas)
                 {
-                    var alimento = await _context.Alimentos
-                    .FirstOrDefaultAsync(u => u.Id == item.Key);
-                    if (alimento == null)
+                    List<AlimentoQuantidade> cafe = new List<AlimentoQuantidade>();
+                    List<AlimentoQuantidade> almoco = new List<AlimentoQuantidade>();
+                    List<AlimentoQuantidade> cafedt = new List<AlimentoQuantidade>();
+                    List<AlimentoQuantidade> janta = new List<AlimentoQuantidade>();
+                    foreach (var item in itens.Cafe)
                     {
-                        return NotFound(new { error = "Usuário não encontrado" });
+                        var alimento = await _context.Alimentos
+                        .FirstOrDefaultAsync(u => u.Id == item.Key);
+                        if (alimento == null)
+                        {
+                            return NotFound(new { error = "Usuário não encontrado" });
+                        }
+                        var AlimentosQuantidade = new AlimentoQuantidade
+                        {
+                            Alimentos = alimento,
+                            Quantidade = item.Value
+                        };
+                        _context.AlimentoQuantidade.Add(AlimentosQuantidade);
+                        await _context.SaveChangesAsync();
+                        cafe.Add(AlimentosQuantidade);
                     }
-                    var AlimentosQuantidade = new AlimentoQuantidade
+                    foreach (var item in itens.Almoco)
                     {
-                        Alimentos = alimento,
-                        Quantidade = item.Value
-                    };
-                    _context.AlimentoQuantidade.Add(AlimentosQuantidade);
-                    await _context.SaveChangesAsync();
-                    cafe.Add(AlimentosQuantidade);
-                    
-                }
-                foreach (var item in model.Almoco)
-                {
-                    var alimento = await _context.Alimentos
-                    .FirstOrDefaultAsync(u => u.Id == item.Key);
-                    if (alimento == null)
-                    {
-                        return NotFound(new { error = "Usuário não encontrado" });
-                    }
-                    var AlimentosQuantidade = new AlimentoQuantidade
-                    {
-                        Alimentos = alimento,
-                        Quantidade = item.Value
-                    };
-                    _context.AlimentoQuantidade.Add(AlimentosQuantidade);
-                    await _context.SaveChangesAsync();
-                    almoco.Add(AlimentosQuantidade);
+                        var alimento = await _context.Alimentos
+                        .FirstOrDefaultAsync(u => u.Id == item.Key);
+                        if (alimento == null)
+                        {
+                            return NotFound(new { error = "Usuário não encontrado" });
+                        }
+                        var AlimentosQuantidade = new AlimentoQuantidade
+                        {
+                            Alimentos = alimento,
+                            Quantidade = item.Value
+                        };
+                        _context.AlimentoQuantidade.Add(AlimentosQuantidade);
+                        await _context.SaveChangesAsync();
+                        almoco.Add(AlimentosQuantidade);
 
-                }
-                foreach (var item in model.CafeDT)
-                {
-                    var alimento = await _context.Alimentos
-                    .FirstOrDefaultAsync(u => u.Id == item.Key);
-                    if (alimento == null)
-                    {
-                        return NotFound(new { error = "Usuário não encontrado" });
                     }
-                    var AlimentosQuantidade = new AlimentoQuantidade
+                    foreach (var item in itens.CafeDT)
                     {
-                        Alimentos = alimento,
-                        Quantidade = item.Value
-                    };
-                    _context.AlimentoQuantidade.Add(AlimentosQuantidade);
-                    await _context.SaveChangesAsync();
-                    cafedt.Add(AlimentosQuantidade);
+                        var alimento = await _context.Alimentos
+                        .FirstOrDefaultAsync(u => u.Id == item.Key);
+                        if (alimento == null)
+                        {
+                            return NotFound(new { error = "Usuário não encontrado" });
+                        }
+                        var AlimentosQuantidade = new AlimentoQuantidade
+                        {
+                            Alimentos = alimento,
+                            Quantidade = item.Value
+                        };
+                        _context.AlimentoQuantidade.Add(AlimentosQuantidade);
+                        await _context.SaveChangesAsync();
+                        cafedt.Add(AlimentosQuantidade);
 
-                }
-                foreach (var item in model.Janta)
-                {
-                    var alimento = await _context.Alimentos
-                    .FirstOrDefaultAsync(u => u.Id == item.Key);
-                    if (alimento == null)
-                    {
-                        return NotFound(new { error = "Usuário não encontrado" });
                     }
-                    var AlimentosQuantidade = new AlimentoQuantidade
+                    foreach (var item in itens.Janta)
                     {
-                        Alimentos = alimento,
-                        Quantidade = item.Value
-                    };
-                    _context.AlimentoQuantidade.Add(AlimentosQuantidade);
-                    await _context.SaveChangesAsync();
-                    janta.Add(AlimentosQuantidade);
+                        var alimento = await _context.Alimentos
+                        .FirstOrDefaultAsync(u => u.Id == item.Key);
+                        if (alimento == null)
+                        {
+                            return NotFound(new { error = "Usuário não encontrado" });
+                        }
+                        var AlimentosQuantidade = new AlimentoQuantidade
+                        {
+                            Alimentos = alimento,
+                            Quantidade = item.Value
+                        };
+                        _context.AlimentoQuantidade.Add(AlimentosQuantidade);
+                        await _context.SaveChangesAsync();
+                        janta.Add(AlimentosQuantidade);
 
+                    }
+                   
+                    var dietaLista = new Dieta
+                    {
+                        Cafe = cafe,
+                        Almoco = almoco,
+                        CafeDT = cafedt,
+                        Janta = janta
+                    };
+                    _context.Dieta.Add(dietaLista);
+                    Console.WriteLine(dietaLista);
+                    DietaList.Add(dietaLista);
+                    await _context.SaveChangesAsync();
                 }
-                var dieta = new Dieta
+                var dieta = new DietaSemana
                 {
                     Usuario = usuario,
                     Nutricionista = nutri,
-                    Cafe = cafe,
-                    Almoco = almoco,
-                    CafeDT = cafedt,
-                    Janta = janta
+                    Dietas = DietaList
                 };
-                _context.Dieta.Add(dieta);
+                _context.DietaSemana.Add(dieta);
                 await _context.SaveChangesAsync();
                 return Ok(dieta);
             }
@@ -160,7 +171,7 @@ namespace ProjetoIntegrador.Controllers
                 var usuario = await _context.Usuarios
                     .FirstOrDefaultAsync(u => u.Email == userId);
 
-                if(usuario == null)
+                if (usuario == null)
                 {
                     return BadRequest(new
                     {
@@ -168,22 +179,25 @@ namespace ProjetoIntegrador.Controllers
                     });
                 }
 
-
-                var dieta = await _context.Dieta
-                    .Include(x => x.Usuario)
+                var dietaSemana = await _context.DietaSemana.Include(x => x.Usuario)
                     .Include(x => x.Nutricionista)
-                    .Include(x => x.Cafe)
-                        .ThenInclude(x => x.Alimentos) // Carregar alimentos de cafe
-                    .Include(x => x.Almoco)
-                        .ThenInclude(x => x.Alimentos) // Carregar alimentos de almoco
-                    .Include(x => x.CafeDT)
-                        .ThenInclude(x => x.Alimentos) // Carregar alimentos de cafeDT
-                    .Include(x => x.Janta)
-                        .ThenInclude(x => x.Alimentos) // Carregar alimentos de janta
+                    .Include(x => x.Dietas)
+                        .ThenInclude(x => x.Cafe)
+                        .ThenInclude(x => x.Alimentos)
+                    .Include(x => x.Dietas)
+                        .ThenInclude(x => x.Almoco)
+                        .ThenInclude(x => x.Alimentos)
+                    .Include(x => x.Dietas)
+                        .ThenInclude(x => x.CafeDT)
+                        .ThenInclude(x => x.Alimentos)
+                    .Include(x => x.Dietas)
+                        .ThenInclude(x => x.Janta)
+                        .ThenInclude(x => x.Alimentos)
                     .FirstOrDefaultAsync(x => x.Usuario.Id == usuario.Id);
 
 
-                if (dieta == null)
+
+                if (dietaSemana == null)
                 {
                     return BadRequest(new
                     {
@@ -191,7 +205,7 @@ namespace ProjetoIntegrador.Controllers
                     });
                 }
 
-                return Ok(dieta);
+                return Ok(dietaSemana);
             }
             catch
             {

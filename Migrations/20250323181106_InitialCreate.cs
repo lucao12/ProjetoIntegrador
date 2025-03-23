@@ -97,7 +97,7 @@ namespace ProjetoIntegrador.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Dieta",
+                name: "DietaSemana",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -107,15 +107,15 @@ namespace ProjetoIntegrador.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Dieta", x => x.Id);
+                    table.PrimaryKey("PK_DietaSemana", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Dieta_Usuarios_NutricionistaId",
+                        name: "FK_DietaSemana_Usuarios_NutricionistaId",
                         column: x => x.NutricionistaId,
                         principalTable: "Usuarios",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Dieta_Usuarios_UsuarioId",
+                        name: "FK_DietaSemana_Usuarios_UsuarioId",
                         column: x => x.UsuarioId,
                         principalTable: "Usuarios",
                         principalColumn: "Id",
@@ -174,6 +174,24 @@ namespace ProjetoIntegrador.Migrations
                         principalTable: "Usuarios",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Dieta",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    DietaSemanaId = table.Column<int>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Dieta", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Dieta_DietaSemana_DietaSemanaId",
+                        column: x => x.DietaSemanaId,
+                        principalTable: "DietaSemana",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -256,13 +274,18 @@ namespace ProjetoIntegrador.Migrations
                 column: "AlimentoId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Dieta_NutricionistaId",
+                name: "IX_Dieta_DietaSemanaId",
                 table: "Dieta",
+                column: "DietaSemanaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DietaSemana_NutricionistaId",
+                table: "DietaSemana",
                 column: "NutricionistaId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Dieta_UsuarioId",
-                table: "Dieta",
+                name: "IX_DietaSemana_UsuarioId",
+                table: "DietaSemana",
                 column: "UsuarioId");
 
             migrationBuilder.CreateIndex(
@@ -309,6 +332,9 @@ namespace ProjetoIntegrador.Migrations
 
             migrationBuilder.DropTable(
                 name: "Alimentos");
+
+            migrationBuilder.DropTable(
+                name: "DietaSemana");
 
             migrationBuilder.DropTable(
                 name: "Usuarios");

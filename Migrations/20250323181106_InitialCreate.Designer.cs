@@ -11,7 +11,7 @@ using ProjetoIntegrador.Data;
 namespace ProjetoIntegrador.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250316192859_InitialCreate")]
+    [Migration("20250323181106_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -129,6 +129,22 @@ namespace ProjetoIntegrador.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("DietaSemanaId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DietaSemanaId");
+
+                    b.ToTable("Dieta");
+                });
+
+            modelBuilder.Entity("ProjetoIntegrador.Models.DietaSemana", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("NutricionistaId")
                         .HasColumnType("INTEGER");
 
@@ -141,7 +157,7 @@ namespace ProjetoIntegrador.Migrations
 
                     b.HasIndex("UsuarioId");
 
-                    b.ToTable("Dieta");
+                    b.ToTable("DietaSemana");
                 });
 
             modelBuilder.Entity("ProjetoIntegrador.Models.Mensagem", b =>
@@ -305,6 +321,13 @@ namespace ProjetoIntegrador.Migrations
 
             modelBuilder.Entity("ProjetoIntegrador.Models.Dieta", b =>
                 {
+                    b.HasOne("ProjetoIntegrador.Models.DietaSemana", null)
+                        .WithMany("Dietas")
+                        .HasForeignKey("DietaSemanaId");
+                });
+
+            modelBuilder.Entity("ProjetoIntegrador.Models.DietaSemana", b =>
+                {
                     b.HasOne("ProjetoIntegrador.Models.Usuarios", "Nutricionista")
                         .WithMany()
                         .HasForeignKey("NutricionistaId")
@@ -369,6 +392,11 @@ namespace ProjetoIntegrador.Migrations
                     b.Navigation("CafeDT");
 
                     b.Navigation("Janta");
+                });
+
+            modelBuilder.Entity("ProjetoIntegrador.Models.DietaSemana", b =>
+                {
+                    b.Navigation("Dietas");
                 });
 
             modelBuilder.Entity("ProjetoIntegrador.Models.Usuarios", b =>

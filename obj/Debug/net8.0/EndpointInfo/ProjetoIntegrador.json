@@ -830,6 +830,19 @@
             "type": "integer",
             "format": "int32"
           },
+          "dietas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DietasList"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DietasList": {
+        "type": "object",
+        "properties": {
           "cafe": {
             "type": "array",
             "items": {

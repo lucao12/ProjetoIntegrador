@@ -31,6 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Models\DietaSemana.cs" />
     <None Include="wwwroot\css\virtual-select.min.css" />
     <None Include="wwwroot\css\virtual-select.min.js" />
     <None Include="wwwroot\js\script.js" />

@@ -1144,6 +1144,8 @@
         .alimento-container .remove-button:hover {
             background-color: #c82333;
         }
+
+        
     </style>
 </head>
 
@@ -1308,47 +1310,59 @@
                         <h5 class="modal-title" id="settingsModalLabel">Enviar dieta</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
+                    <strong class="modal-title" id="titulodieta">Dieta numero 1</strong>
+                    <div class="modal-body" id="dieta-1">
                         <div id="modal-cafe" class="modal-cafe">
-                            <strong class="modal-title" class="refeicaoclass">Café</strong>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <strong class="modal-title refeicaoclass">Café</strong>
+                                
+                            </div>
                             <div class="alimentos-selects">
                                 <div id="virtual-cafe" name="native-select" placeholder="Todos os alimentos" data-search="true"
                                      data-silent-initial-value-set="true">
                                 </div>
-                                <div id="labelsinputs"></div>
+                                <div class="labelsinputs"></div>
                             </div>
                         </div>
                         <div id="modal-almoco" class="modal-almoco">
-                            <strong class="modal-title" class="refeicaoclass">Almoço</strong>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <strong class="modal-title refeicaoclass">Almoço</strong>
+                                
+                            </div>
                             <div class="alimentos-selects">
                                 <div id="virtual-almoco" name="native-select" placeholder="Todos os alimentos" data-search="true"
                                      data-silent-initial-value-set="true">
                                 </div>
-                                <div id="labelsinputs"></div>
+                                <div class="labelsinputs"></div>
                             </div>
                         </div>
                         <div id="modal-cafedt" class="modal-cafedt">
-                            <strong class="modal-title" class="refeicaoclass">Café da Tarde</strong>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <strong class="modal-title refeicaoclass">Café da Tarde</strong>
+                            </div>
                             <div class="alimentos-selects">
                                 <div id="virtual-cafedt" name="native-select" placeholder="Todos os alimentos" data-search="true"
                                      data-silent-initial-value-set="true">
                                 </div>
-                                <div id="labelsinputs"></div>
+                                <div class="labelsinputs"></div>
                             </div>
                         </div>
                         <div id="modal-janta" class="modal-janta">
-                            <strong class="modal-title" class="refeicaoclass">Janta</strong>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <strong class="modal-title refeicaoclass">Janta</strong>
+                                
+                            </div>
                             <div class="alimentos-selects">
                                 <div id="virtual-janta" name="native-select" placeholder="Todos os alimentos" data-search="true"
                                      data-silent-initial-value-set="true">
                                 </div>
-                                <div id="labelsinputs"></div>
+                                <div class="labelsinputs"></div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" onclick="EnviaDieta()">Enviar</button>
-
+                        <button type="button" class="btn btn-secondary" onclick="AdicionarDieta()">Adicionar Dieta</button>
+                        <button type="button" class="btn btn-secondary" onclick="EnviaDieta()">Enviar Todas as dietas</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                     </div>
                 </div>
@@ -2210,6 +2224,83 @@ function recriarLabels(alimentosSelecionados, containerId) {
 
             modal.find('.modal-body').data('usuario-id', idUsuario);
         });
+        let dietaNumber = 1;
+        const dietaList = [];
+        async function AdicionarDieta() {
+                    if(dietaNumber < 7){
+                        var modal = $('#EnviaDietaModal');
+                            var idUsuario = modal.find('.modal-body').data('usuario-id'); // Recupera o ID do usuário
+                            console.log(idUsuario);
+
+                            const token = localStorage.getItem("token");
+                            var titulo =document.getElementById('titulodieta')
+                            let cafe = [];
+                            let almoco = [];
+                            let cafeDT = [];
+                            let janta = [];
+                            var modelcafe = document.getElementById('modal-cafe')
+                            var modelalmoco = document.getElementById('modal-almoco')
+                            var modelcafedt = document.getElementById('modal-cafedt')
+                            var modeljanta = document.getElementById('modal-janta')
+                            var divsAlimentoContainercafe = modelcafe.getElementsByClassName('alimento-container');
+                            var divsAlimentoContaineralmoco = modelalmoco.getElementsByClassName('alimento-container');
+                            var divsAlimentoContainercafedt = modelcafedt.getElementsByClassName('alimento-container');
+                            var divsAlimentoContainerjanta = modeljanta.getElementsByClassName('alimento-container');
+
+                            Array.from(divsAlimentoContainercafe).forEach(function(div) {
+                                var input = div.querySelector('input');
+                                var inputName = input.name;
+                                var inputValue = input.value;
+
+                                // Adiciona o par chave/valor ao array 'cafe'
+                                cafe.push({ key: inputName, value: inputValue });
+                            });
+                            Array.from(divsAlimentoContaineralmoco).forEach(function(div) {
+                                var input = div.querySelector('input');
+                                var inputName = input.name;
+                                var inputValue = input.value;
+
+                                // Adiciona o par chave/valor ao array 'cafe'
+                                almoco.push({ key: inputName, value: inputValue });
+                            });
+                            Array.from(divsAlimentoContainercafedt).forEach(function(div) {
+                                var input = div.querySelector('input');
+                                var inputName = input.name;
+                                var inputValue = input.value;
+
+                                // Adiciona o par chave/valor ao array 'cafe'
+                                cafeDT.push({ key: inputName, value: inputValue });
+                            });
+                            Array.from(divsAlimentoContainerjanta).forEach(function(div) {
+                                var input = div.querySelector('input');
+                                var inputName = input.name;
+                                var inputValue = input.value;
+
+                                // Adiciona o par chave/valor ao array 'cafe'
+                                janta.push({ key: inputName, value: inputValue });
+                            });
+                            const dieta = {
+                                Cafe: cafe,
+                                Almoco: almoco,
+                                CafeDT: cafeDT,
+                                Janta: janta
+                            };
+                            dietaList.push(dieta)
+                            dietaNumber++;
+                            titulo.textContent = 'Dieta numero '+ dietaNumber;
+                            document.getElementById("virtual-cafe").setValue(null);
+                            document.getElementById('virtual-almoco').setValue(null);
+                            document.getElementById('virtual-cafedt').setValue(null);
+                            document.getElementById('virtual-janta').setValue(null);
+                            recriarLabels(document.getElementById('virtual-cafe').value, 'virtual-cafe');
+                            recriarLabels(document.getElementById('virtual-almoco').value, 'virtual-almoco');
+                            recriarLabels(document.getElementById('virtual-cafedt').value, 'virtual-cafedt');
+                            recriarLabels(document.getElementById('virtual-janta').value, 'virtual-janta');
+            } else{
+                alert("Você atingiu o limite máximo de 7 dietas.");
+            }      
+        }
+
         async function EnviaDieta() {
 
             var modal = $('#EnviaDietaModal');
@@ -2237,6 +2328,7 @@ function recriarLabels(alimentosSelecionados, containerId) {
 
                 // Adiciona o par chave/valor ao array 'cafe'
                 cafe.push({ key: inputName, value: inputValue });
+                
             });
             Array.from(divsAlimentoContaineralmoco).forEach(function(div) {
                 var input = div.querySelector('input');
@@ -2263,13 +2355,17 @@ function recriarLabels(alimentosSelecionados, containerId) {
                 janta.push({ key: inputName, value: inputValue });
             });
             const dieta = {
-                idUsuario: idUsuario,
                 Cafe: cafe,
                 Almoco: almoco,
                 CafeDT: cafeDT,
                 Janta: janta
             };
-
+            dietaList.push(dieta);
+            const sendDieta ={
+                idUsuario: idUsuario,
+                Dietas : dietaList
+            };
+            console.log(sendDieta);
             try {
                 // Enviando a requisição POST com os dados
                 const response = await fetch('/enviardieta', {
@@ -2279,7 +2375,7 @@ function recriarLabels(alimentosSelecionados, containerId) {
                         "Access-Control-Allow-Origin": "*",
                         "Authorization": `Bearer ${token}` // Definindo que o corpo da requisição é JSON
                     },
-                    body: JSON.stringify(dieta)  // Convertendo o objeto dieta para JSON
+                        body: JSON.stringify(sendDieta)  // Convertendo o objeto dieta para JSON
                 });
 
                 // Verificando se a resposta foi bem-sucedida
@@ -2404,6 +2500,24 @@ function recriarLabels(alimentosSelecionados, containerId) {
             dadosRecebidosDiv.style.display = "none";
             window.ingredienteAtual = null;
         }
+        function toggleInputs(id) {
+                const section = document.getElementById(id);
+                const button = document.querySelector(`[onclick="toggleInputs('${id}')"]`);
+
+                if (section.classList.contains('hidden')) {
+                    section.classList.remove('hidden');
+                    button.textContent = 'Ocultar';
+                } else {
+                    section.classList.add('hidden');
+                    button.textContent = 'Mostrar';
+                }
+        }
+        $('#EnviaDietaModal').on('hidden.bs.modal', function () {
+            console.log('O modal foi fechado!');
+            
+            const modalBody = document.querySelector('#EnviaDietaModal .modal-body');
+            modalBody.innerHTML = ''; // Limpa o conteúdo do modal
+        });
     </script>
     <script>
                /*!
