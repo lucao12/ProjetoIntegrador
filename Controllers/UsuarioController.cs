@@ -152,7 +152,8 @@ namespace ProjetoIntegrador.Controllers
                 var user2 = await _context.AdmCriou.FirstOrDefaultAsync(x => x.User.Id == id);
                 var userCriado = await _context.Usuarios.FirstOrDefaultAsync(x => x.Id == id);
 
-                if (user2 == null || userCriado == null) {
+                if (user2 == null || userCriado == null)
+                {
                     return BadRequest(new { error = "Usuário não encontrado!" });
                 }
 
@@ -247,7 +248,8 @@ namespace ProjetoIntegrador.Controllers
 
                 var admCriou = await _context.AdmCriou.FirstOrDefaultAsync(x => x.User.Id == user.Id && x.Criou == true);
 
-                if (admCriou == null) {
+                if (admCriou == null)
+                {
                     return Ok(new
                     {
                         error = "Não"
@@ -384,7 +386,8 @@ namespace ProjetoIntegrador.Controllers
                     });
                 }
 
-                return Ok(new { 
+                return Ok(new
+                {
                     role = userRole
                 });
             }
@@ -450,7 +453,7 @@ namespace ProjetoIntegrador.Controllers
 
                 var pedido = await _context.Pedidos.Include(p => p.Usuario).FirstOrDefaultAsync(x => x.Usuario.Id == user.Id);
 
-                if(pedido != null)
+                if (pedido != null)
                 {
                     _context.Pedidos.Remove(pedido);
                 }
@@ -526,6 +529,54 @@ namespace ProjetoIntegrador.Controllers
                 return StatusCode(500, new { error = "Erro interno do servidor!" });
             }
         }
+        [Authorize]
+        [HttpPut]
+        [Route("update/user/peso")]
+        public async Task<IActionResult> UpdatePesoAlturaAsync([FromBody] UsuarioUpdateViewModel model)
+        {
+            try
+            {
+                var userEmail = User.FindFirstValue(ClaimTypes.Email);
+                var user = await _context.Usuarios.FirstOrDefaultAsync(x => x.Email == userEmail);
+
+                if (user == null)
+                {
+                    return BadRequest(new { error = "Usuário não encontrado!" });
+                }
+
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                // Criar o novo histórico de peso e altura
+                var historico = new HistoricoPesoAltura
+                {
+                    UsuarioId = user.Id,
+                    Peso = model.Peso,
+                    Altura = model.Altura,
+                    DataAlteracao = DateTime.UtcNow // Definir a data e hora da alteração
+                };
+
+                // Adicionar o histórico na tabela HistoricoPesoAltura
+                await _context.HistoricoPesoAltura.AddAsync(historico);
+
+                // Atualizar a tabela Usuarios com o novo peso e altura
+                user.Peso = model.Peso;
+                user.Altura = model.Altura;
+
+                // Atualizar o usuário na tabela de usuários
+                _context.Usuarios.Update(user);
+                await _context.SaveChangesAsync();
+
+                return Ok(new { sucesso = "Peso e altura atualizados com sucesso!" });
+            }
+            catch
+            {
+                return StatusCode(500, new { error = "Erro interno do servidor!" });
+            }
+        }
+
         [ApiExplorerSettings(IgnoreApi = true)]
         [Authorize]
         [HttpPut]
@@ -651,7 +702,7 @@ namespace ProjetoIntegrador.Controllers
 
                 bool verificador = false;
 
-                if(model.Senha != null && _hashServices.GenerateHash(model.Senha, Convert.FromBase64String(user.Hash)) != user.Senha)
+                if (model.Senha != null && _hashServices.GenerateHash(model.Senha, Convert.FromBase64String(user.Hash)) != user.Senha)
                 {
 
                     verificador = true;

@@ -820,25 +820,19 @@
             transition: background-color 0.3s;
         }
 
-        h1 {
-            color: #343a40;
-        }
-
-        h3 {
+        h1, h3 {
             color: #343a40;
         }
 
         .list-group {
-            max-height: px;
             overflow-y: auto;
             margin-top: 15px;
         }
 
-        /* Estilo para cada item da lista */
         .list-group-item {
             display: flex;
-            justify-content: space-between; /* Alinha os elementos à esquerda e à direita */
-            align-items: center; /* Centraliza verticalmente */
+            justify-content: space-between;
+            align-items: center;
             padding: 10px;
             border: 1px solid #ddd;
             margin-bottom: 10px;
@@ -846,60 +840,58 @@
             background-color: #f9f9f9;
         }
 
-        /* Estilo para o conteúdo à esquerda (nome e e-mail) */
         .list-group-item .user-info {
-            flex: 1; /* Ocupa o espaço disponível à esquerda */
+            flex: 1;
         }
 
-        /* Estilo para o container dos botões */
         .list-group-item .button-container {
             display: flex;
-            gap: 10px; /* Espaçamento entre os botões */
+            gap: 10px;
         }
 
         #listPedidosAceitos {
             list-style-type: none;
             padding: 0;
         }
-        .btn-outline-dark {
-            border: 1px solid #343a40;
-            color: #343a40;
-            background-color: transparent;
-        }
 
-        .btn-outline-dark:hover {
-            background-color: #343a40;
-            color: #fff;
-        }   
-        
-        /* Estilo para o input de mensagem */
         .chat-input {
             display: flex;
             gap: 10px;
             margin-top: 10px;
+            padding: 10px;
+            background-color: #fff;
+            border-top: 1px solid #ccc;
         }
 
         .chat-input input {
             flex: 1;
-            padding: 5px;
-            border: 1px solid #ddd;
-            border-radius: 3px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .chat-input input:focus {
+            border-color: #007bff;
         }
 
         .chat-input button {
-            padding: 5px 10px;
-            border: none;
-            border-radius: 3px;
+            padding: 10px 20px;
             background-color: #007bff;
-            color: #fff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
         .chat-input button:hover {
             background-color: #0056b3;
         }
 
-        /* Estilo para o alerta de não há pedidos aceitos */
         .alert {
             padding: 10px;
             border-radius: 5px;
@@ -923,7 +915,6 @@
             color: #6c757d;
         }
 
-        /* Botões no canto superior direito */
         .button-container {
             position: absolute;
             top: 20px;
@@ -936,6 +927,7 @@
         .btn {
             max-width: 200px;
         }
+        
 
         /* Modo Noturno */
         body.dark-mode {
@@ -943,16 +935,15 @@
             color: white;
         }
 
-        .dark-mode .card {
-            background-color: #1e1e1e;
-            color: white;
-        }
-
-        .dark-mode h3 {
-            color: white;
-        }
-
-        .dark-mode .form-control {
+        .dark-mode .card,
+        .dark-mode .list-group-item,
+        .dark-mode .modal-content,
+        .dark-mode .modal-header,
+        .dark-mode .modal-body,
+        .dark-mode .modal-footer,
+        .dark-mode .form-control,
+        .dark-mode .form-select,
+        .dark-mode .btn-configura-perfil {
             background-color: #333;
             color: white;
             border: 1px solid #555;
@@ -960,11 +951,6 @@
 
         .dark-mode .form-control::placeholder {
             color: #bbb;
-        }
-
-        .dark-mode .list-group-item {
-            background-color: #333;
-            color: white;
         }
 
         .dark-mode .btn-primary {
@@ -974,37 +960,6 @@
 
         .dark-mode .btn-primary:hover {
             background-color: #0056b3;
-        }
-
-        .dark-mode .modal-content {
-            background-color: #1e1e1e;
-            color: white;
-        }
-
-        .dark-mode .modal-header,
-        .dark-mode .modal-body,
-        .dark-mode .modal-footer {
-            background-color: #1e1e1e;
-        }
-
-        .dark-mode .modal-header .btn-close {
-            color: white;
-        }
-
-        .dark-mode .form-control {
-            background-color: #333;
-            color: white;
-            border: 1px solid #555;
-        }
-
-        .dark-mode .form-control::placeholder {
-            color: #bbb;
-        }
-
-        .dark-mode .form-select {
-            background-color: #444;
-            color: white;
-            border: 1px solid #555;
         }
 
         .btn-dark-mode {
@@ -1059,47 +1014,6 @@
             color: inherit;
         }
 
-        .chat-input {
-            display: flex;
-            gap: 10px;
-            padding: 10px;
-            background-color: #fff;
-            border-top: 1px solid #ccc;
-        }
-
-        .chat-input input[type="text"] {
-            flex: 1;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 1em;
-            outline: none;
-            transition: border-color 0.3s ease;
-        }
-
-        .chat-input input[type="text"]:focus {
-            border-color: #007bff;
-        }
-
-        .chat-input button {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .chat-input button:hover {
-            background-color: #0056b3;
-        }
-
-        .chat-input button:active {
-            background-color: #004080;
-        }
-
         .alimento-container {
             display: flex;
             align-items: center;
@@ -1145,7 +1059,53 @@
             background-color: #c82333;
         }
 
-        
+        .dark-mode #ChatContainer{
+            background-color: #3b3b3b;
+        }
+
+        .dark-mode #ChatTextForm{
+            background-color: #3b3b3b;
+            border: 1px solid #ccc;
+
+        }
+
+        .dark-mode h3{
+            background-color: #121212;
+            color: white;
+            border: none;
+        }
+
+        .dark-mode .btn-outline-dark{
+            background-color: rgb(97, 97, 97);
+            color: white;
+        }
+
+        .dark-mode .chat-input{
+            background-color: #333;
+        }
+        .dark-mode .chat-input input{
+            background-color: #333;
+            color: white;
+        }
+
+        #titulodieta {
+            display: block;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+            border-radius: 8px;
+            margin: 10px auto;
+            width: 80%;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .refeicaoclass {
+            display: block;
+            text-align: center;
+            padding: 10px;
+            margin: 10px auto;
+        }
     </style>
 </head>
 
@@ -1154,7 +1114,7 @@
         <div class="loader"></div>
     </div>
 
-    <button style="display: none" id="toggleDarkMode" class="btn-dark-mode">
+    <button id="toggleDarkMode" class="btn-dark-mode">
         <i class="fas fa-moon"></i>
     </button>
     <div class="container">
@@ -1188,20 +1148,19 @@
         </div>
 
         <!-- Botões no canto superior direito -->
-        <div class="button-container">
-            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#settingsModal">
+        <div class="mb-4" style="text-align: center;">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#settingsModal">
                 Configurações
             </button>
-            <button class="btn btn-danger" id="btnLogout">
-                <i class="fas fa-door-open"></i>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#settingsModalSocial" id="btnsocial">
+                Rede Social
             </button>
-            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#settingsModal" id="btnsocial">
-                &#64
-            </button>
-            <button class="btn btn-outline-dark" data-bs-toggle="modal"
+            <button class="btn btn-primary" data-bs-toggle="modal"
                     data-bs-target="#modalAddAlimentos">
                 Adicionar Alimento
             </button>
+            <button id="btnLogout" class="btn btn-danger ms-2" onclick="logout()">Logout</button>
+
         </div>
 
         <!-- Modal de Configurações -->
@@ -1262,7 +1221,7 @@
             </div>
         </div>
 
-        <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel"
+        <div class="modal fade" id="settingsModalSocial" tabindex="-1" aria-labelledby="settingsModalLabel"
             aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -1310,12 +1269,11 @@
                         <h5 class="modal-title" id="settingsModalLabel">Enviar dieta</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <strong class="modal-title" id="titulodieta">Dieta numero 1</strong>
+                    <strong class="modal-title" id="titulodieta">Domingo</strong>
                     <div class="modal-body" id="dieta-1">
                         <div id="modal-cafe" class="modal-cafe">
                             <div class="d-flex justify-content-between align-items-center">
                                 <strong class="modal-title refeicaoclass">Café</strong>
-                                
                             </div>
                             <div class="alimentos-selects">
                                 <div id="virtual-cafe" name="native-select" placeholder="Todos os alimentos" data-search="true"
@@ -1929,6 +1887,7 @@
                         document.getElementById("name").value = user.nome;
                         document.getElementById("email").value = user.email;
                         document.getElementById("phone").value = user.telefone || '';
+                        document.getElementById("instagram").value = user.instagram;
                         document.getElementById("sex").value = user.sexo || '';
                         document.getElementById("idade").value = user.idade || '';
 
@@ -1944,6 +1903,8 @@
 
         document.addEventListener("DOMContentLoaded", function () {
             VirtualSelect.init({
+                            hideClearButton: true,
+
                             search: true,
                             multiple: true,
                             maxWidth: "600px"
@@ -2074,6 +2035,7 @@
                                 ele: selectAlimento,
                                 search: true,
                                 multiple: true,
+                                hideClearButton: true,
                                 maxWidth: "600px",
                                 options: options,
                                 disabledOptions: alimentosBloqueadosIds // Desabilita os alimentos bloqueados
@@ -2083,6 +2045,7 @@
                                 ele: selectAlimento2,
                                 search: true,
                                 multiple: true,
+                                hideClearButton: true,
                                 maxWidth: "600px",
                                 options: options,
                                 disabledOptions: alimentosBloqueadosIds
@@ -2092,6 +2055,7 @@
                                 ele: selectAlimento3,
                                 search: true,
                                 multiple: true,
+                                hideClearButton: true,
                                 maxWidth: "600px",
                                 options: options,
                                 disabledOptions: alimentosBloqueadosIds
@@ -2101,6 +2065,7 @@
                                 ele: selectAlimento4,
                                 search: true,
                                 multiple: true,
+                                hideClearButton: true,
                                 maxWidth: "600px",
                                 options: options,
                                 disabledOptions: alimentosBloqueadosIds
@@ -2197,7 +2162,7 @@ function recriarLabels(alimentosSelecionados, containerId) {
             const input = document.createElement("input");
             input.type = "number";
             input.name = `${alimento.id}`;
-            input.placeholder = `Quantidade de ${alimento.nome} em gramas/mls`;
+            input.placeholder = `Quantidade de ${alimento.nome} em gramas ou ml`;
 
             // Criar um container para o label e o input
             const alimentoContainer = document.createElement("div");
@@ -2226,6 +2191,10 @@ function recriarLabels(alimentosSelecionados, containerId) {
         });
         let dietaNumber = 1;
         const dietaList = [];
+
+        const titulos = ["Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"];
+        let dietaIndex = 0; // Para controlar qual título será exibido
+
         async function AdicionarDieta() {
                     if(dietaNumber < 7){
                         var modal = $('#EnviaDietaModal');
@@ -2285,9 +2254,14 @@ function recriarLabels(alimentosSelecionados, containerId) {
                                 CafeDT: cafeDT,
                                 Janta: janta
                             };
+
                             dietaList.push(dieta)
                             dietaNumber++;
-                            titulo.textContent = 'Dieta numero '+ dietaNumber;
+
+                            titulo.textContent = titulos[dietaIndex];
+                            dietaIndex = (dietaIndex + 1) % titulos.length;
+
+                            
                             document.getElementById("virtual-cafe").setValue(null);
                             document.getElementById('virtual-almoco').setValue(null);
                             document.getElementById('virtual-cafedt').setValue(null);

@@ -64,11 +64,9 @@
             text-align: center;
             margin-bottom: 20px;
         }
-
-        .card h2 {
-            margin: 0;
-            font-size: 22px;
-            color: #333;
+        
+        .dark-mode .card p {
+            color: rgba(255, 255, 255, 0.685);
         }
 
         .card p {
@@ -135,6 +133,24 @@
             color: #007bff;
         }
 
+        .dark-mode #ChatContainer{
+            background-color: #3b3b3b;
+        }
+
+        .dark-mode #ChatTextForm{
+            background-color: #3b3b3b;
+            border: 1px solid #ccc;
+
+        }
+
+        .dark-mode .chat-input{
+            background-color: #1e1e1e;
+        }
+        .dark-mode .chat-input input{
+            background-color: #333;
+            color: white;
+        }
+
 
         button {
             margin: 5px;
@@ -159,7 +175,7 @@
 
         .dark-mode .card {
             background-color: #1e1e1e;
-            color: white;
+            color: white !important;
         }
 
         .dark-mode h1 {
@@ -342,7 +358,7 @@
         <div class="loader"></div>
     </div>
 
-    <button style="display: none" id="toggleDarkMode" class="btn-dark-mode">
+    <button id="toggleDarkMode" class="btn-dark-mode">
         <i class="fas fa-moon"></i>
     </button>
     <div class="container mt-4">
@@ -356,6 +372,8 @@
         <div class="mb-4" style="text-align: center;">
             <button class="btn btn-outline-dark" data-bs-toggle="modal"
                 data-bs-target="#settingsModal">Configurações</button>
+            <button class="btn btn-outline-dark" data-bs-toggle="modal"
+                data-bs-target="#modalSemanal">SemanaModal</button>
             <button class="btn btn-outline-dark" data-bs-toggle="modal"
                 data-bs-target="#modalAlimentos">Alimentos Alergicos</button>
             <button class="btn btn-danger ms-2" onclick="logout()">Logout</button>
@@ -426,6 +444,40 @@
                 </div>
             </div>
         </div>
+
+        <div class="modal fade" id="modalSemanal" tabindex="-1" aria-labelledby="settingsModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="settingsModalLabel">Atualização da semana</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="settingsForm">
+                            <div class="mb-3">
+                                <label for="pesoNovo" class="form-label">Peso (Kg)</label>
+                                <input type="number" class="form-control" id="pesoNovo" min="0" step="1">
+                            </div>
+                            <div class="mb-3">
+                                <label for="alturaNova" class="form-label">Altura (cm)</label>
+                                <input type="number" class="form-control" id="alturaNova" min="0" step="1">
+                            </div>
+                            <div class="mb-3">
+                                <label for="oldPassword" class="form-label">Senha Antiga</label>
+                                <input type="password" class="form-control" id="oldPassword">
+                            </div>
+                        </form>
+                        <div id="mensagemPeso"></div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" onclick="saveChangesSemana(event)">Salvar alterações</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <!-- Modal de Alimentos -->
         <div class="modal fade" id="modalAlimentos" tabindex="-1" aria-labelledby="alimentosModalLabel"
@@ -589,7 +641,7 @@
                                         <div id="ChatTextForm"></div>
                                         <div class="chat-input">
                                             <input type="text" id="mensagem" name="mensagem" placeholder="Digite sua mensagem">
-                                            <button type="button" class="btn btn-primary" id="btnEnviarMensagem">Enviar</button>
+                                            <button type="button" class="btn btn-primary" id="btnEnviarMensagem" onClick="EnviarMensagem(${nutricionista.id})">Enviar</button>
                                         </div>
                                     </div>
                                 </div>
@@ -629,83 +681,78 @@
                 return response.json(); 
             })
             .then(data => {
-
                 console.log(data);
 
-                    const modalBody = document.getElementById('modalDietaBody');
-                    modalBody.innerHTML = ''; // Limpando conteúdo anterior
+                const modalBody = document.getElementById('modalDietaBody');
+                modalBody.innerHTML = ''; // Limpando conteúdo anterior
 
-                    let cont = 1;
-                    // Percorrendo os elementos do array principal
-                        data.forEach(item => {
-                        if (item.dietas) {
-                            item.dietas.forEach(dieta => {
-                                // Criando a div principal da dieta
-                                const dietaDiv = document.createElement('div');
-                                dietaDiv.innerHTML = `<strong>Dieta ${cont}</strong><br>`;
+                let cont = 0; // Contador de dias da semana
+                // Percorrendo os elementos do array principal
+                data.forEach(item => {
+                    if (item.dietas) {
+                        const diasSemana = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
 
-                                // Função para criar a seção de cada refeição
-                                const criarSecaoRefeicao = (refeicao, listaAlimentos) => {
-                                    const secaoDiv = document.createElement('div');
-                                    secaoDiv.id = `dieta${cont}-${refeicao}`;
-                                    if(refeicao == "cafeDT"){
-                                        secaoDiv.innerHTML = `<h4>Café da tarde</h4>`;
-                                    }
-                                    if(refeicao == "cafe"){
-                                        secaoDiv.innerHTML = `<h4>Café</h4>`;
-                                    }
-                                    if(refeicao == "almoco"){
-                                        secaoDiv.innerHTML = `<h4>Almoço</h4>`;
-                                    }
-                                    if(refeicao == "janta"){
-                                        secaoDiv.innerHTML = `<h4>Janta</h4>`;
-                                    }
+                        item.dietas.forEach((dieta, index) => {
+                            const dietaDiv = document.createElement('div');
+                            dietaDiv.innerHTML += `<h3 style="text-align: center">${diasSemana[cont % 7]}</h3><br>`; // Rotação correta dos dias
 
-                                    if (listaAlimentos.length > 0) {
-                                        listaAlimentos.forEach(alimento => {
-                                            const alimentoDiv = document.createElement('div');
-                                            alimentoDiv.id = `dieta${cont}-${refeicao}-${alimento.nome.replace(/\s+/g, '')}`; // Removendo espaços do nome
-                                            alimentoDiv.innerHTML = `${alimento.quantidade} g/ml de ${alimento.nome}`;
-
-                                            secaoDiv.appendChild(alimentoDiv);
-                                        });
-                                    } else {
-                                        secaoDiv.innerHTML += 'Nenhum';
-                                    }
-
-                                    dietaDiv.appendChild(secaoDiv);
+                            // Função para criar a seção de cada refeição
+                            const criarSecaoRefeicao = (refeicao, listaAlimentos) => {
+                                const nomesRefeicoes = {
+                                    cafe: "Café da Manhã",
+                                    almoco: "Almoço",
+                                    cafeDT: "Café da Tarde",
+                                    janta: "Janta"
                                 };
 
-                                // Extraindo os alimentos
-                                const extrairAlimentos = refeicao => {
-                                    let lista = [];
-                                    if (dieta[refeicao] && Array.isArray(dieta[refeicao])) {
-                                        dieta[refeicao].forEach(elemento => {
-                                            if (elemento.alimentos && elemento.quantidade) {
-                                                lista.push({
-                                                    nome: elemento.alimentos.nome,
-                                                    quantidade: elemento.quantidade
-                                                });
-                                            }
-                                        });
-                                    }
-                                    return lista;
-                                };
+                                const secaoDiv = document.createElement('div');
+                                secaoDiv.classList.add(`dieta${cont}-${refeicao}`);
+                                secaoDiv.innerHTML = `<h4>${nomesRefeicoes[refeicao] || refeicao}</h4>`;
 
-                                // Criando seções para cada refeição
-                                criarSecaoRefeicao('cafe', extrairAlimentos('cafe'));
-                                criarSecaoRefeicao('almoco', extrairAlimentos('almoco'));
-                                criarSecaoRefeicao('cafeDT', extrairAlimentos('cafeDT'));
-                                criarSecaoRefeicao('janta', extrairAlimentos('janta'));
+                                if (listaAlimentos.length > 0) {
+                                    listaAlimentos.forEach(alimento => {
+                                        const alimentoDiv = document.createElement('div');
+                                        alimentoDiv.classList.add(`dieta${cont}-${refeicao}-${alimento.nome.replace(/\s+/g, '')}`);
+                                        alimentoDiv.innerHTML = `${alimento.quantidade} g/ml de ${alimento.nome}`;
+                                        secaoDiv.appendChild(alimentoDiv);
+                                    });
+                                } else {
+                                    secaoDiv.innerHTML += 'Nenhum';
+                                }
 
-                                dietaDiv.innerHTML += '<hr>'; // Separação visual entre dietas
+                                dietaDiv.appendChild(secaoDiv);
+                            };
 
-                                // Adicionando ao modal
-                                modalBody.appendChild(dietaDiv);
-                                cont++;
+                            // Extraindo os alimentos
+                            const extrairAlimentos = refeicao => {
+                                let lista = [];
+                                if (dieta[refeicao] && Array.isArray(dieta[refeicao])) {
+                                    dieta[refeicao].forEach(elemento => {
+                                        if (elemento.alimentos && elemento.quantidade) {
+                                            lista.push({
+                                                nome: elemento.alimentos.nome,
+                                                quantidade: elemento.quantidade
+                                            });
+                                        }
+                                    });
+                                }
+                                return lista;
+                            };
+
+                            // Criando seções para cada refeição
+                            ["cafe", "almoco", "cafeDT", "janta"].forEach(refeicao => {
+                                criarSecaoRefeicao(refeicao, extrairAlimentos(refeicao));
                             });
-                        }
-                    });
+
+                            dietaDiv.innerHTML += '<hr>'; // Separação visual entre dietas
+
+                            // Adicionando ao modal
+                            modalBody.appendChild(dietaDiv);
+                            
+                            cont = (cont + 1) % 7; // Avançando para o próximo dia da semana
+                        });
+                    }
+                });
 
             })
             .catch(error => {
@@ -867,31 +914,6 @@
                 .catch(error => {
                     console.error("Erro ao verificar pedidos:", error);
                 });
-
-            //requisição alimentos
-            @* fetch("http://localhost:5037/alimentos/getAlimentos", {
-                method: "GET",
-                headers: {
-                    "Authorization": `Bearer ${token}`,
-                    "Content-Type": "application/json"
-                }
-            })
-                .then(response => response.json())
-                .then(alimentos => {
-                    let selectAlimentoModal = document.getElementById("teste-virtual");
-                    alimentos.forEach((alimento) => {
-                        selectAlimentoModal.addOption({
-                        value: alimento.id,
-                        label: alimento.nome,
-                        });
-                    });
-                })
-                .catch(error => {
-                    console.error("Erro ao carregar alimentos:", error);
-                }); *@
-
-
-
 
                 // Chama a requisição para preencher o modal com os dados do usuário
                 fetch("/user/yourself", {
@@ -1072,8 +1094,8 @@
 
                                     // Sucesso ao salvar
                                     TiraCarregando();
-                                    alert("Alterações salvas com sucesso! Alimentos adicionados.");
-                                    logout(); // Recarrega as informações no modal
+                                    alert("Alterações salvas com sucesso!");
+                                    logout();
                                 })
                                 .catch(error => {
                                     TiraCarregando();
@@ -1103,7 +1125,107 @@
             }
         }
 
+        document.addEventListener('DOMContentLoaded', function () {
+            // Verificar se já se passou uma semana desde a última exibição do modal
+            const lastShown = localStorage.getItem('lastShownModal');
+            
+            if (lastShown) {
+                const lastShownDate = new Date(lastShown);
+                const now = new Date();
+                const oneWeek = 7 * 24 * 60 * 60 * 1000; // 1 semana em milissegundos
+                
+                // Verifica se já passou 1 semana
+                if (now - lastShownDate >= oneWeek) {
+                    // Exibir o modal
+                    $('#modalSemanal').modal('show');
+                }
+            } else {
+                // Exibir o modal pela primeira vez, se não houver registro
+                $('#modalSemanal').modal('show');
+            }
+        });
 
+        // Função chamada quando o modal for fechado ou salvo
+        function saveChangesSemana(event) {
+                event.preventDefault();  // Impede o recarregamento da página
+
+            // Obter os valores dos campos de input
+            const peso = document.getElementById('pesoNovo').value;
+            const altura = document.getElementById('alturaNova').value;
+            const SenhaAntiga = document.getElementById("oldPassword").value;
+
+            console.log("Peso:", peso);  // Verificar o valor capturado
+            console.log("Altura:", altura);  // Verificar o valor capturado
+            console.log("Senha Antiga:", SenhaAntiga);  // Verificar o valor da senha antiga
+
+            const token = localStorage.getItem("token");
+            console.log("Token:", token);
+
+            // Verificar se os valores são válidos
+            if (!peso || !altura || !SenhaAntiga) {
+                alert('Por favor, preencha todos os campos.');
+                return;
+            }
+
+            const pesoAntigo = document.getElementById('peso').value;
+                console.log("xD ~ saveChangesSemana ~ pesoAntigo:", pesoAntigo)
+
+            // Calcular a diferença de peso
+            let mensagemPeso = '';
+            if (peso > pesoAntigo) {
+                // Ganhou peso
+                const ganhoPeso = peso - pesoAntigo;
+                mensagemPeso = `Você ganhou ${ganhoPeso.toFixed(2)} kg.`;
+            } else if (peso < pesoAntigo) {
+                // Perdeu peso
+                const perdaPeso = pesoAntigo - peso;
+                mensagemPeso = `Você perdeu ${perdaPeso.toFixed(2)} kg.`;
+            } else {
+                // Não houve alteração
+                mensagemPeso = 'Você não ganhou nem perdeu peso.';
+            }
+
+            // Preparar os dados para enviar para o backend
+            const data = {
+                Peso: parseFloat(peso),
+                Altura: parseFloat(altura),
+                SenhaAntiga: SenhaAntiga
+            };
+
+            // Verificar os dados antes de enviar
+            console.log("Dados enviados:", data);
+
+            // Fazer a requisição para o backend
+            fetch('/update/user/peso', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}` // se precisar de autenticação com token
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.sucesso) {
+                    alert(`${data.sucesso}\n${mensagemPeso}`);  // Exibir a mensagem de sucesso junto com a mensagem de peso
+
+                    // Atualizar a data da última exibição do modal
+                    localStorage.setItem('lastShownModal', new Date().toISOString());
+                    
+                    // Armazenar valores adicionais se necessário (exemplo com localStorage)
+                    document.getElementById('peso').dataset.pesoAntigo = peso;
+                    document.getElementById('mensagemPeso').innerText = mensagemPeso;
+                    logout()
+                } else {
+                    alert(data.error || 'Erro ao salvar as alterações.');
+                }
+                
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                alert('Erro ao comunicar com o servidor.');
+            });
+        }
 
         function deleteAccount() {
             const token = localStorage.getItem("token");
@@ -1355,6 +1477,7 @@
                             ele: selectAlimento,  // Passando o elemento do VirtualSelect
                             search: true,
                             multiple: true,
+                            hideClearButton: true,
                             maxWidth: "600px"
                         });
 
