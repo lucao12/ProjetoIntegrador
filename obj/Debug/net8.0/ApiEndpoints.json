@@ -262,6 +262,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "ProjetoIntegrador.Controllers.UsuarioController",
+    "Method": "GetPesoAlturaAsync",
+    "RelativePath": "pesoSemana/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "ProjetoIntegrador.Controllers.DietaController",
     "Method": "GetDieta",
     "RelativePath": "receberDieta",
@@ -339,6 +355,22 @@
       {
         "Name": "model",
         "Type": "ProjetoIntegrador.ViewModel.UsuarioUpdateAdminViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.UsuarioController",
+    "Method": "UpdatePesoAlturaAsync",
+    "RelativePath": "update/user/peso",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ProjetoIntegrador.ViewModel.UsuarioUpdateViewModel",
         "IsRequired": true
       }
     ],

@@ -1351,6 +1351,25 @@
         </div>
     </div>
 
+
+    <div class="modal fade" id="modalGrafico" tabindex="-1" aria-labelledby="modalGrafico"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalGrafico">Gráfico de peso</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         function ColocaCarregando() {
             document.getElementById("loader-container").style.display = "flex";
@@ -1358,6 +1377,77 @@
 
         function TiraCarregando() {
             document.getElementById("loader-container").style.display = "none";
+        }
+
+        function CarregaGrafico(idUsuario){
+                const token = localStorage.getItem("token"); // Obtém o token armazenado
+                if (!token) {
+                    alert("Erro: Token não encontrado.");
+                    return;
+                }
+
+                fetch(`/pesoSemana/${idUsuario}`, {
+                    method: "GET",
+                    headers: {
+                        "Authorization": `Bearer ${token}`,
+                        "Content-Type": "application/json"
+                    }
+                })
+                .then(response => {
+                    if (!response.ok) throw new Error("Erro ao buscar os dados");
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.length === 0) {
+                        alert("Nenhum dado de peso encontrado.");
+                                const modalBody2 = document.querySelector("#modalGrafico .modal-body");
+                                    modalBody2.innerHTML = "";
+                        return;
+                    }
+
+                    // Ordena os dados pela data (mais recente primeiro)
+                    data.sort((a, b) => new Date(b.dataAlteracao) - new Date(a.dataAlteracao));
+
+                    // Processa os dados para o gráfico
+                    const labels = data.map(item => new Date(item.dataAlteracao).toLocaleDateString());
+                    const pesos = data.map(item => item.peso);
+
+                    // Insere o gráfico no modal
+                    const modalBody = document.querySelector("#modalGrafico .modal-body");
+                            modalBody.innerHTML = "";
+                    modalBody.innerHTML = '<canvas id="graficoPeso"></canvas>'; // Reseta o conteúdo
+
+                    const ctx = document.getElementById("graficoPeso").getContext("2d");
+
+                    new Chart(ctx, {
+                        type: "line",
+                        data: {
+                            labels: labels.reverse(), // Datas no eixo X
+                            datasets: [{
+                                label: "Peso (kg)",
+                                data: pesos.reverse(), // Pesos no eixo Y
+                                borderColor: "blue",
+                                borderWidth: 2,
+                                fill: false
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                x: { title: { display: true, text: "Data" } },
+                                y: { title: { display: true, text: "Peso (kg)" }, beginAtZero: false }
+                            }
+                        }
+                    });
+
+                    
+                })
+                .catch(error => {
+                    console.error("Erro:", error);
+                    alert("Erro ao carregar o gráfico.");
+                });
+            
         }
 
         $(document).ready(function () {
@@ -1496,7 +1586,8 @@
                                         <label class="idUser" style="display: none">${pedido.usuario.id}</label>
                                         <button class="btn btn-outline-dark btn-chat" data-id="${pedido.usuario.id}" data-bs-toggle="modal" data-bs-target="#ChatModal">Chat com ${pedido.usuario.nome}</button>
                                         <button class="btn btn-outline-dark btn-enviar-dieta" data-id="${pedido.usuario.id}" data-bs-toggle="modal" data-bs-target="#EnviaDietaModal">Enviar dieta para ${pedido.usuario.nome}</button>
-                                    </li>
+                                                    <button class="btn btn-outline-dark btn-grafico" data-id="${pedido.usuario.id}" data-bs-toggle="modal" data-bs-target="#modalGrafico">Ver gráfico de peso</button>
+                                        </li>
                                 `);
                             });
 
@@ -1517,6 +1608,14 @@
                                     carregarAlimentos(idUser);
                                 });
                             });
+
+                                             document.querySelectorAll('.btn-grafico').forEach(button => {
+                                        button.addEventListener('click', function () {
+                                            const idUser = this.getAttribute('data-id');
+                                            localStorage.setItem('idUser', idUser);
+                                            CarregaGrafico(idUser);
+                                        });
+                                    });
                         } else {
                             $('#noPedidosAceitos').html('<p class="alert alert-info">Não há pedidos aceitos</p>');
                         }
@@ -2493,6 +2592,7 @@ function recriarLabels(alimentosSelecionados, containerId) {
             modalBody.innerHTML = ''; // Limpa o conteúdo do modal
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
                /*!
         * Virtual Select v1.0.47

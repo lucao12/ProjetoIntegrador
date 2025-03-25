@@ -371,6 +371,38 @@ namespace ProjetoIntegrador.Controllers
         }
         [Authorize]
         [HttpGet]
+        [Route("pesoSemana/{id:int}")]
+        public async Task<IActionResult> GetPesoAlturaAsync([FromRoute] int id)
+        {
+            try
+            {
+                var userEmail = User.FindFirstValue(ClaimTypes.Email);
+                var user = await _context.Usuarios.FirstOrDefaultAsync(x => x.Email == userEmail);
+
+                if (user == null)
+                {
+                    return BadRequest(new { error = "Usuário não encontrado!" });
+                }
+
+
+                var pesos = await _context.HistoricoPesoAltura.Where(x => x.UsuarioId == id).ToListAsync();
+
+                if(pesos.Count == 0)
+                {
+                    BadRequest(new { error = "usuário não possui histórico!" });
+                }
+
+
+                return Ok(pesos);
+            }
+            catch
+            {
+                return StatusCode(500, new { error = "Erro interno do servidor!" });
+            }
+        }
+
+        [Authorize]
+        [HttpGet]
         [Route("role")]
         public async Task<IActionResult> GetRole()
         {

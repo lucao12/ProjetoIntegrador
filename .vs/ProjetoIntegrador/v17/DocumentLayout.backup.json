@@ -1,18 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\",
+  "WorkspaceRootPath": "D:\\ProjetoHoje\\ProjetoIntegrador\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|d:\\projetointegrador\\projetointegrador\\views\\usuario\\homeusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:views\\usuario\\homeusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|d:\\projetointegrador\\projetointegrador\\controllers\\dietacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:controllers\\dietacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|d:\\projetointegrador\\projetointegrador\\views\\usuario\\homenutri.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|d:\\projetohoje\\projetointegrador\\views\\usuario\\homenutri.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:views\\usuario\\homenutri.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|d:\\projetohoje\\projetointegrador\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|d:\\projetohoje\\projetointegrador\\views\\usuario\\homeusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:views\\usuario\\homeusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,40 +27,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "DietaController.cs",
-              "DocumentMoniker": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\Controllers\\DietaController.cs",
-              "RelativeDocumentMoniker": "Controllers\\DietaController.cs",
-              "ToolTip": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\Controllers\\DietaController.cs",
-              "RelativeToolTip": "Controllers\\DietaController.cs",
-              "ViewState": "AgIAALMAAAAAAAAAAAAwwMsAAAAVAAAAAAAAAA==",
+              "Title": "UsuarioController.cs",
+              "DocumentMoniker": "D:\\ProjetoHoje\\ProjetoIntegrador\\Controllers\\UsuarioController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UsuarioController.cs",
+              "ToolTip": "D:\\ProjetoHoje\\ProjetoIntegrador\\Controllers\\UsuarioController.cs",
+              "RelativeToolTip": "Controllers\\UsuarioController.cs",
+              "ViewState": "AgIAAHABAAAAAAAAAAAYwHUBAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-23T20:04:12.346Z",
+              "WhenOpened": "2025-03-25T02:31:33.184Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "HomeNutri.cshtml",
-              "DocumentMoniker": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\Views\\Usuario\\HomeNutri.cshtml",
-              "RelativeDocumentMoniker": "Views\\Usuario\\HomeNutri.cshtml",
-              "ToolTip": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\Views\\Usuario\\HomeNutri.cshtml",
-              "RelativeToolTip": "Views\\Usuario\\HomeNutri.cshtml",
-              "ViewState": "AgIAAG8JAAAAAAAAAAAEwD0JAAAQAAAAAAAAAA==",
+              "Title": "HomeUsuario.cshtml",
+              "DocumentMoniker": "D:\\ProjetoHoje\\ProjetoIntegrador\\Views\\Usuario\\HomeUsuario.cshtml",
+              "RelativeDocumentMoniker": "Views\\Usuario\\HomeUsuario.cshtml",
+              "ToolTip": "D:\\ProjetoHoje\\ProjetoIntegrador\\Views\\Usuario\\HomeUsuario.cshtml",
+              "RelativeToolTip": "Views\\Usuario\\HomeUsuario.cshtml",
+              "ViewState": "AgIAAJIEAAAAAAAAAAAUwK4EAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-23T15:16:51.67Z",
+              "WhenOpened": "2025-03-25T02:30:35.185Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "HomeUsuario.cshtml",
-              "DocumentMoniker": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\Views\\Usuario\\HomeUsuario.cshtml",
-              "RelativeDocumentMoniker": "Views\\Usuario\\HomeUsuario.cshtml",
-              "ToolTip": "D:\\ProjetoIntegrador\\ProjetoIntegrador\\Views\\Usuario\\HomeUsuario.cshtml*",
-              "RelativeToolTip": "Views\\Usuario\\HomeUsuario.cshtml*",
-              "ViewState": "AgIAAAMCAAAAAAAAAAAkwBQCAAAMAAAAAAAAAA==",
+              "Title": "HomeNutri.cshtml",
+              "DocumentMoniker": "D:\\ProjetoHoje\\ProjetoIntegrador\\Views\\Usuario\\HomeNutri.cshtml",
+              "RelativeDocumentMoniker": "Views\\Usuario\\HomeNutri.cshtml",
+              "ToolTip": "D:\\ProjetoHoje\\ProjetoIntegrador\\Views\\Usuario\\HomeNutri.cshtml",
+              "RelativeToolTip": "Views\\Usuario\\HomeNutri.cshtml",
+              "ViewState": "AgIAAGkFAAAAAAAAAAAUwH4FAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-16T22:27:54.385Z",
+              "WhenOpened": "2025-03-23T15:16:51.67Z",
               "EditorCaption": ""
             }
           ]
