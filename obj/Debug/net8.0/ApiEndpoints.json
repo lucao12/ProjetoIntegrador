@@ -340,6 +340,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "ProjetoIntegrador.Controllers.AlimentosController",
+    "Method": "SubstituirAlimentos",
+    "RelativePath": "SubstituirAlimentos",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ProjetoIntegrador.ViewModel.SubstituirAlimentosViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "ProjetoIntegrador.Controllers.UsuarioController",
     "Method": "UpdateAdminAsync",
     "RelativePath": "update/user/{id}",

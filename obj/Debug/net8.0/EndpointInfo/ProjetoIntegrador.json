@@ -94,6 +94,37 @@
         }
       }
     },
+    "/SubstituirAlimentos": {
+      "post": {
+        "tags": [
+          "Alimentos"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubstituirAlimentosViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubstituirAlimentosViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubstituirAlimentosViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/enviardieta": {
       "post": {
         "tags": [
@@ -970,6 +1001,20 @@
         "type": "object",
         "properties": {
           "instagram": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SubstituirAlimentosViewModel": {
+        "type": "object",
+        "properties": {
+          "alimento": {
+            "type": "string",
+            "nullable": true
+          },
+          "refeicao": {
             "type": "string",
             "nullable": true
           }

@@ -35,6 +35,7 @@ namespace ProjetoIntegrador.Controllers
             try
             {
                 string prompt = $"Forneça apenas os valores de macronutrientes, micronutrientes e calorias em 100 gramas de {model.ingrediente}. Responda no formato: \nCalorias: X kcal\nCarboidratos: Y g\nProteínas: Z g\nGorduras: W g\nVitaminas e Minerais: (lista de principais nutrientes). Não use nenhum tipo de acento" ;
+                
                 string response = await SendRequestToGemini(prompt);
 
                 return Ok(StringToJson(response));
