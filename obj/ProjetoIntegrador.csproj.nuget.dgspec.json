@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador\\ProjetoIntegrador\\ProjetoIntegrador.csproj": {}
+    "C:\\Users\\lucca\\Documents\\teste\\ProjetoIntegrador\\ProjetoIntegrador.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador\\ProjetoIntegrador\\ProjetoIntegrador.csproj": {
+    "C:\\Users\\lucca\\Documents\\teste\\ProjetoIntegrador\\ProjetoIntegrador.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador\\ProjetoIntegrador\\ProjetoIntegrador.csproj",
+        "projectUniqueName": "C:\\Users\\lucca\\Documents\\teste\\ProjetoIntegrador\\ProjetoIntegrador.csproj",
         "projectName": "ProjetoIntegrador",
-        "projectPath": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador\\ProjetoIntegrador\\ProjetoIntegrador.csproj",
-        "packagesPath": "C:\\Users\\lucasmiranda\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lucasmiranda\\Downloads\\ProjetoIntegrador\\ProjetoIntegrador\\obj\\",
+        "projectPath": "C:\\Users\\lucca\\Documents\\teste\\ProjetoIntegrador\\ProjetoIntegrador.csproj",
+        "packagesPath": "C:\\Users\\lucca\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lucca\\Documents\\teste\\ProjetoIntegrador\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\lucasmiranda\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lucca\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -45,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -119,7 +118,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

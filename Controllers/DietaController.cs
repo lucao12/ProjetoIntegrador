@@ -41,14 +41,14 @@ namespace ProjetoIntegrador.Controllers
 
                 if (nutri == null)
                 {
-                    return NotFound(new { error = "Usuário não encontrado" });
+                    return NotFound(new { error = "Usuário não encontrado1" });
                 }
                 var usuario = await _context.Usuarios
                     .FirstOrDefaultAsync(u => u.Id == model.idUsuario);
 
                 if (usuario == null)
                 {
-                    return NotFound(new { error = "Usuário não encontrado" });
+                    return NotFound(new { error = "Usuário não encontrado2" });
                 }
                 foreach (var itens in model.Dietas)
                 {
@@ -62,7 +62,7 @@ namespace ProjetoIntegrador.Controllers
                         .FirstOrDefaultAsync(u => u.Id == item.Key);
                         if (alimento == null)
                         {
-                            return NotFound(new { error = "Usuário não encontrado" });
+                            return NotFound(new { error = "Usuário não encontrado3" });
                         }
                         var AlimentosQuantidade = new AlimentoQuantidade
                         {
@@ -79,7 +79,7 @@ namespace ProjetoIntegrador.Controllers
                         .FirstOrDefaultAsync(u => u.Id == item.Key);
                         if (alimento == null)
                         {
-                            return NotFound(new { error = "Usuário não encontrado" });
+                            return NotFound(new { error = "Usuário não encontrado4" });
                         }
                         var AlimentosQuantidade = new AlimentoQuantidade
                         {
@@ -97,7 +97,7 @@ namespace ProjetoIntegrador.Controllers
                         .FirstOrDefaultAsync(u => u.Id == item.Key);
                         if (alimento == null)
                         {
-                            return NotFound(new { error = "Usuário não encontrado" });
+                            return NotFound(new { error = "Usuário não encontrado5" });
                         }
                         var AlimentosQuantidade = new AlimentoQuantidade
                         {
@@ -115,7 +115,7 @@ namespace ProjetoIntegrador.Controllers
                         .FirstOrDefaultAsync(u => u.Id == item.Key);
                         if (alimento == null)
                         {
-                            return NotFound(new { error = "Usuário não encontrado" });
+                            return NotFound(new { error = "Usuário não encontrado6" });
                         }
                         var AlimentosQuantidade = new AlimentoQuantidade
                         {
@@ -178,33 +178,34 @@ namespace ProjetoIntegrador.Controllers
                         erro = "Usuário não encontrado."
                     });
                 }
-
-                var dietaSemana = await _context.DietaSemana.Include(x => x.Usuario)
+                var dietaSemana = await _context.DietaSemana
+                    .Include(x => x.Usuario)
                     .Include(x => x.Nutricionista)
                     .Include(x => x.Dietas)
                         .ThenInclude(x => x.Cafe)
-                        .ThenInclude(x => x.Alimentos)
+                            .ThenInclude(x => x.Alimentos)
                     .Include(x => x.Dietas)
                         .ThenInclude(x => x.Almoco)
-                        .ThenInclude(x => x.Alimentos)
+                            .ThenInclude(x => x.Alimentos)
                     .Include(x => x.Dietas)
                         .ThenInclude(x => x.CafeDT)
-                        .ThenInclude(x => x.Alimentos)
+                            .ThenInclude(x => x.Alimentos)
                     .Include(x => x.Dietas)
                         .ThenInclude(x => x.Janta)
-                        .ThenInclude(x => x.Alimentos)
+                            .ThenInclude(x => x.Alimentos)
                     .Where(x => x.Usuario.Id == usuario.Id)
-                    .ToListAsync();
+                    .OrderByDescending(x => x.Id) // ou x.DataCriacao se houver
+                    .FirstOrDefaultAsync();
 
 
-
-                if (dietaSemana == null || dietaSemana.Count == 0)
+                if (dietaSemana == null)
                 {
                     return BadRequest(new
                     {
                         erro = "Dieta não encontrada."
                     });
                 }
+
 
                 return Ok(dietaSemana);
             }
