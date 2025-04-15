@@ -349,15 +349,6 @@
             padding: 20px 0;
             text-align: center
         }
-        h6{
-            padding:15px;
-        }
-
-        #conteudo-abas-dieta{
-            padding:10px;
-            text-align: center;
-        }
-
 
             .vscomp-options-loader::before {
                 animation: vscomp-animation-spin .8s infinite linear;
@@ -390,19 +381,6 @@
             position: relative;
             width: 15px
         }
-
-        .nav-tabs .nav-link.active {
-            border-color: #dee2e6 #dee2e6 #fff;
-            font-weight: 600;
-        }
-
-        .nav-tabs .nav-link {
-            color: #495057;
-        }
-
-            .nav-tabs .nav-link.text-danger {
-                font-weight: 500;
-            }
 
             .vscomp-wrapper .checkbox-icon::after {
                 transition-duration: .2s;
@@ -1283,35 +1261,71 @@
             <div id="noPedidosAceitos" class="no-pedidos"></div>
         </div>
 
-        <div class="modal fade" id="EnviaDietaModal" tabindex="-1" role="dialog">
-            <div class="modal-dialog modal-lg" role="document">
+        <div class="modal fade" id="EnviaDietaModal" tabindex="-1" aria-labelledby="settingsModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
                 <div class="modal-content">
-
                     <div class="modal-header">
-                        <h5 class="modal-title">Selecionar Dietas</h5>
-                        <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                        <h5 class="modal-title" id="settingsModalLabel">Enviar dieta</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-
-                    <div  data-usuario-id="">
-                        <ul class="nav nav-tabs" id="tabs-dieta" role="tablist">
-                            <!-- Abas dos dias da semana -->
-                        </ul>
-
-                        <div class="tab-content" id="conteudo-abas-dieta">
-                            <!-- Conteúdo de cada aba -->
+                    <strong class="modal-title" id="titulodieta">Domingo</strong>
+                    <div class="modal-body" id="dieta-1">
+                        <div id="modal-cafe" class="modal-cafe">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <strong class="modal-title refeicaoclass">Café</strong>
+                            </div>
+                            <div class="alimentos-selects">
+                                <div id="virtual-cafe" name="native-select" placeholder="Todos os alimentos" data-search="true"
+                                     data-silent-initial-value-set="true">
+                                </div>
+                                <div class="labelsinputs"></div>
+                            </div>
+                        </div>
+                        <div id="modal-almoco" class="modal-almoco">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <strong class="modal-title refeicaoclass">Almoço</strong>
+                                
+                            </div>
+                            <div class="alimentos-selects">
+                                <div id="virtual-almoco" name="native-select" placeholder="Todos os alimentos" data-search="true"
+                                     data-silent-initial-value-set="true">
+                                </div>
+                                <div class="labelsinputs"></div>
+                            </div>
+                        </div>
+                        <div id="modal-cafedt" class="modal-cafedt">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <strong class="modal-title refeicaoclass">Café da Tarde</strong>
+                            </div>
+                            <div class="alimentos-selects">
+                                <div id="virtual-cafedt" name="native-select" placeholder="Todos os alimentos" data-search="true"
+                                     data-silent-initial-value-set="true">
+                                </div>
+                                <div class="labelsinputs"></div>
+                            </div>
+                        </div>
+                        <div id="modal-janta" class="modal-janta">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <strong class="modal-title refeicaoclass">Janta</strong>
+                                
+                            </div>
+                            <div class="alimentos-selects">
+                                <div id="virtual-janta" name="native-select" placeholder="Todos os alimentos" data-search="true"
+                                     data-silent-initial-value-set="true">
+                                </div>
+                                <div class="labelsinputs"></div>
+                            </div>
                         </div>
                     </div>
-
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>                        
-                        <button class="btn btn-primary" onclick="EnviaDieta()">Enviar Dieta</button>
+                        <button type="button" class="btn btn-secondary" onclick="AdicionarDieta()">Adicionar Dieta</button>
+                        <button type="button" class="btn btn-secondary" onclick="EnviaDieta()">Enviar Todas as dietas</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                     </div>
-
                 </div>
             </div>
         </div>
-
-
 
         <!-- Modal para alteração de senha -->
         <div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModalLabel"
@@ -1571,8 +1585,8 @@
                                         ${pedido.usuario.nome} - ${pedido.usuario.email}
                                         <label class="idUser" style="display: none">${pedido.usuario.id}</label>
                                         <button class="btn btn-outline-dark btn-chat" data-id="${pedido.usuario.id}" data-bs-toggle="modal" data-bs-target="#ChatModal">Chat com ${pedido.usuario.nome}</button>
-                                        <button class="btn btn-outline-dark btn-enviar-dieta" data-id="${pedido.usuario.id}" data-bs-toggle="modal" data-bs-target="#EnviaDietaModal" onclick="CarregaDietasSelect(${pedido.usuario.id})">Enviar dieta para ${pedido.usuario.nome}</button>
-                                        <button class="btn btn-outline-dark btn-grafico" data-id="${pedido.usuario.id}" data-bs-toggle="modal" data-bs-target="#modalGrafico">Ver gráfico de peso</button>
+                                        <button class="btn btn-outline-dark btn-enviar-dieta" data-id="${pedido.usuario.id}" data-bs-toggle="modal" data-bs-target="#EnviaDietaModal">Enviar dieta para ${pedido.usuario.nome}</button>
+                                                    <button class="btn btn-outline-dark btn-grafico" data-id="${pedido.usuario.id}" data-bs-toggle="modal" data-bs-target="#modalGrafico">Ver gráfico de peso</button>
                                         </li>
                                 `);
                             });
@@ -1778,7 +1792,6 @@
             // Carregar os pedidos na página
             Verifica();
         });
-
         function deleteAccount() {
             const token = localStorage.getItem("token");
 
@@ -1907,75 +1920,6 @@
                 alert("Digite uma idade entre 18 anos e 99 anos");
             }
         }
-        function CarregaDietasSelect(idUser){
-           localStorage.setItem('idUsuario', idUser);
-           const diasSemana = [
-            { nome: "Segunda", id: "segunda" },
-            { nome: "Terça", id: "terca" },
-            { nome: "Quarta", id: "quarta" },
-            { nome: "Quinta", id: "quinta" },
-            { nome: "Sexta", id: "sexta" },
-            { nome: "Sábado", id: "sabado" },
-            { nome: "Domingo", id: "domingo" }
-          ];
-
-          const tabList = document.getElementById("tabs-dieta");
-          const tabContent = document.getElementById("conteudo-abas-dieta");
-          tabList.innerHTML = '';
-          tabContent.innerHTML = '';
-          diasSemana.forEach((dia, i) => {
-            // Criar aba
-            const li = document.createElement("li");
-            li.className = "nav-item";
-
-            const a = document.createElement("a");
-            a.className = "nav-link" + (i === 0 ? " active" : "");
-            a.href = `#tab-${dia.id}`;
-            a.dataset.bsToggle = "tab";
-            a.role = "tab";
-            a.innerText = dia.nome;
-            a.onclick = (e) => {
-              e.preventDefault();
-              document.querySelectorAll(".nav-link").forEach(el => el.classList.remove("active"));
-              document.querySelectorAll(".tab-pane").forEach(el => el.classList.remove("show", "active"));
-
-              a.classList.add("active");
-              document.getElementById(`tab-${dia.id}`).classList.add("show", "active");
-            };
-
-            li.appendChild(a);
-            tabList.appendChild(li);
-
-            // Criar conteúdo da aba
-            const tabPane = document.createElement("div");
-            tabPane.className = "tab-pane fade" + (i === 0 ? " show active" : "");
-            tabPane.id = `tab-${dia.id}`;
-            tabPane.role = "tabpanel";
-
-            const refeicoes = ["cafe", "almoco", "cafedt", "janta"];
-            const refeicoesLabels = ["Café da Manhã", "Almoço", "Café da Tarde", "Janta"];
-
-            refeicoes.forEach((ref, idx) => {
-              const div = document.createElement("div");
-              div.className = "refeicao";
-              div.id = `modal-${dia.id}-${ref}`;
-              div.innerHTML = `<h6>${refeicoesLabels[idx]}</h6>
-              <div class="alimentos-selects">
-                                <div id="virtual-${ref + i}" name="native-select" placeholder="Todos os alimentos" data-search="true"
-                                     data-silent-initial-value-set="true">
-                                </div>
-                                <div class="labelsinputs"></div>
-                            </div>`;
-              tabPane.appendChild(div);
-            });
-
-            tabContent.appendChild(tabPane);
-            
-            
-          });
-          console.log('teste1')
-          carregarAlimentos(idUser)
-        }
 
         function saveChangesocial() {
             const token = localStorage.getItem("token");
@@ -2057,14 +2001,13 @@
         }
 
         document.addEventListener("DOMContentLoaded", function () {
-        VirtualSelect.init({
-            ele: 'select[name="alimentos"]', // <- substitua pelo seletor correto
-            hideClearButton: true,
-            search: true,
-            multiple: true,
-            maxWidth: "600px"
-        });
+            VirtualSelect.init({
+                            hideClearButton: true,
 
+                            search: true,
+                            multiple: true,
+                            maxWidth: "600px"
+            });
 
             // Recupera o idUser do localStorage
             const idUser = localStorage.getItem('idUser');
@@ -2156,110 +2099,107 @@
                     })
                     .then(alimentosBloqueados => {
                         let alimentosBloqueadosIds = alimentosBloqueados.map(alimento => alimento.id);
-                        for(var i =0; i < 7; i++){
 
-                            // Inicializar o VirtualSelect, se ainda não estiver
-                            let selectAlimento = document.getElementById('virtual-cafe'+i);
-                            let selectAlimento2 = document.getElementById('virtual-almoco'+i);
-                            let selectAlimento3 = document.getElementById('virtual-cafedt'+i);
-                            let selectAlimento4 = document.getElementById('virtual-janta'+i);
+                        // Inicializar o VirtualSelect, se ainda não estiver
+                        let selectAlimento = document.getElementById('virtual-cafe');
+                        let selectAlimento2 = document.getElementById('virtual-almoco');
+                        let selectAlimento3 = document.getElementById('virtual-cafedt');
+                        let selectAlimento4 = document.getElementById('virtual-janta');
 
-                            if (selectAlimento && selectAlimento2 && selectAlimento3 && selectAlimento4) {
-                                console.log("Inicializando VirtualSelect...");
+                        if (selectAlimento && selectAlimento2 && selectAlimento3 && selectAlimento4) {
+                            console.log("Inicializando VirtualSelect...");
 
-                                // Se já existe um VirtualSelect, destruí-lo antes de recriar
-                                if (selectAlimento.virtualSelect) {
-                                    selectAlimento.virtualSelect.destroy();
-                                }
-                                if (selectAlimento2.virtualSelect) {
-                                    selectAlimento2.virtualSelect.destroy();
-                                }
-                                if (selectAlimento3.virtualSelect) {
-                                    selectAlimento3.virtualSelect.destroy();
-                                }
-                                if (selectAlimento4.virtualSelect) {
-                                    selectAlimento4.virtualSelect.destroy();
-                                }
-
-                                // Criar um array de opções para o VirtualSelect
-                                let options = data.map(alimento => ({
-                                    value: alimento.id,
-                                    label: alimento.nome
-                                }));
-
-                                // Inicializa o VirtualSelect para todos os elementos, incluindo os itens desabilitados
-                                VirtualSelect.init({
-                                    ele: selectAlimento,
-                                    search: true,
-                                    multiple: true,
-                                    hideClearButton: true,
-                                    maxWidth: "600px",
-                                    options: options,
-                                    disabledOptions: alimentosBloqueadosIds // Desabilita os alimentos bloqueados
-                                });
-
-                                VirtualSelect.init({
-                                    ele: selectAlimento2,
-                                    search: true,
-                                    multiple: true,
-                                    hideClearButton: true,
-                                    maxWidth: "600px",
-                                    options: options,
-                                    disabledOptions: alimentosBloqueadosIds
-                                });
-
-                                VirtualSelect.init({
-                                    ele: selectAlimento3,
-                                    search: true,
-                                    multiple: true,
-                                    hideClearButton: true,
-                                    maxWidth: "600px",
-                                    options: options,
-                                    disabledOptions: alimentosBloqueadosIds
-                                });
-
-                                VirtualSelect.init({
-                                    ele: selectAlimento4,
-                                    search: true,
-                                    multiple: true,
-                                    hideClearButton: true,
-                                    maxWidth: "600px",
-                                    options: options,
-                                    disabledOptions: alimentosBloqueadosIds
-                                });
-                        
-                                // Marcar os alimentos selecionados (se necessário)
-                                selectAlimento.setValue(alimentosSelecionados);
-                                selectAlimento2.setValue(alimentosSelecionados);
-                                selectAlimento3.setValue(alimentosSelecionados);
-                                selectAlimento4.setValue(alimentosSelecionados);
-
-                                // Usar 'beforeClose' para obter os valores após o fechamento do VirtualSelect
-                                $('#virtual-cafe'+i).on('beforeClose', function() {
-                                        const selecionados = selectAlimento.value; // Pega os valores selecionados
-                                        console.log("Alimentos selecionados (café):", selecionados);
-                                        recriarLabels(selecionados, this);
-                                });
-
-                                $('#virtual-almoco'+i).on('beforeClose', function() {
-                                        const selecionados = selectAlimento2.value; // Pega os valores selecionados
-                                        console.log("Alimentos selecionados (almoço):", selecionados);
-                                        recriarLabels(selecionados, this);
-                                });
-
-                                $('#virtual-cafedt'+i).on('beforeClose', function() {
-                                        const selecionados = selectAlimento3.value; // Pega os valores selecionados
-                                        console.log("Alimentos selecionados (café da tarde):", selecionados);
-                                        recriarLabels(selecionados, this);
-                                });
-
-                                $('#virtual-janta'+i).on('beforeClose', function() {
-                                        const selecionados = selectAlimento4.value; // Pega os valores selecionados
-                                        console.log("Alimentos selecionados (janta):", selecionados);
-                                        recriarLabels(selecionados, this);
-                                });
+                            // Se já existe um VirtualSelect, destruí-lo antes de recriar
+                            if (selectAlimento.virtualSelect) {
+                                selectAlimento.virtualSelect.destroy();
                             }
-                            
+                            if (selectAlimento2.virtualSelect) {
+                                selectAlimento2.virtualSelect.destroy();
+                            }
+                            if (selectAlimento3.virtualSelect) {
+                                selectAlimento3.virtualSelect.destroy();
+                            }
+                            if (selectAlimento4.virtualSelect) {
+                                selectAlimento4.virtualSelect.destroy();
+                            }
+
+                            // Criar um array de opções para o VirtualSelect
+                            let options = data.map(alimento => ({
+                                value: alimento.id,
+                                label: alimento.nome
+                            }));
+
+                            // Inicializa o VirtualSelect para todos os elementos, incluindo os itens desabilitados
+                            VirtualSelect.init({
+                                ele: selectAlimento,
+                                search: true,
+                                multiple: true,
+                                hideClearButton: true,
+                                maxWidth: "600px",
+                                options: options,
+                                disabledOptions: alimentosBloqueadosIds // Desabilita os alimentos bloqueados
+                            });
+
+                            VirtualSelect.init({
+                                ele: selectAlimento2,
+                                search: true,
+                                multiple: true,
+                                hideClearButton: true,
+                                maxWidth: "600px",
+                                options: options,
+                                disabledOptions: alimentosBloqueadosIds
+                            });
+
+                            VirtualSelect.init({
+                                ele: selectAlimento3,
+                                search: true,
+                                multiple: true,
+                                hideClearButton: true,
+                                maxWidth: "600px",
+                                options: options,
+                                disabledOptions: alimentosBloqueadosIds
+                            });
+
+                            VirtualSelect.init({
+                                ele: selectAlimento4,
+                                search: true,
+                                multiple: true,
+                                hideClearButton: true,
+                                maxWidth: "600px",
+                                options: options,
+                                disabledOptions: alimentosBloqueadosIds
+                            });
+                        
+                            // Marcar os alimentos selecionados (se necessário)
+                            selectAlimento.setValue(alimentosSelecionados);
+                            selectAlimento2.setValue(alimentosSelecionados);
+                            selectAlimento3.setValue(alimentosSelecionados);
+                            selectAlimento4.setValue(alimentosSelecionados);
+
+                            // Usar 'beforeClose' para obter os valores após o fechamento do VirtualSelect
+                            $('#virtual-cafe').on('beforeClose', function() {
+                                const selecionados = selectAlimento.value; // Pega os valores selecionados
+                                console.log("Alimentos selecionados (café):", selecionados);
+                                recriarLabels(selecionados, 'virtual-cafe');
+                            });
+
+                            $('#virtual-almoco').on('beforeClose', function() {
+                                const selecionados = selectAlimento2.value; // Pega os valores selecionados
+                                console.log("Alimentos selecionados (almoço):", selecionados);
+                                recriarLabels(selecionados, 'virtual-almoco');
+                            });
+
+                            $('#virtual-cafedt').on('beforeClose', function() {
+                                const selecionados = selectAlimento3.value; // Pega os valores selecionados
+                                console.log("Alimentos selecionados (café da tarde):", selecionados);
+                                recriarLabels(selecionados, 'virtual-cafedt');
+                            });
+
+                            $('#virtual-janta').on('beforeClose', function() {
+                                const selecionados = selectAlimento4.value; // Pega os valores selecionados
+                                console.log("Alimentos selecionados (janta):", selecionados);
+                                recriarLabels(selecionados, 'virtual-janta');
+                            });
                         }
                     })
                     .catch(error => console.error("Erro ao carregar alimentos bloqueados:", error));
@@ -2268,73 +2208,75 @@
             })
             .catch(error => console.error("Erro ao carregar alimentos:", error));
         }
+        
+function recriarLabels(alimentosSelecionados, containerId) {
+    const token = localStorage.getItem("token");
+    const container = document.getElementById(containerId); // O contêiner onde os labels serão criados
 
-        function recriarLabels(alimentosSelecionados, containerId) {
-            const token = localStorage.getItem("token");
-            const container= containerId;
+    // Seleciona o elemento pai do VirtualSelect
+    const virtualSelectParent = container.parentElement;
+    console.log(virtualSelectParent);
 
-            if (!container) {
-                console.warn(`Container com ID "${containerId}" não encontrado.`);
-                return;
+    // Verifica se já existe um labelsContainer, se não, cria um novo
+    let labelsContainer = virtualSelectParent.querySelector("#labelsinputs");
+
+    if (!labelsContainer) {
+        labelsContainer = document.createElement("div");
+        labelsContainer.id = "labelsinputs";
+        labelsContainer.classList.add("labels-container");
+        virtualSelectParent.appendChild(labelsContainer);
+    }
+
+    // Limpa o conteúdo anterior antes de recriar os labels
+    labelsContainer.innerHTML = "";
+
+    // Evita chamadas duplicadas
+    if (!alimentosSelecionados || alimentosSelecionados.length === 0) return;
+
+    // Percorrer os alimentos selecionados (IDs) e fazer o fetch de cada alimento
+    alimentosSelecionados.forEach(alimentoId => {
+        fetch(`/alimentos/getAlimentosid/${alimentoId}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
             }
-
-            // Localiza ou cria um container de labels dentro do próprio container principal
-            let labelsContainer = container.querySelector(".labels-container");
-
-            if (!labelsContainer) {
-                labelsContainer = document.createElement("div");
-                labelsContainer.classList.add("labels-container");
-                container.appendChild(labelsContainer);
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Erro ao carregar alimento");
             }
+            return response.json();
+        })
+        .then(alimento => {
+            // Verifica se o label já existe para evitar duplicação
+            if (labelsContainer.querySelector(`[data-id="${alimento.id}"]`)) return;
 
-            // Limpa os labels existentes
-            labelsContainer.innerHTML = "";
+            // Criar o label para o alimento
+            const label = document.createElement("label");
+            label.textContent = alimento.nome;
+            label.setAttribute("data-id", alimento.id); // Marca o label com um identificador único
 
-            // Impede processamento se não houver alimentos
-            if (!alimentosSelecionados || alimentosSelecionados.length === 0) return;
+            // Criar o input para a quantidade
+            const input = document.createElement("input");
+            input.type = "number";
+            input.name = `${alimento.id}`;
+            input.placeholder = `Quantidade de ${alimento.nome} em gramas ou ml`;
 
-            alimentosSelecionados.forEach(alimentoId => {
-                fetch(`/alimentos/getAlimentosid/${alimentoId}`, {
-                    method: "GET",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": `Bearer ${token}`
-                    }
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error("Erro ao carregar alimento");
-                    }
-                    return response.json();
-                })
-                .then(alimento => {
-                    // Evita adicionar duplicados
-                    if (labelsContainer.querySelector(`[data-id="${alimento.id}"]`)) return;
+            // Criar um container para o label e o input
+            const alimentoContainer = document.createElement("div");
+            alimentoContainer.classList.add("alimento-container");
 
-                    // Cria elementos
-                    const label = document.createElement("label");
-                    label.textContent = alimento.nome;
-                    label.setAttribute("data-id", alimento.id);
-
-                    const input = document.createElement("input");
-                    input.type = "number";
-                    input.name = `quantidade-${alimento.id}`;
-                    input.placeholder = `Quantidade de ${alimento.nome} em gramas ou ml`;
-                    input.classList.add("form-control", "mb-2");
-
-                    const alimentoContainer = document.createElement("div");
-                    alimentoContainer.classList.add("alimento-container", "mb-3");
-
-                    alimentoContainer.appendChild(label);
-                    alimentoContainer.appendChild(input);
-                    labelsContainer.appendChild(alimentoContainer);
-                })
-                .catch(error => {
-                    console.error(`Erro ao carregar alimento com ID ${alimentoId}:`, error);
-                });
-            });
-        }
-
+            // Adicionar o label e o input ao contêiner do alimento
+            alimentoContainer.appendChild(label);
+            alimentoContainer.appendChild(input);
+            labelsContainer.appendChild(alimentoContainer);
+        })
+        .catch(error => {
+            console.error("Erro ao carregar alimento:", error);
+        });
+    });
+}
 
 
         $('#EnviaDietaModal').on('show.bs.modal', function (event) {
@@ -2346,162 +2288,178 @@
 
             modal.find('.modal-body').data('usuario-id', idUsuario);
         });
-        
+        let dietaNumber = 1;
+        const dietaList = [];
 
         const titulos = ["Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"];
         let dietaIndex = 0; // Para controlar qual título será exibido
 
-        // async function AdicionarDieta() {
-        //             if(dietaNumber < 7){
-        //                 var modal = $('#EnviaDietaModal');
-        //                     var idUsuario = modal.find('.modal-body').data('usuario-id'); // Recupera o ID do usuário
-        //                     console.log(idUsuario);
+        async function AdicionarDieta() {
+                    if(dietaNumber < 7){
+                        var modal = $('#EnviaDietaModal');
+                            var idUsuario = modal.find('.modal-body').data('usuario-id'); // Recupera o ID do usuário
+                            console.log(idUsuario);
 
-        //                     const token = localStorage.getItem("token");
-        //                     var titulo =document.getElementById('titulodieta')
-        //                     let cafe = [];
-        //                     let almoco = [];
-        //                     let cafeDT = [];
-        //                     let janta = [];
-        //                     var modelcafe = document.getElementById('modal-cafe')
-        //                     var modelalmoco = document.getElementById('modal-almoco')
-        //                     var modelcafedt = document.getElementById('modal-cafedt')
-        //                     var modeljanta = document.getElementById('modal-janta')
-        //                     var divsAlimentoContainercafe = modelcafe.getElementsByClassName('alimento-container');
-        //                     var divsAlimentoContaineralmoco = modelalmoco.getElementsByClassName('alimento-container');
-        //                     var divsAlimentoContainercafedt = modelcafedt.getElementsByClassName('alimento-container');
-        //                     var divsAlimentoContainerjanta = modeljanta.getElementsByClassName('alimento-container');
+                            const token = localStorage.getItem("token");
+                            var titulo =document.getElementById('titulodieta')
+                            let cafe = [];
+                            let almoco = [];
+                            let cafeDT = [];
+                            let janta = [];
+                            var modelcafe = document.getElementById('modal-cafe')
+                            var modelalmoco = document.getElementById('modal-almoco')
+                            var modelcafedt = document.getElementById('modal-cafedt')
+                            var modeljanta = document.getElementById('modal-janta')
+                            var divsAlimentoContainercafe = modelcafe.getElementsByClassName('alimento-container');
+                            var divsAlimentoContaineralmoco = modelalmoco.getElementsByClassName('alimento-container');
+                            var divsAlimentoContainercafedt = modelcafedt.getElementsByClassName('alimento-container');
+                            var divsAlimentoContainerjanta = modeljanta.getElementsByClassName('alimento-container');
 
-        //                     Array.from(divsAlimentoContainercafe).forEach(function(div) {
-        //                         var input = div.querySelector('input');
-        //                         var inputName = input.name;
-        //                         var inputValue = input.value;
+                            Array.from(divsAlimentoContainercafe).forEach(function(div) {
+                                var input = div.querySelector('input');
+                                var inputName = input.name;
+                                var inputValue = input.value;
 
-        //                         // Adiciona o par chave/valor ao array 'cafe'
-        //                         cafe.push({ key: inputName, value: inputValue });
-        //                     });
-        //                     Array.from(divsAlimentoContaineralmoco).forEach(function(div) {
-        //                         var input = div.querySelector('input');
-        //                         var inputName = input.name;
-        //                         var inputValue = input.value;
+                                // Adiciona o par chave/valor ao array 'cafe'
+                                cafe.push({ key: inputName, value: inputValue });
+                            });
+                            Array.from(divsAlimentoContaineralmoco).forEach(function(div) {
+                                var input = div.querySelector('input');
+                                var inputName = input.name;
+                                var inputValue = input.value;
 
-        //                         // Adiciona o par chave/valor ao array 'cafe'
-        //                         almoco.push({ key: inputName, value: inputValue });
-        //                     });
-        //                     Array.from(divsAlimentoContainercafedt).forEach(function(div) {
-        //                         var input = div.querySelector('input');
-        //                         var inputName = input.name;
-        //                         var inputValue = input.value;
+                                // Adiciona o par chave/valor ao array 'cafe'
+                                almoco.push({ key: inputName, value: inputValue });
+                            });
+                            Array.from(divsAlimentoContainercafedt).forEach(function(div) {
+                                var input = div.querySelector('input');
+                                var inputName = input.name;
+                                var inputValue = input.value;
 
-        //                         // Adiciona o par chave/valor ao array 'cafe'
-        //                         cafeDT.push({ key: inputName, value: inputValue });
-        //                     });
-        //                     Array.from(divsAlimentoContainerjanta).forEach(function(div) {
-        //                         var input = div.querySelector('input');
-        //                         var inputName = input.name;
-        //                         var inputValue = input.value;
+                                // Adiciona o par chave/valor ao array 'cafe'
+                                cafeDT.push({ key: inputName, value: inputValue });
+                            });
+                            Array.from(divsAlimentoContainerjanta).forEach(function(div) {
+                                var input = div.querySelector('input');
+                                var inputName = input.name;
+                                var inputValue = input.value;
 
-        //                         // Adiciona o par chave/valor ao array 'cafe'
-        //                         janta.push({ key: inputName, value: inputValue });
-        //                     });
-        //                     const dieta = {
-        //                         Cafe: cafe,
-        //                         Almoco: almoco,
-        //                         CafeDT: cafeDT,
-        //                         Janta: janta
-        //                     };
+                                // Adiciona o par chave/valor ao array 'cafe'
+                                janta.push({ key: inputName, value: inputValue });
+                            });
+                            const dieta = {
+                                Cafe: cafe,
+                                Almoco: almoco,
+                                CafeDT: cafeDT,
+                                Janta: janta
+                            };
 
-        //                     dietaList.push(dieta)
-        //                     dietaNumber++;
+                            dietaList.push(dieta)
+                            dietaNumber++;
 
-        //                     titulo.textContent = titulos[dietaIndex];
-        //                     dietaIndex = (dietaIndex + 1) % titulos.length;
+                            titulo.textContent = titulos[dietaIndex];
+                            dietaIndex = (dietaIndex + 1) % titulos.length;
 
                             
-        //                     document.getElementById("virtual-cafe").setValue(null);
-        //                     document.getElementById('virtual-almoco').setValue(null);
-        //                     document.getElementById('virtual-cafedt').setValue(null);
-        //                     document.getElementById('virtual-janta').setValue(null);
-        //                     recriarLabels(document.getElementById('virtual-cafe').value, 'virtual-cafe');
-        //                     recriarLabels(document.getElementById('virtual-almoco').value, 'virtual-almoco');
-        //                     recriarLabels(document.getElementById('virtual-cafedt').value, 'virtual-cafedt');
-        //                     recriarLabels(document.getElementById('virtual-janta').value, 'virtual-janta');
-        //     } else{
-        //         alert("Você atingiu o limite máximo de 7 dietas.");
-        //     }      
-        // }
+                            document.getElementById("virtual-cafe").setValue(null);
+                            document.getElementById('virtual-almoco').setValue(null);
+                            document.getElementById('virtual-cafedt').setValue(null);
+                            document.getElementById('virtual-janta').setValue(null);
+                            recriarLabels(document.getElementById('virtual-cafe').value, 'virtual-cafe');
+                            recriarLabels(document.getElementById('virtual-almoco').value, 'virtual-almoco');
+                            recriarLabels(document.getElementById('virtual-cafedt').value, 'virtual-cafedt');
+                            recriarLabels(document.getElementById('virtual-janta').value, 'virtual-janta');
+            } else{
+                alert("Você atingiu o limite máximo de 7 dietas.");
+            }      
+        }
 
         async function EnviaDieta() {
-            const dietaList = [];
-            const dias = ["segunda", "terca", "quarta", "quinta", "sexta", "sabado", "domingo"];
-            const refeicoes = ["cafe", "almoco", "cafedt", "janta"];
 
-            dias.forEach(dia => {
-                const dieta = {
-                    Cafe: [],
-                    Almoco: [],
-                    CafeDT: [],
-                    Janta: []
-                };
+            var modal = $('#EnviaDietaModal');
+            var idUsuario = modal.find('.modal-body').data('usuario-id'); // Recupera o ID do usuário
+            console.log(idUsuario);
 
-                refeicoes.forEach(ref => {
-                    const divRefeicao = document.querySelector(`#modal-${dia}-${ref}`);
-                    const inputs = divRefeicao.querySelectorAll("input");
-
-                    const alimentos = Array.from(inputs).map(input => input.value.trim()).filter(val => val !== "");
-
-                    const alimentoInt = parseInt(alimentos[0]);
-                    if (!isNaN(alimentoInt)) {
-                            switch (ref) {
-                                case "cafe":
-                                    dieta.Cafe.push({ Key: alimentoInt, Value: alimentos[1] });;
-                                    break;
-                                case "almoco":
-                                    dieta.Almoco.push({ Key: alimentoInt, Value: alimentos[1] });;
-                                    break;
-                                case "cafedt":
-                                    dieta.CafeDT.push({ Key: alimentoInt, Value: alimentos[1] });;
-                                    break;
-                                case "janta":
-                                    dieta.Janta.push({ Key: alimentoInt, Value: alimentos[1] });;
-                                    break;
-                            }
-                    }
-                });
-
-                // Adiciona a dieta do dia apenas se houver algum alimento
-                if (
-                    dieta.Cafe.length > 0 ||
-                    dieta.Almoco.length > 0 ||
-                    dieta.CafeDT.length > 0 ||
-                    dieta.Janta.length > 0
-                ) {
-                    dietaList.push(dieta);
-                }
-            });
-
-            const modal = $('#EnviaDietaModal');
-            const idUsuario = parseInt(modal.find('.modal-body').data('usuario-id'));
             const token = localStorage.getItem("token");
+            let cafe = [];
+            let almoco = [];
+            let cafeDT = [];
+            let janta = [];
+            var modelcafe = document.getElementById('modal-cafe')
+            var modelalmoco = document.getElementById('modal-almoco')
+            var modelcafedt = document.getElementById('modal-cafedt')
+            var modeljanta = document.getElementById('modal-janta')
+            var divsAlimentoContainercafe = modelcafe.getElementsByClassName('alimento-container');
+            var divsAlimentoContaineralmoco = modelalmoco.getElementsByClassName('alimento-container');
+            var divsAlimentoContainercafedt = modelcafedt.getElementsByClassName('alimento-container');
+            var divsAlimentoContainerjanta = modeljanta.getElementsByClassName('alimento-container');
 
-            const sendDieta = {
-                idUsuario: localStorage.getItem('idUsuario'),
-                Dietas: dietaList
+            Array.from(divsAlimentoContainercafe).forEach(function(div) {
+                var input = div.querySelector('input');
+                var inputName = input.name;
+                var inputValue = input.value;
+
+                // Adiciona o par chave/valor ao array 'cafe'
+                cafe.push({ key: inputName, value: inputValue });
+                
+            });
+            Array.from(divsAlimentoContaineralmoco).forEach(function(div) {
+                var input = div.querySelector('input');
+                var inputName = input.name;
+                var inputValue = input.value;
+
+                // Adiciona o par chave/valor ao array 'cafe'
+                almoco.push({ key: inputName, value: inputValue });
+            });
+            Array.from(divsAlimentoContainercafedt).forEach(function(div) {
+                var input = div.querySelector('input');
+                var inputName = input.name;
+                var inputValue = input.value;
+
+                // Adiciona o par chave/valor ao array 'cafe'
+                cafeDT.push({ key: inputName, value: inputValue });
+            });
+            Array.from(divsAlimentoContainerjanta).forEach(function(div) {
+                var input = div.querySelector('input');
+                var inputName = input.name;
+                var inputValue = input.value;
+
+                // Adiciona o par chave/valor ao array 'cafe'
+                janta.push({ key: inputName, value: inputValue });
+            });
+            const dieta = {
+                Cafe: cafe,
+                Almoco: almoco,
+                CafeDT: cafeDT,
+                Janta: janta
             };
-
+            dietaList.push(dieta);
+            const sendDieta ={
+                idUsuario: idUsuario,
+                Dietas : dietaList
+            };
+            console.log(sendDieta);
             try {
+                // Enviando a requisição POST com os dados
                 const response = await fetch('/enviardieta', {
-                    method: 'POST',
+                    method: 'POST',  // Tipo de requisição
                     headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`
+                        'Content-Type': 'application/json', 
+                        "Access-Control-Allow-Origin": "*",
+                        "Authorization": `Bearer ${token}` // Definindo que o corpo da requisição é JSON
                     },
-                    body: JSON.stringify(sendDieta)
+                        body: JSON.stringify(sendDieta)  // Convertendo o objeto dieta para JSON
                 });
 
-                if (!response.ok) throw new Error(`Erro: ${response.status}`);
+                // Verificando se a resposta foi bem-sucedida
+                if (!response.ok) {
+                    throw new Error('Erro na requisição: ' + response.status);
+                }
+
+                // Processando a resposta da API
                 const data = await response.json();
                 console.log('Dieta enviada com sucesso:', data);
+                return data;
             } catch (error) {
                 console.error('Erro ao enviar dieta:', error);
             }
@@ -2627,7 +2585,12 @@
                     button.textContent = 'Mostrar';
                 }
         }
-
+        $('#EnviaDietaModal').on('hidden.bs.modal', function () {
+            console.log('O modal foi fechado!');
+            
+            const modalBody = document.querySelector('#EnviaDietaModal .modal-body');
+            modalBody.innerHTML = ''; // Limpa o conteúdo do modal
+        });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>

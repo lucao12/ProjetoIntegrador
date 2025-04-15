@@ -646,127 +646,60 @@
             document.getElementById("loader-container").style.display = "none";
         }
 
-               function gerarPDF() {
-            const { jsPDF } = window.jspdf;
-            const pdf = new jsPDF("p", "mm", "a4");
-            const cores = ["#5D4037", "#F06292", "#81C784", "#FFB74D", "#9575CD", "#EF9A9A", "#BA68C8"];
-            const dietaDivs = document.querySelectorAll("#modalDietaBody > div");
+function gerarPDF() {
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF();
 
-            dietaDivs.forEach((dietaDiv, index) => {
-                if (index > 0) pdf.addPage();
+    let y = 10; // Coordenada inicial
 
-                // Fundo bege
-                const fundo = hexToRgb("#F5F5DC");
-                pdf.setFillColor(fundo.r, fundo.g, fundo.b);
-                pdf.rect(0, 0, 210, 297, 'F');
-
-                // Borda dupla vermelha
-                pdf.setDrawColor(150, 0, 0);
-                pdf.setLineWidth(0.5);
-                pdf.rect(5, 5, 200, 287); // externa
-                pdf.setLineWidth(0.2);
-                pdf.rect(7, 7, 196, 283); // interna
-
-                let y = 20;
-
-                // Título principal estiloso
-                if (index === 0) {
-                    pdf.setFont("Helvetica", "bold");
-                    pdf.setFontSize(20);
-                    pdf.setTextColor(80, 30, 30);
-                    pdf.text("Plano Semanal de Dieta Premium", 105, y, { align: "center" });
-                    y += 10;
-                    pdf.setFontSize(14);
-                    pdf.setTextColor(100, 50, 50);
-                    y += 10;
-                }
-
-                // Título do dia (ex: Segunda, Terça)
-                const titulo = dietaDiv.querySelector('h3');
-                if (titulo) {
-                    pdf.setFont("Helvetica", "bolditalic");
-                    pdf.setFontSize(18);
-                    pdf.setTextColor(44, 44, 44);
-                    pdf.text(titulo.innerText, 105, y, { align: "center" });
-                    y += 8;
-                }
-
-                // Linha abaixo do dia
-                pdf.setDrawColor(150, 150, 150);
-                pdf.line(20, y, 190, y);
-                y += 10;
-
-                // Refeições
-                dietaDiv.querySelectorAll('div[class^="dieta"]').forEach((refeicaoDiv, refIndex) => {
-                    const nomeRefeicao = refeicaoDiv.querySelector('h4');
-                    if (nomeRefeicao) {
-                        pdf.setFont("Helvetica", "bold");
-                        pdf.setFontSize(15);
-                        let corHex = cores[refIndex % cores.length];
-
-                        if (nomeRefeicao.innerText.toLowerCase().includes("café")) {
-                            corHex = "#5D4037"; // marrom escuro
-                        }
-
-                        const rgb = hexToRgb(corHex);
-                        pdf.setTextColor(rgb.r, rgb.g, rgb.b);
-                        pdf.text(nomeRefeicao.innerText, 105, y, { align: "center" });
-                        y += 7;
-                    }
-
-                    refeicaoDiv.querySelectorAll('div[class*="-"]').forEach(alimentoDiv => {
-                        const alimentoTextNode = Array.from(alimentoDiv.childNodes).find(
-                            node => node.nodeType === Node.TEXT_NODE && node.textContent.trim() !== ''
-                        );
-
-                        if (alimentoTextNode) {
-                            pdf.setFont("Helvetica", "normal");
-                            pdf.setFontSize(12);
-                            pdf.setTextColor(40, 40, 40);
-                            pdf.text(`• ${alimentoTextNode.textContent.trim()}`, 105, y, { align: "center" });
-                            y += 6;
-
-                            const selectElement = alimentoDiv.querySelector('select');
-                            if (selectElement && selectElement.value) {
-                                pdf.setFontSize(11);
-                                pdf.setTextColor(100, 100, 100);
-                                pdf.text(`↳ Substituído por: ${selectElement.options[selectElement.selectedIndex].text}`, 105, y, { align: "center" });
-                                y += 5;
-                            }
-                        }
-
-                        if (y > 270) {
-                            pdf.addPage();
-                            const fundo = hexToRgb("#F5F5DC");
-                            pdf.setFillColor(fundo.r, fundo.g, fundo.b);
-                            pdf.rect(0, 0, 210, 297, 'F');
-                            pdf.setDrawColor(150, 0, 0);
-                            pdf.setLineWidth(0.5);
-                            pdf.rect(5, 5, 200, 287);
-                            pdf.setLineWidth(0.2);
-                            pdf.rect(7, 7, 196, 283);
-                            y = 20;
-                        }
-                    });
-
-                    y += 8;
-                });
-
-                y += 5;
-            });
-
-            pdf.save("Dieta_Semanal.pdf");
-
-            function hexToRgb(hex) {
-                const bigint = parseInt(hex.replace("#", ""), 16);
-                return {
-                    r: (bigint >> 16) & 255,
-                    g: (bigint >> 8) & 255,
-                    b: bigint & 255
-                };
-            }
+    // Pegando todas as dietas
+    document.querySelectorAll("#modalDietaBody > div").forEach(dietaDiv => {
+        const lines = [];
+        const titulo = dietaDiv.querySelector('h3');
+        if (titulo) {
+            lines.push(titulo.innerText);
         }
 
+        // Pegando as seções de refeição
+        dietaDiv.querySelectorAll('div[class^="dieta"]').forEach(refeicaoDiv => {
+            const nomeRefeicao = refeicaoDiv.querySelector('h4');
+            if (nomeRefeicao) {
+                lines.push(nomeRefeicao.innerText);
+            }
+            // Pegando os alimentos dentro de cada refeição
+            refeicaoDiv.querySelectorAll('div[class*="-"]')
+                .forEach(alimentoDiv => {
+                    // Seleciona apenas o texto do alimento (o primeiro nó de texto)
+                    const alimentoTextNode = Array.from(alimentoDiv.childNodes).find(node => node.nodeType === Node.TEXT_NODE && node.textContent.trim() !== '');
+                    if (alimentoTextNode) {
+                        lines.push(alimentoTextNode.textContent.trim());
+                        const selectElement = alimentoDiv.querySelector('select');
+                        if (selectElement && selectElement.value) {
+                            lines.push(`  Substituído por: ${selectElement.options[selectElement.selectedIndex].text}`);
+                        }
+                    }
+                });
+        });
+        lines.push(''); // Adiciona uma linha em branco entre as refeições
+
+        // Se o bloco ultrapassar o limite, cria uma nova página
+        if (y + lines.length * 7 > 270) {
+            pdf.addPage();
+            y = 10; // Reinicia a posição no topo da nova página
+        }
+
+        // Adicionando cada linha ao PDF
+        lines.forEach(line => {
+            pdf.text(10, y, line);
+            y += 7; // Espaçamento entre linhas
+        });
+
+        y += 5; // Espaçamento entre dietas (reduzido um pouco)
+    });
+
+    // Baixando o PDF
+    pdf.save("Dieta.pdf");
+}
 
         function cardNutricionista(nutricionista) {
             
@@ -846,14 +779,15 @@ fetch('/receberDieta', {
 .then(data => {
     console.log(data);
 
-            const modalBody = document.getElementById('modalDietaBody');
-        modalBody.innerHTML = '';
+    const modalBody = document.getElementById('modalDietaBody');
+    modalBody.innerHTML = '';
 
-        let cont = 0;
-        const diasSemana = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
+    let cont = 0;
+    const diasSemana = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
 
-        if (data.dietas) {
-            data.dietas.forEach(dieta => {
+    data.forEach(item => {
+        if (item.dietas) {
+            item.dietas.forEach(dieta => {
                 const dietaDiv = document.createElement('div');
                 dietaDiv.innerHTML += `<h3 style="text-align: center">${diasSemana[cont % 7]}</h3><br>`;
 
@@ -881,7 +815,7 @@ fetch('/receberDieta', {
                             botaoEditar.textContent = 'Editar';
                             botaoEditar.setAttribute('data-alimento', alimento.nome);
                             botaoEditar.setAttribute('data-refeicao', refeicao);
-                            botaoEditar.addEventListener('click', (event) => abrirModalEditar(event, botaoEditar));
+                            botaoEditar.addEventListener('click', (event) => abrirModalEditar(event, botaoEditar)); // Passa o botão para a função
 
                             alimentoDiv.appendChild(botaoEditar);
                             secaoDiv.appendChild(alimentoDiv);
@@ -891,6 +825,7 @@ fetch('/receberDieta', {
                     }
 
                     dietaDiv.appendChild(secaoDiv);
+                    console.log(`Classe da refeição criada: dieta${cont}-${refeicao}`);
                 };
 
                 const extrairAlimentos = refeicao => {
@@ -989,6 +924,7 @@ function abrirModalEditar(event, botao) {
         alert('Erro ao buscar substituições para este alimento.');
     });
 }
+            });
             document.getElementById("ChatModal").addEventListener("hidden.bs.modal", function () {
                 if (cronJob) {
                     clearInterval(cronJob);
