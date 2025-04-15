@@ -4,10 +4,11 @@ namespace ProjetoIntegrador.ViewModel
 {
     public class DietasList
     {
-        public List<KeyValuePair<int, int>> Cafe { get; set; }
-        public List<KeyValuePair<int, int>> Almoco { get; set; }
-        public List<KeyValuePair<int, int>> CafeDT { get; set; }
-        public List<KeyValuePair<int, int>> Janta { get; set; }
+        public string Dia { get; set; } // <-- aqui
+        public List<KeyValuePair<int, int>>? Cafe { get; set; }
+        public List<KeyValuePair<int, int>>? Almoco { get; set; }
+        public List<KeyValuePair<int, int>>? CafeDT { get; set; }
+        public List<KeyValuePair<int, int>>? Janta { get; set; }
     }
     public class DietaViewModel
     {
