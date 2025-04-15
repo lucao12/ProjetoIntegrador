@@ -2520,24 +2520,38 @@
                     const inputs = divRefeicao.querySelectorAll("input");
 
                     const alimentos = Array.from(inputs).map(input => input.value.trim()).filter(val => val !== "");
-
-                    const alimentoInt = parseInt(alimentos[0]);
-                    if (!isNaN(alimentoInt)) {
-                        switch (ref) {
-                            case "cafe":
-                                dieta.Cafe.push({ Key: alimentoInt, Value: alimentos[1] });
-                                break;
-                            case "almoco":
-                                dieta.Almoco.push({ Key: alimentoInt, Value: alimentos[1] });
-                                break;
-                            case "cafedt":
-                                dieta.CafeDT.push({ Key: alimentoInt, Value: alimentos[1] });
-                                break;
-                            case "janta":
-                                dieta.Janta.push({ Key: alimentoInt, Value: alimentos[1] });
-                                break;
+                    if(alimentos.length>0){
+                        let alimentoInt = alimentos[0].split(",");
+                        alimentos.shift();
+                        for(var i =0;i>alimentoInt.length;i++){
+                             alimentoInt[i] = parseInt(alimentoInt[i]);
+                        }
+                        if (!isNaN(alimentoInt[0])) {
+                            switch (ref) {
+                                case "cafe":
+                                    alimentos.forEach((alimento, index)=>{
+                                        dieta.Cafe.push({ Key: alimentoInt[index], Value: alimento });
+                                    })
+                                    break;
+                                case "almoco":
+                                    alimentos.forEach((alimento,index)=>{
+                                        dieta.Almoco.push({ Key: alimentoInt[index], Value: alimento });
+                                    })
+                                    break;
+                                case "cafedt":
+                                    alimentos.forEach((alimento,index)=>{
+                                        dieta.CafeDT.push({ Key: alimentoInt[index], Value: alimento });
+                                    })
+                                    break;
+                                case "janta":
+                                    alimentos.forEach((alimento,index)=>{
+                                        dieta.Janta.push({ Key: alimentoInt[index], Value: alimento });
+                                    })
+                                    break;
+                            }
                         }
                     }
+                    
                 });
 
                 if (

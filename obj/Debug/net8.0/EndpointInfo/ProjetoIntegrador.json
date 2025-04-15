@@ -928,6 +928,10 @@
       "DietasList": {
         "type": "object",
         "properties": {
+          "dia": {
+            "type": "string",
+            "nullable": true
+          },
           "cafe": {
             "type": "array",
             "items": {
