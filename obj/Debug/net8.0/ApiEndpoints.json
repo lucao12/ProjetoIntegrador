@@ -288,6 +288,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "ProjetoIntegrador.Controllers.IngredientesController",
+    "Method": "Receitas",
+    "RelativePath": "Receitas",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ProjetoIntegrador.ViewModel.ReceitasViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "ProjetoIntegrador.Controllers.UsuarioControllerView",
     "Method": "Home",
     "RelativePath": "Redirecionando",

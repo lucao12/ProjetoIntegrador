@@ -6,6 +6,10 @@ namespace ProjetoIntegrador.ViewModel
     {
         public string ingrediente { get; set; }
     }
+    public class ReceitasViewModel
+    {
+        public List<string> ingrediente { get; set; }
+    }
 
     public class AddIngredientesViewModel
     {

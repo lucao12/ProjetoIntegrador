@@ -6,6 +6,7 @@ using ProjetoIntegrador.Data;
 using ProjetoIntegrador.Interfaces;
 using ProjetoIntegrador.Models;
 using ProjetoIntegrador.ViewModel;
+using System;
 using System.Security.Claims;
 using System.Text;
 using System.Text.Json;
@@ -39,6 +40,31 @@ namespace ProjetoIntegrador.Controllers
                 string response = await SendRequestToGemini(prompt);
 
                 return Ok(StringToJson(response));
+            }
+            catch
+            {
+                return StatusCode(500, new { error = "Erro interno do servidor!" });
+            }
+        }
+        [Authorize]
+        [HttpPost]
+        [Route("/Receitas")]
+        public async Task<IActionResult> Receitas(
+        [FromBody] ReceitasViewModel model)
+        {
+            try
+            {
+                string prompt = $"Forneça apenas receitas completas, mostrando cada passo a passo do preparo com *APENAS* estes ingredientes ";
+                foreach (string i in model.ingrediente)
+                {
+                    prompt += i + " ";
+                }
+                prompt += ".Não pode conter nenhum outro igrediente. Não use nenhum tipo de acento. Será usado em um programa então retorne em html, sem head, sem !DOCTYPE html e sem body só os hs e lis. Não use h1 e h2 use h6 e h7. GARANTA QUE USE OS H E LI. NO MAXIMO 2 RECEITAS. TODO RECEITAS DEVEM SER PARA O CONSUMO.E TIRE O ```html DO COMEÇO e ``` DO FIM ";
+
+                string response = await SendRequestToGemini(prompt);
+                response = response.Replace("```html", "").Replace("```", "").Trim();
+                // Retorna HTML como texto puro
+                return Content(response, "text/html");
             }
             catch
             {

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "84ypIPKbQJOENUjDOhItX+PLXACRsZpqqjxPiKT3a2M=",
+  "Hash": "kFkf2MQ0icCoI8rjvtRPuGrnUWmrHmKOQ8G0WdOY76w=",
   "Source": "ProjetoIntegrador",
   "BasePath": "_content/ProjetoIntegrador",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "ProjetoIntegrador\\wwwroot",
       "Source": "ProjetoIntegrador",
-      "ContentRoot": "C:\\Users\\lucasmiranda\\Pictures\\gitclone\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\wwwroot\\",
       "BasePath": "_content/ProjetoIntegrador",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\lucasmiranda\\Pictures\\gitclone\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db",
+      "Identity": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db",
       "SourceId": "ProjetoIntegrador",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lucasmiranda\\Pictures\\gitclone\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\wwwroot\\",
       "BasePath": "_content/ProjetoIntegrador",
       "RelativePath": "App_Data/teste#[.{fingerprint}]?.db",
       "AssetKind": "All",
@@ -31,17 +31,17 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "e54dox45xo",
-      "Integrity": "QhKUQ4qNJnNdK4FS8kCuqHBxlMsbgY/gs3VBBNCRYXI=",
+      "Fingerprint": "oimiqjc0hm",
+      "Integrity": "gIj/RWaD069TIWUEMzLyCKrJyvEbRVT3/xv/zYeva2Y=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\App_Data\\teste.db"
     },
     {
-      "Identity": "C:\\Users\\lucasmiranda\\Pictures\\gitclone\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-shm",
+      "Identity": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-shm",
       "SourceId": "ProjetoIntegrador",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lucasmiranda\\Pictures\\gitclone\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\wwwroot\\",
       "BasePath": "_content/ProjetoIntegrador",
       "RelativePath": "App_Data/teste#[.{fingerprint}]?.db-shm",
       "AssetKind": "All",
@@ -52,17 +52,17 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "whdh5dbwm7",
-      "Integrity": "bHi5almGtB7WVl2POEZ8zI5v8CN1YVXoRdUl0sWWjSA=",
+      "Fingerprint": "xbxd3clmbu",
+      "Integrity": "/Uyf2pzT+a58lisN3zcjIpTVVYDhqhZaoGEpuFSTies=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\App_Data\\teste.db-shm"
     },
     {
-      "Identity": "C:\\Users\\lucasmiranda\\Pictures\\gitclone\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-wal",
+      "Identity": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-wal",
       "SourceId": "ProjetoIntegrador",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lucasmiranda\\Pictures\\gitclone\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\wwwroot\\",
       "BasePath": "_content/ProjetoIntegrador",
       "RelativePath": "App_Data/teste#[.{fingerprint}]?.db-wal",
       "AssetKind": "All",
@@ -73,17 +73,17 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "xx413kvcmr",
-      "Integrity": "u42tGrJPpTOiuOrUfNrRANC0AK9qXGvpH3lhlbRY8kE=",
+      "Fingerprint": "5ipweew5fc",
+      "Integrity": "47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\App_Data\\teste.db-wal"
     },
     {
-      "Identity": "C:\\Users\\lucasmiranda\\Pictures\\gitclone\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.css",
+      "Identity": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.css",
       "SourceId": "ProjetoIntegrador",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lucasmiranda\\Pictures\\gitclone\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\wwwroot\\",
       "BasePath": "_content/ProjetoIntegrador",
       "RelativePath": "css/virtual-select.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -101,10 +101,10 @@
       "OriginalItemSpec": "wwwroot\\css\\virtual-select.min.css"
     },
     {
-      "Identity": "C:\\Users\\lucasmiranda\\Pictures\\gitclone\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.js",
+      "Identity": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.js",
       "SourceId": "ProjetoIntegrador",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lucasmiranda\\Pictures\\gitclone\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\wwwroot\\",
       "BasePath": "_content/ProjetoIntegrador",
       "RelativePath": "css/virtual-select.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -122,10 +122,10 @@
       "OriginalItemSpec": "wwwroot\\css\\virtual-select.min.js"
     },
     {
-      "Identity": "C:\\Users\\lucasmiranda\\Pictures\\gitclone\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\default.png",
+      "Identity": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\wwwroot\\default.png",
       "SourceId": "ProjetoIntegrador",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lucasmiranda\\Pictures\\gitclone\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\wwwroot\\",
       "BasePath": "_content/ProjetoIntegrador",
       "RelativePath": "default#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -143,10 +143,10 @@
       "OriginalItemSpec": "wwwroot\\default.png"
     },
     {
-      "Identity": "C:\\Users\\lucasmiranda\\Pictures\\gitclone\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\js\\script.js",
+      "Identity": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\wwwroot\\js\\script.js",
       "SourceId": "ProjetoIntegrador",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lucasmiranda\\Pictures\\gitclone\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\wwwroot\\",
       "BasePath": "_content/ProjetoIntegrador",
       "RelativePath": "js/script#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -164,10 +164,10 @@
       "OriginalItemSpec": "wwwroot\\js\\script.js"
     },
     {
-      "Identity": "C:\\Users\\lucasmiranda\\Pictures\\gitclone\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\NovaPasta\\loader.css",
+      "Identity": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\wwwroot\\NovaPasta\\loader.css",
       "SourceId": "ProjetoIntegrador",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lucasmiranda\\Pictures\\gitclone\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\wwwroot\\",
       "BasePath": "_content/ProjetoIntegrador",
       "RelativePath": "NovaPasta/loader#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -187,8 +187,8 @@
   ],
   "Endpoints": [
     {
-      "Route": "App_Data/teste.db",
-      "AssetFile": "C:\\Users\\lucasmiranda\\Pictures\\gitclone\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db",
+      "Route": "App_Data/teste.5ipweew5fc.db-wal",
+      "AssetFile": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-wal",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -197,7 +197,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "126976"
+          "Value": "0"
         },
         {
           "Name": "Content-Type",
@@ -205,122 +205,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"QhKUQ4qNJnNdK4FS8kCuqHBxlMsbgY/gs3VBBNCRYXI=\""
+          "Value": "\"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 14:11:12 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-QhKUQ4qNJnNdK4FS8kCuqHBxlMsbgY/gs3VBBNCRYXI="
-        }
-      ]
-    },
-    {
-      "Route": "App_Data/teste.db-shm",
-      "AssetFile": "C:\\Users\\lucasmiranda\\Pictures\\gitclone\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-shm",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "32768"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/octet-stream"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"bHi5almGtB7WVl2POEZ8zI5v8CN1YVXoRdUl0sWWjSA=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 14:11:12 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-bHi5almGtB7WVl2POEZ8zI5v8CN1YVXoRdUl0sWWjSA="
-        }
-      ]
-    },
-    {
-      "Route": "App_Data/teste.db-wal",
-      "AssetFile": "C:\\Users\\lucasmiranda\\Pictures\\gitclone\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-wal",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2373152"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/octet-stream"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"u42tGrJPpTOiuOrUfNrRANC0AK9qXGvpH3lhlbRY8kE=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 14:11:12 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-u42tGrJPpTOiuOrUfNrRANC0AK9qXGvpH3lhlbRY8kE="
-        }
-      ]
-    },
-    {
-      "Route": "App_Data/teste.e54dox45xo.db",
-      "AssetFile": "C:\\Users\\lucasmiranda\\Pictures\\gitclone\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "126976"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/octet-stream"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"QhKUQ4qNJnNdK4FS8kCuqHBxlMsbgY/gs3VBBNCRYXI=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 14:11:12 GMT"
+          "Value": "Sun, 20 Apr 2025 22:42:27 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -330,97 +219,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "e54dox45xo"
-        },
-        {
-          "Name": "label",
-          "Value": "App_Data/teste.db"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-QhKUQ4qNJnNdK4FS8kCuqHBxlMsbgY/gs3VBBNCRYXI="
-        }
-      ]
-    },
-    {
-      "Route": "App_Data/teste.whdh5dbwm7.db-shm",
-      "AssetFile": "C:\\Users\\lucasmiranda\\Pictures\\gitclone\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-shm",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "32768"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/octet-stream"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"bHi5almGtB7WVl2POEZ8zI5v8CN1YVXoRdUl0sWWjSA=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 14:11:12 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "whdh5dbwm7"
-        },
-        {
-          "Name": "label",
-          "Value": "App_Data/teste.db-shm"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-bHi5almGtB7WVl2POEZ8zI5v8CN1YVXoRdUl0sWWjSA="
-        }
-      ]
-    },
-    {
-      "Route": "App_Data/teste.xx413kvcmr.db-wal",
-      "AssetFile": "C:\\Users\\lucasmiranda\\Pictures\\gitclone\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-wal",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2373152"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/octet-stream"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"u42tGrJPpTOiuOrUfNrRANC0AK9qXGvpH3lhlbRY8kE=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 14:11:12 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "xx413kvcmr"
+          "Value": "5ipweew5fc"
         },
         {
           "Name": "label",
@@ -428,13 +227,214 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-u42tGrJPpTOiuOrUfNrRANC0AK9qXGvpH3lhlbRY8kE="
+          "Value": "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
+        }
+      ]
+    },
+    {
+      "Route": "App_Data/teste.db",
+      "AssetFile": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "126976"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gIj/RWaD069TIWUEMzLyCKrJyvEbRVT3/xv/zYeva2Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 20 Apr 2025 21:20:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-gIj/RWaD069TIWUEMzLyCKrJyvEbRVT3/xv/zYeva2Y="
+        }
+      ]
+    },
+    {
+      "Route": "App_Data/teste.db-shm",
+      "AssetFile": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-shm",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "32768"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/Uyf2pzT+a58lisN3zcjIpTVVYDhqhZaoGEpuFSTies=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 20 Apr 2025 22:56:12 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-/Uyf2pzT+a58lisN3zcjIpTVVYDhqhZaoGEpuFSTies="
+        }
+      ]
+    },
+    {
+      "Route": "App_Data/teste.db-wal",
+      "AssetFile": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-wal",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "0"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 20 Apr 2025 22:42:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
+        }
+      ]
+    },
+    {
+      "Route": "App_Data/teste.oimiqjc0hm.db",
+      "AssetFile": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "126976"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gIj/RWaD069TIWUEMzLyCKrJyvEbRVT3/xv/zYeva2Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 20 Apr 2025 21:20:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "oimiqjc0hm"
+        },
+        {
+          "Name": "label",
+          "Value": "App_Data/teste.db"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-gIj/RWaD069TIWUEMzLyCKrJyvEbRVT3/xv/zYeva2Y="
+        }
+      ]
+    },
+    {
+      "Route": "App_Data/teste.xbxd3clmbu.db-shm",
+      "AssetFile": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-shm",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "32768"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/Uyf2pzT+a58lisN3zcjIpTVVYDhqhZaoGEpuFSTies=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 20 Apr 2025 22:56:12 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "xbxd3clmbu"
+        },
+        {
+          "Name": "label",
+          "Value": "App_Data/teste.db-shm"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-/Uyf2pzT+a58lisN3zcjIpTVVYDhqhZaoGEpuFSTies="
         }
       ]
     },
     {
       "Route": "css/virtual-select.min.8vgn74yz30.js",
-      "AssetFile": "C:\\Users\\lucasmiranda\\Pictures\\gitclone\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.js",
+      "AssetFile": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -455,7 +455,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 14:11:12 GMT"
+          "Value": "Sun, 20 Apr 2025 21:10:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -479,7 +479,7 @@
     },
     {
       "Route": "css/virtual-select.min.css",
-      "AssetFile": "C:\\Users\\lucasmiranda\\Pictures\\gitclone\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.css",
+      "AssetFile": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -500,7 +500,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 14:11:12 GMT"
+          "Value": "Sun, 20 Apr 2025 21:10:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -516,7 +516,7 @@
     },
     {
       "Route": "css/virtual-select.min.hyh2dotrp4.css",
-      "AssetFile": "C:\\Users\\lucasmiranda\\Pictures\\gitclone\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.css",
+      "AssetFile": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -537,7 +537,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 14:11:12 GMT"
+          "Value": "Sun, 20 Apr 2025 21:10:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -561,7 +561,7 @@
     },
     {
       "Route": "css/virtual-select.min.js",
-      "AssetFile": "C:\\Users\\lucasmiranda\\Pictures\\gitclone\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.js",
+      "AssetFile": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -582,7 +582,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 14:11:12 GMT"
+          "Value": "Sun, 20 Apr 2025 21:10:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -598,7 +598,7 @@
     },
     {
       "Route": "default.hc6qofo4g5.png",
-      "AssetFile": "C:\\Users\\lucasmiranda\\Pictures\\gitclone\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\default.png",
+      "AssetFile": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\wwwroot\\default.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -619,7 +619,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 14:11:12 GMT"
+          "Value": "Sun, 20 Apr 2025 21:10:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -643,7 +643,7 @@
     },
     {
       "Route": "default.png",
-      "AssetFile": "C:\\Users\\lucasmiranda\\Pictures\\gitclone\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\default.png",
+      "AssetFile": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\wwwroot\\default.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -664,7 +664,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 14:11:12 GMT"
+          "Value": "Sun, 20 Apr 2025 21:10:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -680,7 +680,7 @@
     },
     {
       "Route": "js/script.exvrtjijx8.js",
-      "AssetFile": "C:\\Users\\lucasmiranda\\Pictures\\gitclone\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\js\\script.js",
+      "AssetFile": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\wwwroot\\js\\script.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -701,7 +701,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 14:11:12 GMT"
+          "Value": "Sun, 20 Apr 2025 21:10:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -725,7 +725,7 @@
     },
     {
       "Route": "js/script.js",
-      "AssetFile": "C:\\Users\\lucasmiranda\\Pictures\\gitclone\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\js\\script.js",
+      "AssetFile": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\wwwroot\\js\\script.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -746,7 +746,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 14:11:12 GMT"
+          "Value": "Sun, 20 Apr 2025 21:10:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -762,7 +762,7 @@
     },
     {
       "Route": "NovaPasta/loader.51mxwi15a7.css",
-      "AssetFile": "C:\\Users\\lucasmiranda\\Pictures\\gitclone\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\NovaPasta\\loader.css",
+      "AssetFile": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\wwwroot\\NovaPasta\\loader.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -783,7 +783,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 14:11:12 GMT"
+          "Value": "Sun, 20 Apr 2025 21:10:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -807,7 +807,7 @@
     },
     {
       "Route": "NovaPasta/loader.css",
-      "AssetFile": "C:\\Users\\lucasmiranda\\Pictures\\gitclone\\ProjetoIntegrador\\ProjetoIntegrador\\wwwroot\\NovaPasta\\loader.css",
+      "AssetFile": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\wwwroot\\NovaPasta\\loader.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -828,7 +828,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 14:11:12 GMT"
+          "Value": "Sun, 20 Apr 2025 21:10:11 GMT"
         },
         {
           "Name": "Cache-Control",

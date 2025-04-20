@@ -199,6 +199,37 @@
         }
       }
     },
+    "/Receitas": {
+      "post": {
+        "tags": [
+          "Ingredientes"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReceitasViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReceitasViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReceitasViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/SalvarIngrediente": {
       "post": {
         "tags": [
@@ -1006,6 +1037,19 @@
         "properties": {
           "instagram": {
             "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReceitasViewModel": {
+        "type": "object",
+        "properties": {
+          "ingrediente": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
             "nullable": true
           }
         },

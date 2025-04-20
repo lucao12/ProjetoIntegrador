@@ -1,2 +1,2 @@
-C:\Users\lucasmiranda\Pictures\gitclone\ProjetoIntegrador\ProjetoIntegrador\wwwroot\App_Data\teste.db-shm
-C:\Users\lucasmiranda\Pictures\gitclone\ProjetoIntegrador\ProjetoIntegrador\wwwroot\App_Data\teste.db-wal
+C:\Users\lucca\Music\dd\ProjetoIntegrador\wwwroot\App_Data\teste.db-shm
+C:\Users\lucca\Music\dd\ProjetoIntegrador\wwwroot\App_Data\teste.db-wal

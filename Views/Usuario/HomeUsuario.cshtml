@@ -1435,14 +1435,24 @@
             document.getElementById("loader-container").style.display = "none";
         }
 
-        function gerarPDF() {
-            const { jsPDF } = window.jspdf;
-            const pdf = new jsPDF("p", "mm", "a4");
-            const fundo = hexToRgb("#F5F5DC");
-            const cores = ["#5D4037", "#F06292", "#81C784", "#FFB74D", "#9575CD", "#EF9A9A", "#BA68C8"];
-            const dietaDivs = document.querySelectorAll("#modalDietaBody > div");
+             function gerarPDF() {
+        const { jsPDF } = window.jspdf;
+        const pdf = new jsPDF("p", "mm", "a4");
 
-            // Fundo e borda na primeira página
+        const fundo = hexToRgb("#F5F5DC");
+
+        const dietaDivs = document.querySelectorAll("#modalDietaBody > div");
+
+        function hexToRgb(hex) {
+            const bigint = parseInt(hex.replace("#", ""), 16);
+            return {
+                r: (bigint >> 16) & 255,
+                g: (bigint >> 8) & 255,
+                b: bigint & 255
+            };
+        }
+
+        const desenharFundo = () => {
             pdf.setFillColor(fundo.r, fundo.g, fundo.b);
             pdf.rect(0, 0, 210, 297, 'F');
             pdf.setDrawColor(150, 0, 0);
@@ -1450,76 +1460,140 @@
             pdf.rect(5, 5, 200, 287);
             pdf.setLineWidth(0.2);
             pdf.rect(7, 7, 196, 283);
+        };
 
-            let y = 20;
+        desenharFundo();
 
-            pdf.setFont("Helvetica", "bold");
-            pdf.setFontSize(16);
-            pdf.setTextColor(80, 30, 30);
-            pdf.text("Plano Semanal de Dieta", 105, y, { align: "center" });
-            y += 10;
+        let y = 20;
 
-            dietaDivs.forEach((dietaDiv, index) => {
-                const titulo = dietaDiv.querySelector('h3');
-                if (titulo) {
-                    pdf.setFont("Helvetica", "bold");
-                    pdf.setFontSize(13);
-                    pdf.setTextColor(60, 60, 60);
-                    pdf.text(`\n${titulo.innerText}`, 15, y);
-                    y += 12;
-                }
+        pdf.setFont("Helvetica", "bold");
+        pdf.setFontSize(16);
+        pdf.setTextColor(80, 30, 30);
+        pdf.text("Plano Semanal de Dieta", 105, y, { align: "center" });
+        y += 12;
 
-                dietaDiv.querySelectorAll('div[class^="dieta"]').forEach((refeicaoDiv, refIndex) => {
-                    const nomeRefeicao = refeicaoDiv.querySelector('h4');
-                    let refeicaoNome = nomeRefeicao ? nomeRefeicao.innerText.trim() : "";
+        dietaDivs.forEach((dietaDiv, index) => {
+            const titulo = dietaDiv.querySelector('h3');
+            if (titulo) {
+                pdf.setFont("Helvetica", "bold");
+                pdf.setFontSize(13);
+                pdf.setTextColor(60, 60, 60);
+                pdf.text(`${titulo.innerText}`, 15, y);
+                y += 8;
+            }
 
-                    refeicaoDiv.querySelectorAll('div[class*="-"]').forEach(alimentoDiv => {
-                        const alimentoTextNode = Array.from(alimentoDiv.childNodes).find(
-                            node => node.nodeType === Node.TEXT_NODE && node.textContent.trim() !== ''
-                        );
+            const refeicoes = dietaDiv.querySelectorAll('div[class^="dieta"]');
 
-                        if (alimentoTextNode) {
-                            pdf.setFont("Helvetica", "normal");
-                            pdf.setFontSize(11);
-                            pdf.setTextColor(30, 30, 30);
+            refeicoes.forEach(refeicaoDiv => {
+                const nomeRefeicaoElement = refeicaoDiv.querySelector('h4');
+                let refeicaoNome = nomeRefeicaoElement ? nomeRefeicaoElement.innerText.trim() : "";
 
-                            let itemTexto = `• ${refeicaoNome}: ${alimentoTextNode.textContent.trim()}`;
-                            pdf.text(itemTexto, 15, y);
-                            y += 5;
+                const alimentos = refeicaoDiv.querySelectorAll('div[class*="-"]');
 
-                            const selectElement = alimentoDiv.querySelector('select');
-                            if (selectElement && selectElement.value) {
-                                pdf.setFontSize(10);
-                                pdf.setTextColor(100, 100, 100);
-                                pdf.text(`↳ Substituído por: ${selectElement.options[selectElement.selectedIndex].text}`, 20, y);
-                                y += 4;
+                alimentos.forEach((alimentoDiv) => {
+                let textoCompleto = alimentoDiv.textContent.trim().replace(/\s+/g, ' ')
+                .replace(/Editar/g, '') // <--- remove qualquer "Editar"
+                .trim();
+                    let linhas = textoCompleto.split('|');
+
+                    pdf.setFont("Helvetica", "normal");
+                    pdf.setFontSize(11);
+                    pdf.setTextColor(30, 30, 30);
+
+                    if (refeicaoNome) {
+                        pdf.setFont("Helvetica", "bold");
+                        pdf.text(`${refeicaoNome}:`, 15, y);
+                        y += 6;
+                        refeicaoNome = "";
+                    }
+
+                    linhas.forEach((linha, index) => {
+                        linha = linha.trim();
+                        if (linha) {
+                            if (index === 0) {
+                                pdf.setFont("Helvetica", "bold");
+                                pdf.text(`• ${linha}`, 15, y);
+                                y += 6;
+                            } else {
+                                pdf.setFont("Helvetica", "normal");
+                                pdf.text(`↳ ${linha}`, 20, y);
+                                y += 6;
                             }
-
-                            // Depois do primeiro alimento, esvazia o nome da refeição
-                            refeicaoNome = "";
-                        }
-
-                        if (y > 270) {
-                            pdf.addPage();
-
-                            // Novo fundo e bordas
-                            pdf.setFillColor(fundo.r, fundo.g, fundo.b);
-                            pdf.rect(0, 0, 210, 297, 'F');
-                            pdf.setDrawColor(150, 0, 0);
-                            pdf.setLineWidth(0.5);
-                            pdf.rect(5, 5, 200, 287);
-                            pdf.setLineWidth(0.2);
-                            pdf.rect(7, 7, 196, 283);
-
-                            y = 20;
                         }
                     });
+
+                    const selectElement = alimentoDiv.querySelector('select');
+                    if (selectElement && selectElement.value) {
+                        const substituto = selectElement.options[selectElement.selectedIndex].text;
+                        pdf.setFontSize(10);
+                        pdf.setTextColor(100, 100, 100);
+                        pdf.text(`Substituído por: ${substituto}`, 25, y);
+                        y += 5;
+                    }
+
+                    y += 2;
+
+                    if (y > 270) {
+                        pdf.addPage();
+                        desenharFundo();
+                        y = 20;
+                    }
                 });
 
-                y += 5;
+                y += 4;
             });
 
-            pdf.save("Dieta_Semanal.pdf");
+            y += 6;
+
+            // Se for o último bloco, adiciona as receitas
+            if (index === dietaDivs.length - 1) {
+                pdf.setFont("Helvetica", "bold");
+                pdf.setFontSize(14);
+                pdf.setTextColor(80, 30, 30);
+                pdf.text("Receitas Recomendadas", 105, y, { align: "center" });
+                y += 10;
+
+                const receitasDiv = dietaDivs[dietaDivs.length - 1];
+                const titulosReceita = receitasDiv.querySelectorAll('h6');
+                const listasReceita = receitasDiv.querySelectorAll('ul');
+
+                titulosReceita.forEach((titulo, idx) => {
+                    if (y > 270) {
+                        pdf.addPage();
+                        desenharFundo();
+                        y = 20;
+                    }
+
+                    pdf.setFont("Helvetica", "bold");
+                    pdf.setFontSize(12);
+                    pdf.setTextColor(50, 50, 50);
+                    pdf.text(titulo.innerText, 15, y);
+                    y += 7;
+
+                    const lista = listasReceita[idx];
+                    if (lista) {
+                        const itens = lista.querySelectorAll('li');
+                        itens.forEach((li) => {
+                            if (y > 270) {
+                                pdf.addPage();
+                                desenharFundo();
+                                y = 20;
+                            }
+
+                            pdf.setFont("Helvetica", "normal");
+                            pdf.setFontSize(10);
+                            pdf.setTextColor(30, 30, 30);
+                            pdf.text(`• ${li.innerText}`, 20, y);
+                            y += 5;
+                        });
+                        y += 5;
+                    }
+                });
+            }
+        });
+
+        pdf.save("Dieta_Semanal.pdf");
+
 
             function hexToRgb(hex) {
                 const bigint = parseInt(hex.replace("#", ""), 16);
@@ -1586,106 +1660,163 @@
                 fetchMensagens(nutricionistaId);
             });
 
-            document.getElementById('abrirDieta').addEventListener('click', function () {
-                const token = localStorage.getItem('token');
+            document.getElementById('abrirDieta').addEventListener('click', async function () {
+            const token = localStorage.getItem('token');
 
-                if (!token) {
-                    alert('Token não encontrado!');
-                    return;
-                }
+            if (!token) {
+                alert('Token não encontrado!');
+                return;
+            }
 
-                fetch('/receberDieta', {
+            try {
+                const response = await fetch('/receberDieta', {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${token}`,
                         'Content-Type': 'application/json'
                     }
-                })
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Erro na requisição');
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
-                        console.log(data);
+                });
 
-                        const modalBody = document.getElementById('modalDietaBody');
-                        modalBody.innerHTML = '';
+                if (!response.ok) {
+                    throw new Error('Erro na requisição');
+                }
 
-                        let cont = 0;
-                        const diasSemana = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
+                const data = await response.json();
+                console.log(data);
 
-                        if (data.dietas) {
-                            data.dietas.forEach(dieta => {
-                                const dietaDiv = document.createElement('div');
-                                dietaDiv.innerHTML += `<h3 style="text-align: center">${dieta.dia.charAt(0).toUpperCase() + dieta.dia.slice(1)}</h3><br>`;
+                const modalBody = document.getElementById('modalDietaBody');
+                modalBody.innerHTML = '';
 
-                                const criarSecaoRefeicao = (refeicao, listaAlimentos) => {
-                                    const nomesRefeicoes = {
-                                        cafe: "Café da Manhã",
-                                        almoco: "Almoço",
-                                        cafeDT: "Café da Tarde",
-                                        janta: "Janta"
-                                    };
+                let cont = 0;
 
-                                    const secaoDiv = document.createElement('div');
-                                    secaoDiv.classList.add(`dieta${cont}-${refeicao}`);
-                                    secaoDiv.innerHTML = `<h4>${nomesRefeicoes[refeicao] || refeicao}</h4>`;
+                if (data.dietas) {
+                    for (const dieta of data.dietas) {
+                        const dietaDiv = document.createElement('div');
+                        dietaDiv.innerHTML += `<h3 style="text-align: center">${dieta.dia.charAt(0).toUpperCase() + dieta.dia.slice(1)}</h3><br>`;
 
-                                    if (listaAlimentos.length > 0) {
-                                        listaAlimentos.forEach(alimento => {
-                                            const alimentoDiv = document.createElement('div');
-                                            alimentoDiv.classList.add(`dieta${cont}-${refeicao}-${alimento.nome.replace(/\s+/g, '')}`);
-                                            alimentoDiv.innerHTML = `
-                                ${alimento.quantidade} g/ml de ${alimento.nome}
-                            `;
-                                            const botaoEditar = document.createElement('button');
-                                            botaoEditar.classList.add('btn-editar', 'btn', 'btn-sm', 'btn-outline-primary', 'ms-2');
-                                            botaoEditar.textContent = 'Editar';
-                                            botaoEditar.setAttribute('data-alimento', alimento.nome);
-                                            botaoEditar.setAttribute('data-refeicao', refeicao);
-                                            botaoEditar.addEventListener('click', (event) => abrirModalEditar(event, botaoEditar));
+                        const criarSecaoRefeicao = async (refeicao, listaAlimentos) => {
+                            const nomesRefeicoes = {
+                                cafe: "Café da Manhã",
+                                almoco: "Almoço",
+                                cafeDT: "Café da Tarde",
+                                janta: "Janta"
+                            };
 
-                                            alimentoDiv.appendChild(botaoEditar);
-                                            secaoDiv.appendChild(alimentoDiv);
+                            const secaoDiv = document.createElement('div');
+                            secaoDiv.classList.add(`dieta${cont}-${refeicao}`);
+                            secaoDiv.innerHTML = `<h4>${nomesRefeicoes[refeicao] || refeicao}</h4>`;
+                            let temAlimentos = false;
+                            if (listaAlimentos.length > 0) {
+                                for (const alimento of listaAlimentos) {
+                                    temAlimentos = true;
+                                    try {
+                                        const response = await fetch('/EnviarIngrediente', {
+                                            method: 'POST',
+                                            headers: {
+                                                'Content-Type': 'application/json',
+                                                'Authorization': `Bearer ${token}`
+                                            },
+                                            body: JSON.stringify({
+                                                ingrediente: alimento.nome
+                                            })
                                         });
-                                    } else {
-                                        secaoDiv.innerHTML += 'Nenhum';
+
+                                        if (!response.ok) {
+                                            throw new Error('Erro ao salvar o alimento');
+                                        }
+
+                                        const data = await response.json();
+
+                                        const alimentoDiv = document.createElement('div');
+                                        alimentoDiv.classList.add(`dieta${cont}-${refeicao}-${alimento.nome.replace(/\s+/g, '')}`);
+                                        alimentoDiv.innerHTML = `
+                                            ${alimento.quantidade} g/ml de ${alimento.nome}<br>
+                                            Calorias: ${data.Calorias} kcal |
+                                            Carboidratos: ${data.Carboidratos} g |
+                                            Proteínas: ${data.Proteinas} g |
+                                            Gorduras: ${data.Gorduras} g`;
+
+                                        const botaoEditar = document.createElement('button');
+                                        botaoEditar.classList.add('btn-editar', 'btn', 'btn-sm', 'btn-outline-primary', 'ms-2');
+                                        botaoEditar.textContent = 'Editar';
+                                        botaoEditar.setAttribute('data-alimento', alimento.nome);
+                                        botaoEditar.setAttribute('data-refeicao', refeicao);
+                                        botaoEditar.addEventListener('click', (event) => abrirModalEditar(event, botaoEditar));
+
+                                        alimentoDiv.appendChild(botaoEditar);
+                                        secaoDiv.appendChild(alimentoDiv);
+                                    } catch (error) {
+                                        console.error("Erro ao enviar a requisição:", error);
+                                        alert("Erro ao adicionar o alimento!");
                                     }
+                                }
+                            } else {
+                                secaoDiv.innerHTML += 'Nenhum';
+                                temAlimentos = false
+                            }
 
-                                    dietaDiv.appendChild(secaoDiv);
-                                };
+                            dietaDiv.appendChild(secaoDiv);
+                            if(temAlimentos){
+                                try {
+                                        const response = await fetch('/Receitas', {
+                                            method: 'POST',
+                                            headers: {
+                                                'Content-Type': 'application/json',
+                                                'Authorization': `Bearer ${token}`
+                                            },
+                                            body: JSON.stringify({
+                                                ingrediente: listaAlimentos.map(a => a.nome)
+                                            })
+                                        });
 
-                                const extrairAlimentos = refeicao => {
-                                    let lista = [];
-                                    if (dieta[refeicao] && Array.isArray(dieta[refeicao])) {
-                                        dieta[refeicao].forEach(elemento => {
-                                            if (elemento.alimentos && elemento.quantidade) {
-                                                lista.push({
-                                                    nome: elemento.alimentos.nome,
-                                                    quantidade: elemento.quantidade
-                                                });
-                                            }
+                                        if (!response.ok) {
+                                            throw new Error('Erro ao salvar o alimento');
+                                        }
+                                        const html = await response.text();
+                                        console.log(html);
+                                        const Div = document.createElement('div');
+                                        Div.innerHTML = '<br><h4>Sugestões de receitas:</h4><br>' + html;
+                                        dietaDiv.appendChild(Div);
+
+                                    } catch (error) {
+                                        console.error("Erro ao enviar a requisição:", error);
+                                        alert("Erro ao adicionar o alimento!");
+                                    }
+                            }
+                        temAlimentos = false;   
+                        };
+
+                        const extrairAlimentos = refeicao => {
+                            let lista = [];
+                            if (dieta[refeicao] && Array.isArray(dieta[refeicao])) {
+                                dieta[refeicao].forEach(elemento => {
+                                    if (elemento.alimentos && elemento.quantidade) {
+                                        lista.push({
+                                            nome: elemento.alimentos.nome,
+                                            quantidade: elemento.quantidade
                                         });
                                     }
-                                    return lista;
-                                };
-
-                                ["cafe", "almoco", "cafeDT", "janta"].forEach(refeicao => {
-                                    criarSecaoRefeicao(refeicao, extrairAlimentos(refeicao));
                                 });
+                            }
+                            return lista;
+                        };
 
-                                dietaDiv.innerHTML += '<hr>';
-                                modalBody.appendChild(dietaDiv);
-
-                                cont = (cont + 1) % 7;
-                            });
+                        const refeicoes = ["cafe", "almoco", "cafeDT", "janta"];
+                        for (const refeicao of refeicoes) {
+                            const alimentos = extrairAlimentos(refeicao);
+                            await criarSecaoRefeicao(refeicao, alimentos);
                         }
-                    }).catch(error => {
-                        console.error('Erro ao buscar a dieta:', error);
-                        alert('Você ainda não possui uma dieta');
-                    });;
+
+                        dietaDiv.innerHTML += '<hr>';
+                        modalBody.appendChild(dietaDiv);
+
+                        cont = (cont + 1) % 7;
+                    }
+                }
+            } catch (error) {
+                console.error('Erro ao buscar a dieta:', error);
+                alert('Você ainda não possui uma dieta');
+            }
 
                 // Adiciona evento para todos os botões "Editar"
                 document.querySelectorAll('.btn-editar').forEach(botao => {

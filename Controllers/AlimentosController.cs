@@ -167,6 +167,8 @@ namespace ProjetoIntegrador.Controllers
             }
         }
 
+
+
         static async Task<string> SendRequestToGemini(string prompt)
         {
             using (HttpClient client = new HttpClient())
