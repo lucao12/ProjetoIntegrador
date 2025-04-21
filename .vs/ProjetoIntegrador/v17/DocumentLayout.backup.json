@@ -1,18 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\",
+  "WorkspaceRootPath": "D:\\projeto\\ProjetoIntegrador\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucca\\music\\dd\\projetointegrador\\views\\usuario\\homeusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|d:\\projeto\\projetointegrador\\views\\usuario\\homeusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:views\\usuario\\homeusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucca\\music\\dd\\projetointegrador\\views\\usuario\\homenutri.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:views\\usuario\\homenutri.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|c:\\users\\lucca\\music\\dd\\projetointegrador\\controllers\\ingredientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:controllers\\ingredientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|d:\\projeto\\projetointegrador\\controllers\\emailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:controllers\\emailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,43 +18,30 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "IngredientesController.cs",
-              "DocumentMoniker": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\Controllers\\IngredientesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\IngredientesController.cs",
-              "ToolTip": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\Controllers\\IngredientesController.cs",
-              "RelativeToolTip": "Controllers\\IngredientesController.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAIwEIAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-20T22:30:38.401Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "HomeNutri.cshtml",
-              "DocumentMoniker": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\Views\\Usuario\\HomeNutri.cshtml",
-              "RelativeDocumentMoniker": "Views\\Usuario\\HomeNutri.cshtml",
-              "ToolTip": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\Views\\Usuario\\HomeNutri.cshtml",
-              "RelativeToolTip": "Views\\Usuario\\HomeNutri.cshtml",
-              "ViewState": "AgIAAEMKAAAAAAAAAAAiwE8KAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-13T20:42:10.369Z",
+              "Title": "EmailController.cs",
+              "DocumentMoniker": "D:\\projeto\\ProjetoIntegrador\\Controllers\\EmailController.cs",
+              "RelativeDocumentMoniker": "Controllers\\EmailController.cs",
+              "ToolTip": "D:\\projeto\\ProjetoIntegrador\\Controllers\\EmailController.cs",
+              "RelativeToolTip": "Controllers\\EmailController.cs",
+              "ViewState": "AgIAAGoAAAAAAAAAAAAmwIIAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T18:08:49.239Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "HomeUsuario.cshtml",
-              "DocumentMoniker": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\Views\\Usuario\\HomeUsuario.cshtml",
+              "DocumentMoniker": "D:\\projeto\\ProjetoIntegrador\\Views\\Usuario\\HomeUsuario.cshtml",
               "RelativeDocumentMoniker": "Views\\Usuario\\HomeUsuario.cshtml",
-              "ToolTip": "C:\\Users\\lucca\\Music\\dd\\ProjetoIntegrador\\Views\\Usuario\\HomeUsuario.cshtml",
+              "ToolTip": "D:\\projeto\\ProjetoIntegrador\\Views\\Usuario\\HomeUsuario.cshtml",
               "RelativeToolTip": "Views\\Usuario\\HomeUsuario.cshtml",
-              "ViewState": "AgIAALYFAAAAAAAAAAAgwNUFAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAACQJAAAAAAAAAADgv0AJAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-04-13T20:42:09.377Z",
               "EditorCaption": ""

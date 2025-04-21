@@ -7,17 +7,19 @@ using ProjetoIntegrador.Interfaces;
 using ProjetoIntegrador.Services;
 using ProjetoIntegrador;
 using System.Text;
+using Hangfire;
+using Hangfire.SQLite;
+using Hangfire.MemoryStorage; // ou UseInMemoryStorage
 
 class Program
 {
     public static void Main(string[] args)
     {
-
         var builder = WebApplication.CreateBuilder(args);
 
         var key = Encoding.UTF8.GetBytes(Settings.Secret);
         builder.Services.AddControllers();
-        builder.Services.AddControllersWithViews();  
+        builder.Services.AddControllersWithViews();
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen(c =>
         {
@@ -30,21 +32,22 @@ class Program
                 Scheme = "bearer"
             });
             c.AddSecurityRequirement(new OpenApiSecurityRequirement
-    {
-        {
-            new OpenApiSecurityScheme
             {
-                Reference = new OpenApiReference
                 {
-                    Type = ReferenceType.SecurityScheme,
-                    Id = "Bearer"
+                    new OpenApiSecurityScheme
+                    {
+                        Reference = new OpenApiReference
+                        {
+                            Type = ReferenceType.SecurityScheme,
+                            Id = "Bearer"
+                        }
+                    },
+                    new string[] { }
                 }
-            },
-            new string[] { }
-        }
-    });
+            });
             c.OperationFilter<SwaggerFileOperationFilter>();
         });
+
         builder.Services.AddCors(options =>
         {
             options.AddPolicy("AllowAllOrigins",
@@ -55,8 +58,10 @@ class Program
                            .AllowAnyHeader();
                 });
         });
+
         builder.Services.AddDbContext<AppDbContext>(options =>
             options.UseSqlite(builder.Configuration.GetConnectionString("Default")));
+
         builder.Services.AddAuthentication(x =>
         {
             x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -75,9 +80,21 @@ class Program
                 ClockSkew = TimeSpan.Zero
             };
         });
+
         builder.Services.AddTransient<IHashServices, HashServices>();
         builder.Services.AddTransient<ITokenServices, TokenServices>();
         builder.Services.AddTransient<IImageServices, ImageServices>();
+
+        builder.Services.AddScoped<EmailServices>();
+
+        builder.Services.AddHangfire(configuration =>
+            configuration.UseSimpleAssemblyNameTypeSerializer()
+                         .UseRecommendedSerializerSettings()
+                         .UseMemoryStorage());
+;
+
+        builder.Services.AddHangfireServer();
+
         var app = builder.Build();
 
         if (app.Environment.IsDevelopment())
@@ -85,13 +102,17 @@ class Program
             app.UseSwagger();
             app.UseSwaggerUI();
         }
+
         app.UseCors("AllowAllOrigins");
         app.UseHttpsRedirection();
         app.UseAuthentication();
         app.UseAuthorization();
+
+        app.UseHangfireDashboard("/hangfire");
+
         app.MapControllers();
         app.UseStaticFiles();
+
         app.Run();
     }
-
 }

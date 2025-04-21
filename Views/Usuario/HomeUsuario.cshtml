@@ -2248,25 +2248,24 @@
             }
         }
 
-        // @* document.addEventListener('DOMContentLoaded', function () {
-        //     // Verificar se já se passou uma semana desde a última exibição do modal
-        //     const lastShown = localStorage.getItem('lastShownModal');
+          document.addEventListener('DOMContentLoaded', function () {
+             // Verificar se já se passou uma semana desde a última exibição do modal
+             const lastShown = localStorage.getItem('lastShownModal');
 
-        //     if (lastShown) {
-        //         const lastShownDate = new Date(lastShown);
-        //         const now = new Date();
-        //         const oneWeek = 7 * 24 * 60 * 60 * 1000; // 1 semana em milissegundos
-
-        //         // Verifica se já passou 1 semana
-        //         if (now - lastShownDate >= oneWeek) {
-        //             // Exibir o modal
-        //             $('#modalSemanal').modal('show');
-        //         }
-        //     } else {
-        //         // Exibir o modal pela primeira vez, se não houver registro
-        //         $('#modalSemanal').modal('show');
-        //     }
-        // }); *@
+             if (lastShown) {
+                 const lastShownDate = new Date(lastShown);
+                 const now = new Date();
+                 const oneWeek = 7 * 24 * 60 * 60 * 1000; // 1 semana em milissegundos
+                        // Verifica se já passou 1 semana
+                 if (now - lastShownDate >= oneWeek) {
+                     // Exibir o modal
+                     $('#modalSemanal').modal('show');
+                 }
+             } else {
+                 // Exibir o modal pela primeira vez, se não houver registro
+                 $('#modalSemanal').modal('show');
+             }
+         }); 
 
         // Função chamada quando o modal for fechado ou salvo
         function saveChangesSemana(event) {
@@ -2348,6 +2347,29 @@
                     console.error('Erro:', error);
                     alert('Erro ao comunicar com o servidor.');
                 });
+
+
+                try {
+                const emailObj = {
+                    idusuario: localStorage.getItem('idUser'),
+                    titulo: "Você deve preencher novamente seus dados!",
+                    body: "Olá, o período de 1 semana desde sua ultima atualização dos dados de peso já passou, entre novamente no site e preencha novamente os campos!!",
+                };
+
+                const response = fetch('/AgendarEmail', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify(emailObj)
+                });
+
+                if (!response.ok) throw new Error(`Erro: ${response.status}`);
+                console.log('Email enviado com sucesso');
+            } catch (error) {
+                console.error('Erro ao enviar dieta:', error);
+            }
         }
 
         function deleteAccount() {

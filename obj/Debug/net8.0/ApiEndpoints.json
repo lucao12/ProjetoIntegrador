@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "ProjetoIntegrador.Controllers.EmailController",
+    "Method": "AgendarEmail",
+    "RelativePath": "AgendarEmail",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ProjetoIntegrador.ViewModel.EmailViewModelEnviar",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "ProjetoIntegrador.Controllers.AlimentosController",
     "Method": "GetAlimentos",
     "RelativePath": "alimentos/getAlimentos",
@@ -123,6 +139,38 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.EmailController",
+    "Method": "EnviaEmails",
+    "RelativePath": "EnviaEmail",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ProjetoIntegrador.ViewModel.EmailViewModelEnviar",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.EmailController",
+    "Method": "EnviaEmailsAnexo",
+    "RelativePath": "EnviaEmailAnexo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ProjetoIntegrador.ViewModel.EmailViewModelEnviarAnexo",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
