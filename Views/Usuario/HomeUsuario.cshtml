@@ -1435,165 +1435,169 @@
             document.getElementById("loader-container").style.display = "none";
         }
 
-             function gerarPDF() {
-        const { jsPDF } = window.jspdf;
-        const pdf = new jsPDF("p", "mm", "a4");
+        function gerarPDF() {
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF("p", "mm", "a4");
 
-        const fundo = hexToRgb("#F5F5DC");
+            const fundo = hexToRgb("#F5F5DC");
 
-        const dietaDivs = document.querySelectorAll("#modalDietaBody > div");
+            const margemEsquerda = 15;
+            const margemDireita = 15;
+            const margemTopo = 15;
+            const margemInferior = 15;
+            const larguraUtil = 210 - margemEsquerda - margemDireita;
+            const alturaUtil = 297 - margemTopo - margemInferior;
 
-        function hexToRgb(hex) {
-            const bigint = parseInt(hex.replace("#", ""), 16);
-            return {
-                r: (bigint >> 16) & 255,
-                g: (bigint >> 8) & 255,
-                b: bigint & 255
-            };
-        }
+            const dietaDivs = document.querySelectorAll("#modalDietaBody > div");
 
-        const desenharFundo = () => {
-            pdf.setFillColor(fundo.r, fundo.g, fundo.b);
-            pdf.rect(0, 0, 210, 297, 'F');
-            pdf.setDrawColor(150, 0, 0);
-            pdf.setLineWidth(0.5);
-            pdf.rect(5, 5, 200, 287);
-            pdf.setLineWidth(0.2);
-            pdf.rect(7, 7, 196, 283);
-        };
-
-        desenharFundo();
-
-        let y = 20;
-
-        pdf.setFont("Helvetica", "bold");
-        pdf.setFontSize(16);
-        pdf.setTextColor(80, 30, 30);
-        pdf.text("Plano Semanal de Dieta", 105, y, { align: "center" });
-        y += 12;
-
-        dietaDivs.forEach((dietaDiv, index) => {
-            const titulo = dietaDiv.querySelector('h3');
-            if (titulo) {
-                pdf.setFont("Helvetica", "bold");
-                pdf.setFontSize(13);
-                pdf.setTextColor(60, 60, 60);
-                pdf.text(`${titulo.innerText}`, 15, y);
-                y += 8;
+            function desenharFundo() {
+                pdf.setFillColor(fundo.r, fundo.g, fundo.b);
+                pdf.rect(0, 0, 210, 297, 'F');
+                pdf.setDrawColor(150, 0, 0);
+                pdf.setLineWidth(0.5);
+                pdf.rect(5, 5, 200, 287); // borda externa
+                pdf.setLineWidth(0.2);
+                pdf.rect(7, 7, 196, 283); // borda interna
             }
 
-            const refeicoes = dietaDiv.querySelectorAll('div[class^="dieta"]');
+            desenharFundo();
 
-            refeicoes.forEach(refeicaoDiv => {
-                const nomeRefeicaoElement = refeicaoDiv.querySelector('h4');
-                let refeicaoNome = nomeRefeicaoElement ? nomeRefeicaoElement.innerText.trim() : "";
+            let y = margemTopo;
 
-                const alimentos = refeicaoDiv.querySelectorAll('div[class*="-"]');
+            pdf.setFont("Helvetica", "bold");
+            pdf.setFontSize(16);
+            pdf.setTextColor(80, 30, 30);
+            pdf.text("Plano Semanal de Dieta", 105, y, { align: "center" });
+            y += 12;
 
-                alimentos.forEach((alimentoDiv) => {
-                let textoCompleto = alimentoDiv.textContent.trim().replace(/\s+/g, ' ')
-                .replace(/Editar/g, '') // <--- remove qualquer "Editar"
-                .trim();
-                    let linhas = textoCompleto.split('|');
+            dietaDivs.forEach((dietaDiv, index) => {
+                const titulo = dietaDiv.querySelector('h3');
+                if (titulo) {
+                    verificarAltura(8);
+                    pdf.setFont("Helvetica", "bold");
+                    pdf.setFontSize(13);
+                    pdf.setTextColor(60, 60, 60);
+                    pdf.text(`${titulo.innerText}`, margemEsquerda, y);
+                    y += 8;
+                }
 
-                    pdf.setFont("Helvetica", "normal");
-                    pdf.setFontSize(11);
-                    pdf.setTextColor(30, 30, 30);
+                const refeicoes = dietaDiv.querySelectorAll('div[class^="dieta"]');
 
-                    if (refeicaoNome) {
-                        pdf.setFont("Helvetica", "bold");
-                        pdf.text(`${refeicaoNome}:`, 15, y);
-                        y += 6;
-                        refeicaoNome = "";
-                    }
+                refeicoes.forEach(refeicaoDiv => {
+                    const nomeRefeicaoElement = refeicaoDiv.querySelector('h4');
+                    let refeicaoNome = nomeRefeicaoElement ? nomeRefeicaoElement.innerText.trim() : "";
 
-                    linhas.forEach((linha, index) => {
-                        linha = linha.trim();
-                        if (linha) {
-                            if (index === 0) {
-                                pdf.setFont("Helvetica", "bold");
-                                pdf.text(`• ${linha}`, 15, y);
-                                y += 6;
-                            } else {
-                                pdf.setFont("Helvetica", "normal");
-                                pdf.text(`↳ ${linha}`, 20, y);
-                                y += 6;
-                            }
+                    const alimentos = refeicaoDiv.querySelectorAll('div[class*="-"]');
+
+                    alimentos.forEach((alimentoDiv) => {
+                        let textoCompleto = alimentoDiv.textContent.trim().replace(/\s+/g, ' ').replace(/Editar/g, '').trim();
+                        let linhas = textoCompleto.split('|');
+
+                        pdf.setFont("Helvetica", "normal");
+                        pdf.setFontSize(11);
+                        pdf.setTextColor(30, 30, 30);
+
+                        if (refeicaoNome) {
+                            verificarAltura(6);
+                            pdf.setFont("Helvetica", "bold");
+                            pdf.text(`${refeicaoNome}:`, margemEsquerda, y);
+                            y += 6;
+                            refeicaoNome = "";
                         }
+
+                        if (linhas.length > 0) {
+                            const nomeAlimento = linhas[0].trim();
+                            const detalhesNutricionais = linhas.slice(1).map(l => l.trim()).join("  ");
+
+                            // Nome do alimento
+                            pdf.setFont("Helvetica", "bold");
+                            pdf.setFontSize(11);
+                            pdf.setTextColor(30, 30, 30);
+                            pdf.text(`• ${nomeAlimento}:`, 15, y);
+
+                            // Detalhes nutricionais com fonte menor e mais à direita
+                            if (detalhesNutricionais) {
+                                pdf.setFont("Helvetica", "normal");
+                                pdf.setFontSize(9); // fonte menor
+                                pdf.setTextColor(100, 100, 100);
+                                pdf.text(`${detalhesNutricionais}`, 90, y); // mais à direita
+                            }
+
+                            y += 6;
+                        }
+
+
+
+                        const selectElement = alimentoDiv.querySelector('select');
+                        if (selectElement && selectElement.value) {
+                            const substituto = selectElement.options[selectElement.selectedIndex].text;
+                            verificarAltura(5);
+                            pdf.setFontSize(10);
+                            pdf.setTextColor(100, 100, 100);
+                            pdf.text(`Substituído por: ${substituto}`, margemEsquerda + 10, y);
+                            y += 5;
+                        }
+
+                        y += 2;
                     });
 
-                    const selectElement = alimentoDiv.querySelector('select');
-                    if (selectElement && selectElement.value) {
-                        const substituto = selectElement.options[selectElement.selectedIndex].text;
-                        pdf.setFontSize(10);
-                        pdf.setTextColor(100, 100, 100);
-                        pdf.text(`Substituído por: ${substituto}`, 25, y);
-                        y += 5;
-                    }
-
                     y += 2;
-
-                    if (y > 270) {
-                        pdf.addPage();
-                        desenharFundo();
-                        y = 20;
-                    }
                 });
 
-                y += 4;
-            });
+                y += 6;
 
-            y += 6;
-
-            // Se for o último bloco, adiciona as receitas
-            if (index === dietaDivs.length - 1) {
-                pdf.setFont("Helvetica", "bold");
-                pdf.setFontSize(14);
-                pdf.setTextColor(80, 30, 30);
-                pdf.text("Receitas Recomendadas", 105, y, { align: "center" });
-                y += 10;
-
-                const receitasDiv = dietaDivs[dietaDivs.length - 1];
-                const titulosReceita = receitasDiv.querySelectorAll('h6');
-                const listasReceita = receitasDiv.querySelectorAll('ul');
-
-                titulosReceita.forEach((titulo, idx) => {
-                    if (y > 270) {
-                        pdf.addPage();
-                        desenharFundo();
-                        y = 20;
-                    }
+                // Se for o último bloco, adiciona as receitas
+                if (index === dietaDivs.length - 1) {
+                    // Força nova página antes de "Receitas Recomendadas"
+                    pdf.addPage();
+                    desenharFundo();
+                    y = margemTopo;
 
                     pdf.setFont("Helvetica", "bold");
-                    pdf.setFontSize(12);
-                    pdf.setTextColor(50, 50, 50);
-                    pdf.text(titulo.innerText, 15, y);
-                    y += 7;
+                    pdf.setFontSize(14);
+                    pdf.setTextColor(80, 30, 30);
+                    pdf.text("Receitas Recomendadas", 105, y, { align: "center" });
+                    y += 10;
 
-                    const lista = listasReceita[idx];
-                    if (lista) {
-                        const itens = lista.querySelectorAll('li');
-                        itens.forEach((li) => {
-                            if (y > 270) {
-                                pdf.addPage();
-                                desenharFundo();
-                                y = 20;
-                            }
 
-                            pdf.setFont("Helvetica", "normal");
-                            pdf.setFontSize(10);
-                            pdf.setTextColor(30, 30, 30);
-                            pdf.text(`• ${li.innerText}`, 20, y);
+                    const receitasDiv = dietaDivs[dietaDivs.length - 1];
+                    const titulosReceita = receitasDiv.querySelectorAll('h6');
+                    const listasReceita = receitasDiv.querySelectorAll('ul');
+
+                    titulosReceita.forEach((titulo, idx) => {
+                        verificarAltura(7);
+                        pdf.setFont("Helvetica", "bold");
+                        pdf.setFontSize(12);
+                        pdf.setTextColor(50, 50, 50);
+                        pdf.text(titulo.innerText, margemEsquerda, y);
+                        y += 7;
+
+                        const lista = listasReceita[idx];
+                        if (lista) {
+                            const itens = lista.querySelectorAll('li');
+                            itens.forEach((li) => {
+                                verificarAltura(5);
+                                pdf.setFont("Helvetica", "normal");
+                                pdf.setFontSize(10);
+                                pdf.setTextColor(30, 30, 30);
+                                pdf.text(`• ${li.innerText}`, margemEsquerda + 5, y);
+                                y += 5;
+                            });
                             y += 5;
-                        });
-                        y += 5;
-                    }
-                });
+                        }
+                    });
+                }
+            });
+
+            pdf.save("Dieta_Semanal.pdf");
+
+            function verificarAltura(incremento) {
+                if (y + incremento > 297 - margemInferior) {
+                    pdf.addPage();
+                    desenharFundo();
+                    y = margemTopo;
+                }
             }
-        });
-
-        pdf.save("Dieta_Semanal.pdf");
-
 
             function hexToRgb(hex) {
                 const bigint = parseInt(hex.replace("#", ""), 16);
@@ -1661,103 +1665,103 @@
             });
 
             document.getElementById('abrirDieta').addEventListener('click', async function () {
-            const token = localStorage.getItem('token');
+                const token = localStorage.getItem('token');
 
-            if (!token) {
-                alert('Token não encontrado!');
-                return;
-            }
-
-            try {
-                const response = await fetch('/receberDieta', {
-                    method: 'GET',
-                    headers: {
-                        'Authorization': `Bearer ${token}`,
-                        'Content-Type': 'application/json'
-                    }
-                });
-
-                if (!response.ok) {
-                    throw new Error('Erro na requisição');
+                if (!token) {
+                    alert('Token não encontrado!');
+                    return;
                 }
 
-                const data = await response.json();
-                console.log(data);
+                try {
+                    const response = await fetch('/receberDieta', {
+                        method: 'GET',
+                        headers: {
+                            'Authorization': `Bearer ${token}`,
+                            'Content-Type': 'application/json'
+                        }
+                    });
 
-                const modalBody = document.getElementById('modalDietaBody');
-                modalBody.innerHTML = '';
+                    if (!response.ok) {
+                        throw new Error('Erro na requisição');
+                    }
 
-                let cont = 0;
+                    const data = await response.json();
+                    console.log(data);
 
-                if (data.dietas) {
-                    for (const dieta of data.dietas) {
-                        const dietaDiv = document.createElement('div');
-                        dietaDiv.innerHTML += `<h3 style="text-align: center">${dieta.dia.charAt(0).toUpperCase() + dieta.dia.slice(1)}</h3><br>`;
+                    const modalBody = document.getElementById('modalDietaBody');
+                    modalBody.innerHTML = '';
 
-                        const criarSecaoRefeicao = async (refeicao, listaAlimentos) => {
-                            const nomesRefeicoes = {
-                                cafe: "Café da Manhã",
-                                almoco: "Almoço",
-                                cafeDT: "Café da Tarde",
-                                janta: "Janta"
-                            };
+                    let cont = 0;
 
-                            const secaoDiv = document.createElement('div');
-                            secaoDiv.classList.add(`dieta${cont}-${refeicao}`);
-                            secaoDiv.innerHTML = `<h4>${nomesRefeicoes[refeicao] || refeicao}</h4>`;
-                            let temAlimentos = false;
-                            if (listaAlimentos.length > 0) {
-                                for (const alimento of listaAlimentos) {
-                                    temAlimentos = true;
-                                    try {
-                                        const response = await fetch('/EnviarIngrediente', {
-                                            method: 'POST',
-                                            headers: {
-                                                'Content-Type': 'application/json',
-                                                'Authorization': `Bearer ${token}`
-                                            },
-                                            body: JSON.stringify({
-                                                ingrediente: alimento.nome
-                                            })
-                                        });
+                    if (data.dietas) {
+                        for (const dieta of data.dietas) {
+                            const dietaDiv = document.createElement('div');
+                            dietaDiv.innerHTML += `<h3 style="text-align: center">${dieta.dia.charAt(0).toUpperCase() + dieta.dia.slice(1)}</h3><br>`;
 
-                                        if (!response.ok) {
-                                            throw new Error('Erro ao salvar o alimento');
-                                        }
+                            const criarSecaoRefeicao = async (refeicao, listaAlimentos) => {
+                                const nomesRefeicoes = {
+                                    cafe: "Café da Manhã",
+                                    almoco: "Almoço",
+                                    cafeDT: "Café da Tarde",
+                                    janta: "Janta"
+                                };
 
-                                        const data = await response.json();
+                                const secaoDiv = document.createElement('div');
+                                secaoDiv.classList.add(`dieta${cont}-${refeicao}`);
+                                secaoDiv.innerHTML = `<h4>${nomesRefeicoes[refeicao] || refeicao}</h4>`;
+                                let temAlimentos = false;
+                                if (listaAlimentos.length > 0) {
+                                    for (const alimento of listaAlimentos) {
+                                        temAlimentos = true;
+                                        try {
+                                            const response = await fetch('/EnviarIngrediente', {
+                                                method: 'POST',
+                                                headers: {
+                                                    'Content-Type': 'application/json',
+                                                    'Authorization': `Bearer ${token}`
+                                                },
+                                                body: JSON.stringify({
+                                                    ingrediente: alimento.nome
+                                                })
+                                            });
 
-                                        const alimentoDiv = document.createElement('div');
-                                        alimentoDiv.classList.add(`dieta${cont}-${refeicao}-${alimento.nome.replace(/\s+/g, '')}`);
-                                        alimentoDiv.innerHTML = `
+                                            if (!response.ok) {
+                                                throw new Error('Erro ao salvar o alimento');
+                                            }
+
+                                            const data = await response.json();
+
+                                            const alimentoDiv = document.createElement('div');
+                                            alimentoDiv.classList.add(`dieta${cont}-${refeicao}-${alimento.nome.replace(/\s+/g, '')}`);
+                                            alimentoDiv.innerHTML = `
                                             ${alimento.quantidade} g/ml de ${alimento.nome}<br>
                                             Calorias: ${data.Calorias} kcal |
                                             Carboidratos: ${data.Carboidratos} g |
                                             Proteínas: ${data.Proteinas} g |
                                             Gorduras: ${data.Gorduras} g`;
 
-                                        const botaoEditar = document.createElement('button');
-                                        botaoEditar.classList.add('btn-editar', 'btn', 'btn-sm', 'btn-outline-primary', 'ms-2');
-                                        botaoEditar.textContent = 'Editar';
-                                        botaoEditar.setAttribute('data-alimento', alimento.nome);
-                                        botaoEditar.setAttribute('data-refeicao', refeicao);
-                                        botaoEditar.addEventListener('click', (event) => abrirModalEditar(event, botaoEditar));
+                                            const botaoEditar = document.createElement('button');
+                                            botaoEditar.classList.add('btn-editar', 'btn', 'btn-sm', 'btn-outline-primary', 'ms-2');
+                                            botaoEditar.textContent = 'Editar';
+                                            botaoEditar.setAttribute('data-alimento', alimento.nome);
+                                            botaoEditar.setAttribute('data-refeicao', refeicao);
+                                            botaoEditar.addEventListener('click', (event) => abrirModalEditar(event, botaoEditar));
 
-                                        alimentoDiv.appendChild(botaoEditar);
-                                        secaoDiv.appendChild(alimentoDiv);
-                                    } catch (error) {
-                                        console.error("Erro ao enviar a requisição:", error);
-                                        alert("Erro ao adicionar o alimento!");
+                                            alimentoDiv.appendChild(botaoEditar);
+                                            secaoDiv.appendChild(alimentoDiv);
+                                        } catch (error) {
+                                            console.error("Erro ao enviar a requisição:", error);
+                                            alert("Erro ao adicionar o alimento!");
+                                        }
                                     }
+                                } else {
+                                    secaoDiv.innerHTML += 'Nenhum';
+                                    temAlimentos = false
                                 }
-                            } else {
-                                secaoDiv.innerHTML += 'Nenhum';
-                                temAlimentos = false
-                            }
 
-                            dietaDiv.appendChild(secaoDiv);
-                            if(temAlimentos){
-                                try {
+                                dietaDiv.appendChild(secaoDiv);
+                                if (temAlimentos) {
+                                    try {
                                         const response = await fetch('/Receitas', {
                                             method: 'POST',
                                             headers: {
@@ -1782,41 +1786,41 @@
                                         console.error("Erro ao enviar a requisição:", error);
                                         alert("Erro ao adicionar o alimento!");
                                     }
-                            }
-                        temAlimentos = false;   
-                        };
+                                }
+                                temAlimentos = false;
+                            };
 
-                        const extrairAlimentos = refeicao => {
-                            let lista = [];
-                            if (dieta[refeicao] && Array.isArray(dieta[refeicao])) {
-                                dieta[refeicao].forEach(elemento => {
-                                    if (elemento.alimentos && elemento.quantidade) {
-                                        lista.push({
-                                            nome: elemento.alimentos.nome,
-                                            quantidade: elemento.quantidade
-                                        });
-                                    }
-                                });
-                            }
-                            return lista;
-                        };
+                            const extrairAlimentos = refeicao => {
+                                let lista = [];
+                                if (dieta[refeicao] && Array.isArray(dieta[refeicao])) {
+                                    dieta[refeicao].forEach(elemento => {
+                                        if (elemento.alimentos && elemento.quantidade) {
+                                            lista.push({
+                                                nome: elemento.alimentos.nome,
+                                                quantidade: elemento.quantidade
+                                            });
+                                        }
+                                    });
+                                }
+                                return lista;
+                            };
 
-                        const refeicoes = ["cafe", "almoco", "cafeDT", "janta"];
-                        for (const refeicao of refeicoes) {
-                            const alimentos = extrairAlimentos(refeicao);
-                            await criarSecaoRefeicao(refeicao, alimentos);
+                            const refeicoes = ["cafe", "almoco", "cafeDT", "janta"];
+                            for (const refeicao of refeicoes) {
+                                const alimentos = extrairAlimentos(refeicao);
+                                await criarSecaoRefeicao(refeicao, alimentos);
+                            }
+
+                            dietaDiv.innerHTML += '<hr>';
+                            modalBody.appendChild(dietaDiv);
+
+                            cont = (cont + 1) % 7;
                         }
-
-                        dietaDiv.innerHTML += '<hr>';
-                        modalBody.appendChild(dietaDiv);
-
-                        cont = (cont + 1) % 7;
                     }
+                } catch (error) {
+                    console.error('Erro ao buscar a dieta:', error);
+                    alert('Você ainda não possui uma dieta');
                 }
-            } catch (error) {
-                console.error('Erro ao buscar a dieta:', error);
-                alert('Você ainda não possui uma dieta');
-            }
 
                 // Adiciona evento para todos os botões "Editar"
                 document.querySelectorAll('.btn-editar').forEach(botao => {
@@ -2248,24 +2252,24 @@
             }
         }
 
-          document.addEventListener('DOMContentLoaded', function () {
-             // Verificar se já se passou uma semana desde a última exibição do modal
-             const lastShown = localStorage.getItem('lastShownModal');
+        // document.addEventListener('DOMContentLoaded', function () {
+        //     // Verificar se já se passou uma semana desde a última exibição do modal
+        //     const lastShown = localStorage.getItem('lastShownModal');
 
-             if (lastShown) {
-                 const lastShownDate = new Date(lastShown);
-                 const now = new Date();
-                 const oneWeek = 7 * 24 * 60 * 60 * 1000; // 1 semana em milissegundos
-                        // Verifica se já passou 1 semana
-                 if (now - lastShownDate >= oneWeek) {
-                     // Exibir o modal
-                     $('#modalSemanal').modal('show');
-                 }
-             } else {
-                 // Exibir o modal pela primeira vez, se não houver registro
-                 $('#modalSemanal').modal('show');
-             }
-         }); 
+        //     if (lastShown) {
+        //         const lastShownDate = new Date(lastShown);
+        //         const now = new Date();
+        //         const oneWeek = 7 * 24 * 60 * 60 * 1000; // 1 semana em milissegundos
+        //         // Verifica se já passou 1 semana
+        //         if (now - lastShownDate >= oneWeek) {
+        //             // Exibir o modal
+        //             $('#modalSemanal').modal('show');
+        //         }
+        //     } else {
+        //         // Exibir o modal pela primeira vez, se não houver registro
+        //         $('#modalSemanal').modal('show');
+        //     }
+        // });
 
         // Função chamada quando o modal for fechado ou salvo
         function saveChangesSemana(event) {
@@ -2349,7 +2353,7 @@
                 });
 
 
-                try {
+            try {
                 const emailObj = {
                     idusuario: localStorage.getItem('idUser'),
                     titulo: "Você deve preencher novamente seus dados!",
