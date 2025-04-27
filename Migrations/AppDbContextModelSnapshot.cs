@@ -66,6 +66,45 @@ namespace ProjetoIntegrador.Migrations
                     b.ToTable("Alimentos");
                 });
 
+            modelBuilder.Entity("ProjetoIntegrador.Models.AlimentoLayout", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("AlimentosId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("LayoutId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("LayoutId1")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("LayoutId2")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("LayoutId3")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Quantidade")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AlimentosId");
+
+                    b.HasIndex("LayoutId");
+
+                    b.HasIndex("LayoutId1");
+
+                    b.HasIndex("LayoutId2");
+
+                    b.HasIndex("LayoutId3");
+
+                    b.ToTable("AlimentoLayout");
+                });
+
             modelBuilder.Entity("ProjetoIntegrador.Models.AlimentoQuantidade", b =>
                 {
                     b.Property<int>("Id")
@@ -120,11 +159,34 @@ namespace ProjetoIntegrador.Migrations
                     b.ToTable("AlimentosUsuarios");
                 });
 
+            modelBuilder.Entity("ProjetoIntegrador.Models.Codigos", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Codigo")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Codigos");
+                });
+
             modelBuilder.Entity("ProjetoIntegrador.Models.Dieta", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Dia")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<int?>("DietaSemanaId")
                         .HasColumnType("INTEGER");
@@ -155,6 +217,51 @@ namespace ProjetoIntegrador.Migrations
                     b.HasIndex("UsuarioId");
 
                     b.ToTable("DietaSemana");
+                });
+
+            modelBuilder.Entity("ProjetoIntegrador.Models.HistoricoPesoAltura", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<double?>("Altura")
+                        .HasColumnType("REAL");
+
+                    b.Property<DateTime>("DataAlteracao")
+                        .HasColumnType("TEXT");
+
+                    b.Property<double?>("Peso")
+                        .HasColumnType("REAL");
+
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("HistoricoPesoAltura");
+                });
+
+            modelBuilder.Entity("ProjetoIntegrador.Models.Layout", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("NutriId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NutriId");
+
+                    b.ToTable("Layout");
                 });
 
             modelBuilder.Entity("ProjetoIntegrador.Models.Mensagem", b =>
@@ -270,6 +377,33 @@ namespace ProjetoIntegrador.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("ProjetoIntegrador.Models.AlimentoLayout", b =>
+                {
+                    b.HasOne("ProjetoIntegrador.Models.Alimento", "Alimentos")
+                        .WithMany()
+                        .HasForeignKey("AlimentosId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProjetoIntegrador.Models.Layout", null)
+                        .WithMany("Almoco")
+                        .HasForeignKey("LayoutId");
+
+                    b.HasOne("ProjetoIntegrador.Models.Layout", null)
+                        .WithMany("Cafe")
+                        .HasForeignKey("LayoutId1");
+
+                    b.HasOne("ProjetoIntegrador.Models.Layout", null)
+                        .WithMany("CafeDT")
+                        .HasForeignKey("LayoutId2");
+
+                    b.HasOne("ProjetoIntegrador.Models.Layout", null)
+                        .WithMany("Janta")
+                        .HasForeignKey("LayoutId3");
+
+                    b.Navigation("Alimentos");
+                });
+
             modelBuilder.Entity("ProjetoIntegrador.Models.AlimentoQuantidade", b =>
                 {
                     b.HasOne("ProjetoIntegrador.Models.Alimento", "Alimentos")
@@ -316,6 +450,17 @@ namespace ProjetoIntegrador.Migrations
                     b.Navigation("Usuario");
                 });
 
+            modelBuilder.Entity("ProjetoIntegrador.Models.Codigos", b =>
+                {
+                    b.HasOne("ProjetoIntegrador.Models.Usuarios", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("ProjetoIntegrador.Models.Dieta", b =>
                 {
                     b.HasOne("ProjetoIntegrador.Models.DietaSemana", null)
@@ -340,6 +485,28 @@ namespace ProjetoIntegrador.Migrations
                     b.Navigation("Nutricionista");
 
                     b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("ProjetoIntegrador.Models.HistoricoPesoAltura", b =>
+                {
+                    b.HasOne("ProjetoIntegrador.Models.Usuarios", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("ProjetoIntegrador.Models.Layout", b =>
+                {
+                    b.HasOne("ProjetoIntegrador.Models.Usuarios", "Nutri")
+                        .WithMany()
+                        .HasForeignKey("NutriId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Nutri");
                 });
 
             modelBuilder.Entity("ProjetoIntegrador.Models.Mensagem", b =>
@@ -394,6 +561,17 @@ namespace ProjetoIntegrador.Migrations
             modelBuilder.Entity("ProjetoIntegrador.Models.DietaSemana", b =>
                 {
                     b.Navigation("Dietas");
+                });
+
+            modelBuilder.Entity("ProjetoIntegrador.Models.Layout", b =>
+                {
+                    b.Navigation("Almoco");
+
+                    b.Navigation("Cafe");
+
+                    b.Navigation("CafeDT");
+
+                    b.Navigation("Janta");
                 });
 
             modelBuilder.Entity("ProjetoIntegrador.Models.Usuarios", b =>

@@ -354,6 +354,49 @@
         }
       }
     },
+    "/enviarLayout": {
+      "post": {
+        "tags": [
+          "Layout"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LayoutCreateViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LayoutCreateViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LayoutCreateViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Layouts": {
+      "get": {
+        "tags": [
+          "Layout"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/EnviarMensagem": {
       "post": {
         "tags": [
@@ -909,6 +952,99 @@
         }
       }
     },
+    "/esqueci": {
+      "post": {
+        "tags": [
+          "Usuario"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioEsqueciViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioEsqueciViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioEsqueciViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/esqueciValida": {
+      "post": {
+        "tags": [
+          "Usuario"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioEsqueciValidaViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioEsqueciValidaViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioEsqueciValidaViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/trocaSenha": {
+      "post": {
+        "tags": [
+          "Usuario"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioTrocaSenhaViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioTrocaSenhaViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioTrocaSenhaViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/cadastro": {
       "get": {
         "tags": [
@@ -970,6 +1106,18 @@
       }
     },
     "/HomeNutri": {
+      "get": {
+        "tags": [
+          "UsuarioControllerView"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/EsqueciSenha": {
       "get": {
         "tags": [
           "UsuarioControllerView"
@@ -1169,6 +1317,53 @@
         },
         "additionalProperties": false
       },
+      "LayoutCreateViewModel": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "dietas": {
+            "$ref": "#/components/schemas/LayoutListViewModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LayoutListViewModel": {
+        "type": "object",
+        "properties": {
+          "cafe": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Int32Int32KeyValuePair"
+            },
+            "nullable": true
+          },
+          "almoco": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Int32Int32KeyValuePair"
+            },
+            "nullable": true
+          },
+          "cafeDT": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Int32Int32KeyValuePair"
+            },
+            "nullable": true
+          },
+          "janta": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Int32Int32KeyValuePair"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "NutriSocailUpdateViewModel": {
         "type": "object",
         "properties": {
@@ -1278,6 +1473,39 @@
         },
         "additionalProperties": false
       },
+      "UsuarioEsqueciValidaViewModel": {
+        "required": [
+          "codigo",
+          "email"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "minLength": 1,
+            "type": "string",
+            "format": "email"
+          },
+          "codigo": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UsuarioEsqueciViewModel": {
+        "required": [
+          "email"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "minLength": 1,
+            "type": "string",
+            "format": "email"
+          }
+        },
+        "additionalProperties": false
+      },
       "UsuarioLoginViewModel": {
         "required": [
           "email",
@@ -1305,6 +1533,25 @@
             "pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[\\p{P}\\p{S}])[A-Za-z\\d\\p{P}\\p{S}]{8,}$",
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UsuarioTrocaSenhaViewModel": {
+        "required": [
+          "email",
+          "senha"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "minLength": 1,
+            "type": "string",
+            "format": "email"
+          },
+          "senha": {
+            "minLength": 1,
+            "type": "string"
           }
         },
         "additionalProperties": false

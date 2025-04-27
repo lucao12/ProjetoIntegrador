@@ -1413,7 +1413,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" onclick="gerarPDF()">Baixar Dieta</button>
+                    <button type="button" class="btn btn-primary" onclick="gerarPDFCompra()">Baixar Dieta</button>
                 </div>
             </div>
         </div>
@@ -1587,6 +1587,135 @@
                         }
                     });
                 }
+            });
+
+            pdf.save("Dieta_Semanal.pdf");
+
+            function verificarAltura(incremento) {
+                if (y + incremento > 297 - margemInferior) {
+                    pdf.addPage();
+                    desenharFundo();
+                    y = margemTopo;
+                }
+            }
+
+            function hexToRgb(hex) {
+                const bigint = parseInt(hex.replace("#", ""), 16);
+                return {
+                    r: (bigint >> 16) & 255,
+                    g: (bigint >> 8) & 255,
+                    b: bigint & 255
+                };
+            }
+        }
+
+
+        function gerarPDFCompra() {
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF("p", "mm", "a4");
+
+            const fundo = hexToRgb("#F5F5DC");
+
+            const margemEsquerda = 15;
+            const margemDireita = 15;
+            const margemTopo = 15;
+            const margemInferior = 15;
+            const larguraUtil = 210 - margemEsquerda - margemDireita;
+            const alturaUtil = 297 - margemTopo - margemInferior;
+
+            const dietaDivs = document.querySelectorAll("#modalDietaBody > div");
+
+            function desenharFundo() {
+                pdf.setFillColor(fundo.r, fundo.g, fundo.b);
+                pdf.rect(0, 0, 210, 297, 'F');
+                pdf.setDrawColor(150, 0, 0);
+                pdf.setLineWidth(0.5);
+                pdf.rect(5, 5, 200, 287); // borda externa
+                pdf.setLineWidth(0.2);
+                pdf.rect(7, 7, 196, 283); // borda interna
+            }
+
+            desenharFundo();
+
+            let y = margemTopo;
+
+            pdf.setFont("Helvetica", "bold");
+            pdf.setFontSize(16);
+            pdf.setTextColor(80, 30, 30);
+            pdf.text("Lista de compras da Dieta", 105, y, { align: "center" });
+            y += 12;
+
+            dietaDivs.forEach((dietaDiv, index) => {
+                const titulo = dietaDiv.querySelector('h3');
+                if (titulo) {
+                    verificarAltura(8);
+                    pdf.setFont("Helvetica", "bold");
+                    pdf.setFontSize(13);
+                    pdf.setTextColor(60, 60, 60);
+                    pdf.text(`${titulo.innerText}`, margemEsquerda, y);
+                    y += 8;
+                }
+
+                const refeicoes = dietaDiv.querySelectorAll('div[class^="dieta"]');
+
+                refeicoes.forEach(refeicaoDiv => {
+                    const nomeRefeicaoElement = refeicaoDiv.querySelector('h4');
+                    let refeicaoNome = nomeRefeicaoElement ? nomeRefeicaoElement.innerText.trim() : "";
+
+                    const alimentos = refeicaoDiv.querySelectorAll('div[class*="-"]');
+
+                    alimentos.forEach((alimentoDiv) => {
+                        let textoCompleto = alimentoDiv.textContent.trim().replace(/\s+/g, ' ').replace(/Editar/g, '').trim();
+                        let linhas = textoCompleto.split('|');
+
+                        pdf.setFont("Helvetica", "normal");
+                        pdf.setFontSize(11);
+                        pdf.setTextColor(30, 30, 30);
+
+                        if (refeicaoNome) {
+                            verificarAltura(6);
+                            pdf.setFont("Helvetica", "bold");
+                            pdf.text(`${refeicaoNome}:`, margemEsquerda, y);
+                            y += 6;
+                            refeicaoNome = "";
+                        }
+
+                        if (linhas.length > 0) {
+                            const nomeAlimento = linhas[0].trim();
+                            const detalhesNutricionais = linhas.slice(1).map(l => l.trim()).join("  ");
+
+                            // Nome do alimento
+                            pdf.setFont("Helvetica", "bold");
+                            pdf.setFontSize(11);
+                            pdf.setTextColor(30, 30, 30);
+                            pdf.text(`• ${nomeAlimento}:`, 15, y);
+
+                           
+
+                            y += 6;
+                        }
+
+
+
+                        const selectElement = alimentoDiv.querySelector('select');
+                        if (selectElement && selectElement.value) {
+                            const substituto = selectElement.options[selectElement.selectedIndex].text;
+                            verificarAltura(5);
+                            pdf.setFontSize(10);
+                            pdf.setTextColor(100, 100, 100);
+                            pdf.text(`Substituído por: ${substituto}`, margemEsquerda + 10, y);
+                            y += 5;
+                        }
+
+                        y += 2;
+                    });
+
+                    y += 2;
+                });
+
+                y += 6;
+
+                
             });
 
             pdf.save("Dieta_Semanal.pdf");

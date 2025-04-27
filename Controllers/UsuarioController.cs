@@ -7,6 +7,7 @@ using ProjetoIntegrador.Interfaces;
 using ProjetoIntegrador.Models;
 using Microsoft.AspNetCore.Mvc;
 using ProjetoIntegrador.ViewModel;
+using ProjetoIntegrador.Services;
 
 namespace ProjetoIntegrador.Controllers
 
@@ -768,6 +769,126 @@ namespace ProjetoIntegrador.Controllers
                 {
                     error = "Erro interno do servidor!"
                 });
+            }
+        }
+
+        [HttpPost]
+        [Route(template: "esqueci")]
+        public async Task<IActionResult> EsqueciAsync(
+            [FromBody] UsuarioEsqueciViewModel model,
+            [FromServices] EmailServices emailService)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                var user = await _context.Usuarios.FirstOrDefaultAsync(x => x.Email.ToLower() == model.Email.ToLower());
+
+                if (user == null)
+                {
+                    return BadRequest(new { error = "Usuário não cadastrado!" });
+                }
+
+                var random = new Random();
+                var codigo = random.Next(100000, 999999);
+
+                var newcode = new Codigos
+                {
+                    Codigo = codigo,
+                    User = user
+                };
+
+                await emailService.EnviarEmailAsync(user.Email, "Código de verificação", $"Seu código de verificação é: {codigo}");
+
+                await _context.Codigos.AddAsync(newcode);
+                await _context.SaveChangesAsync();
+
+                return Ok(new
+                {
+                    mensagem = "Sucesso"
+                });
+            }
+            catch
+            {
+                return StatusCode(500, new { error = "Erro interno do servidor!" });
+            }
+        }
+
+        [HttpPost]
+        [Route(template: "esqueciValida")]
+        public async Task<IActionResult> EsqueciValidaAsync(
+            [FromBody] UsuarioEsqueciValidaViewModel model)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                var user = await _context.Usuarios.FirstOrDefaultAsync(x => x.Email.ToLower() == model.Email.ToLower());
+
+                if (user == null)
+                {
+                    return BadRequest(new { error = "Usuário não cadastrado!" });
+                }
+
+                var existe = await _context.Codigos.FirstOrDefaultAsync(x => x.User.Email.ToLower() == model.Email.ToLower() && 
+                x.Codigo == model.Codigo);
+
+                if (existe == null)
+                {
+                    return BadRequest(new { error = "Código inválido!" });
+                }
+
+                return Ok(new
+                {
+                    mensagem = "Sucesso"
+                });
+            }
+            catch
+            {
+                return StatusCode(500, new { error = "Erro interno do servidor!" });
+            }
+        }
+
+        [HttpPost]
+        [Route(template: "trocaSenha")]
+        public async Task<IActionResult> TrocaSenhaAsync(
+            [FromBody] UsuarioTrocaSenhaViewModel model)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                var user = await _context.Usuarios.FirstOrDefaultAsync(x => x.Email.ToLower() == model.Email.ToLower());
+
+                if (user == null)
+                {
+                    return BadRequest(new { error = "Usuário não cadastrado!" });
+                }
+
+                var salt = _hashServices.GenerateSalt();
+
+                var hashedPassword = _hashServices.GenerateHash(model.Senha, salt);
+
+                user.Senha = hashedPassword;
+                user.Hash = Convert.ToBase64String(salt);
+                await _context.SaveChangesAsync();
+                return Ok(new
+                {
+                    mensagem = "Sucesso"
+                });
+            }
+            catch
+            {
+                return StatusCode(500, new { error = "Erro interno do servidor!" });
             }
         }
     }

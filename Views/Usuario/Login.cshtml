@@ -145,6 +145,7 @@
                             </div>
                         </div>
                         <button id="btnLogin" type="submit" class="btn btn-primary w-100" disabled>Entrar</button>
+                        <p id="btnEsqueci" style="cursor: pointer;">Esqueci minha senha.</p>
                         <div id="error-message" class="alert alert-danger mt-3" style="display: none;"></div>
                     </form>
                     <div class="mt-3">
@@ -174,6 +175,11 @@
         document.getElementById("btnVeja").addEventListener("click", function () {
             togglePasswordVisibility("password", "togglePassword");
         });
+
+        document.getElementById("btnEsqueci").addEventListener("click", function() {
+            window.location.href = "EsqueciSenha"; // coloque aqui o caminho da sua página
+        });
+
 
         function validarCampos() {
             let email = document.getElementById("email").value.trim();

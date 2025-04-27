@@ -3618,7 +3618,6 @@ D:\projeto\ProjetoIntegrador\obj\Debug\net8.0\staticwebassets\msbuild.build.Proj
 D:\projeto\ProjetoIntegrador\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.ProjetoIntegrador.props
 D:\projeto\ProjetoIntegrador\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.ProjetoIntegrador.props
 D:\projeto\ProjetoIntegrador\obj\Debug\net8.0\staticwebassets.pack.json
-D:\projeto\ProjetoIntegrador\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 D:\projeto\ProjetoIntegrador\obj\Debug\net8.0\ProjetoI.E3B468F8.Up2Date
 D:\projeto\ProjetoIntegrador\obj\Debug\net8.0\ProjetoIntegrador.dll
 D:\projeto\ProjetoIntegrador\obj\Debug\net8.0\refint\ProjetoIntegrador.dll
@@ -3850,3 +3849,4 @@ C:\Users\felipefonseca\Desktop\ProjetoIntegrador-main\obj\Debug\net8.0\refint\Pr
 C:\Users\felipefonseca\Desktop\ProjetoIntegrador-main\obj\Debug\net8.0\ProjetoIntegrador.pdb
 C:\Users\felipefonseca\Desktop\ProjetoIntegrador-main\obj\Debug\net8.0\ProjetoIntegrador.genruntimeconfig.cache
 C:\Users\felipefonseca\Desktop\ProjetoIntegrador-main\obj\Debug\net8.0\ref\ProjetoIntegrador.dll
+D:\projeto\ProjetoIntegrador\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

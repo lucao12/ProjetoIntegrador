@@ -42,4 +42,11 @@
     <None Include="wwwroot\js\script.js" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Views\Usuario\Redirecionando - Cópia.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

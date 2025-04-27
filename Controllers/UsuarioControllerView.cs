@@ -47,5 +47,12 @@ namespace ProjetoIntegrador.Controllers
         {
             return View("~/Views/Usuario/HomeNutri.cshtml");
         }
+        [HttpGet]
+        [Route("EsqueciSenha")]
+        public IActionResult EsqueciSenha()
+        {
+            return View("~/Views/Usuario/EsqueciSenha.cshtml");
+
+        }
     }
 }

@@ -679,6 +679,8 @@
             right: auto
         }
 
+
+
         .vscomp-wrapper.text-direction-rtl .vscomp-clear-button {
             left: 30px;
             right: auto !important
@@ -1195,6 +1197,8 @@
             padding: 10px;
             margin: 10px auto;
         }
+
+        
     </style>
 </head>
 
@@ -1248,9 +1252,88 @@
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAddAlimentos">
                 Adicionar Alimento
             </button>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalLayouts">
+                Layouts
+            </button>
             <button id="btnLogout" class="btn btn-danger ms-2" onclick="logout()">Logout</button>
 
         </div>
+
+        <div class="modal fade" id="modalLayouts" tabindex="-1" aria-labelledby="modalLayoutsLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalLayoutsLabel">Layouts de Dieta Disponíveis</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div id="listaLayouts" class="list-group">
+                            <!-- Layouts serão carregados aqui via JS -->
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalNovoLayout">Novo Layout</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal para Adicionar Novo Layout -->
+        <div class="modal fade" id="modalNovoLayout" tabindex="-1" aria-labelledby="modalNovoLayoutLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalNovoLayoutLabel">Adicionar Novo Layout de Dieta</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <!-- Nome do Layout -->
+                        <div class="mb-3">
+                            <label for="nomeLayout" class="form-label">Nome do Layout</label>
+                            <input type="text" class="form-control" id="nomeLayout" placeholder="Digite o nome do layout" required>
+                        </div>
+
+                        <!-- Seleção das Refeições -->
+                        <h6>Café da Manhã</h6>
+                        <div id="modal-cafe-layout">
+                            <div class="alimentos-selects" id="virtual-cafe"></div>
+                        </div>
+
+                        <h6>Almoço</h6>
+                        <div id="modal-almoco-layout">
+
+                        <div class="alimentos-selects" id="virtual-almoco"></div>
+                        </div>
+
+                        <h6>Café da Tarde</h6>
+                        <div id="modal-cafedt-layout">
+
+                        <div class="alimentos-selects" id="virtual-cafedt"></div>
+                        </div>
+
+                        <h6>Janta</h6>
+                        <div id="modal-janta-layout">
+
+                        <div class="alimentos-selects" id="virtual-janta"></div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" id="salvarLayout" onclick="enviaLayout()">Salvar Layout</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
 
         <!-- Modal de Configurações -->
         <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel"
@@ -1363,7 +1446,7 @@
                         <ul class="nav nav-tabs" id="tabs-dieta" role="tablist">
                             <!-- Abas dos dias da semana -->
                         </ul>
-
+                       <div id="virtualSelectLayout"></div>
                         <div class="tab-content" id="conteudo-abas-dieta">
                             <!-- Conteúdo de cada aba -->
                         </div>
@@ -1423,6 +1506,8 @@
     </div>
 
     <script>
+
+        let layoutsNutri = [];
         function ColocaCarregando() {
             document.getElementById("loader-container").style.display = "flex";
         }
@@ -2016,11 +2101,25 @@
                 li.appendChild(a);
                 tabList.appendChild(li);
 
+                //Criar o virtual select
                 // Criar conteúdo da aba
                 const tabPane = document.createElement("div");
                 tabPane.className = "tab-pane fade" + (i === 0 ? " show active" : "");
                 tabPane.id = `tab-${dia.id}`;
                 tabPane.role = "tabpanel";
+
+                const layoutContainer = document.createElement("div");
+                layoutContainer.className = "alimentos-selects";
+
+                const layoutSelectDiv = document.createElement("div");
+                layoutSelectDiv.id = `select-layout-${dia.id}`;
+                layoutSelectDiv.setAttribute("name", "native-select");
+                layoutSelectDiv.setAttribute("placeholder", "Selecione um layout");
+                layoutSelectDiv.setAttribute("data-search", "true");
+                layoutSelectDiv.setAttribute("data-silent-initial-value-set", "true");
+
+                layoutContainer.appendChild(layoutSelectDiv);
+                tabPane.appendChild(layoutContainer);
 
                 const refeicoes = ["cafe", "almoco", "cafedt", "janta"];
                 const refeicoesLabels = ["Café da Manhã", "Almoço", "Café da Tarde", "Janta"];
@@ -2041,11 +2140,68 @@
 
                 tabContent.appendChild(tabPane);
 
+                 VirtualSelect.init({
+                    ele: `#select-layout-${dia.id}`,
+                    options: layoutsNutri.map(layout => ({
+                        label: layout.name,
+                        value: layout.id
+                    })),
+                    search: true,
+                    placeholder: "Escolha um layout...",
+                    noOptionsText: "Nenhum layout encontrado",
+                    searchPlaceholderText: "Buscar layout...",
+                });
 
+                document.querySelector(`#select-layout-${dia.id}`).addEventListener('change', function() {
+                  console.log(this.value);
+
+                    const valorSelecionado = layoutsNutri.find(item => item.id == this.value);
+
+                    console.log('Objeto encontrado:', valorSelecionado);
+                    let contador = 0;
+                     const refeicoes = ['cafe', 'almoco', 'cafeDT', 'janta'];
+
+                     refeicoes.forEach(async(ref) => {
+                            document.getElementById(`virtual-${ref.toLowerCase()}${i}`).reset();
+                             recriarLabels2(0, document.getElementById(`virtual-${ref.toLowerCase()}${i}`), 1);
+                     });
+
+                        refeicoes.forEach(async(ref) => {
+
+
+                          const alimentos = valorSelecionado[ref];
+                          if (!alimentos) return;
+
+                          console.log(alimentos)
+                          const idsAlimentos = alimentos.map(a => a.alimentos.id);
+
+                            const alimentosMap = alimentos.reduce((acc, a) => {
+                                acc[a.alimentos.id] = a.quantidade;
+                                return acc;
+                            }, {});
+
+                          console.log(`IDs para ${ref}:`, idsAlimentos);
+
+                          console.log(`virtual-${ref}${i}`);
+                          document.getElementById(`virtual-${ref.toLowerCase()}${i}`).setValue(idsAlimentos);
+
+                          let contador = 0;
+                            idsAlimentos.forEach(async(a) => {
+                                console.log(a)
+                                console.log(alimentosMap[a])
+                                await recriarLabels2(a, document.getElementById(`virtual-${ref.toLowerCase()}${i}`), +alimentosMap[a]);
+                                contador++
+                            });
+
+                        });
+
+                });
             });
             console.log('teste1')
             carregarAlimentos(idUser)
         }
+
+
 
         function saveChangesocial() {
             const token = localStorage.getItem("token");
@@ -2126,6 +2282,128 @@
                 });
         }
 
+        async function carregarLayouts() {
+          const token = localStorage.getItem('token');
+
+          try {
+            const response = await fetch('/Layouts', {
+              method: 'GET',
+              headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+              }
+            });
+
+            if (!response.ok) {
+              throw new Error('Erro ao buscar layouts');
+            }
+
+            const layouts = await response.json();
+            layoutsNutri = layouts
+            console.log(layoutsNutri);
+
+            VirtualSelect.init({
+                    ele: '#select-layout',
+                    options: layoutsNutri.map(layout => ({
+                        label: layout.name,
+                        value: layout.id
+                    })),
+                    search: true,       // Habilita busca
+                    placeholder: "Escolha um layout...",
+                    noOptionsText: "Nenhum layout encontrado",
+                    searchPlaceholderText: "Buscar layout...",
+                });
+            const listaLayouts = document.getElementById('listaLayouts');
+            listaLayouts.innerHTML = ''; // Limpar qualquer conteúdo anterior
+
+            layouts.forEach(layout => {
+              // Criar botão para cada layout
+              const button = document.createElement('button');
+              button.className = 'list-group-item list-group-item-action';
+              button.textContent = layout.name;
+
+              // Quando clicar no botão, abrir um novo modal para mostrar detalhes
+              button.addEventListener('click', () => {
+                abrirDetalhesLayout(layout);
+              });
+
+              listaLayouts.appendChild(button);
+            });
+
+          } catch (error) {
+            console.error('Erro:', error);
+          }
+        }
+
+        function abrirDetalhesLayout(layout) {
+          // Criar conteúdo detalhado do layout
+          const detalhes = `
+            <div class="modal fade" id="modalDetalhesLayout" tabindex="-1" aria-labelledby="modalDetalhesLayoutLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="modalDetalhesLayoutLabel">${layout.name}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+
+                  <div class="modal-body">
+                    ${gerarRefeicao('Café da Manhã', layout.cafe)}
+                    ${gerarRefeicao('Almoço', layout.almoco)}
+                    ${gerarRefeicao('Café da Tarde', layout.cafeDT)}
+                    ${gerarRefeicao('Janta', layout.janta)}
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          `;
+
+          // Remover qualquer modal anterior de detalhes
+          const modalAnterior = document.getElementById('modalDetalhesLayout');
+          if (modalAnterior) {
+            modalAnterior.remove();
+          }
+
+          // Adicionar o novo modal no final do body
+          document.body.insertAdjacentHTML('beforeend', detalhes);
+
+          // Abrir o novo modal
+          const modal = new bootstrap.Modal(document.getElementById('modalDetalhesLayout'));
+          modal.show();
+        }
+
+        function gerarRefeicao(nomeRefeicao, itens) {
+          if (!itens || itens.length === 0) {
+            return `<div class="refeicao"><h5>${nomeRefeicao}</h5><p>Sem itens.</p></div>`;
+          }
+
+          const alimentosHTML = itens.map(item => `
+            <div class="mb-3">
+              <strong>${item.alimentos.nome}</strong><br>
+              Quantidade: ${item.quantidade}g<br>
+              Calorias: ${item.alimentos.calorias} kcal<br>
+            </div>
+          `).join('');
+
+          return `
+            <div class="refeicao">
+              <h5>${nomeRefeicao}</h5>
+              ${alimentosHTML}
+            </div>
+          `;
+        }
+
+        async function AbrirLayout(){
+            const modal = new bootstrap.Modal(document.getElementById('modalLayouts'));
+          modal.show();
+        }
+
+
         document.addEventListener("DOMContentLoaded", function () {
             VirtualSelect.init({
                 ele: 'select[name="alimentos"]', // <- substitua pelo seletor correto
@@ -2160,7 +2438,197 @@
             });
 
             loadContent();
+            carregarLayouts();
+            carregarComidas();
         });
+
+        async function carregarComidas(){
+                    const token = localStorage.getItem("token");
+
+            fetch("/alimentos/getAlimentos", {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                }
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Erro HTTP: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log("Alimentos recebidos:", data);
+
+                    let selectAlimentoa = document.getElementById('virtual-cafe');
+                                        let selectAlimentob = document.getElementById('virtual-almoco');
+                                        let selectAlimentoc = document.getElementById('virtual-cafedt');
+                                        let selectAlimentod = document.getElementById('virtual-janta');
+
+                                        if (selectAlimentoa && selectAlimentob && selectAlimentoc && selectAlimentod) {
+                                            console.log("Inicializando VirtualSelect...");
+
+                                            // Se já existe um VirtualSelect, destruí-lo antes de recriar
+                                            if (selectAlimentoa.virtualSelect) {
+                                                selectAlimentoa.virtualSelect.destroy();
+                                            }
+                                            if (selectAlimentob.virtualSelect) {
+                                                selectAlimentob.virtualSelect.destroy();
+                                            }
+                                            if (selectAlimentoc.virtualSelect) {
+                                                selectAlimentoc.virtualSelect.destroy();
+                                            }
+                                            if (selectAlimentod.virtualSelect) {
+                                                selectAlimentod.virtualSelect.destroy();
+                                            }
+
+                                            // Criar um array de opções para o VirtualSelect
+                                            let options = data.map(alimento => ({
+                                                value: alimento.id,
+                                                label: alimento.nome
+                                            }));
+
+                                            // Inicializa o VirtualSelect para todos os elementos, incluindo os itens desabilitados
+                                            VirtualSelect.init({
+                                                ele: selectAlimentoa,
+                                                search: true,
+                                                multiple: true,
+                                                hideClearButton: true,
+                                                maxWidth: "600px",
+                                                options: options,
+                                            });
+
+                                            VirtualSelect.init({
+                                                ele: selectAlimentob,
+                                                search: true,
+                                                multiple: true,
+                                                hideClearButton: true,
+                                                maxWidth: "600px",
+                                                options: options,
+                                            });
+
+                                            VirtualSelect.init({
+                                                ele: selectAlimentoc,
+                                                search: true,
+                                                multiple: true,
+                                                hideClearButton: true,
+                                                maxWidth: "600px",
+                                                options: options,
+                                            });
+
+                                            VirtualSelect.init({
+                                                ele: selectAlimentod,
+                                                search: true,
+                                                multiple: true,
+                                                hideClearButton: true,
+                                                maxWidth: "600px",
+                                                options: options,
+                                            });
+
+                                            $('#virtual-cafe').on('beforeClose', function () {
+                                                const selecionados = selectAlimentoa.value; // Pega os valores selecionados
+                                                console.log("Alimentos selecionados (café):", selecionados);
+                                                recriarLabels(selecionados, this);
+                                            });
+
+                                            $('#virtual-almoco').on('beforeClose', function () {
+                                                const selecionados = selectAlimentob.value; // Pega os valores selecionados
+                                                console.log("Alimentos selecionados (almoço):", selecionados);
+                                                recriarLabels(selecionados, this);
+                                            });
+
+                                            $('#virtual-cafedt').on('beforeClose', function () {
+                                                const selecionados = selectAlimentoc.value; // Pega os valores selecionados
+                                                console.log("Alimentos selecionados (café da tarde):", selecionados);
+                                                recriarLabels(selecionados, this);
+                                            });
+
+                                            $('#virtual-janta').on('beforeClose', function () {
+                                                const selecionados = selectAlimentod.value; // Pega os valores selecionados
+                                                console.log("Alimentos selecionados (janta):", selecionados);
+                                                recriarLabels(selecionados, this);
+                                            });
+                                        }
+                }).catch(error => console.error("Erro ao carregar alimentos:", error));
+        }
+
+        async function enviaLayout() {
+            const refeicoes = ["cafe", "almoco", "cafedt", "janta"];
+                const layout = {
+                    Cafe: [],
+                    Almoco: [],
+                    CafeDT: [],
+                    Janta: []
+                };
+
+                refeicoes.forEach(ref => {
+                    const divRefeicao = document.querySelector(`#modal-${ref}-layout`);
+                    const inputs = divRefeicao.querySelectorAll("input");
+
+                    const alimentos = Array.from(inputs).map(input => input.value.trim()).filter(val => val !== "");
+                    if(alimentos.length>0){
+                        let alimentoInt = alimentos[0].split(",");
+                        alimentos.shift();
+                        for(var i =0;i>alimentoInt.length;i++){
+                             alimentoInt[i] = parseInt(alimentoInt[i]);
+                        }
+                        if (!isNaN(alimentoInt[0])) {
+                            switch (ref) {
+                                case "cafe":
+                                    alimentos.forEach((alimento, index)=>{
+                                        layout.Cafe.push({ Key: alimentoInt[index], Value: alimento });
+                                    })
+                                    break;
+                                case "almoco":
+                                    alimentos.forEach((alimento,index)=>{
+                                        layout.Almoco.push({ Key: alimentoInt[index], Value: alimento });
+                                    })
+                                    break;
+                                case "cafedt":
+                                    alimentos.forEach((alimento,index)=>{
+                                        layout.CafeDT.push({ Key: alimentoInt[index], Value: alimento });
+                                    })
+                                    break;
+                                case "janta":
+                                    alimentos.forEach((alimento,index)=>{
+                                        layout.Janta.push({ Key: alimentoInt[index], Value: alimento });
+                                    })
+                                    break;
+                            }
+                        }
+                    }
+
+                });
+
+            
+            console.log(layout);
+
+
+            const token = localStorage.getItem("token");
+            
+            const sendDieta = {
+                Name: document.getElementById('nomeLayout').value,
+                Dietas: layout
+            };
+
+            try {
+                const response = await fetch('/enviarLayout', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify(sendDieta)
+                });
+
+                if (!response.ok) throw new Error(`Erro: ${response.status}`);
+                console.log('Dieta enviada com sucesso:');  
+                location.reload();
+            } catch (error) {
+                console.error('Erro ao enviar dieta:', error);
+            } 
+        }
 
         function carregarAlimentos(idUser) {
             const token = localStorage.getItem("token");
@@ -2191,6 +2659,7 @@
                 .then(data => {
                     console.log("Alimentos recebidos:", data);
 
+                   
                     // Buscar os alimentos já selecionados pelo usuário logado (para verificar permissões)
                     fetch(`/alimentos/getAlimentosUsuario/${userLogado}`, {
                         method: "GET",
@@ -2348,6 +2817,8 @@
                 return;
             }
 
+            console.log(container);
+
             // Localiza ou cria um container de labels dentro do próprio container principal
             let labelsContainer = container.querySelector(".labels-container");
 
@@ -2403,6 +2874,78 @@
                         console.error(`Erro ao carregar alimento com ID ${alimentoId}:`, error);
                     });
             });
+        }
+
+         function recriarLabels2(alimentosSelecionados, containerId, valor) {
+            const token = localStorage.getItem("token");
+            const container = containerId;
+
+            if (!container) {
+                console.warn(`Container com ID "${containerId}" não encontrado.`);
+                return;
+            }
+
+            console.log(container);
+
+            // Localiza ou cria um container de labels dentro do próprio container principal
+            let labelsContainer = container.querySelector(".labels-container");
+
+            if (!labelsContainer) {
+                labelsContainer = document.createElement("div");
+                labelsContainer.classList.add("labels-container");
+                container.appendChild(labelsContainer);
+            }
+
+            // Limpa os labels existentes
+            labelsContainer.innerHTML = "";
+
+            if(alimentosSelecionados == 0) return;
+
+            // Impede processamento se não houver alimentos
+
+             
+                 fetch(`/alimentos/getAlimentosid/${alimentosSelecionados}`, {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${token}`
+                    }
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error("Erro ao carregar alimento");
+                        }
+                        return response.json();
+                    })
+                    .then((alimento) => {
+                        // Evita adicionar duplicados
+                        if (labelsContainer.querySelector(`[data-id="${alimento.id}"]`)) return;
+
+                        // Cria elementos
+                        const label = document.createElement("label");
+                        label.textContent = alimento.nome;
+                        label.setAttribute("data-id", alimento.id);
+
+                        const input = document.createElement("input");
+                        input.type = "number";
+                        input.name = `quantidade-${alimento.id}`;
+                        input.placeholder = `Quantidade de ${alimento.nome} em gramas ou ml`;
+                        input.classList.add("form-control", "mb-2");
+                        input.value = valor;
+
+                        const alimentoContainer = document.createElement("div");
+                        alimentoContainer.classList.add("alimento-container", "mb-3");
+
+                        alimentoContainer.appendChild(label);
+                        alimentoContainer.appendChild(input);
+                        labelsContainer.appendChild(alimentoContainer);
+
+                    })
+                    .catch(error => {
+                        console.error(`Erro ao carregar alimento com ID ${alimentoId}:`, error);
+                    });
+
+            console.log("sim")
         }
 
 
@@ -2586,6 +3129,26 @@
 
                 if (!response.ok) throw new Error(`Erro: ${response.status}`);
                 const data = await response.json();
+
+                        const alimentosTotais = {};
+
+                            data.dietas.forEach(dia => {
+                          ['cafe', 'almoco', 'cafeDT', 'janta'].forEach(refeicao => {
+                            dia[refeicao].forEach(item => {
+                              const alimentoNome = item.alimentos.nome;
+                              const quantidade = item.quantidade;
+
+                              if (!alimentosTotais[alimentoNome]) {
+                                alimentosTotais[alimentoNome] = 0; // Inicializa a quantidade no primeiro encontro
+                              }
+
+                              alimentosTotais[alimentoNome] += quantidade; // Soma a quantidade para o alimento encontrado
+                            });
+                          });
+                        });
+
+                    console.log(alimentosTotais);
+                    const base642 = await gerarPDFDietaNutricionista2(alimentosTotais);
                 const base64 = await gerarPDFDietaNutricionista(data);
                 console.log('Dieta enviada com sucesso:', data);
                 try {
@@ -2600,20 +3163,39 @@
                     nomeArquivo: "Dieta.pdf"
                 };
 
-                const response = await fetch('/EnviaEmailAnexo', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`
-                    },
-                    body: JSON.stringify(emailObj)
-                });
+                const emailObj2 = {
+                    idusuario: localStorage.getItem('idUsuario'),
+                    titulo: "Sua lista de compras foi enviada",
+                    body: "Confira a sua lista de compras!",
+                    anexoBase64: base642, // PDF em base64
+                    nomeArquivo: "Compras.pdf"
+                };
 
-                if (!response.ok) throw new Error(`Erro: ${response.status}`);
-                console.log('Email enviado com sucesso');
-            } catch (error) {
-                console.error('Erro ao enviar dieta:', error);
-            }
+                    const response = await fetch('/EnviaEmailAnexo', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        },
+                        body: JSON.stringify(emailObj)
+                    });
+
+                    if (!response.ok) throw new Error(`Erro: ${response.status}`);
+                    console.log('Email enviado com sucesso');
+                    const response2 = await fetch('/EnviaEmailAnexo', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        },
+                        body: JSON.stringify(emailObj2)
+                    });
+
+                    if (!response.ok) throw new Error(`Erro: ${response.status}`);
+                    console.log('Email enviado com sucesso');
+                } catch (error) {
+                    console.error('Erro ao enviar dieta:', error);
+                }
             } catch (error) {
                 console.error('Erro ao enviar dieta:', error);
             }
@@ -2701,6 +3283,63 @@
 
             return doc.output('datauristring'); // retorna base64
         }
+
+                async function gerarPDFDietaNutricionista2(dietaResponse) {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            const fundo = hexToRgb("#F5F5DC");
+
+            function hexToRgb(hex) {
+                const bigint = parseInt(hex.replace("#", ""), 16);
+                return {
+                    r: (bigint >> 16) & 255,
+                    g: (bigint >> 8) & 255,
+                    b: bigint & 255
+                };
+            }
+
+            const desenharFundo = () => {
+                doc.setFillColor(fundo.r, fundo.g, fundo.b);
+                doc.rect(0, 0, 210, 297, 'F');
+                doc.setDrawColor(150, 0, 0);
+                doc.setLineWidth(0.5);
+                doc.rect(5, 5, 200, 287);
+                doc.setLineWidth(0.2);
+                doc.rect(7, 7, 196, 283);
+            };
+
+            desenharFundo();
+
+            let y = 20;
+
+            doc.setFont("Helvetica", "bold");
+            doc.setFontSize(16);
+            doc.setTextColor(80, 30, 30);
+            doc.text("Lista de Compra Semanal da Dieta", 105, y, { align: "center" });
+            y += 12;
+
+            doc.setFont("Helvetica", "normal");
+            doc.setFontSize(12);
+            doc.setTextColor(0, 0, 0);
+
+            // Iterando sobre o objeto dietaResponse
+            Object.keys(dietaResponse).forEach((alimento) => {
+                const quantidade = dietaResponse[alimento];
+                doc.text(`${alimento.charAt(0).toUpperCase() + alimento.slice(1)}: ${quantidade} g/ml`, 10, y);
+                y += 8;
+
+                // Verifica se o conteúdo não ultrapassa a página
+                if (y > 270) {
+                    doc.addPage();
+                    y = 20;
+                }
+            });
+
+            return doc.output('datauristring'); // retorna base64
+        }
+
+
 
 
 

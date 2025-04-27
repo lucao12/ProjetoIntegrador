@@ -1,0 +1,311 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Esqueci Senha</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .container {
+        padding: 20px;
+        width: 100%;
+        max-width: 450px;
+    }
+
+    .card {
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        background-color: white;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    h2 {
+        color: #343a40;
+    }
+
+    .input-group-text {
+        cursor: pointer;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border: none;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+    .btn-outline-primary {
+        border-color: #007bff;
+        color: #007bff;
+    }
+
+    .btn-outline-primary:hover {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    /* Botão do modo noturno */
+    .btn-dark-mode {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: #343a40;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .btn-dark-mode:hover {
+        background-color: #1d1f21;
+    }
+
+    /* Modo Noturno */
+    body.dark-mode {
+        background-color: #121212;
+        color: white;
+    }
+
+    .dark-mode .card {
+        background-color: #1e1e1e;
+        color: white;
+    }
+
+    .dark-mode h2 {
+        color: white;
+    }
+
+    .dark-mode .form-control {
+        background-color: #333;
+        color: white;
+        border: 1px solid #555;
+    }
+
+    .dark-mode .form-control::placeholder {
+        color: #bbb;
+    }
+
+    .dark-mode .input-group-text {
+        background-color: #333;
+        color: white;
+    }
+
+    .dark-mode .btn-primary {
+        background-color: #007bff;
+    }
+
+    .dark-mode .btn-primary:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+<body>
+    <button id="toggleDarkMode" class="btn-dark-mode">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div>
+                <div class="card text-center p-4">
+                    <h2 class="mb-3">Login</h2>
+                    <form id="authForm">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email:</label>
+                            <input type="email" class="form-control" id="email" name="email"
+                                   placeholder="Digite seu e-mail" required>
+                        </div>
+
+                        <div class="mb-3" id="codigoContainer" style="display: none;">
+                            <label for="codigo" class="form-label">Código:</label>
+                            <input type="text" class="form-control" id="codigo" name="codigo"
+                                   placeholder="Digite seu código">
+                        </div>
+
+                        <div class="mb-3" id="passwordContainer" style="display: none;">
+                            <label for="password" class="form-label">Senha:</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="password" name="password"
+                                       placeholder="Digite sua senha" required>
+                                <span id="btnVeja" class="input-group-text">
+                                    <i id="togglePassword" class="fas fa-eye"></i>
+                                </span>
+                            </div>
+                        </div>
+
+                        <button id="btnEnviar" type="button" class="btn btn-primary w-100">Enviar</button>
+                        <button id="btnValidar" type="button" class="btn btn-success w-100" style="display: none;">Validar</button>
+                        <button id="btnReset" type="button" class="btn btn-success w-100" style="display: none;">Resetar Senha</button>
+
+                        <div id="error-message" class="alert alert-danger mt-3" style="display: none;"></div>
+                    </form>
+
+                    <div class="mt-3">
+                        <a href="/Cadastro" class="btn btn-outline-primary w-100">Não tem uma conta? Cadastre-se</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const btnEnviar = document.getElementById('btnEnviar');
+        const btnValidar = document.getElementById('btnValidar');
+        const btnReset = document.getElementById('btnReset');
+        const emailInput = document.getElementById('email');
+        const codigoContainer = document.getElementById('codigoContainer');
+        const codigoInput = document.getElementById('codigo');
+        const passwordInput = document.getElementById('password');
+        const errorMessage = document.getElementById('error-message');
+        const passwordContainer = document.getElementById('passwordContainer'); // pega o container da senha
+
+        btnEnviar.addEventListener('click', async () => {
+            const email = emailInput.value.trim();
+
+            if (!email) {
+                showError('Preencha o e-mail.');
+                return;
+            }
+
+            try {
+                const response = await fetch('/esqueci', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ Email: email })
+                });
+
+                if (response.ok) {
+                    codigoContainer.style.display = 'block';
+                    btnEnviar.style.display = 'none';
+                    btnValidar.style.display = 'block';
+                    errorMessage.style.display = 'none';
+                    emailInput.readOnly = true; // email bloqueado para edição
+                } else {
+                    const result = await response.json();
+                    showError(result.error || 'Erro ao enviar email!');
+                }
+            } catch (error) {
+                showError('Erro de conexão!');
+            }
+        });
+
+        btnValidar.addEventListener('click', async () => {
+            const email = emailInput.value.trim();
+            const codigo = codigoInput.value.trim();
+
+            if (!email || !codigo) {
+                showError('Preencha o e-mail e o código.');
+                return;
+            }
+
+            try {
+                const response = await fetch('/esqueciValida', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ Email: email, Codigo: codigo })
+                });
+
+                if (response.ok) {
+                    // Salvar email no localStorage
+                    localStorage.setItem('resetEmail', email);
+
+                    // Esconder email e código
+                    emailInput.parentElement.style.display = 'none';
+                    codigoContainer.style.display = 'none';
+                    btnValidar.style.display = 'none';
+
+                    // Mostrar senha e botão de resetar
+                    passwordContainer.style.display = 'block';
+                    btnReset.style.display = 'block';
+                    errorMessage.style.display = 'none';
+
+                } else {
+                    const result = await response.json();
+                    showError(result.error || 'Código inválido!');
+                }
+            } catch (error) {
+                showError('Erro de conexão!');
+            }
+        });
+
+        btnReset.addEventListener('click', async () => {
+            const password = passwordInput.value.trim();
+            const email = localStorage.getItem('resetEmail');
+
+            if (!email || !password) {
+                showError('Preencha a nova senha.');
+                return;
+            }
+
+            try {
+                const response = await fetch('/trocaSenha', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ Email: email, Senha:  password })
+                });
+
+                if (response.ok) {
+                    // Limpa o localStorage e redireciona
+                    localStorage.removeItem('resetEmail');
+                    window.location.href = '/login';
+                } else {
+                    const result = await response.json();
+                    showError(result.error || 'Erro ao trocar senha!');
+                }
+            } catch (error) {
+                showError('Erro de conexão!');
+            }
+        });
+
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.style.display = 'block';
+        }
+
+        function togglePasswordVisibility(inputId, iconId) {
+            const passwordField = document.getElementById(inputId);
+            const icon = document.getElementById(iconId);
+
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                icon.classList.remove("fa-eye");
+                icon.classList.add("fa-eye-slash");
+            } else {
+                passwordField.type = "password";
+                icon.classList.remove("fa-eye-slash");
+                icon.classList.add("fa-eye");
+            }
+        }
+    </script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

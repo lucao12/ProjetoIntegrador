@@ -88,4 +88,29 @@ namespace ProjetoIntegrador.ViewModel
         public string? Telefone { get; set; }
         public string Role { get; set; }
     }
+
+    public class UsuarioEsqueciViewModel
+    {
+        [Required(ErrorMessage = "Campo email é de preenchimento obrigatório")]
+        [EmailAddress(ErrorMessage = "Campo email deve ser um endereço de email válido")]
+        public string Email { get; set; }
+    }
+
+    public class UsuarioEsqueciValidaViewModel
+    {
+        [Required(ErrorMessage = "Campo email é de preenchimento obrigatório")]
+        [EmailAddress(ErrorMessage = "Campo email deve ser um endereço de email válido")]
+        public string Email { get; set; }
+        [Required(ErrorMessage = "Campo codigo é de preenchimento obrigatório")]
+        public int Codigo{ get; set; }
+    }
+
+    public class UsuarioTrocaSenhaViewModel
+    {
+        [Required(ErrorMessage = "Campo email é de preenchimento obrigatório")]
+        [EmailAddress(ErrorMessage = "Campo email deve ser um endereço de email válido")]
+        public string Email { get; set; }
+        [Required(ErrorMessage = "Campo senha é de preenchimento obrigatório")]
+        public string Senha { get; set; }
+    }
 }

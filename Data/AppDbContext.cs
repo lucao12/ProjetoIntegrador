@@ -20,7 +20,9 @@ namespace ProjetoIntegrador.Data
         public DbSet<DietaSemana> DietaSemana { get; set; }
         public DbSet<HistoricoPesoAltura> HistoricoPesoAltura { get; set; } // Adicionando o DbSet
         public DbSet<AlimentoQuantidade> AlimentoQuantidade { get; set; }
-
+        public DbSet<Codigos> Codigos { get; set; }
+        public DbSet<Layout> Layout { get; set; }
+        public DbSet<AlimentoLayout> AlimentoLayout { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

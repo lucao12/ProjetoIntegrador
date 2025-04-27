@@ -206,6 +206,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "ProjetoIntegrador.Controllers.LayoutController",
+    "Method": "EnviarLayout",
+    "RelativePath": "enviarLayout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ProjetoIntegrador.ViewModel.LayoutCreateViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "ProjetoIntegrador.Controllers.MensagemController",
     "Method": "EnviarMensagem",
     "RelativePath": "EnviarMensagem",
@@ -216,6 +232,48 @@
       {
         "Name": "model",
         "Type": "ProjetoIntegrador.ViewModel.EnvioMensagemViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.UsuarioController",
+    "Method": "EsqueciAsync",
+    "RelativePath": "esqueci",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ProjetoIntegrador.ViewModel.UsuarioEsqueciViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.UsuarioControllerView",
+    "Method": "EsqueciSenha",
+    "RelativePath": "EsqueciSenha",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.UsuarioController",
+    "Method": "EsqueciValidaAsync",
+    "RelativePath": "esqueciValida",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ProjetoIntegrador.ViewModel.UsuarioEsqueciValidaViewModel",
         "IsRequired": true
       }
     ],
@@ -245,6 +303,16 @@
     "ContainingType": "ProjetoIntegrador.Controllers.UsuarioControllerView",
     "Method": "HomeUsuario",
     "RelativePath": "HomeUsuario",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.LayoutController",
+    "Method": "PegarLayout",
+    "RelativePath": "Layouts",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -414,6 +482,22 @@
       {
         "Name": "model",
         "Type": "ProjetoIntegrador.ViewModel.SubstituirAlimentosViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.UsuarioController",
+    "Method": "TrocaSenhaAsync",
+    "RelativePath": "trocaSenha",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ProjetoIntegrador.ViewModel.UsuarioTrocaSenhaViewModel",
         "IsRequired": true
       }
     ],
