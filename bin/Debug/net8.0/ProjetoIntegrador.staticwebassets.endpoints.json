@@ -3,96 +3,6 @@
   "ManifestType": "Build",
   "Endpoints": [
     {
-      "Route": "App_Data/teste.5ipweew5fc.db-wal",
-      "AssetFile": "App_Data/teste.db-wal",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "0"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/octet-stream"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 27 Apr 2025 22:01:14 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "5ipweew5fc"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
-        },
-        {
-          "Name": "label",
-          "Value": "App_Data/teste.db-wal"
-        }
-      ]
-    },
-    {
-      "Route": "App_Data/teste.bzjchwf7kn.db",
-      "AssetFile": "App_Data/teste.db",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "176128"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/octet-stream"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"2S45koUqZTbQnapRz/1DTAeQBAjDWi8MI2MrUPdm7iA=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 27 Apr 2025 21:59:37 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "bzjchwf7kn"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-2S45koUqZTbQnapRz/1DTAeQBAjDWi8MI2MrUPdm7iA="
-        },
-        {
-          "Name": "label",
-          "Value": "App_Data/teste.db"
-        }
-      ]
-    },
-    {
       "Route": "App_Data/teste.db",
       "AssetFile": "App_Data/teste.db",
       "Selectors": [],
@@ -115,97 +25,23 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"2S45koUqZTbQnapRz/1DTAeQBAjDWi8MI2MrUPdm7iA=\""
+          "Value": "\"jpEE2nF15L7G9J2h+LhEr/gQjBEA/06k1cVaOoiMSMs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 27 Apr 2025 21:59:37 GMT"
+          "Value": "Tue, 29 Apr 2025 01:03:40 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-2S45koUqZTbQnapRz/1DTAeQBAjDWi8MI2MrUPdm7iA="
+          "Value": "sha256-jpEE2nF15L7G9J2h+LhEr/gQjBEA/06k1cVaOoiMSMs="
         }
       ]
     },
     {
-      "Route": "App_Data/teste.db-shm",
-      "AssetFile": "App_Data/teste.db-shm",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "32768"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/octet-stream"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"/Uyf2pzT+a58lisN3zcjIpTVVYDhqhZaoGEpuFSTies=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 27 Apr 2025 22:02:07 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-/Uyf2pzT+a58lisN3zcjIpTVVYDhqhZaoGEpuFSTies="
-        }
-      ]
-    },
-    {
-      "Route": "App_Data/teste.db-wal",
-      "AssetFile": "App_Data/teste.db-wal",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "0"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/octet-stream"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 27 Apr 2025 22:01:14 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
-        }
-      ]
-    },
-    {
-      "Route": "App_Data/teste.xbxd3clmbu.db-shm",
-      "AssetFile": "App_Data/teste.db-shm",
+      "Route": "App_Data/teste.e101sjv4zd.db",
+      "AssetFile": "App_Data/teste.db",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -218,7 +54,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "32768"
+          "Value": "176128"
         },
         {
           "Name": "Content-Type",
@@ -226,25 +62,25 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"/Uyf2pzT+a58lisN3zcjIpTVVYDhqhZaoGEpuFSTies=\""
+          "Value": "\"jpEE2nF15L7G9J2h+LhEr/gQjBEA/06k1cVaOoiMSMs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 27 Apr 2025 22:02:07 GMT"
+          "Value": "Tue, 29 Apr 2025 01:03:40 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "xbxd3clmbu"
+          "Value": "e101sjv4zd"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-/Uyf2pzT+a58lisN3zcjIpTVVYDhqhZaoGEpuFSTies="
+          "Value": "sha256-jpEE2nF15L7G9J2h+LhEr/gQjBEA/06k1cVaOoiMSMs="
         },
         {
           "Name": "label",
-          "Value": "App_Data/teste.db-shm"
+          "Value": "App_Data/teste.db"
         }
       ]
     },
@@ -275,7 +111,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 27 Apr 2025 12:39:03 GMT"
+          "Value": "Mon, 28 Apr 2025 03:54:54 GMT"
         }
       ],
       "EndpointProperties": [
@@ -320,7 +156,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 27 Apr 2025 12:39:03 GMT"
+          "Value": "Mon, 28 Apr 2025 03:54:54 GMT"
         }
       ],
       "EndpointProperties": [
@@ -357,7 +193,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 27 Apr 2025 12:39:03 GMT"
+          "Value": "Mon, 28 Apr 2025 03:54:54 GMT"
         }
       ],
       "EndpointProperties": [
@@ -402,7 +238,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 27 Apr 2025 12:39:03 GMT"
+          "Value": "Mon, 28 Apr 2025 03:54:54 GMT"
         }
       ],
       "EndpointProperties": [
@@ -439,7 +275,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 27 Apr 2025 12:39:03 GMT"
+          "Value": "Mon, 28 Apr 2025 03:54:54 GMT"
         }
       ],
       "EndpointProperties": [
@@ -484,7 +320,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 27 Apr 2025 12:39:03 GMT"
+          "Value": "Mon, 28 Apr 2025 03:54:54 GMT"
         }
       ],
       "EndpointProperties": [
@@ -521,7 +357,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 27 Apr 2025 12:39:03 GMT"
+          "Value": "Mon, 28 Apr 2025 03:54:54 GMT"
         }
       ],
       "EndpointProperties": [
@@ -566,7 +402,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 27 Apr 2025 12:39:03 GMT"
+          "Value": "Mon, 28 Apr 2025 03:54:54 GMT"
         }
       ],
       "EndpointProperties": [
@@ -603,7 +439,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 27 Apr 2025 12:39:03 GMT"
+          "Value": "Mon, 28 Apr 2025 03:54:54 GMT"
         }
       ],
       "EndpointProperties": [
@@ -648,7 +484,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 27 Apr 2025 12:39:03 GMT"
+          "Value": "Mon, 28 Apr 2025 03:54:54 GMT"
         }
       ],
       "EndpointProperties": [

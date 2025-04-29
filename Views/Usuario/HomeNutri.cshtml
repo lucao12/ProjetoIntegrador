@@ -859,6 +859,39 @@
             transition: background-color 0.3s;
         }
 
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .loader {
+            width: 80px;
+            height: 80px;
+            border: 8px solid rgba(255, 255, 255, 0.3);
+            border-top: 8px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @@keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+
         h1,
         h3 {
             color: #343a40;
@@ -1198,7 +1231,40 @@
             margin: 10px auto;
         }
 
-        
+        .modal-body {
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Estilo para cada refeição (ajuste se sua função gerarRefeicao usa classes específicas) */
+        .modal-body .refeicao {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #fff;
+            border-left: 5px solid #0d6efd;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Título da refeição */
+        .modal-body .refeicao h6 {
+            margin-top: 0;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #0d6efd;
+        }
+
+        /* Lista de itens da refeição */
+        .modal-body .refeicao ul {
+            padding-left: 20px;
+            margin: 10px 0 0;
+        }
+
+        .modal-body .refeicao ul li {
+            margin-bottom: 5px;
+        }
     </style>
 </head>
 
@@ -1276,7 +1342,8 @@
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalNovoLayout">Novo Layout</button>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#modalNovoLayout">Novo Layout</button>
                     </div>
 
                 </div>
@@ -1284,7 +1351,8 @@
         </div>
 
         <!-- Modal para Adicionar Novo Layout -->
-        <div class="modal fade" id="modalNovoLayout" tabindex="-1" aria-labelledby="modalNovoLayoutLabel" aria-hidden="true">
+        <div class="modal fade" id="modalNovoLayout" tabindex="-1" aria-labelledby="modalNovoLayoutLabel"
+            aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
 
@@ -1297,7 +1365,8 @@
                         <!-- Nome do Layout -->
                         <div class="mb-3">
                             <label for="nomeLayout" class="form-label">Nome do Layout</label>
-                            <input type="text" class="form-control" id="nomeLayout" placeholder="Digite o nome do layout" required>
+                            <input type="text" class="form-control" id="nomeLayout"
+                                placeholder="Digite o nome do layout" required>
                         </div>
 
                         <!-- Seleção das Refeições -->
@@ -1309,25 +1378,26 @@
                         <h6>Almoço</h6>
                         <div id="modal-almoco-layout">
 
-                        <div class="alimentos-selects" id="virtual-almoco"></div>
+                            <div class="alimentos-selects" id="virtual-almoco"></div>
                         </div>
 
                         <h6>Café da Tarde</h6>
                         <div id="modal-cafedt-layout">
 
-                        <div class="alimentos-selects" id="virtual-cafedt"></div>
+                            <div class="alimentos-selects" id="virtual-cafedt"></div>
                         </div>
 
                         <h6>Janta</h6>
                         <div id="modal-janta-layout">
 
-                        <div class="alimentos-selects" id="virtual-janta"></div>
+                            <div class="alimentos-selects" id="virtual-janta"></div>
                         </div>
                     </div>
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-primary" id="salvarLayout" onclick="enviaLayout()">Salvar Layout</button>
+                        <button type="button" class="btn btn-primary" id="salvarLayout" onclick="enviaLayout()">Salvar
+                            Layout</button>
                     </div>
 
                 </div>
@@ -1446,7 +1516,7 @@
                         <ul class="nav nav-tabs" id="tabs-dieta" role="tablist">
                             <!-- Abas dos dias da semana -->
                         </ul>
-                       <div id="virtualSelectLayout"></div>
+                        <div id="virtualSelectLayout"></div>
                         <div class="tab-content" id="conteudo-abas-dieta">
                             <!-- Conteúdo de cada aba -->
                         </div>
@@ -2140,7 +2210,7 @@
 
                 tabContent.appendChild(tabPane);
 
-                 VirtualSelect.init({
+                VirtualSelect.init({
                     ele: `#select-layout-${dia.id}`,
                     options: layoutsNutri.map(layout => ({
                         label: layout.name,
@@ -2152,48 +2222,48 @@
                     searchPlaceholderText: "Buscar layout...",
                 });
 
-                document.querySelector(`#select-layout-${dia.id}`).addEventListener('change', function() {
-                  console.log(this.value);
+                document.querySelector(`#select-layout-${dia.id}`).addEventListener('change', function () {
+                    console.log(this.value);
 
                     const valorSelecionado = layoutsNutri.find(item => item.id == this.value);
 
                     console.log('Objeto encontrado:', valorSelecionado);
                     let contador = 0;
-                     const refeicoes = ['cafe', 'almoco', 'cafeDT', 'janta'];
+                    const refeicoes = ['cafe', 'almoco', 'cafeDT', 'janta'];
 
-                     refeicoes.forEach(async(ref) => {
-                            document.getElementById(`virtual-${ref.toLowerCase()}${i}`).reset();
-                             recriarLabels2(0, document.getElementById(`virtual-${ref.toLowerCase()}${i}`), 1);
-                     });
+                    refeicoes.forEach(async (ref) => {
+                        document.getElementById(`virtual-${ref.toLowerCase()}${i}`).reset();
+                        recriarLabels2(0, document.getElementById(`virtual-${ref.toLowerCase()}${i}`), 1);
+                    });
 
-                        refeicoes.forEach(async(ref) => {
+                    refeicoes.forEach(async (ref) => {
 
 
-                          const alimentos = valorSelecionado[ref];
-                          if (!alimentos) return;
+                        const alimentos = valorSelecionado[ref];
+                        if (!alimentos) return;
 
-                          console.log(alimentos)
-                          const idsAlimentos = alimentos.map(a => a.alimentos.id);
+                        console.log(alimentos)
+                        const idsAlimentos = alimentos.map(a => a.alimentos.id);
 
-                            const alimentosMap = alimentos.reduce((acc, a) => {
-                                acc[a.alimentos.id] = a.quantidade;
-                                return acc;
-                            }, {});
+                        const alimentosMap = alimentos.reduce((acc, a) => {
+                            acc[a.alimentos.id] = a.quantidade;
+                            return acc;
+                        }, {});
 
-                          console.log(`IDs para ${ref}:`, idsAlimentos);
+                        console.log(`IDs para ${ref}:`, idsAlimentos);
 
-                          console.log(`virtual-${ref}${i}`);
-                          document.getElementById(`virtual-${ref.toLowerCase()}${i}`).setValue(idsAlimentos);
+                        console.log(`virtual-${ref}${i}`);
+                        document.getElementById(`virtual-${ref.toLowerCase()}${i}`).setValue(idsAlimentos);
 
-                          let contador = 0;
-                            idsAlimentos.forEach(async(a) => {
-                                console.log(a)
-                                console.log(alimentosMap[a])
-                                await recriarLabels2(a, document.getElementById(`virtual-${ref.toLowerCase()}${i}`), +alimentosMap[a]);
-                                contador++
-                            });
-
+                        let contador = 0;
+                        idsAlimentos.forEach(async (a) => {
+                            console.log(a)
+                            console.log(alimentosMap[a])
+                            await recriarLabels2(a, document.getElementById(`virtual-${ref.toLowerCase()}${i}`), +alimentosMap[a]);
+                            contador++
                         });
+
+                    });
 
                 });
             });
@@ -2283,26 +2353,26 @@
         }
 
         async function carregarLayouts() {
-          const token = localStorage.getItem('token');
+            const token = localStorage.getItem('token');
 
-          try {
-            const response = await fetch('/Layouts', {
-              method: 'GET',
-              headers: {
-                'Authorization': `Bearer ${token}`,
-                'Content-Type': 'application/json'
-              }
-            });
+            try {
+                const response = await fetch('/Layouts', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
 
-            if (!response.ok) {
-              throw new Error('Erro ao buscar layouts');
-            }
+                if (!response.ok) {
+                    throw new Error('Erro ao buscar layouts');
+                }
 
-            const layouts = await response.json();
-            layoutsNutri = layouts
-            console.log(layoutsNutri);
+                const layouts = await response.json();
+                layoutsNutri = layouts
+                console.log(layoutsNutri);
 
-            VirtualSelect.init({
+                VirtualSelect.init({
                     ele: '#select-layout',
                     options: layoutsNutri.map(layout => ({
                         label: layout.name,
@@ -2313,31 +2383,31 @@
                     noOptionsText: "Nenhum layout encontrado",
                     searchPlaceholderText: "Buscar layout...",
                 });
-            const listaLayouts = document.getElementById('listaLayouts');
-            listaLayouts.innerHTML = ''; // Limpar qualquer conteúdo anterior
+                const listaLayouts = document.getElementById('listaLayouts');
+                listaLayouts.innerHTML = ''; // Limpar qualquer conteúdo anterior
 
-            layouts.forEach(layout => {
-              // Criar botão para cada layout
-              const button = document.createElement('button');
-              button.className = 'list-group-item list-group-item-action';
-              button.textContent = layout.name;
+                layouts.forEach(layout => {
+                    // Criar botão para cada layout
+                    const button = document.createElement('button');
+                    button.className = 'list-group-item list-group-item-action';
+                    button.textContent = layout.name;
 
-              // Quando clicar no botão, abrir um novo modal para mostrar detalhes
-              button.addEventListener('click', () => {
-                abrirDetalhesLayout(layout);
-              });
+                    // Quando clicar no botão, abrir um novo modal para mostrar detalhes
+                    button.addEventListener('click', () => {
+                        abrirDetalhesLayout(layout);
+                    });
 
-              listaLayouts.appendChild(button);
-            });
+                    listaLayouts.appendChild(button);
+                });
 
-          } catch (error) {
-            console.error('Erro:', error);
-          }
+            } catch (error) {
+                console.error('Erro:', error);
+            }
         }
 
         function abrirDetalhesLayout(layout) {
-          // Criar conteúdo detalhado do layout
-          const detalhes = `
+            // Criar conteúdo detalhado do layout
+            const detalhes = `
             <div class="modal fade" id="modalDetalhesLayout" tabindex="-1" aria-labelledby="modalDetalhesLayoutLabel" aria-hidden="true">
               <div class="modal-dialog modal-lg">
                 <div class="modal-content">
@@ -2363,26 +2433,26 @@
             </div>
           `;
 
-          // Remover qualquer modal anterior de detalhes
-          const modalAnterior = document.getElementById('modalDetalhesLayout');
-          if (modalAnterior) {
-            modalAnterior.remove();
-          }
+            // Remover qualquer modal anterior de detalhes
+            const modalAnterior = document.getElementById('modalDetalhesLayout');
+            if (modalAnterior) {
+                modalAnterior.remove();
+            }
 
-          // Adicionar o novo modal no final do body
-          document.body.insertAdjacentHTML('beforeend', detalhes);
+            // Adicionar o novo modal no final do body
+            document.body.insertAdjacentHTML('beforeend', detalhes);
 
-          // Abrir o novo modal
-          const modal = new bootstrap.Modal(document.getElementById('modalDetalhesLayout'));
-          modal.show();
+            // Abrir o novo modal
+            const modal = new bootstrap.Modal(document.getElementById('modalDetalhesLayout'));
+            modal.show();
         }
 
         function gerarRefeicao(nomeRefeicao, itens) {
-          if (!itens || itens.length === 0) {
-            return `<div class="refeicao"><h5>${nomeRefeicao}</h5><p>Sem itens.</p></div>`;
-          }
+            if (!itens || itens.length === 0) {
+                return `<div class="refeicao"><h5>${nomeRefeicao}</h5><p>Sem itens.</p></div>`;
+            }
 
-          const alimentosHTML = itens.map(item => `
+            const alimentosHTML = itens.map(item => `
             <div class="mb-3">
               <strong>${item.alimentos.nome}</strong><br>
               Quantidade: ${item.quantidade}g<br>
@@ -2390,7 +2460,7 @@
             </div>
           `).join('');
 
-          return `
+            return `
             <div class="refeicao">
               <h5>${nomeRefeicao}</h5>
               ${alimentosHTML}
@@ -2398,9 +2468,9 @@
           `;
         }
 
-        async function AbrirLayout(){
+        async function AbrirLayout() {
             const modal = new bootstrap.Modal(document.getElementById('modalLayouts'));
-          modal.show();
+            modal.show();
         }
 
 
@@ -2442,8 +2512,8 @@
             carregarComidas();
         });
 
-        async function carregarComidas(){
-                    const token = localStorage.getItem("token");
+        async function carregarComidas() {
+            const token = localStorage.getItem("token");
 
             fetch("/alimentos/getAlimentos", {
                 method: "GET",
@@ -2462,151 +2532,151 @@
                     console.log("Alimentos recebidos:", data);
 
                     let selectAlimentoa = document.getElementById('virtual-cafe');
-                                        let selectAlimentob = document.getElementById('virtual-almoco');
-                                        let selectAlimentoc = document.getElementById('virtual-cafedt');
-                                        let selectAlimentod = document.getElementById('virtual-janta');
+                    let selectAlimentob = document.getElementById('virtual-almoco');
+                    let selectAlimentoc = document.getElementById('virtual-cafedt');
+                    let selectAlimentod = document.getElementById('virtual-janta');
 
-                                        if (selectAlimentoa && selectAlimentob && selectAlimentoc && selectAlimentod) {
-                                            console.log("Inicializando VirtualSelect...");
+                    if (selectAlimentoa && selectAlimentob && selectAlimentoc && selectAlimentod) {
+                        console.log("Inicializando VirtualSelect...");
 
-                                            // Se já existe um VirtualSelect, destruí-lo antes de recriar
-                                            if (selectAlimentoa.virtualSelect) {
-                                                selectAlimentoa.virtualSelect.destroy();
-                                            }
-                                            if (selectAlimentob.virtualSelect) {
-                                                selectAlimentob.virtualSelect.destroy();
-                                            }
-                                            if (selectAlimentoc.virtualSelect) {
-                                                selectAlimentoc.virtualSelect.destroy();
-                                            }
-                                            if (selectAlimentod.virtualSelect) {
-                                                selectAlimentod.virtualSelect.destroy();
-                                            }
+                        // Se já existe um VirtualSelect, destruí-lo antes de recriar
+                        if (selectAlimentoa.virtualSelect) {
+                            selectAlimentoa.virtualSelect.destroy();
+                        }
+                        if (selectAlimentob.virtualSelect) {
+                            selectAlimentob.virtualSelect.destroy();
+                        }
+                        if (selectAlimentoc.virtualSelect) {
+                            selectAlimentoc.virtualSelect.destroy();
+                        }
+                        if (selectAlimentod.virtualSelect) {
+                            selectAlimentod.virtualSelect.destroy();
+                        }
 
-                                            // Criar um array de opções para o VirtualSelect
-                                            let options = data.map(alimento => ({
-                                                value: alimento.id,
-                                                label: alimento.nome
-                                            }));
+                        // Criar um array de opções para o VirtualSelect
+                        let options = data.map(alimento => ({
+                            value: alimento.id,
+                            label: alimento.nome
+                        }));
 
-                                            // Inicializa o VirtualSelect para todos os elementos, incluindo os itens desabilitados
-                                            VirtualSelect.init({
-                                                ele: selectAlimentoa,
-                                                search: true,
-                                                multiple: true,
-                                                hideClearButton: true,
-                                                maxWidth: "600px",
-                                                options: options,
-                                            });
+                        // Inicializa o VirtualSelect para todos os elementos, incluindo os itens desabilitados
+                        VirtualSelect.init({
+                            ele: selectAlimentoa,
+                            search: true,
+                            multiple: true,
+                            hideClearButton: true,
+                            maxWidth: "600px",
+                            options: options,
+                        });
 
-                                            VirtualSelect.init({
-                                                ele: selectAlimentob,
-                                                search: true,
-                                                multiple: true,
-                                                hideClearButton: true,
-                                                maxWidth: "600px",
-                                                options: options,
-                                            });
+                        VirtualSelect.init({
+                            ele: selectAlimentob,
+                            search: true,
+                            multiple: true,
+                            hideClearButton: true,
+                            maxWidth: "600px",
+                            options: options,
+                        });
 
-                                            VirtualSelect.init({
-                                                ele: selectAlimentoc,
-                                                search: true,
-                                                multiple: true,
-                                                hideClearButton: true,
-                                                maxWidth: "600px",
-                                                options: options,
-                                            });
+                        VirtualSelect.init({
+                            ele: selectAlimentoc,
+                            search: true,
+                            multiple: true,
+                            hideClearButton: true,
+                            maxWidth: "600px",
+                            options: options,
+                        });
 
-                                            VirtualSelect.init({
-                                                ele: selectAlimentod,
-                                                search: true,
-                                                multiple: true,
-                                                hideClearButton: true,
-                                                maxWidth: "600px",
-                                                options: options,
-                                            });
+                        VirtualSelect.init({
+                            ele: selectAlimentod,
+                            search: true,
+                            multiple: true,
+                            hideClearButton: true,
+                            maxWidth: "600px",
+                            options: options,
+                        });
 
-                                            $('#virtual-cafe').on('beforeClose', function () {
-                                                const selecionados = selectAlimentoa.value; // Pega os valores selecionados
-                                                console.log("Alimentos selecionados (café):", selecionados);
-                                                recriarLabels(selecionados, this);
-                                            });
+                        $('#virtual-cafe').on('beforeClose', function () {
+                            const selecionados = selectAlimentoa.value; // Pega os valores selecionados
+                            console.log("Alimentos selecionados (café):", selecionados);
+                            recriarLabels(selecionados, this);
+                        });
 
-                                            $('#virtual-almoco').on('beforeClose', function () {
-                                                const selecionados = selectAlimentob.value; // Pega os valores selecionados
-                                                console.log("Alimentos selecionados (almoço):", selecionados);
-                                                recriarLabels(selecionados, this);
-                                            });
+                        $('#virtual-almoco').on('beforeClose', function () {
+                            const selecionados = selectAlimentob.value; // Pega os valores selecionados
+                            console.log("Alimentos selecionados (almoço):", selecionados);
+                            recriarLabels(selecionados, this);
+                        });
 
-                                            $('#virtual-cafedt').on('beforeClose', function () {
-                                                const selecionados = selectAlimentoc.value; // Pega os valores selecionados
-                                                console.log("Alimentos selecionados (café da tarde):", selecionados);
-                                                recriarLabels(selecionados, this);
-                                            });
+                        $('#virtual-cafedt').on('beforeClose', function () {
+                            const selecionados = selectAlimentoc.value; // Pega os valores selecionados
+                            console.log("Alimentos selecionados (café da tarde):", selecionados);
+                            recriarLabels(selecionados, this);
+                        });
 
-                                            $('#virtual-janta').on('beforeClose', function () {
-                                                const selecionados = selectAlimentod.value; // Pega os valores selecionados
-                                                console.log("Alimentos selecionados (janta):", selecionados);
-                                                recriarLabels(selecionados, this);
-                                            });
-                                        }
+                        $('#virtual-janta').on('beforeClose', function () {
+                            const selecionados = selectAlimentod.value; // Pega os valores selecionados
+                            console.log("Alimentos selecionados (janta):", selecionados);
+                            recriarLabels(selecionados, this);
+                        });
+                    }
                 }).catch(error => console.error("Erro ao carregar alimentos:", error));
         }
 
         async function enviaLayout() {
             const refeicoes = ["cafe", "almoco", "cafedt", "janta"];
-                const layout = {
-                    Cafe: [],
-                    Almoco: [],
-                    CafeDT: [],
-                    Janta: []
-                };
+            const layout = {
+                Cafe: [],
+                Almoco: [],
+                CafeDT: [],
+                Janta: []
+            };
 
-                refeicoes.forEach(ref => {
-                    const divRefeicao = document.querySelector(`#modal-${ref}-layout`);
-                    const inputs = divRefeicao.querySelectorAll("input");
+            refeicoes.forEach(ref => {
+                const divRefeicao = document.querySelector(`#modal-${ref}-layout`);
+                const inputs = divRefeicao.querySelectorAll("input");
 
-                    const alimentos = Array.from(inputs).map(input => input.value.trim()).filter(val => val !== "");
-                    if(alimentos.length>0){
-                        let alimentoInt = alimentos[0].split(",");
-                        alimentos.shift();
-                        for(var i =0;i>alimentoInt.length;i++){
-                             alimentoInt[i] = parseInt(alimentoInt[i]);
-                        }
-                        if (!isNaN(alimentoInt[0])) {
-                            switch (ref) {
-                                case "cafe":
-                                    alimentos.forEach((alimento, index)=>{
-                                        layout.Cafe.push({ Key: alimentoInt[index], Value: alimento });
-                                    })
-                                    break;
-                                case "almoco":
-                                    alimentos.forEach((alimento,index)=>{
-                                        layout.Almoco.push({ Key: alimentoInt[index], Value: alimento });
-                                    })
-                                    break;
-                                case "cafedt":
-                                    alimentos.forEach((alimento,index)=>{
-                                        layout.CafeDT.push({ Key: alimentoInt[index], Value: alimento });
-                                    })
-                                    break;
-                                case "janta":
-                                    alimentos.forEach((alimento,index)=>{
-                                        layout.Janta.push({ Key: alimentoInt[index], Value: alimento });
-                                    })
-                                    break;
-                            }
+                const alimentos = Array.from(inputs).map(input => input.value.trim()).filter(val => val !== "");
+                if (alimentos.length > 0) {
+                    let alimentoInt = alimentos[0].split(",");
+                    alimentos.shift();
+                    for (var i = 0; i > alimentoInt.length; i++) {
+                        alimentoInt[i] = parseInt(alimentoInt[i]);
+                    }
+                    if (!isNaN(alimentoInt[0])) {
+                        switch (ref) {
+                            case "cafe":
+                                alimentos.forEach((alimento, index) => {
+                                    layout.Cafe.push({ Key: alimentoInt[index], Value: alimento });
+                                })
+                                break;
+                            case "almoco":
+                                alimentos.forEach((alimento, index) => {
+                                    layout.Almoco.push({ Key: alimentoInt[index], Value: alimento });
+                                })
+                                break;
+                            case "cafedt":
+                                alimentos.forEach((alimento, index) => {
+                                    layout.CafeDT.push({ Key: alimentoInt[index], Value: alimento });
+                                })
+                                break;
+                            case "janta":
+                                alimentos.forEach((alimento, index) => {
+                                    layout.Janta.push({ Key: alimentoInt[index], Value: alimento });
+                                })
+                                break;
                         }
                     }
+                }
 
-                });
+            });
 
-            
+
             console.log(layout);
 
 
             const token = localStorage.getItem("token");
-            
+
             const sendDieta = {
                 Name: document.getElementById('nomeLayout').value,
                 Dietas: layout
@@ -2623,11 +2693,11 @@
                 });
 
                 if (!response.ok) throw new Error(`Erro: ${response.status}`);
-                console.log('Dieta enviada com sucesso:');  
+                console.log('Dieta enviada com sucesso:');
                 location.reload();
             } catch (error) {
                 console.error('Erro ao enviar dieta:', error);
-            } 
+            }
         }
 
         function carregarAlimentos(idUser) {
@@ -2659,7 +2729,7 @@
                 .then(data => {
                     console.log("Alimentos recebidos:", data);
 
-                   
+
                     // Buscar os alimentos já selecionados pelo usuário logado (para verificar permissões)
                     fetch(`/alimentos/getAlimentosUsuario/${userLogado}`, {
                         method: "GET",
@@ -2876,7 +2946,7 @@
             });
         }
 
-         function recriarLabels2(alimentosSelecionados, containerId, valor) {
+        function recriarLabels2(alimentosSelecionados, containerId, valor) {
             const token = localStorage.getItem("token");
             const container = containerId;
 
@@ -2899,51 +2969,51 @@
             // Limpa os labels existentes
             labelsContainer.innerHTML = "";
 
-            if(alimentosSelecionados == 0) return;
+            if (alimentosSelecionados == 0) return;
 
             // Impede processamento se não houver alimentos
 
-             
-                 fetch(`/alimentos/getAlimentosid/${alimentosSelecionados}`, {
-                    method: "GET",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": `Bearer ${token}`
+
+            fetch(`/alimentos/getAlimentosid/${alimentosSelecionados}`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                }
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Erro ao carregar alimento");
                     }
+                    return response.json();
                 })
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error("Erro ao carregar alimento");
-                        }
-                        return response.json();
-                    })
-                    .then((alimento) => {
-                        // Evita adicionar duplicados
-                        if (labelsContainer.querySelector(`[data-id="${alimento.id}"]`)) return;
+                .then((alimento) => {
+                    // Evita adicionar duplicados
+                    if (labelsContainer.querySelector(`[data-id="${alimento.id}"]`)) return;
 
-                        // Cria elementos
-                        const label = document.createElement("label");
-                        label.textContent = alimento.nome;
-                        label.setAttribute("data-id", alimento.id);
+                    // Cria elementos
+                    const label = document.createElement("label");
+                    label.textContent = alimento.nome;
+                    label.setAttribute("data-id", alimento.id);
 
-                        const input = document.createElement("input");
-                        input.type = "number";
-                        input.name = `quantidade-${alimento.id}`;
-                        input.placeholder = `Quantidade de ${alimento.nome} em gramas ou ml`;
-                        input.classList.add("form-control", "mb-2");
-                        input.value = valor;
+                    const input = document.createElement("input");
+                    input.type = "number";
+                    input.name = `quantidade-${alimento.id}`;
+                    input.placeholder = `Quantidade de ${alimento.nome} em gramas ou ml`;
+                    input.classList.add("form-control", "mb-2");
+                    input.value = valor;
 
-                        const alimentoContainer = document.createElement("div");
-                        alimentoContainer.classList.add("alimento-container", "mb-3");
+                    const alimentoContainer = document.createElement("div");
+                    alimentoContainer.classList.add("alimento-container", "mb-3");
 
-                        alimentoContainer.appendChild(label);
-                        alimentoContainer.appendChild(input);
-                        labelsContainer.appendChild(alimentoContainer);
+                    alimentoContainer.appendChild(label);
+                    alimentoContainer.appendChild(input);
+                    labelsContainer.appendChild(alimentoContainer);
 
-                    })
-                    .catch(error => {
-                        console.error(`Erro ao carregar alimento com ID ${alimentoId}:`, error);
-                    });
+                })
+                .catch(error => {
+                    console.error(`Erro ao carregar alimento com ID ${alimentoId}:`, error);
+                });
 
             console.log("sim")
         }
@@ -3063,38 +3133,38 @@
                     const inputs = divRefeicao.querySelectorAll("input");
 
                     const alimentos = Array.from(inputs).map(input => input.value.trim()).filter(val => val !== "");
-                    if(alimentos.length>0){
+                    if (alimentos.length > 0) {
                         let alimentoInt = alimentos[0].split(",");
                         alimentos.shift();
-                        for(var i =0;i>alimentoInt.length;i++){
-                             alimentoInt[i] = parseInt(alimentoInt[i]);
+                        for (var i = 0; i > alimentoInt.length; i++) {
+                            alimentoInt[i] = parseInt(alimentoInt[i]);
                         }
                         if (!isNaN(alimentoInt[0])) {
                             switch (ref) {
                                 case "cafe":
-                                    alimentos.forEach((alimento, index)=>{
+                                    alimentos.forEach((alimento, index) => {
                                         dieta.Cafe.push({ Key: alimentoInt[index], Value: alimento });
                                     })
                                     break;
                                 case "almoco":
-                                    alimentos.forEach((alimento,index)=>{
+                                    alimentos.forEach((alimento, index) => {
                                         dieta.Almoco.push({ Key: alimentoInt[index], Value: alimento });
                                     })
                                     break;
                                 case "cafedt":
-                                    alimentos.forEach((alimento,index)=>{
+                                    alimentos.forEach((alimento, index) => {
                                         dieta.CafeDT.push({ Key: alimentoInt[index], Value: alimento });
                                     })
                                     break;
                                 case "janta":
-                                    alimentos.forEach((alimento,index)=>{
+                                    alimentos.forEach((alimento, index) => {
                                         dieta.Janta.push({ Key: alimentoInt[index], Value: alimento });
                                     })
                                     break;
                             }
                         }
                     }
-                    
+
                 });
 
                 if (
@@ -3130,46 +3200,46 @@
                 if (!response.ok) throw new Error(`Erro: ${response.status}`);
                 const data = await response.json();
 
-                        const alimentosTotais = {};
+                const alimentosTotais = {};
 
-                            data.dietas.forEach(dia => {
-                          ['cafe', 'almoco', 'cafeDT', 'janta'].forEach(refeicao => {
-                            dia[refeicao].forEach(item => {
-                              const alimentoNome = item.alimentos.nome;
-                              const quantidade = item.quantidade;
+                data.dietas.forEach(dia => {
+                    ['cafe', 'almoco', 'cafeDT', 'janta'].forEach(refeicao => {
+                        dia[refeicao].forEach(item => {
+                            const alimentoNome = item.alimentos.nome;
+                            const quantidade = item.quantidade;
 
-                              if (!alimentosTotais[alimentoNome]) {
+                            if (!alimentosTotais[alimentoNome]) {
                                 alimentosTotais[alimentoNome] = 0; // Inicializa a quantidade no primeiro encontro
-                              }
+                            }
 
-                              alimentosTotais[alimentoNome] += quantidade; // Soma a quantidade para o alimento encontrado
-                            });
-                          });
+                            alimentosTotais[alimentoNome] += quantidade; // Soma a quantidade para o alimento encontrado
                         });
+                    });
+                });
 
-                    console.log(alimentosTotais);
-                    const base642 = await gerarPDFDietaNutricionista2(alimentosTotais);
+                console.log(alimentosTotais);
+                const base642 = await gerarPDFDietaNutricionista2(alimentosTotais);
                 const base64 = await gerarPDFDietaNutricionista(data);
                 console.log('Dieta enviada com sucesso:', data);
                 try {
                     console.log(dietaList);
 
 
-                const emailObj = {
-                    idusuario: localStorage.getItem('idUsuario'),
-                    titulo: "Uma nova dieta foi enviada",
-                    body: "Olá, Seu nutricionista acabou de enviar mais uma dieta para você!",
-                    anexoBase64: base64, // PDF em base64
-                    nomeArquivo: "Dieta.pdf"
-                };
+                    const emailObj = {
+                        idusuario: localStorage.getItem('idUsuario'),
+                        titulo: "Uma nova dieta foi enviada",
+                        body: "Olá, Seu nutricionista acabou de enviar mais uma dieta para você!",
+                        anexoBase64: base64, // PDF em base64
+                        nomeArquivo: "Dieta.pdf"
+                    };
 
-                const emailObj2 = {
-                    idusuario: localStorage.getItem('idUsuario'),
-                    titulo: "Sua lista de compras foi enviada",
-                    body: "Confira a sua lista de compras!",
-                    anexoBase64: base642, // PDF em base64
-                    nomeArquivo: "Compras.pdf"
-                };
+                    const emailObj2 = {
+                        idusuario: localStorage.getItem('idUsuario'),
+                        titulo: "Sua lista de compras foi enviada",
+                        body: "Confira a sua lista de compras!",
+                        anexoBase64: base642, // PDF em base64
+                        nomeArquivo: "Compras.pdf"
+                    };
 
                     const response = await fetch('/EnviaEmailAnexo', {
                         method: 'POST',
@@ -3202,40 +3272,40 @@
 
         }
 
-                async function gerarPDFDietaNutricionista(dietaResponse) {
+        async function gerarPDFDietaNutricionista(dietaResponse) {
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
 
-                const fundo = hexToRgb("#F5F5DC");
+            const fundo = hexToRgb("#F5F5DC");
 
-        function hexToRgb(hex) {
-            const bigint = parseInt(hex.replace("#", ""), 16);
-            return {
-                r: (bigint >> 16) & 255,
-                g: (bigint >> 8) & 255,
-                b: bigint & 255
+            function hexToRgb(hex) {
+                const bigint = parseInt(hex.replace("#", ""), 16);
+                return {
+                    r: (bigint >> 16) & 255,
+                    g: (bigint >> 8) & 255,
+                    b: bigint & 255
+                };
+            }
+
+            const desenharFundo = () => {
+                doc.setFillColor(fundo.r, fundo.g, fundo.b);
+                doc.rect(0, 0, 210, 297, 'F');
+                doc.setDrawColor(150, 0, 0);
+                doc.setLineWidth(0.5);
+                doc.rect(5, 5, 200, 287);
+                doc.setLineWidth(0.2);
+                doc.rect(7, 7, 196, 283);
             };
-        }
 
-        const desenharFundo = () => {
-            doc.setFillColor(fundo.r, fundo.g, fundo.b);
-            doc.rect(0, 0, 210, 297, 'F');
-            doc.setDrawColor(150, 0, 0);
-            doc.setLineWidth(0.5);
-            doc.rect(5, 5, 200, 287);
-            doc.setLineWidth(0.2);
-            doc.rect(7, 7, 196, 283);
-        };
+            desenharFundo();
 
-        desenharFundo();
+            let y = 20;
 
-        let y = 20;
-
-        doc.setFont("Helvetica", "bold");
-        doc.setFontSize(16);
-        doc.setTextColor(80, 30, 30);
-        doc.text("Plano Semanal de Dieta", 105, y, { align: "center" });
-        y += 12;
+            doc.setFont("Helvetica", "bold");
+            doc.setFontSize(16);
+            doc.setTextColor(80, 30, 30);
+            doc.text("Plano Semanal de Dieta", 105, y, { align: "center" });
+            y += 12;
 
             dietaResponse.dietas.forEach((diaObj, index) => {
                 const dia = diaObj.dia.toUpperCase();
@@ -3284,7 +3354,7 @@
             return doc.output('datauristring'); // retorna base64
         }
 
-                async function gerarPDFDietaNutricionista2(dietaResponse) {
+        async function gerarPDFDietaNutricionista2(dietaResponse) {
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
 

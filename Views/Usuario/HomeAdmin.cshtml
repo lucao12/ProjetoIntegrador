@@ -29,6 +29,39 @@
 
         }
 
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .loader {
+            width: 80px;
+            height: 80px;
+            border: 8px solid rgba(255, 255, 255, 0.3);
+            border-top: 8px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @@keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+
         h1 {
             color: #343a40;
         }
@@ -176,13 +209,12 @@
 
         <div class="mb-4 text-center">
             <img id="profileImage" src="~/default.png" alt="Foto de perfil" class="rounded-circle" width="150"
-                 height="150">
+                height="150">
         </div>
 
 
         <div style="text-align: center;">
-            <button class="btn btn-outline-dark" data-bs-toggle="modal"
-                    data-bs-target="#settingsModal">
+            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#settingsModal">
                 Configurações
             </button>
             <button class="btn btn-danger mt-4" onclick="logout()" style="text-align: center;">Logout</button>
@@ -198,8 +230,7 @@
     </div>
 
     <!-- Modal de Configurações -->
-    <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel"
-         aria-hidden="true">
+    <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -344,7 +375,7 @@
                     const container = document.getElementById('userListContainer');
                     container.innerHTML = '';
                     users.forEach(user => {
-                        if(user.id !=  localStorage.getItem("id")){
+                        if (user.id != localStorage.getItem("id")) {
                             const userCard = document.createElement('div');
                             userCard.classList.add('user-card');
                             userCard.innerHTML = `
@@ -395,7 +426,7 @@
         });
 
 
-                document.getElementById("cadastroForm").addEventListener("submit", function (event) {
+        document.getElementById("cadastroForm").addEventListener("submit", function (event) {
             event.preventDefault();
             const id = document.getElementById("editUserId").value;
             const data = {
@@ -419,31 +450,31 @@
                 },
                 body: JSON.stringify(data)
             })
-            .then(async (response) => {
-                if (!response.ok) {
-                    const errorData = await response.json();
-                    throw new Error(errorData.error || 'Senha Inválida, A senha deve conter no mínimo 8 caracteres, com pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial');
-                    return;
-                }
+                .then(async (response) => {
+                    if (!response.ok) {
+                        const errorData = await response.json();
+                        throw new Error(errorData.error || 'Senha Inválida, A senha deve conter no mínimo 8 caracteres, com pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial');
+                        return;
+                    }
 
-                if (url == "/cadastroAdmin") {
-                    alert("Usuário adicionado!");
-                } else {
-                    alert("Usuário atualizado!");
-                }
+                    if (url == "/cadastroAdmin") {
+                        alert("Usuário adicionado!");
+                    } else {
+                        alert("Usuário atualizado!");
+                    }
 
-                loadUsers();
-                const modal = bootstrap.Modal.getInstance(document.getElementById("cadastroModal"));
-                if (modal) modal.hide();
+                    loadUsers();
+                    const modal = bootstrap.Modal.getInstance(document.getElementById("cadastroModal"));
+                    if (modal) modal.hide();
 
-                document.getElementById("editUserId").value = "";
-                document.getElementById("cadastroForm").reset();
-            })
-            .catch(error => {
-                alert("Erro ao salvar usuário: " + error.message);
-                document.getElementById("editUserId").value = "";
-                document.getElementById("cadastroForm").reset();
-            });
+                    document.getElementById("editUserId").value = "";
+                    document.getElementById("cadastroForm").reset();
+                })
+                .catch(error => {
+                    alert("Erro ao salvar usuário: " + error.message);
+                    document.getElementById("editUserId").value = "";
+                    document.getElementById("cadastroForm").reset();
+                });
         });
 
 
@@ -540,123 +571,123 @@
         }
 
         function saveChanges() {
-             const token = localStorage.getItem("token");
-             if (document.getElementById("idade").value < 99 && document.getElementById("idade").value > 18) {
-                 console.log(document.getElementById("sex").value)
-                 if (document.getElementById("sex").value == "masculino" || document.getElementById("sex").value == "feminino") {
-                     if (document.getElementById("peso").value > 0) {
-                         if (document.getElementById("altura").value > 0) {
-                             console.log(token)
+            const token = localStorage.getItem("token");
+            if (document.getElementById("idade").value < 99 && document.getElementById("idade").value > 18) {
+                console.log(document.getElementById("sex").value)
+                if (document.getElementById("sex").value == "masculino" || document.getElementById("sex").value == "feminino") {
+                    if (document.getElementById("peso").value > 0) {
+                        if (document.getElementById("altura").value > 0) {
+                            console.log(token)
 
-                             ColocaCarregando();
+                            ColocaCarregando();
 
-                             const userData = {
-                                 Nome: document.getElementById("name").value,
-                                 Telefone: document.getElementById("phone").value,
-                                 Email: document.getElementById("email").value,
-                                 Sexo: document.getElementById("sex").value,
-                                 Idade: document.getElementById("idade").value,
-                                 Peso: document.getElementById("peso").value,
-                                 Altura: document.getElementById("altura").value,
-                                 SenhaAntiga: document.getElementById("oldPassword").value,
-                                 NovaSenha: document.getElementById("newPassword").value.trim() === "" ? null : document.getElementById("newPassword").value
-                             };
+                            const userData = {
+                                Nome: document.getElementById("name").value,
+                                Telefone: document.getElementById("phone").value,
+                                Email: document.getElementById("email").value,
+                                Sexo: document.getElementById("sex").value,
+                                Idade: document.getElementById("idade").value,
+                                Peso: document.getElementById("peso").value,
+                                Altura: document.getElementById("altura").value,
+                                SenhaAntiga: document.getElementById("oldPassword").value,
+                                NovaSenha: document.getElementById("newPassword").value.trim() === "" ? null : document.getElementById("newPassword").value
+                            };
 
-                             console.log(userData)
+                            console.log(userData)
 
-                             fetch("/update/user/yourself", {
-                                 method: "PUT",
-                                 headers: {
-                                     "Authorization": `Bearer ${token}`,
-                                     "Content-Type": "application/json"
-                                 },
-                                 body: JSON.stringify(userData)
-                             })
-                                 .then(async response => {
-                                     const json = await response.json();
+                            fetch("/update/user/yourself", {
+                                method: "PUT",
+                                headers: {
+                                    "Authorization": `Bearer ${token}`,
+                                    "Content-Type": "application/json"
+                                },
+                                body: JSON.stringify(userData)
+                            })
+                                .then(async response => {
+                                    const json = await response.json();
 
-                                     if (!response.ok) {
-                                         let errorMessage = "Erro ao salvar";
-                                         TiraCarregando();
+                                    if (!response.ok) {
+                                        let errorMessage = "Erro ao salvar";
+                                        TiraCarregando();
 
-                                         if (json.error) {
-                                             errorMessage = json.error;
-                                         } else if (json.errors) {
-                                             const firstErrorKey = Object.keys(json.errors)[0];
-                                             if (json.errors[firstErrorKey] && json.errors[firstErrorKey].length > 0) {
-                                                 errorMessage = json.errors[firstErrorKey][0];
-                                             }
-                                         }
+                                        if (json.error) {
+                                            errorMessage = json.error;
+                                        } else if (json.errors) {
+                                            const firstErrorKey = Object.keys(json.errors)[0];
+                                            if (json.errors[firstErrorKey] && json.errors[firstErrorKey].length > 0) {
+                                                errorMessage = json.errors[firstErrorKey][0];
+                                            }
+                                        }
 
-                                         throw new Error(errorMessage);
-                                     }
+                                        throw new Error(errorMessage);
+                                    }
 
 
-                                     const fileInput = document.getElementById("profilePhoto");
+                                    const fileInput = document.getElementById("profilePhoto");
 
-                                     const formData = new FormData();
-                                             if (fileInput.files.length > 0) {
-                                                 formData.append("Foto", fileInput.files[0]); // Adiciona a foto ao FormData
-                                             }
+                                    const formData = new FormData();
+                                    if (fileInput.files.length > 0) {
+                                        formData.append("Foto", fileInput.files[0]); // Adiciona a foto ao FormData
+                                    }
 
-                                     try {
-                                              // Verifica se há dados para enviar
-                                             if (formData.has("Foto")) {
-                                                 const response = await fetch("/update/user/photo", {
-                                                     method: "PUT",
-                                                     headers: {
-                                                         "Authorization": `Bearer ${token}`
-                                                     },
-                                                     body: formData
-                                                 });
+                                    try {
+                                        // Verifica se há dados para enviar
+                                        if (formData.has("Foto")) {
+                                            const response = await fetch("/update/user/photo", {
+                                                method: "PUT",
+                                                headers: {
+                                                    "Authorization": `Bearer ${token}`
+                                                },
+                                                body: formData
+                                            });
 
-                                                 const result = await response.json();
+                                            const result = await response.json();
 
-                                                 if (response.ok) {
-                                                     TiraCarregando();
-                                                     alert("Alterações salvas com sucesso! \nFaça Login novamente");
-                                                     logout(); // Recarrega as informações no modal
-                                                 } else {
-                                                     TiraCarregando();
-                                                     alert(result.error || "Erro ao atualizar a foto.");
-                                                 }
-                                             } else {
-                                                 TiraCarregando();
-                                                     alert("Alterações salvas com sucesso! \nFaça Login novamente");
-                                                     logout(); // Recarrega as informações no modal
-                                             }
-                                     } catch (error) {
-                                         TiraCarregando();
-                                         console.error("Erro ao enviar a foto:", error);
-                                     }
-                                 })
-                                 .catch(error => {
-                                     TiraCarregando();
-                                     console.error("Erro ao salvar alterações:", error);
-                                     alert("Erro ao salvar alterações.");
-                                 });
-                         } else {
-                             TiraCarregando();
-                             console.error("Digite uma altura");
-                             alert("Digite uma altura");
-                         }
-                     } else {
-                         TiraCarregando();
-                         console.error("Digite um peso");
-                         alert("Digite um peso");
-                     }
-                 } else {
-                     TiraCarregando();
-                     console.error("Escolha um sexo");
-                     alert("Escolha um sexo");
-                 }
-             }
-             else {
-                 TiraCarregando();
-                 console.error("Digite uma idade entre 18 anos e 99 anos");
-                 alert("Digite uma idade entre 18 anos e 99 anos");
-             }
-         }
+                                            if (response.ok) {
+                                                TiraCarregando();
+                                                alert("Alterações salvas com sucesso! \nFaça Login novamente");
+                                                logout(); // Recarrega as informações no modal
+                                            } else {
+                                                TiraCarregando();
+                                                alert(result.error || "Erro ao atualizar a foto.");
+                                            }
+                                        } else {
+                                            TiraCarregando();
+                                            alert("Alterações salvas com sucesso! \nFaça Login novamente");
+                                            logout(); // Recarrega as informações no modal
+                                        }
+                                    } catch (error) {
+                                        TiraCarregando();
+                                        console.error("Erro ao enviar a foto:", error);
+                                    }
+                                })
+                                .catch(error => {
+                                    TiraCarregando();
+                                    console.error("Erro ao salvar alterações:", error);
+                                    alert("Erro ao salvar alterações.");
+                                });
+                        } else {
+                            TiraCarregando();
+                            console.error("Digite uma altura");
+                            alert("Digite uma altura");
+                        }
+                    } else {
+                        TiraCarregando();
+                        console.error("Digite um peso");
+                        alert("Digite um peso");
+                    }
+                } else {
+                    TiraCarregando();
+                    console.error("Escolha um sexo");
+                    alert("Escolha um sexo");
+                }
+            }
+            else {
+                TiraCarregando();
+                console.error("Digite uma idade entre 18 anos e 99 anos");
+                alert("Digite uma idade entre 18 anos e 99 anos");
+            }
+        }
 
         function loadContent() {
             const token = localStorage.getItem("token");

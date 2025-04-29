@@ -1,35 +1,27 @@
 {
   "Files": [
     {
-      "Id": "D:\\projeto\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db",
+      "Id": "C:\\Users\\fonses\\Desktop\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db",
       "PackagePath": "staticwebassets\\App_Data\\teste.db"
     },
     {
-      "Id": "D:\\projeto\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-shm",
-      "PackagePath": "staticwebassets\\App_Data\\teste.db-shm"
-    },
-    {
-      "Id": "D:\\projeto\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-wal",
-      "PackagePath": "staticwebassets\\App_Data\\teste.db-wal"
-    },
-    {
-      "Id": "D:\\projeto\\ProjetoIntegrador\\wwwroot\\NovaPasta\\loader.css",
+      "Id": "C:\\Users\\fonses\\Desktop\\ProjetoIntegrador\\wwwroot\\NovaPasta\\loader.css",
       "PackagePath": "staticwebassets\\NovaPasta\\loader.css"
     },
     {
-      "Id": "D:\\projeto\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.css",
+      "Id": "C:\\Users\\fonses\\Desktop\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.css",
       "PackagePath": "staticwebassets\\css\\virtual-select.min.css"
     },
     {
-      "Id": "D:\\projeto\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.js",
+      "Id": "C:\\Users\\fonses\\Desktop\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.js",
       "PackagePath": "staticwebassets\\css\\virtual-select.min.js"
     },
     {
-      "Id": "D:\\projeto\\ProjetoIntegrador\\wwwroot\\default.png",
+      "Id": "C:\\Users\\fonses\\Desktop\\ProjetoIntegrador\\wwwroot\\default.png",
       "PackagePath": "staticwebassets\\default.png"
     },
     {
-      "Id": "D:\\projeto\\ProjetoIntegrador\\wwwroot\\js\\script.js",
+      "Id": "C:\\Users\\fonses\\Desktop\\ProjetoIntegrador\\wwwroot\\js\\script.js",
       "PackagePath": "staticwebassets\\js\\script.js"
     },
     {

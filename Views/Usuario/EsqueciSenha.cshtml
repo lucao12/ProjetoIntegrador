@@ -132,29 +132,32 @@
                         <div class="mb-3">
                             <label for="email" class="form-label">Email:</label>
                             <input type="email" class="form-control" id="email" name="email"
-                                   placeholder="Digite seu e-mail" required>
+                                placeholder="Digite seu e-mail" required>
                         </div>
 
                         <div class="mb-3" id="codigoContainer" style="display: none;">
                             <label for="codigo" class="form-label">Código:</label>
                             <input type="text" class="form-control" id="codigo" name="codigo"
-                                   placeholder="Digite seu código">
+                                placeholder="Digite seu código">
                         </div>
 
                         <div class="mb-3" id="passwordContainer" style="display: none;">
                             <label for="password" class="form-label">Senha:</label>
                             <div class="input-group">
                                 <input type="password" class="form-control" id="password" name="password"
-                                       placeholder="Digite sua senha" required>
+                                    placeholder="Digite sua senha" required>
                                 <span id="btnVeja" class="input-group-text">
                                     <i id="togglePassword" class="fas fa-eye"></i>
                                 </span>
                             </div>
                         </div>
 
-                        <button id="btnEnviar" type="button" class="btn btn-primary w-100">Enviar</button>
-                        <button id="btnValidar" type="button" class="btn btn-success w-100" style="display: none;">Validar</button>
-                        <button id="btnReset" type="button" class="btn btn-success w-100" style="display: none;">Resetar Senha</button>
+                        <button id="btnEnviar" onclick="marceloTeixeira()" type="button"
+                            class="btn btn-primary w-100">Enviar</button>
+                        <button id="btnValidar" type="button" class="btn btn-success w-100"
+                            style="display: none;">Validar</button>
+                        <button id="btnReset" type="button" class="btn btn-success w-100" style="display: none;">Resetar
+                            Senha</button>
 
                         <div id="error-message" class="alert alert-danger mt-3" style="display: none;"></div>
                     </form>
@@ -178,7 +181,7 @@
         const errorMessage = document.getElementById('error-message');
         const passwordContainer = document.getElementById('passwordContainer'); // pega o container da senha
 
-        btnEnviar.addEventListener('click', async () => {
+        async function marceloTeixeira() {
             const email = emailInput.value.trim();
 
             if (!email) {
@@ -208,7 +211,7 @@
             } catch (error) {
                 showError('Erro de conexão!');
             }
-        });
+        };
 
         btnValidar.addEventListener('click', async () => {
             const email = emailInput.value.trim();
@@ -266,7 +269,7 @@
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ Email: email, Senha:  password })
+                    body: JSON.stringify({ Email: email, Senha: password })
                 });
 
                 if (response.ok) {
