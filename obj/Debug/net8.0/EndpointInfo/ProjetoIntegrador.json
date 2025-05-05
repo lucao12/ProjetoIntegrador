@@ -1483,7 +1483,10 @@
         "type": "object",
         "properties": {
           "sintoma": {
-            "type": "string",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
             "nullable": true
           },
           "dias": {

@@ -1872,13 +1872,14 @@
                                     <!-- VirtualSelect para Sintomas -->
                                     <div class="sintomas-input">
                                         <label for="sintomasSelect">Selecione os Sintomas</label>
-                                        <select id="sintomasSelect" name="sintomas" class="form-select">
-                                            <option value="dor-cabeca">Dor de Cabeça</option>
-                                            <option value="fadiga">Fadiga</option>
-                                            <option value="nausea">Náusea</option>
-                                            <option value="vertigem">Vertigem</option>
-                                            <option value="dificuldade-respiratoria">Dificuldade Respiratória</option>
-                                        </select>
+                                                <div id="sintomasCheckboxes">
+                                                  <label><input type="checkbox" name="sintomas[]" value="dor-cabeca"> Dor de Cabeça</label><br>
+                                                  <label><input type="checkbox" name="sintomas[]" value="fadiga"> Fadiga</label><br>
+                                                  <label><input type="checkbox" name="sintomas[]" value="nausea"> Náusea</label><br>
+                                                  <label><input type="checkbox" name="sintomas[]" value="vertigem"> Vertigem</label><br>
+                                                  <label><input type="checkbox" name="sintomas[]" value="dificuldade-respiratoria"> Dificuldade Respiratória</label>
+                                                </div>
+
                                     </div>
                                     <!-- Checkboxes para os Dias da Semana -->
                                     <div class="dias-semana-input">
@@ -2184,7 +2185,8 @@
         }
         function salvarSintomas(userId) {
             let sintomasSelect = document.getElementById("sintomasSelect");
-            let sintomaSelecionado = sintomasSelect.value;
+                    let checkboxes = document.querySelectorAll('input[name="sintomas[]"]:checked');
+        let selecionados = Array.from(checkboxes).map(cb => cb.value);
 
             // Pegar os dias selecionados
             let diasSelecionados = [];
@@ -2207,7 +2209,7 @@
             }
 
             let dados = {
-                sintoma: sintomaSelecionado,
+                sintoma: selecionados,
                 dias: diasSelecionados
             };
 

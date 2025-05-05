@@ -5,6 +5,14 @@
       "PackagePath": "staticwebassets\\App_Data\\teste.db"
     },
     {
+      "Id": "D:\\projeto\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-shm",
+      "PackagePath": "staticwebassets\\App_Data\\teste.db-shm"
+    },
+    {
+      "Id": "D:\\projeto\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-wal",
+      "PackagePath": "staticwebassets\\App_Data\\teste.db-wal"
+    },
+    {
       "Id": "D:\\projeto\\ProjetoIntegrador\\wwwroot\\NovaPasta\\loader.css",
       "PackagePath": "staticwebassets\\NovaPasta\\loader.css"
     },
