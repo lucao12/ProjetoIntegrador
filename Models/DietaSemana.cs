@@ -8,5 +8,7 @@ namespace ProjetoIntegrador.Models
         public Usuarios Usuario { get; set; }
         public Usuarios Nutricionista { get; set; }
         public ICollection<Dieta> Dietas { get; set; }
+        public double MetaPeso { get; set; } // <- aqui
+
     }
 }

@@ -14,6 +14,7 @@ namespace ProjetoIntegrador.ViewModel
     {
         public int idUsuario { get; set; }
         public List<DietasList> Dietas { get; set; }
-        
+        public double MetaPeso { get; set; } // <- NOVO CAMPO
+
     }
 }

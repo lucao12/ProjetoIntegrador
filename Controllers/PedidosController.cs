@@ -29,8 +29,6 @@ namespace ProjetoIntegrador.Controllers
             {
                 var userId = User.FindFirstValue(ClaimTypes.Email);
 
-
-
                 var usuario = await _context.Usuarios
                     .FirstOrDefaultAsync(u => u.Email == userId);
 

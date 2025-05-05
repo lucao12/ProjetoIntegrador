@@ -145,7 +145,9 @@ namespace ProjetoIntegrador.Controllers
                 {
                     Usuario = usuario,
                     Nutricionista = nutri,
-                    Dietas = DietaList
+                    Dietas = DietaList,
+                    MetaPeso = model.MetaPeso
+
                 };
                 _context.DietaSemana.Add(dieta);
                 await _context.SaveChangesAsync();
@@ -215,6 +217,24 @@ namespace ProjetoIntegrador.Controllers
                 return StatusCode(500, new { error = "Erro interno do servidor!" });
             }
         }
+
+        [Authorize]
+        [HttpGet("/metapeso/{idUsuario}")]
+        public async Task<IActionResult> GetMetaPeso(int idUsuario)
+        {
+            var dietaSemana = await _context.DietaSemana
+                .Where(ds => ds.Usuario.Id == idUsuario)
+                .OrderByDescending(ds => ds.Id) // ou por data, se existir
+                .FirstOrDefaultAsync();
+
+            if (dietaSemana == null)
+            {
+                return NotFound(new { mensagem = "Dieta não encontrada para o usuário." });
+            }
+
+            return Ok(new { metaPeso = dietaSemana.MetaPeso });
+        }
+
 
     }
 }

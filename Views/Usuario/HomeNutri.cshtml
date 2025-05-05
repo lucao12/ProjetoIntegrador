@@ -1524,7 +1524,8 @@
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                        <button type="button" class="btn btn-danger" onclick="CopiarLayoutParaTodos()">Copiar Layout para Todos</button>
+                        <button type="button" class="btn btn-danger" onclick="CopiarLayoutParaTodos()">Copiar dieta para
+                            todos</button>
                         <button class="btn btn-primary" onclick="EnviaDieta()">Enviar Dieta</button>
                     </div>
 
@@ -1589,12 +1590,13 @@
         }
 
         function CarregaGrafico(idUsuario) {
-            const token = localStorage.getItem("token"); // Obtém o token armazenado
+            const token = localStorage.getItem("token");
             if (!token) {
                 alert("Erro: Token não encontrado.");
                 return;
             }
 
+            // 1º fetch: Dados de peso por semana
             fetch(`/pesoSemana/${idUsuario}`, {
                 method: "GET",
                 headers: {
@@ -1603,10 +1605,10 @@
                 }
             })
                 .then(response => {
-                    if (!response.ok) throw new Error("Erro ao buscar os dados");
+                    if (!response.ok) throw new Error("Erro ao buscar os dados de peso");
                     return response.json();
                 })
-                .then(data => {
+                .then(async data => {
                     if (data.length === 0) {
                         alert("Nenhum dado de peso encontrado.");
                         const modalBody2 = document.querySelector("#modalGrafico .modal-body");
@@ -1614,31 +1616,73 @@
                         return;
                     }
 
-                    // Ordena os dados pela data (mais recente primeiro)
-                    data.sort((a, b) => new Date(b.dataAlteracao) - new Date(a.dataAlteracao));
+                    // Ordena os dados por data (mais recente por último)
+                    data.sort((a, b) => new Date(a.dataAlteracao) - new Date(b.dataAlteracao));
 
-                    // Processa os dados para o gráfico
                     const labels = data.map(item => new Date(item.dataAlteracao).toLocaleDateString());
                     const pesos = data.map(item => item.peso);
 
+                    // Última data para calcular a meta
+                    const ultimaData = new Date(data[data.length - 1].dataAlteracao);
+                    const dataMeta = new Date(ultimaData);
+                    dataMeta.setDate(ultimaData.getDate() + 7); // adiciona 7 dias
+
+                    // Formata data para exibição no eixo X
+                    const labelMeta = dataMeta.toLocaleDateString();
+
+                    // 🔵 Busca a meta de peso
+                    let metaPeso = null;
+                    try {
+                        const metaResponse = await fetch(`/metapeso/${idUsuario}`, {
+                            method: "GET",
+                            headers: {
+                                "Authorization": `Bearer ${token}`,
+                                "Content-Type": "application/json"
+                            }
+                        });
+
+                        if (metaResponse.ok) {
+                            const metaData = await metaResponse.json();
+                            metaPeso = metaData.metaPeso;
+                        }
+                    } catch (error) {
+                        console.warn("Erro ao buscar meta de peso:", error);
+                    }
+
                     // Insere o gráfico no modal
                     const modalBody = document.querySelector("#modalGrafico .modal-body");
-                    modalBody.innerHTML = "";
-                    modalBody.innerHTML = '<canvas id="graficoPeso"></canvas>'; // Reseta o conteúdo
+                    modalBody.innerHTML = '<canvas id="graficoPeso"></canvas>';
 
                     const ctx = document.getElementById("graficoPeso").getContext("2d");
+
+                    const datasets = [{
+                        label: "Peso (kg)",
+                        data: pesos,
+                        borderColor: "blue",
+                        borderWidth: 2,
+                        fill: false
+                    }];
+
+                    // 🎯 Adiciona a bolinha da meta, se ela existir
+                    if (metaPeso !== null) {
+                        labels.push(labelMeta);
+                        datasets.push({
+                            label: "Meta (projeção)",
+                            data: Array(pesos.length).fill(null).concat([metaPeso]),
+                            backgroundColor: "red",
+                            borderColor: "red",
+                            borderWidth: 0,
+                            pointRadius: 6,
+                            pointStyle: 'circle',
+                            showLine: false
+                        });
+                    }
 
                     new Chart(ctx, {
                         type: "line",
                         data: {
-                            labels: labels.reverse(), // Datas no eixo X
-                            datasets: [{
-                                label: "Peso (kg)",
-                                data: pesos.reverse(), // Pesos no eixo Y
-                                borderColor: "blue",
-                                borderWidth: 2,
-                                fill: false
-                            }]
+                            labels: labels,
+                            datasets: datasets
                         },
                         options: {
                             responsive: true,
@@ -1649,14 +1693,12 @@
                             }
                         }
                     });
-
-
                 })
-                .catch(error => {
-                    console.error("Erro:", error);
-                    alert("Erro ao carregar o gráfico.");
-                });
 
+                .catch(error => {
+                    console.error("Erro ao buscar meta:", error);
+                    alert("Erro ao carregar a meta de peso.");
+                });
         }
 
         $(document).ready(function () {
@@ -2166,24 +2208,16 @@
                     var ids = [];
                     var valor = [];
                     vsOrigem.value.forEach(alimentos => {
-                        ids.push(alimentos);     
+                        ids.push(alimentos);
                         valor.push(vsOrigem.querySelector(`input[name="quantidade-${alimentos}"]`).value);
                     });
                     vsDestino.setValue(ids);
-                    recriarLabels(ids,document.getElementById(idDestino),valor);
+                    recriarLabels(ids, document.getElementById(idDestino), valor);
                 });
             });
 
             alert("Alimentos copiados para todos os dias com sucesso!");
         }
-
-
-
-
-
-
-
-
 
         function CarregaDietasSelect(idUser) {
             localStorage.setItem('idUsuario', idUser);
@@ -2241,7 +2275,16 @@
                 layoutSelectDiv.setAttribute("data-search", "true");
                 layoutSelectDiv.setAttribute("data-silent-initial-value-set", "true");
 
+                const metaDiv = document.createElement("input");
+                metaDiv.id = `input-metaPeso`;
+                metaDiv.setAttribute("name", "native-select");
+                metaDiv.setAttribute("placeholder", "Digite a meta estimada");
+                metaDiv.setAttribute("data-search", "true");
+                metaDiv.setAttribute("data-silent-initial-value-set", "true");
+
+                layoutContainer.appendChild(metaDiv);
                 layoutContainer.appendChild(layoutSelectDiv);
+
                 tabPane.appendChild(layoutContainer);
 
                 const refeicoes = ["cafe", "almoco", "cafedt", "janta"];
@@ -2931,7 +2974,7 @@
                 .catch(error => console.error("Erro ao carregar alimentos:", error));
         }
 
-        function recriarLabels(alimentosSelecionados, containerId,valor = null) {
+        function recriarLabels(alimentosSelecionados, containerId, valor = null) {
             const token = localStorage.getItem("token");
             const container = containerId;
 
@@ -2984,7 +3027,7 @@
                         input.type = "number";
                         input.name = `quantidade-${alimento.id}`;
                         input.placeholder = `Quantidade de ${alimento.nome} em gramas ou ml`;
-                        if(valor[id] !== null){
+                        if (valor[id] !== null) {
                             input.value = valor[id];
                         }
                         input.classList.add("form-control", "mb-2");
@@ -3240,7 +3283,8 @@
 
             const sendDieta = {
                 idUsuario: localStorage.getItem('idUsuario'),
-                Dietas: dietaList
+                Dietas: dietaList,
+                MetaPeso: document.getElementById('input-metaPeso').value,
             };
 
             try {

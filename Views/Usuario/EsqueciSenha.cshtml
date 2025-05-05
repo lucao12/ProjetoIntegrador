@@ -171,6 +171,25 @@
     </div>
 
     <script>
+
+        function togglePasswordVisibility(inputId, iconId) {
+            const passwordField = document.getElementById(inputId);
+            const icon = document.getElementById(iconId);
+
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                icon.classList.remove("fa-eye");
+                icon.classList.add("fa-eye-slash");
+            } else {
+                passwordField.type = "password";
+                icon.classList.remove("fa-eye-slash");
+                icon.classList.add("fa-eye");
+            }
+        }
+
+        document.getElementById("btnVeja").addEventListener("click", function () {
+            togglePasswordVisibility("password", "togglePassword");
+        });
         const btnEnviar = document.getElementById('btnEnviar');
         const btnValidar = document.getElementById('btnValidar');
         const btnReset = document.getElementById('btnReset');

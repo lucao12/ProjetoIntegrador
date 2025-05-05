@@ -10,6 +10,7 @@ namespace ProjetoIntegrador.Data
         {
         }
 
+        public DbSet<Sintoma> Sintomas { get; set; }
         public DbSet<Usuarios> Usuarios { get; set; }
         public DbSet<Alimento> Alimentos { get; set; }
         public DbSet<AlimentoUsuario> AlimentosUsuarios { get; set; }

@@ -876,23 +876,59 @@
             color: #333;
         }
 
-        .card {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
         .dark-mode .card p {
             color: rgba(255, 255, 255, 0.685);
         }
 
+        .card {
+            max-width: 600px;
+            margin: 30px auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            transition: transform 0.3s ease;
+            border: none;
+        }
+
+        .card:hover {
+            transform: scale(1.02);
+        }
+
+        .card h2 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            text-align: center;
+        }
+
         .card p {
-            margin: 8px 0;
-            font-size: 16px;
-            color: #666;
+            font-size: 1rem;
+            color: #555;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .card a.btn {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+            background-color: #e1306c;
+            color: white;
+            font-weight: bold;
+            border: none;
+        }
+
+        .card a.btn:hover {
+            background-color: #c7205e;
+        }
+
+        .card button {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            transition: all 0.3s;
         }
 
         #insta {
@@ -1259,8 +1295,8 @@
         <div class="mb-4" style="text-align: center;">
             <button class="btn btn-outline-dark" data-bs-toggle="modal"
                 data-bs-target="#settingsModal">Configurações</button>
-            <button class="btn btn-outline-dark" data-bs-toggle="modal"
-                data-bs-target="#modalSemanal">SemanaModal</button>
+            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#modalSemanal"
+                style="display: none;">SemanaModal</button>
             <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#modalAlimentos">Alimentos
                 Alergicos</button>
             <button class="btn btn-danger ms-2" onclick="logout()">Logout</button>
@@ -1773,8 +1809,7 @@
 
 
         function cardNutricionista(nutricionista) {
-
-            const contentDiv = document.getElementById("content");
+                    const contentDiv = document.getElementById("content");
             contentDiv.innerHTML =
                 `<div class="card">
                     <h2>${nutricionista.nome}</h2>
@@ -1786,14 +1821,17 @@
 
                     <p>${nutricionista.email}</p>
                     <p>Iremos começar sua avaliação</p>
-                    <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#ChatModal">
-                        Chat com o ${nutricionista.nome}
-                    </button>
-
-                     <button  id="abrirDieta" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#modalDieta">
-                        Abrir Dieta
-                    </button>
-
+                    <div class="d-flex gap-2 flex-wrap mt-3">
+                        <button class="btn btn-outline-dark flex-grow-1">
+                            Chat com o ${nutricionista.nome}
+                        </button>
+                        <button id="abrirDieta" class="btn btn-outline-dark flex-grow-1">
+                            Abrir Dieta
+                        </button>
+                        <button class="btn btn-outline-primary flex-grow-1" data-bs-toggle="modal" data-bs-target="#modalSintomas">
+                            Registrar Sintomas
+                        </button>
+                    </div>
 
                     <!-- Modal do Chat -->
                     <div class="modal fade" id="ChatModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
@@ -1818,8 +1856,93 @@
                             </div>
                         </div>
                     </div>
+
+
+                </div>
+                <!--Modal Sintomas -->
+                <div class="modal fade" id="modalSintomas" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="settingsModalLabel">Sintomas</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div id="SintomasContainer">
+                                    <!-- VirtualSelect para Sintomas -->
+                                    <div class="sintomas-input">
+                                        <label for="sintomasSelect">Selecione os Sintomas</label>
+                                        <select id="sintomasSelect" name="sintomas" class="form-select">
+                                            <option value="dor-cabeca">Dor de Cabeça</option>
+                                            <option value="fadiga">Fadiga</option>
+                                            <option value="nausea">Náusea</option>
+                                            <option value="vertigem">Vertigem</option>
+                                            <option value="dificuldade-respiratoria">Dificuldade Respiratória</option>
+                                        </select>
+                                    </div>
+                                    <!-- Checkboxes para os Dias da Semana -->
+                                    <div class="dias-semana-input">
+                                        <label><strong>Selecione os dias da semana:</strong></label>
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="segunda" id="diaSegunda">
+                                                    <label class="form-check-label" for="diaSegunda">Segunda</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="terca" id="diaTerca">
+                                                    <label class="form-check-label" for="diaTerca">Terça</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="quarta" id="diaQuarta">
+                                                    <label class="form-check-label" for="diaQuarta">Quarta</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="quinta" id="diaQuinta">
+                                                    <label class="form-check-label" for="diaQuinta">Quinta</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="sexta" id="diaSexta">
+                                                    <label class="form-check-label" for="diaSexta">Sexta</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="sabado" id="diaSabado">
+                                                    <label class="form-check-label" for="diaSabado">Sábado</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="domingo" id="diaDomingo">
+                                                    <label class="form-check-label" for="diaDomingo">Domingo</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                <button type="button" class="btn btn-primary" id="btnSalvarSintomas" onclick="salvarSintomas(${nutricionista.id})">Salvar</button>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
                  `;
+
+
+
+
             document.getElementById("ChatModal").addEventListener("shown.bs.modal", function () {
                 const nutricionistaId = nutricionista.id;
                 cronJob = setInterval(() => fetchMensagens(nutricionistaId), 1000);
@@ -2058,6 +2181,57 @@
                     cronJob = null;
                 }
             });
+        }
+        function salvarSintomas(userId) {
+            let sintomasSelect = document.getElementById("sintomasSelect");
+            let sintomaSelecionado = sintomasSelect.value;
+
+            // Pegar os dias selecionados
+            let diasSelecionados = [];
+            let dias = document.querySelectorAll(".form-check-input:checked");
+            dias.forEach(dia => {
+                diasSelecionados.push(dia.value);
+            });
+
+            let token = localStorage.getItem('token');
+
+            if (!token) {
+                alert("Você precisa estar logado para salvar os sintomas.");
+                return;
+            }
+
+            if (!userId) {
+                alert("ID do usuário não encontrado.");
+                return;
+            }
+
+            let dados = {
+                sintoma: sintomaSelecionado,
+                dias: diasSelecionados
+            };
+
+            fetch(`/salvarSintomas/${userId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify(dados)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert("Sintomas salvos com sucesso!");
+                        // Fechar o modal após salvar
+                        $('#modalSintomas').modal('hide');
+                    } else {
+                        alert("Houve um erro ao salvar os sintomas.");
+                    }
+                })
+                .catch(error => {
+                    console.error("Erro ao salvar os sintomas:", error);
+                    alert("Erro ao salvar os sintomas.");
+                });
         }
 
         async function fetchMensagens(nutricionistaId) {

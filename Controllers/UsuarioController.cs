@@ -388,7 +388,7 @@ namespace ProjetoIntegrador.Controllers
 
                 var pesos = await _context.HistoricoPesoAltura.Where(x => x.UsuarioId == id).ToListAsync();
 
-                if(pesos.Count == 0)
+                if (pesos.Count == 0)
                 {
                     BadRequest(new { error = "usuário não possui histórico!" });
                 }
@@ -836,7 +836,7 @@ namespace ProjetoIntegrador.Controllers
                     return BadRequest(new { error = "Usuário não cadastrado!" });
                 }
 
-                var existe = await _context.Codigos.FirstOrDefaultAsync(x => x.User.Email.ToLower() == model.Email.ToLower() && 
+                var existe = await _context.Codigos.FirstOrDefaultAsync(x => x.User.Email.ToLower() == model.Email.ToLower() &&
                 x.Codigo == model.Codigo);
 
                 if (existe == null)
@@ -890,6 +890,37 @@ namespace ProjetoIntegrador.Controllers
             {
                 return StatusCode(500, new { error = "Erro interno do servidor!" });
             }
+        }
+
+        [HttpPost("salvarSintomas/{id}")]
+        [Authorize]
+        public async Task<IActionResult> SalvarSintomas([FromRoute] int id, [FromBody] SintomaViewModel model)
+        {
+            // Validar o ID do usuário no token JWT
+
+            var user = await _context.Usuarios.FirstOrDefaultAsync(x => x.Id == id);
+
+                if (user == null)
+                {
+                    return BadRequest(new
+                    {
+                        error = "Usuário não encontrado!"
+                    });
+                }
+
+            // Criar o objeto Sintoma
+            var sintoma = new Sintoma
+            {
+                UsuarioId = id,
+                SintomaDescricao = model.SintomaDescricao,
+                Dias = model.Dias,
+            };
+
+            // Adicionar ao banco de dados
+            _context.Sintomas.Add(sintoma);
+            await _context.SaveChangesAsync();
+
+            return Ok(new { success = true, message = "Sintomas salvos com sucesso!" });
         }
     }
 }
