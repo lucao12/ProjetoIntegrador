@@ -1524,6 +1524,7 @@
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-danger" onclick="CopiarLayoutParaTodos()">Copiar Layout para Todos</button>
                         <button class="btn btn-primary" onclick="EnviaDieta()">Enviar Dieta</button>
                     </div>
 
@@ -1576,6 +1577,7 @@
     </div>
 
     <script>
+        const virtualSelectInstances = {};
 
         let layoutsNutri = [];
         function ColocaCarregando() {
@@ -2132,6 +2134,57 @@
                 alert("Digite uma idade entre 18 anos e 99 anos");
             }
         }
+
+
+        function getVirtualSelectById(id) {
+            const el = document.getElementById(id);
+            if (!el) return null;
+            return el;
+        }
+
+        function CopiarLayoutParaTodos() {
+            const diasSemana = ["segunda", "terca", "quarta", "quinta", "sexta", "sabado", "domingo"];
+            const refeicoes = ["cafe", "almoco", "cafedt", "janta"];
+
+            const abaAtiva = document.querySelector(".nav-link.active");
+            if (!abaAtiva) return;
+
+            const idAbaAtiva = abaAtiva.getAttribute("href").replace("#tab-", "");
+            const indexAbaAtiva = diasSemana.indexOf(idAbaAtiva);
+
+            diasSemana.forEach((dia, idx) => {
+                if (dia === idAbaAtiva) return;
+
+                refeicoes.forEach(async (ref) => {
+                    const idOrigem = `virtual-${ref.toLowerCase()}${indexAbaAtiva}`;
+                    const idDestino = `virtual-${ref.toLowerCase()}${idx}`;
+
+                    const vsOrigem = getVirtualSelectById(idOrigem);
+                    const vsDestino = getVirtualSelectById(idDestino);
+
+                    if (!vsOrigem || !vsDestino) return;
+                    var ids = [];
+                    var valor = [];
+                    vsOrigem.value.forEach(alimentos => {
+                        ids.push(alimentos);     
+                        valor.push(vsOrigem.querySelector(`input[name="quantidade-${alimentos}"]`).value);
+                    });
+                    vsDestino.setValue(ids);
+                    recriarLabels(ids,document.getElementById(idDestino),valor);
+                });
+            });
+
+            alert("Alimentos copiados para todos os dias com sucesso!");
+        }
+
+
+
+
+
+
+
+
+
         function CarregaDietasSelect(idUser) {
             localStorage.setItem('idUsuario', idUser);
             const diasSemana = [
@@ -2210,7 +2263,7 @@
 
                 tabContent.appendChild(tabPane);
 
-                VirtualSelect.init({
+                virtualSelectInstances[dia.id] = VirtualSelect.init({
                     ele: `#select-layout-${dia.id}`,
                     options: layoutsNutri.map(layout => ({
                         label: layout.name,
@@ -2219,7 +2272,7 @@
                     search: true,
                     placeholder: "Escolha um layout...",
                     noOptionsText: "Nenhum layout encontrado",
-                    searchPlaceholderText: "Buscar layout...",
+                    searchPlaceholderText: "Buscar layout..."
                 });
 
                 document.querySelector(`#select-layout-${dia.id}`).addEventListener('change', function () {
@@ -2878,7 +2931,7 @@
                 .catch(error => console.error("Erro ao carregar alimentos:", error));
         }
 
-        function recriarLabels(alimentosSelecionados, containerId) {
+        function recriarLabels(alimentosSelecionados, containerId,valor = null) {
             const token = localStorage.getItem("token");
             const container = containerId;
 
@@ -2904,7 +2957,7 @@
             // Impede processamento se não houver alimentos
             if (!alimentosSelecionados || alimentosSelecionados.length === 0) return;
 
-            alimentosSelecionados.forEach(alimentoId => {
+            alimentosSelecionados.forEach((alimentoId, id) => {
                 fetch(`/alimentos/getAlimentosid/${alimentoId}`, {
                     method: "GET",
                     headers: {
@@ -2931,6 +2984,9 @@
                         input.type = "number";
                         input.name = `quantidade-${alimento.id}`;
                         input.placeholder = `Quantidade de ${alimento.nome} em gramas ou ml`;
+                        if(valor[id] !== null){
+                            input.value = valor[id];
+                        }
                         input.classList.add("form-control", "mb-2");
 
                         const alimentoContainer = document.createElement("div");
