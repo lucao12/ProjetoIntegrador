@@ -47,6 +47,11 @@ namespace ProjetoIntegrador.Data
                 .WithMany() // Um usuário pode ter vários registros de histórico
                 .HasForeignKey(h => h.UsuarioId)
                 .OnDelete(DeleteBehavior.Cascade); // Se o usuário for deletado, os históricos também serão deletados
+
+            modelBuilder.Entity<Sintoma>()
+            .Property(s => s.Id)
+            .ValueGeneratedOnAdd();
+
         }
     }
 }

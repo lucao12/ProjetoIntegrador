@@ -1,6 +1,6 @@
 public class SintomaViewModel
 {
-    public string SintomaDescricao { get; set; }
-    public List<string> Dias { get; set; }
+    public string sintoma { get; set; }
+    public List<string> dias { get; set; }
 
 }

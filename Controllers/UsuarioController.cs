@@ -912,8 +912,8 @@ namespace ProjetoIntegrador.Controllers
             var sintoma = new Sintoma
             {
                 UsuarioId = id,
-                SintomaDescricao = model.SintomaDescricao,
-                Dias = model.Dias,
+                SintomaDescricao = model.sintoma,
+                Dias = model.dias,
             };
 
             // Adicionar ao banco de dados
@@ -921,6 +921,28 @@ namespace ProjetoIntegrador.Controllers
             await _context.SaveChangesAsync();
 
             return Ok(new { success = true, message = "Sintomas salvos com sucesso!" });
+        }
+
+        [HttpGet("pegarSintomas/{id}")]
+        [Authorize]
+        public async Task<IActionResult> pegarSintomas([FromRoute] int id)
+        {
+            // Validar o ID do usuário no token JWT
+
+            var user = await _context.Usuarios.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (user == null)
+            {
+                return BadRequest(new
+                {
+                    error = "Usuário não encontrado!"
+                });
+            }
+
+            // Criar o objeto Sintoma
+            var listSintomas = await _context.Sintomas.Where(x => x.UsuarioId == user.Id).ToListAsync();
+
+            return Ok(listSintomas);
         }
     }
 }

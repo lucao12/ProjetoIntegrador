@@ -168,6 +168,29 @@
         }
       }
     },
+    "/metapeso/{idUsuario}": {
+      "get": {
+        "tags": [
+          "Dieta"
+        ],
+        "parameters": [
+          {
+            "name": "idUsuario",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/EnviaEmail": {
       "post": {
         "tags": [
@@ -1045,6 +1068,71 @@
         }
       }
     },
+    "/salvarSintomas/{id}": {
+      "post": {
+        "tags": [
+          "Usuario"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SintomaViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SintomaViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SintomaViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/pegarSintomas/{id}": {
+      "get": {
+        "tags": [
+          "Usuario"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/cadastro": {
       "get": {
         "tags": [
@@ -1193,6 +1281,10 @@
               "$ref": "#/components/schemas/DietasList"
             },
             "nullable": true
+          },
+          "metaPeso": {
+            "type": "number",
+            "format": "double"
           }
         },
         "additionalProperties": false
@@ -1378,6 +1470,23 @@
         "type": "object",
         "properties": {
           "ingrediente": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SintomaViewModel": {
+        "type": "object",
+        "properties": {
+          "sintoma": {
+            "type": "string",
+            "nullable": true
+          },
+          "dias": {
             "type": "array",
             "items": {
               "type": "string"

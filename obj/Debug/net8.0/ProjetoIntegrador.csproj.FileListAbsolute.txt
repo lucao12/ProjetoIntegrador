@@ -3849,7 +3849,6 @@ C:\Users\felipefonseca\Desktop\ProjetoIntegrador-main\obj\Debug\net8.0\refint\Pr
 C:\Users\felipefonseca\Desktop\ProjetoIntegrador-main\obj\Debug\net8.0\ProjetoIntegrador.pdb
 C:\Users\felipefonseca\Desktop\ProjetoIntegrador-main\obj\Debug\net8.0\ProjetoIntegrador.genruntimeconfig.cache
 C:\Users\felipefonseca\Desktop\ProjetoIntegrador-main\obj\Debug\net8.0\ref\ProjetoIntegrador.dll
-D:\projeto\ProjetoIntegrador\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\fonses\Desktop\ProjetoIntegrador\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
 C:\Users\fonses\Desktop\ProjetoIntegrador\bin\Debug\net8.0\Dapper.dll
 C:\Users\fonses\Desktop\ProjetoIntegrador\bin\Debug\net8.0\Hangfire.AspNetCore.dll
@@ -4082,3 +4081,4 @@ C:\Users\lucca\Documents\projeto\ProjetoIntegrador\obj\Debug\net8.0\refint\Proje
 C:\Users\lucca\Documents\projeto\ProjetoIntegrador\obj\Debug\net8.0\ProjetoIntegrador.pdb
 C:\Users\lucca\Documents\projeto\ProjetoIntegrador\obj\Debug\net8.0\ProjetoIntegrador.genruntimeconfig.cache
 C:\Users\lucca\Documents\projeto\ProjetoIntegrador\obj\Debug\net8.0\ref\ProjetoIntegrador.dll
+D:\projeto\ProjetoIntegrador\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

@@ -346,6 +346,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "ProjetoIntegrador.Controllers.DietaController",
+    "Method": "GetMetaPeso",
+    "RelativePath": "metapeso/{idUsuario}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idUsuario",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "ProjetoIntegrador.Controllers.UsuarioController",
     "Method": "MudaSenhaAsync",
     "RelativePath": "mudasenha",
@@ -365,6 +381,22 @@
     "ContainingType": "ProjetoIntegrador.Controllers.MensagemController",
     "Method": "PegarMensagem",
     "RelativePath": "PegarMensagem/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.UsuarioController",
+    "Method": "pegarSintomas",
+    "RelativePath": "pegarSintomas/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -450,6 +482,27 @@
       {
         "Name": "model",
         "Type": "ProjetoIntegrador.ViewModel.AddIngredientesViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoIntegrador.Controllers.UsuarioController",
+    "Method": "SalvarSintomas",
+    "RelativePath": "salvarSintomas/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "SintomaViewModel",
         "IsRequired": true
       }
     ],

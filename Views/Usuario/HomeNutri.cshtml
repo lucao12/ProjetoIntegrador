@@ -1577,6 +1577,25 @@
         </div>
     </div>
 
+
+    <div class="modal fade" id="modalSintomas" tabindex="-1" aria-labelledby="modalSintomasLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalSintomasLabel">Sintomas do Usuário</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <ul id="listaSintomas" class="list-group"></ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <script>
         const virtualSelectInstances = {};
 
@@ -1842,7 +1861,9 @@
                                         <button class="btn btn-outline-dark btn-chat" data-id="${pedido.usuario.id}" data-bs-toggle="modal" data-bs-target="#ChatModal">Bate-papo</button>
                                         <button class="btn btn-outline-dark btn-enviar-dieta" data-id="${pedido.usuario.id}" data-bs-toggle="modal" data-bs-target="#EnviaDietaModal" onclick="CarregaDietasSelect(${pedido.usuario.id})">Enviar dieta</button>
                                         <button class="btn btn-outline-dark btn-grafico" data-id="${pedido.usuario.id}" data-bs-toggle="modal" data-bs-target="#modalGrafico">Ver gráfico de peso</button>
-                                    </li>
+                                    <button class="btn btn-outline-dark btn-ver-sintomas" data-id="${pedido.usuario.id}" data-bs-toggle="modal" data-bs-target="#modalSintomas">Ver sintomas</button>
+
+                                        </li>
                                 `);
                             });
 
@@ -2602,6 +2623,45 @@
                     toggleButton.innerHTML = '<i class="fas fa-moon"></i>';
                 }
             });
+
+                    document.body.addEventListener('click', async function (event) {
+                    if (event.target.classList.contains('btn-ver-sintomas')) {
+                        const idUser = event.target.getAttribute('data-id');
+                        const token = localStorage.getItem('token'); // ou onde você armazena o JWT
+                        const listaSintomas = document.getElementById('listaSintomas');
+
+                        listaSintomas.innerHTML = '<li class="list-group-item">Carregando...</li>';
+
+                        try {
+                            const response = await fetch(`/pegarSintomas/${idUser}`, {
+                                method: 'GET',
+                                headers: {
+                                    'Authorization': `Bearer ${token}`
+                                }
+                            });
+
+                            const sintomas = await response.json();
+                            listaSintomas.innerHTML = '';
+
+                            if (Array.isArray(sintomas) && sintomas.length > 0) {
+                                sintomas.forEach(s => {
+                                    const dias = s.dias && s.dias.length ? s.dias.join(', ') : 'Nenhum dia informado';
+                                    listaSintomas.innerHTML += `
+                                        <li class="list-group-item">
+                                            <strong>${s.sintomaDescricao}</strong><br>
+                                            <small><em>Dias: ${dias}</em></small>
+                                        </li>
+                                    `;
+                                });
+                            } else {
+                                listaSintomas.innerHTML = '<li class="list-group-item">Nenhum sintoma encontrado.</li>';
+                            }
+                        } catch (error) {
+                            console.error("Erro ao buscar sintomas:", error);
+                            listaSintomas.innerHTML = '<li class="list-group-item text-danger">Erro ao carregar sintomas.</li>';
+                        }
+                    }
+                });
 
             loadContent();
             carregarLayouts();
