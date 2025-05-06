@@ -12,47 +12,11 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>wg9pcoaieg</Fingerprint>
-      <Integrity>MAiad0a07rgwvd62Fq7B/T+H/wopwqF8f9JrYB7aTaA=</Integrity>
+      <Fingerprint>sm9zlnb517</Fingerprint>
+      <Integrity>hPzRRqtfWvkm/39WzHgiVjbOkFES0TVbP01SfAJ1I4Y=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Data\teste.db'))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Data\teste.db-shm'))">
-      <SourceType>Package</SourceType>
-      <SourceId>ProjetoIntegrador</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/ProjetoIntegrador</BasePath>
-      <RelativePath>App_Data/teste.db-shm</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>kjppc4nsnv</Fingerprint>
-      <Integrity>kNmMB3ks4roMlPPfBYkdjjsMk8rXH/5CDYU0gJM2oAE=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Data\teste.db-shm'))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Data\teste.db-wal'))">
-      <SourceType>Package</SourceType>
-      <SourceId>ProjetoIntegrador</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/ProjetoIntegrador</BasePath>
-      <RelativePath>App_Data/teste.db-wal</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>5e5qlf1hne</Fingerprint>
-      <Integrity>M0Ej0i+CXXLEd2DZZaAquTc47g1qKAeOxUGqAKax/J8=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Data\teste.db-wal'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\virtual-select.min.css'))">
       <SourceType>Package</SourceType>
@@ -66,8 +30,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>hyh2dotrp4</Fingerprint>
-      <Integrity>lxuzaQTr+mvMTctjKzexCpEGRctcscRPe7gh89SKmBE=</Integrity>
+      <Fingerprint>c1wrs0ox7n</Fingerprint>
+      <Integrity>8Dbk7ZSoBkBPBvK//2532E7rg0fhkI1sUnW8d3QJiqQ=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\virtual-select.min.css'))</OriginalItemSpec>
@@ -84,8 +48,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>8vgn74yz30</Fingerprint>
-      <Integrity>JIxUy4drsQs/IwdyZ5lbc0k7hCA5rbhq1xS0AYkguc4=</Integrity>
+      <Fingerprint>x7dxofce8n</Fingerprint>
+      <Integrity>00pRfllYnwXyiBOgv9Ff7rOZDzgfdfAKn/pN2rDK9lU=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\virtual-select.min.js'))</OriginalItemSpec>
@@ -120,8 +84,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>exvrtjijx8</Fingerprint>
-      <Integrity>nty7bakO8SyKU7CaI19BIDEklgNb1xiBOP+RpjCAIm0=</Integrity>
+      <Fingerprint>hporv6i3i0</Fingerprint>
+      <Integrity>KxMmI8qbbUPShcbQMsSMIVGrXpO08MPDfKHTYnpDJwA=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\script.js'))</OriginalItemSpec>
@@ -138,8 +102,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>51mxwi15a7</Fingerprint>
-      <Integrity>Nxo4ke4NMmTkLdznI8d/iapt2x+/91J2Do8ZDdHhYqw=</Integrity>
+      <Fingerprint>x5jgnipgk5</Fingerprint>
+      <Integrity>+6vyAPgZRWfy7aXdNSKTNDZ0F5lXuPPddKIeq1eLp5o=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\NovaPasta\loader.css'))</OriginalItemSpec>

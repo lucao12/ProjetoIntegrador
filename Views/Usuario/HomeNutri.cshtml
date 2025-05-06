@@ -840,9 +840,18 @@
         }
     </style>
     <style>
+        :root {
+            --bg-light: #f4f4f4;
+            --bg-white: #ffffff;
+            --text-dark: #333;
+            --text-muted: #666;
+            --border-light: #e0e0e0;
+            --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: var(--bg-light);
             display: flex;
             justify-content: center;
             align-items: flex-start;
@@ -850,6 +859,11 @@
             margin: 0;
             position: relative;
             transition: background-color 0.3s, color 0.3s;
+        }
+
+        h1,
+        h3 {
+            color: #343a40;
         }
 
         .container {
@@ -861,10 +875,7 @@
 
         .overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             background: rgba(0, 0, 0, 0.5);
             display: flex;
             justify-content: center;
@@ -882,62 +893,34 @@
         }
 
         @@keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
+            to {
                 transform: rotate(360deg);
             }
         }
 
-
-        h1,
-        h3 {
-            color: #343a40;
-        }
-
-        .list-group {
+        .list-group,
+        #listPedidosAceitos {
             overflow-y: auto;
             margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            padding: 0;
+            list-style: none;
         }
 
-        .list-group-item {
+        .list-group-item,
+        .list-group-sintomas {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 10px;
             padding: 16px 20px;
             margin-bottom: 12px;
-            border: 1px solid #e0e0e0;
+            border: 1px solid var(--border-light);
             border-radius: 10px;
-            background-color: #ffffff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-        }
-
-        .user-info {
-            flex: 1 1 250px;
-            display: flex;
-            flex-direction: column;
-            font-size: 16px;
-            color: #333;
-            font-weight: 500;
-            margin-bottom: 10px;
-        }
-
-        .user-info .nome {
-            font-weight: bold;
-        }
-
-        .user-info .email {
-            font-size: 14px;
-            color: #666;
-            margin-top: 4px;
-        }
-
-        .list-group-item .idUser {
-            display: none;
+            background-color: var(--bg-white);
+            box-shadow: var(--box-shadow);
         }
 
         .list-group-item>button {
@@ -949,32 +932,74 @@
             white-space: nowrap;
         }
 
-        .list-group-item>button:hover {
+        .list-group-item>button:hover,
+        #listPedidosAceitos li:hover {
             background-color: #f0f0f0;
         }
 
-        /* Para manter o nome e e-mail à esquerda */
-        .list-group-item::before {
-            content: attr(data-user);
-            flex: 1 1 100%;
-            font-weight: 500;
-            color: #333;
-            margin-bottom: 8px;
+        .list-group-item .idUser {
+            display: none;
         }
 
-        /* OU se você quer que o texto de nome/email apareça separado e estilizado: */
+        .list-group-item::before,
         .list-group-item span {
             flex: 1 1 100%;
             font-weight: 500;
-            color: #333;
-            margin-bottom: 5px;
+            color: var(--text-dark);
+            margin-bottom: 8px;
         }
 
+        .user-info {
+            flex: 1 1 250px;
+            display: flex;
+            flex-direction: column;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
 
+        .user-info .nome {
+            font-weight: bold;
+        }
 
-        #listPedidosAceitos {
-            list-style-type: none;
-            padding: 0;
+        .user-info .email {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        #listPedidosAceitos li {
+            flex: 0 0 calc(33.33% - 16px);
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        #pedidosAceitos {
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #pedidosAceitos h3 {
+            margin-top: 0;
+            color: #333;
+            font-size: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 8px;
+        }
+
+        .no-pedidos {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #6c757d;
+            font-style: italic;
+            padding: 10px 0;
         }
 
         .chat-input {
@@ -993,7 +1018,7 @@
             border-radius: 8px;
             font-size: 1em;
             outline: none;
-            transition: border-color 0.3s ease;
+            transition: border-color 0.3s;
         }
 
         .chat-input input:focus {
@@ -1008,7 +1033,7 @@
             border-radius: 8px;
             font-size: 1em;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s;
         }
 
         .chat-input button:hover {
@@ -1032,12 +1057,6 @@
             color: #d9534f;
         }
 
-        .no-pedidos {
-            text-align: center;
-            font-size: 1.2rem;
-            color: #6c757d;
-        }
-
         .button-container {
             position: absolute;
             top: 20px;
@@ -1048,41 +1067,7 @@
         }
 
         .btn {
-            max-width: 200px;
-        }
-
-
-        /* Modo Noturno */
-        body.dark-mode {
-            background-color: #121212;
-            color: white;
-        }
-
-        .dark-mode .card,
-        .dark-mode .list-group-item,
-        .dark-mode .modal-content,
-        .dark-mode .modal-header,
-        .dark-mode .modal-body,
-        .dark-mode .modal-footer,
-        .dark-mode .form-control,
-        .dark-mode .form-select,
-        .dark-mode .btn-configura-perfil {
-            background-color: #333;
-            color: white;
-            border: 1px solid #555;
-        }
-
-        .dark-mode .form-control::placeholder {
-            color: #bbb;
-        }
-
-        .dark-mode .btn-primary {
-            background-color: #007bff;
-            border: none;
-        }
-
-        .dark-mode .btn-primary:hover {
-            background-color: #0056b3;
+            max-width: 100%;
         }
 
         .btn-dark-mode {
@@ -1134,138 +1119,156 @@
             display: block;
             margin-bottom: 5px;
             font-size: 0.9em;
-            color: inherit;
+        }
+
+        /* Estilo geral do modal */
+        #modalDetalhesLayout .modal-content {
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Título do modal */
+        #modalDetalhesLayout .modal-title {
+            font-weight: 600;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        /* Corpo do modal */
+        #modalDetalhesLayout .modal-body {
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        /* Cada bloco de refeição */
+        #modalDetalhesLayout .refeicao {
+            margin-bottom: 16px;
+            padding: 12px 16px;
+            background-color: #fff;
+            border-left: 4px solid #007bff;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Título da refeição */
+        #modalDetalhesLayout .refeicao h6 {
+            margin: 0 0 8px;
+            font-size: 1.1rem;
+            color: #007bff;
+        }
+
+        /* Conteúdo da refeição */
+        #modalDetalhesLayout .refeicao p {
+            margin: 0;
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        /* Rodapé do modal */
+        #modalDetalhesLayout .modal-footer {
+            background-color: #f1f1f1;
+            border-top: 1px solid #ddd;
         }
 
         .alimento-container {
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            background-color: #f9f9f9;
+            gap: 12px;
+            margin-bottom: 12px;
         }
 
-        .alimento-container input {
+        .input-metaPeso {
             flex: 1;
-            padding: 5px;
+            padding: 6px 10px;
             border: 1px solid #ccc;
-            border-radius: 3px;
-            font-size: 14px;
-        }
-
-        .alimento-container input:focus {
-            border-color: #007bff;
-            outline: none;
-            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+            border-radius: 4px;
         }
 
         .alimento-container label {
-            font-size: 14px;
-            font-weight: bold;
-            color: #333;
+            min-width: 100px;
+            font-weight: 500;
         }
 
-        .alimento-container .remove-button {
-            background-color: #dc3545;
-            color: #fff;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 3px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-
-        .alimento-container .remove-button:hover {
-            background-color: #c82333;
-        }
-
-        .dark-mode #ChatContainer {
-            background-color: #3b3b3b;
-        }
-
-        .dark-mode #ChatTextForm {
-            background-color: #3b3b3b;
+        .alimento-container input[type="number"] {
+            flex: 1;
+            padding: 6px 10px;
             border: 1px solid #ccc;
-
+            border-radius: 4px;
         }
 
-        .dark-mode h3 {
+
+        /* Modo Noturno */
+        body.dark-mode {
             background-color: #121212;
             color: white;
+        }
+
+        .dark-mode .card,
+        .dark-mode .list-group-item,
+        .dark-mode .list-group-sintomas,
+        .dark-mode .modal-content,
+        .dark-mode .modal-header,
+        .dark-mode .modal-body,
+        .dark-mode .modal-footer,
+        .dark-mode .form-control,
+        .dark-mode .form-select,
+        .dark-mode .btn-configura-perfil {
+            background-color: #333;
+            color: white;
+            border: 1px solid #555;
+        }
+
+        .dark-mode .list-group-sintomas {
+            background-color: #2a2a2a;
+            border-color: #444;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .dark-mode .user-info .nome {
+            color: white;
+        }
+
+        .dark-mode #pedidosAceitos {
+            background-color: #1e1e1e;
+            border-color: #444;
+            color: #e0e0e0;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        .dark-mode #pedidosAceitos h3 {
+            border-bottom: 1px solid #444;
+            color: #fff;
+        }
+
+        .dark-mode #listPedidosAceitos li {
+            background-color: #2a2a2a;
+            border-color: #444;
+            color: #e0e0e0;
+        }
+
+        .dark-mode #listPedidosAceitos li:hover {
+            background-color: #333;
+        }
+
+        .dark-mode .no-pedidos {
+            color: #aaa;
+        }
+
+        .dark-mode .form-control::placeholder {
+            color: #bbb;
+        }
+
+        .dark-mode .btn-primary {
+            background-color: #007bff;
             border: none;
         }
 
-        .dark-mode .btn-outline-dark {
-            background-color: rgb(97, 97, 97);
-            color: white;
-        }
-
-        .dark-mode .chat-input {
-            background-color: #333;
-        }
-
-        .dark-mode .chat-input input {
-            background-color: #333;
-            color: white;
-        }
-
-        #titulodieta {
-            display: block;
-            font-size: 20px;
-            font-weight: bold;
-            text-align: center;
-            padding: 10px;
-            border-radius: 8px;
-            margin: 10px auto;
-            width: 80%;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .refeicaoclass {
-            display: block;
-            text-align: center;
-            padding: 10px;
-            margin: 10px auto;
-        }
-
-        .modal-body {
-            padding: 20px;
-            background-color: #f9f9f9;
-            color: #333;
-            font-family: Arial, sans-serif;
-        }
-
-        /* Estilo para cada refeição (ajuste se sua função gerarRefeicao usa classes específicas) */
-        .modal-body .refeicao {
-            margin-bottom: 20px;
-            padding: 15px;
-            background-color: #fff;
-            border-left: 5px solid #0d6efd;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Título da refeição */
-        .modal-body .refeicao h6 {
-            margin-top: 0;
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: #0d6efd;
-        }
-
-        /* Lista de itens da refeição */
-        .modal-body .refeicao ul {
-            padding-left: 20px;
-            margin: 10px 0 0;
-        }
-
-        .modal-body .refeicao ul li {
-            margin-bottom: 5px;
+        .dark-mode .btn-primary:hover {
+            background-color: #0056b3;
         }
     </style>
+
 </head>
 
 <body>
@@ -1291,7 +1294,6 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="addAlimentosModalLabel">Adicionar Novo Alimento</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <input type="text" id="inputAlimento" class="form-control"
@@ -1331,7 +1333,6 @@
 
                     <div class="modal-header">
                         <h5 class="modal-title" id="modalLayoutsLabel">Layouts de Dieta Disponíveis</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
 
                     <div class="modal-body">
@@ -1358,7 +1359,6 @@
 
                     <div class="modal-header">
                         <h5 class="modal-title" id="modalNovoLayoutLabel">Adicionar Novo Layout de Dieta</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
 
                     <div class="modal-body">
@@ -1412,7 +1412,6 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="settingsModalLabel">Configurações da Conta</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <form id="settingsForm">
@@ -1469,7 +1468,6 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="settingsModalLabel">Redes Sociais</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <form id="settingsForm">
@@ -1493,13 +1491,13 @@
 
         <div id="pedidosPendentes">
             <h3>Pedidos Pendentes</h3>
-            <ul id="listPedidos" class="list-group"></ul>
+            <ul id="listPedidos"></ul>
             <div id="noPedidosPendentes" class="no-pedidos"></div>
         </div>
 
         <div id="pedidosAceitos">
             <h3>Pedidos Aceitos</h3>
-            <ul id="listPedidosAceitos" class="list-group"></ul>
+            <ul id="listPedidosAceitos"></ul>
             <div id="noPedidosAceitos" class="no-pedidos"></div>
         </div>
 
@@ -1509,7 +1507,6 @@
 
                     <div class="modal-header">
                         <h5 class="modal-title">Selecionar Dietas</h5>
-                        <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
                     </div>
 
                     <div data-usuario-id="">
@@ -1565,7 +1562,6 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modalGrafico">Gráfico de peso</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
 
@@ -1586,7 +1582,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                 </div>
                 <div class="modal-body">
-                    <ul id="listaSintomas" class="list-group"></ul>
+                    <ul id="listaSintomas" class="list-group row"></ul>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -1909,7 +1905,6 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="settingsModalLabel">Chat</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <div id="ChatContainer">
@@ -2531,7 +2526,6 @@
 
                   <div class="modal-header">
                     <h5 class="modal-title" id="modalDetalhesLayoutLabel">${layout.name}</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
 
                   <div class="modal-body">
@@ -2624,44 +2618,44 @@
                 }
             });
 
-                    document.body.addEventListener('click', async function (event) {
-                    if (event.target.classList.contains('btn-ver-sintomas')) {
-                        const idUser = event.target.getAttribute('data-id');
-                        const token = localStorage.getItem('token'); // ou onde você armazena o JWT
-                        const listaSintomas = document.getElementById('listaSintomas');
+            document.body.addEventListener('click', async function (event) {
+                if (event.target.classList.contains('btn-ver-sintomas')) {
+                    const idUser = event.target.getAttribute('data-id');
+                    const token = localStorage.getItem('token'); // ou onde você armazena o JWT
+                    const listaSintomas = document.getElementById('listaSintomas');
 
-                        listaSintomas.innerHTML = '<li class="list-group-item">Carregando...</li>';
+                    listaSintomas.innerHTML = '<li class="list-group-item">Carregando...</li>';
 
-                        try {
-                            const response = await fetch(`/pegarSintomas/${idUser}`, {
-                                method: 'GET',
-                                headers: {
-                                    'Authorization': `Bearer ${token}`
-                                }
-                            });
+                    try {
+                        const response = await fetch(`/pegarSintomas/${idUser}`, {
+                            method: 'GET',
+                            headers: {
+                                'Authorization': `Bearer ${token}`
+                            }
+                        });
 
-                            const sintomas = await response.json();
-                            listaSintomas.innerHTML = '';
+                        const sintomas = await response.json();
+                        listaSintomas.innerHTML = '';
 
-                            if (Array.isArray(sintomas) && sintomas.length > 0) {
-                                sintomas.forEach(s => {
-                                    const dias = s.dias && s.dias.length ? s.dias.join(', ') : 'Nenhum dia informado';
-                                    listaSintomas.innerHTML += `
-                                        <li class="list-group-item">
+                        if (Array.isArray(sintomas) && sintomas.length > 0) {
+                            sintomas.forEach(s => {
+                                const dias = s.dias && s.dias.length ? s.dias.join(', ') : 'Nenhum dia informado';
+                                listaSintomas.innerHTML += `
+                                        <li class=" list-group-sintomas d-flex row">
                                             <strong>${s.sintomaDescricao}</strong><br>
                                             <small><em>Dias: ${dias}</em></small>
                                         </li>
                                     `;
-                                });
-                            } else {
-                                listaSintomas.innerHTML = '<li class="list-group-item">Nenhum sintoma encontrado.</li>';
-                            }
-                        } catch (error) {
-                            console.error("Erro ao buscar sintomas:", error);
-                            listaSintomas.innerHTML = '<li class="list-group-item text-danger">Erro ao carregar sintomas.</li>';
+                            });
+                        } else {
+                            listaSintomas.innerHTML = '<li class="list-group-item">Nenhum sintoma encontrado.</li>';
                         }
+                    } catch (error) {
+                        console.error("Erro ao buscar sintomas:", error);
+                        listaSintomas.innerHTML = '<li class="list-group-item text-danger">Erro ao carregar sintomas.</li>';
                     }
-                });
+                }
+            });
 
             loadContent();
             carregarLayouts();
@@ -3034,7 +3028,7 @@
                 .catch(error => console.error("Erro ao carregar alimentos:", error));
         }
 
-        function recriarLabels(alimentosSelecionados, containerId, valor = null) {
+        function recriarLabels(alimentosSelecionados, containerId, valor) {
             const token = localStorage.getItem("token");
             const container = containerId;
 
@@ -3087,11 +3081,9 @@
                         input.type = "number";
                         input.name = `quantidade-${alimento.id}`;
                         input.placeholder = `Quantidade de ${alimento.nome} em gramas ou ml`;
-                        if (valor[id] !== null) {
+                        if (Array.isArray(valor) && valor[id] != null) {
                             input.value = valor[id];
                         }
-                        input.classList.add("form-control", "mb-2");
-
                         const alimentoContainer = document.createElement("div");
                         alimentoContainer.classList.add("alimento-container", "mb-3");
 
