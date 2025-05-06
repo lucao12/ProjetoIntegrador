@@ -1,32 +1,32 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\felipefonseca\\Desktop\\ProjetoIntegrador-main\\wwwroot\\App_Data\\teste.db",
+      "Id": "C:\\Users\\unisanta\\Desktop\\ProjetoIntegrador-main\\wwwroot\\App_Data\\teste.db",
       "PackagePath": "staticwebassets\\App_Data\\teste.db"
     },
     {
-      "Id": "C:\\Users\\felipefonseca\\Desktop\\ProjetoIntegrador-main\\wwwroot\\NovaPasta\\loader.css",
+      "Id": "C:\\Users\\unisanta\\Desktop\\ProjetoIntegrador-main\\wwwroot\\NovaPasta\\loader.css",
       "PackagePath": "staticwebassets\\NovaPasta\\loader.css"
     },
     {
-      "Id": "C:\\Users\\felipefonseca\\Desktop\\ProjetoIntegrador-main\\wwwroot\\css\\virtual-select.min.css",
+      "Id": "C:\\Users\\unisanta\\Desktop\\ProjetoIntegrador-main\\wwwroot\\css\\virtual-select.min.css",
       "PackagePath": "staticwebassets\\css\\virtual-select.min.css"
     },
     {
-      "Id": "C:\\Users\\felipefonseca\\Desktop\\ProjetoIntegrador-main\\wwwroot\\css\\virtual-select.min.js",
+      "Id": "C:\\Users\\unisanta\\Desktop\\ProjetoIntegrador-main\\wwwroot\\css\\virtual-select.min.js",
       "PackagePath": "staticwebassets\\css\\virtual-select.min.js"
     },
     {
-      "Id": "C:\\Users\\felipefonseca\\Desktop\\ProjetoIntegrador-main\\wwwroot\\default.png",
+      "Id": "C:\\Users\\unisanta\\Desktop\\ProjetoIntegrador-main\\wwwroot\\default.png",
       "PackagePath": "staticwebassets\\default.png"
     },
     {
-      "Id": "C:\\Users\\felipefonseca\\Desktop\\ProjetoIntegrador-main\\wwwroot\\js\\script.js",
+      "Id": "C:\\Users\\unisanta\\Desktop\\ProjetoIntegrador-main\\wwwroot\\js\\script.js",
       "PackagePath": "staticwebassets\\js\\script.js"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.ProjetoIntegrador.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
-      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+      "Id": "C:\\Users\\unisanta\\Desktop\\ProjetoIntegrador-main\\wwwroot\\js\\script2.js",
+      "PackagePath": "staticwebassets\\js\\script2.js"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.ProjetoIntegrador.Microsoft.AspNetCore.StaticWebAssets.props",

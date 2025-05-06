@@ -309,16 +309,16 @@
                             <input type="text" class="form-control" id="nome" required>
                         </div>
                         <div class="mb-3">
-                            <label for="telefoneC" class="form-label">Telefone</label>
-                            <input type="text" class="form-control" id="telefoneC">
+                            <label for="telefone" class="form-label">Telefone</label>
+                            <input type="text" class="form-control" id="telefone">
                         </div>
                         <div class="mb-3">
-                            <label for="emailC" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="emailC" required>
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required>
                         </div>
                         <div class="mb-3">
-                            <label for="senhaC" class="form-label">Senha</label>
-                            <input type="password" class="form-control" id="senhaC">
+                            <label for="senha" class="form-label">Senha</label>
+                            <input type="password" class="form-control" id="senha">
                         </div>
                         <div class="mb-3">
                             <label for="role" class="form-label">Role</label>
@@ -414,7 +414,7 @@
                     document.getElementById("nome").value = user.nome;
                     document.getElementById("telefone").value = user.telefone;
                     document.getElementById("email").value = user.email;
-                    document.getElementById("senha").value = "";
+                    document.getElementById("senha").value = ""; // senha geralmente não é preenchida por segurança
                     document.getElementById("role").value = user.role;
                     new bootstrap.Modal(document.getElementById("cadastroModal")).show();
                 });
@@ -431,9 +431,9 @@
             const id = document.getElementById("editUserId").value;
             const data = {
                 nome: document.getElementById("nome").value,
-                telefone: document.getElementById("telefoneC").value,
-                email: document.getElementById("emailC").value,
-                senha: document.getElementById("senhaC").value,
+                telefone: document.getElementById("telefone").value,
+                email: document.getElementById("email").value,
+                senha: document.getElementById("senha").value,
                 role: document.getElementById("role").value
             };
             const method = id ? "PUT" : "POST";
