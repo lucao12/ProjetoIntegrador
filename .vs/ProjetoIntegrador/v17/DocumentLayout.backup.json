@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "D:\\projeto\\ProjetoIntegrador\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|d:\\projeto\\projetointegrador\\views\\usuario\\homeusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:views\\usuario\\homeusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|d:\\projeto\\projetointegrador\\views\\usuario\\homeadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:views\\usuario\\homeadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|d:\\projeto\\projetointegrador\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -13,6 +13,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|d:\\projeto\\projetointegrador\\views\\usuario\\homenutri.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:views\\usuario\\homenutri.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|d:\\projeto\\projetointegrador\\views\\usuario\\homeusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{69D01807-84D2-41F4-905F-801E31AD133B}|ProjetoIntegrador.csproj|solutionrelative:views\\usuario\\homeusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,12 +31,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "HomeAdmin.cshtml",
+              "DocumentMoniker": "D:\\projeto\\ProjetoIntegrador\\Views\\Usuario\\HomeAdmin.cshtml",
+              "RelativeDocumentMoniker": "Views\\Usuario\\HomeAdmin.cshtml",
+              "ToolTip": "D:\\projeto\\ProjetoIntegrador\\Views\\Usuario\\HomeAdmin.cshtml",
+              "RelativeToolTip": "Views\\Usuario\\HomeAdmin.cshtml",
+              "ViewState": "AgIAAIYBAAAAAAAAAADgv50BAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-09T19:23:07.754Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "HomeUsuario.cshtml",
               "DocumentMoniker": "D:\\projeto\\ProjetoIntegrador\\Views\\Usuario\\HomeUsuario.cshtml",
               "RelativeDocumentMoniker": "Views\\Usuario\\HomeUsuario.cshtml",
               "ToolTip": "D:\\projeto\\ProjetoIntegrador\\Views\\Usuario\\HomeUsuario.cshtml",
               "RelativeToolTip": "Views\\Usuario\\HomeUsuario.cshtml",
-              "ViewState": "AgIAAD0HAAAAAAAAAADwv1gHAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAAFoIAAAAAAAAAAAswGgIAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-05-05T23:33:08.01Z",
               "EditorCaption": ""
@@ -45,7 +62,7 @@
               "RelativeDocumentMoniker": "Controllers\\UsuarioController.cs",
               "ToolTip": "D:\\projeto\\ProjetoIntegrador\\Controllers\\UsuarioController.cs",
               "RelativeToolTip": "Controllers\\UsuarioController.cs",
-              "ViewState": "AgIAAHsDAAAAAAAAAAAUwIADAABnAAAAAAAAAA==",
+              "ViewState": "AgIAAKwAAAAAAAAAAADgv7oAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-05T23:32:48.726Z",
               "EditorCaption": ""
@@ -58,7 +75,7 @@
               "RelativeDocumentMoniker": "Views\\Usuario\\HomeNutri.cshtml",
               "ToolTip": "D:\\projeto\\ProjetoIntegrador\\Views\\Usuario\\HomeNutri.cshtml",
               "RelativeToolTip": "Views\\Usuario\\HomeNutri.cshtml",
-              "ViewState": "AgIAALwMAAAAAAAAAADgv80MAABZAAAAAAAAAA==",
+              "ViewState": "AgIAANYGAAAAAAAAAADgv+cGAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-04-27T21:35:25.134Z",
               "EditorCaption": ""

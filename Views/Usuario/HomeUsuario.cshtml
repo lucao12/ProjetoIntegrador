@@ -887,13 +887,9 @@
             border-radius: 16px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             padding: 30px;
-            transition: transform 0.3s ease;
             border: none;
         }
 
-        .card:hover {
-            transform: scale(1.02);
-        }
 
         .card h2 {
             font-size: 1.8rem;
@@ -1123,19 +1119,6 @@
             gap: 10px;
             padding: 10px;
             max-height: 400px;
-            overflow-y: auto;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            background-color: #f9f9f9;
-        }
-
-        #ChatTextForm {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            padding: 10px;
-            max-height: 400px;
-            overflow-y: auto;
             border: 1px solid #ccc;
             border-radius: 8px;
             background-color: #f9f9f9;
@@ -1822,10 +1805,10 @@
                     <p>${nutricionista.email}</p>
                     <p>Iremos começar sua avaliação</p>
                     <div class="d-flex gap-2 flex-wrap mt-3">
-                        <button class="btn btn-outline-dark flex-grow-1">
+                        <button class="btn btn-outline-dark flex-grow-1" data-bs-toggle="modal" data-bs-target="#ChatModal">
                             Chat com o ${nutricionista.nome}
                         </button>
-                        <button id="abrirDieta" class="btn btn-outline-dark flex-grow-1">
+                        <button id="abrirDieta" class="btn btn-outline-dark flex-grow-1" data-bs-toggle="modal" data-bs-target="#modalDieta">
                             Abrir Dieta
                         </button>
                         <button class="btn btn-outline-primary flex-grow-1" data-bs-toggle="modal" data-bs-target="#modalSintomas">
@@ -1948,6 +1931,14 @@
                 const nutricionistaId = nutricionista.id;
                 cronJob = setInterval(() => fetchMensagens(nutricionistaId), 1000);
                 fetchMensagens(nutricionistaId);
+            });
+
+            document.getElementById("ChatModal").addEventListener("hidden.bs.modal", function () {
+                console.log("Modal fechado");
+                if (cronJob) {
+                    clearInterval(cronJob);
+                    cronJob = null;
+                }
             });
 
             document.getElementById('abrirDieta').addEventListener('click', async function () {
@@ -2176,12 +2167,6 @@
                         alert('Erro ao buscar substituições para este alimento.');
                     });
             }
-            document.getElementById("ChatModal").addEventListener("hidden.bs.modal", function () {
-                if (cronJob) {
-                    clearInterval(cronJob);
-                    cronJob = null;
-                }
-            });
         }
         function salvarSintomas(userId) {
             let sintomasSelect = document.getElementById("sintomasSelect");
@@ -2566,9 +2551,43 @@
                                     }
 
                                     // Sucesso ao salvar
+                                    const fileInput = document.getElementById("profilePhoto");
+
+                            const formData = new FormData();
+                            if (fileInput.files.length > 0) {
+                                formData.append("Foto", fileInput.files[0]); // Adiciona a foto ao FormData
+                            }
+
+                            try {
+                                // Verifica se há dados para enviar
+                                if (formData.has("Foto")) {
+                                    const response = await fetch("/update/user/photo", {
+                                        method: "PUT",
+                                        headers: {
+                                            "Authorization": `Bearer ${token}`
+                                        },
+                                        body: formData
+                                    });
+
+                                    const result = await response.json();
+
+                                    if (response.ok) {
+                                        TiraCarregando();
+                                        alert("Alterações salvas com sucesso! \nFaça Login novamente");
+                                        logout(); // Recarrega as informações no modal
+                                    } else {
+                                        TiraCarregando();
+                                        alert(result.error || "Erro ao atualizar a foto.");
+                                    }
+                                } else {
                                     TiraCarregando();
-                                    alert("Alterações salvas com sucesso!");
-                                    logout();
+                                    alert("Alterações salvas com sucesso! \nFaça Login novamente");
+                                    logout(); // Recarrega as informações no modal
+                                }
+                            } catch (error) {
+                                TiraCarregando();
+                                console.error("Erro ao enviar a foto:", error);
+                            }
                                 })
                                 .catch(error => {
                                     TiraCarregando();

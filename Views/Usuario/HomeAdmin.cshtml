@@ -314,7 +314,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" required>
+                            <input type="email" class="form-control" id="emailCadastro" required>
                         </div>
                         <div class="mb-3">
                             <label for="senha" class="form-label">Senha</label>
@@ -413,7 +413,7 @@
                     document.getElementById("editUserId").value = user.id;
                     document.getElementById("nome").value = user.nome;
                     document.getElementById("telefone").value = user.telefone;
-                    document.getElementById("email").value = user.email;
+                    document.getElementById("emailCadastro").value = user.email;
                     document.getElementById("senha").value = ""; // senha geralmente não é preenchida por segurança
                     document.getElementById("role").value = user.role;
                     new bootstrap.Modal(document.getElementById("cadastroModal")).show();
@@ -432,7 +432,7 @@
             const data = {
                 nome: document.getElementById("nome").value,
                 telefone: document.getElementById("telefone").value,
-                email: document.getElementById("email").value,
+                email: document.getElementById("emailCadastro").value,
                 senha: document.getElementById("senha").value,
                 role: document.getElementById("role").value
             };

@@ -1625,9 +1625,8 @@
                 })
                 .then(async data => {
                     if (data.length === 0) {
-                        alert("Nenhum dado de peso encontrado.");
                         const modalBody2 = document.querySelector("#modalGrafico .modal-body");
-                        modalBody2.innerHTML = "";
+                        modalBody2.innerHTML = "Nenhum dado de peso encontrado.";
                         return;
                     }
 

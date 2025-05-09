@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\unisanta\\Desktop\\ProjetoIntegrador-main\\ProjetoIntegrador.csproj": {}
+    "D:\\projeto\\ProjetoIntegrador\\ProjetoIntegrador.csproj": {}
   },
   "projects": {
-    "C:\\Users\\unisanta\\Desktop\\ProjetoIntegrador-main\\ProjetoIntegrador.csproj": {
+    "D:\\projeto\\ProjetoIntegrador\\ProjetoIntegrador.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\unisanta\\Desktop\\ProjetoIntegrador-main\\ProjetoIntegrador.csproj",
+        "projectUniqueName": "D:\\projeto\\ProjetoIntegrador\\ProjetoIntegrador.csproj",
         "projectName": "ProjetoIntegrador",
-        "projectPath": "C:\\Users\\unisanta\\Desktop\\ProjetoIntegrador-main\\ProjetoIntegrador.csproj",
-        "packagesPath": "C:\\Users\\unisanta\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\unisanta\\Desktop\\ProjetoIntegrador-main\\obj\\",
+        "projectPath": "D:\\projeto\\ProjetoIntegrador\\ProjetoIntegrador.csproj",
+        "packagesPath": "C:\\Users\\lucao\\.nuget\\packages\\",
+        "outputPath": "D:\\projeto\\ProjetoIntegrador\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\unisanta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lucao\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -43,7 +44,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -137,7 +139,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\8.0.408/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
