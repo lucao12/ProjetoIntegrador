@@ -12,47 +12,11 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>8yok323i72</Fingerprint>
-      <Integrity>sGniubNv+setE8NZHd32HDzz6c8HS3O/+FtLOm0Uxaw=</Integrity>
+      <Fingerprint>g7f4d229ji</Fingerprint>
+      <Integrity>BAXRJQ/IdT6qrXt7eFxkjvFXujYKRGmHXhKLKc+Rj18=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Data\teste.db'))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Data\teste.db-shm'))">
-      <SourceType>Package</SourceType>
-      <SourceId>ProjetoIntegrador</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/ProjetoIntegrador</BasePath>
-      <RelativePath>App_Data/teste.db-shm</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>oobtokxmd8</Fingerprint>
-      <Integrity>mKcHIX0QisW38TojydBSc0kfv/zn3uh2X4Vp7h8p/XM=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Data\teste.db-shm'))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Data\teste.db-wal'))">
-      <SourceType>Package</SourceType>
-      <SourceId>ProjetoIntegrador</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/ProjetoIntegrador</BasePath>
-      <RelativePath>App_Data/teste.db-wal</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>u0avwdliui</Fingerprint>
-      <Integrity>gnfoXBFxCdH6ROW7IsJbjpC2wQyqsD7wP8zMmHPwuf0=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Data\teste.db-wal'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\virtual-select.min.css'))">
       <SourceType>Package</SourceType>
