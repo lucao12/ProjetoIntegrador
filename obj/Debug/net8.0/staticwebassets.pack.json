@@ -1,32 +1,40 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\lucca\\Documents\\projeto\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db",
+      "Id": "C:\\Users\\felipefonseca\\Desktop\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db",
       "PackagePath": "staticwebassets\\App_Data\\teste.db"
     },
     {
-      "Id": "C:\\Users\\lucca\\Documents\\projeto\\ProjetoIntegrador\\wwwroot\\NovaPasta\\loader.css",
+      "Id": "C:\\Users\\felipefonseca\\Desktop\\ProjetoIntegrador\\wwwroot\\NovaPasta\\loader.css",
       "PackagePath": "staticwebassets\\NovaPasta\\loader.css"
     },
     {
-      "Id": "C:\\Users\\lucca\\Documents\\projeto\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.css",
+      "Id": "C:\\Users\\felipefonseca\\Desktop\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.css",
       "PackagePath": "staticwebassets\\css\\virtual-select.min.css"
     },
     {
-      "Id": "C:\\Users\\lucca\\Documents\\projeto\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.js",
+      "Id": "C:\\Users\\felipefonseca\\Desktop\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.js",
       "PackagePath": "staticwebassets\\css\\virtual-select.min.js"
     },
     {
-      "Id": "C:\\Users\\lucca\\Documents\\projeto\\ProjetoIntegrador\\wwwroot\\default.png",
+      "Id": "C:\\Users\\felipefonseca\\Desktop\\ProjetoIntegrador\\wwwroot\\default.png",
       "PackagePath": "staticwebassets\\default.png"
     },
     {
-      "Id": "C:\\Users\\lucca\\Documents\\projeto\\ProjetoIntegrador\\wwwroot\\js\\script.js",
+      "Id": "C:\\Users\\felipefonseca\\Desktop\\ProjetoIntegrador\\wwwroot\\fundo.png",
+      "PackagePath": "staticwebassets\\fundo.png"
+    },
+    {
+      "Id": "C:\\Users\\felipefonseca\\Desktop\\ProjetoIntegrador\\wwwroot\\js\\script.js",
       "PackagePath": "staticwebassets\\js\\script.js"
     },
     {
-      "Id": "C:\\Users\\lucca\\Documents\\projeto\\ProjetoIntegrador\\wwwroot\\js\\script2.js",
+      "Id": "C:\\Users\\felipefonseca\\Desktop\\ProjetoIntegrador\\wwwroot\\js\\script2.js",
       "PackagePath": "staticwebassets\\js\\script2.js"
+    },
+    {
+      "Id": "C:\\Users\\felipefonseca\\Desktop\\ProjetoIntegrador\\wwwroot\\nutria.png",
+      "PackagePath": "staticwebassets\\nutria.png"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.ProjetoIntegrador.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",

@@ -9,14 +9,26 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <style>
+    :root {
+        --bg-light: #f6ead4;
+        --green: #426841;
+        --blue: #007bff;
+        --blue-dark: #0056b3;
+        --input-border: #ddd;
+        --input-focus: #007bff;
+        --dark-bg: #1e1e1e;
+        --dark-border: #555;
+        --dark-text: #eee;
+    }
+
     body {
-        background-color: #f4f4f4;
-        font-family: Arial, sans-serif;
-        transition: background-color 0.3s, color 0.3s;
+        font-family: 'Segoe UI', sans-serif;
+        background-color: var(--bg-light);
+        margin: 0;
     }
 
     .container {
-        margin-top: 50px;
+        margin-top:10px;
     }
 
     .card {
@@ -24,6 +36,8 @@
         border-radius: 10px;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         transition: background-color 0.3s, color 0.3s;
+        height: auto;
+        overflow-y: auto;
     }
 
     h2 {
@@ -96,7 +110,6 @@
     .dark-mode .card {
         background-color: #1e1e1e;
         color: white;
-        =
     }
 
     .dark-mode h2 {
@@ -156,7 +169,9 @@
                             <label for="password" class="form-label">Senha:</label>
                             <div class="input-group">
                                 <input type="password" class="form-control" id="password" name="password"
-                                    placeholder="Digite seu senha" required>
+                                    placeholder="Digite sua senha" required data-bs-toggle="tooltip"
+                                    data-bs-placement="top"
+                                    title="A senha deve conter: mínimo 8 caracteres, 1 minúscula, 1 maiúscula, 1 número e 1 caractere especial.">
                                 <span id="btnVeja" class="input-group-text">
                                     <i id="togglePassword" class="fas fa-eye"></i>
                                 </span>
@@ -171,14 +186,6 @@
                                     <i id="toggleConfirmPassword" class="fas fa-eye"></i>
                                 </span>
                             </div>
-                            <div id="password-requirements" class="mt-2">
-                                <p id="length" class="invalid">No mínimo 8 caracteres</p>
-                                <p id="lowercase" class="invalid">No mínimo 1 caractere minúsculo</p>
-                                <p id="uppercase" class="invalid">No mínimo 1 letra maiúscula</p>
-                                <p id="numberReq" class="invalid">No mínimo 1 número</p>
-                                <p id="specialChar" class="invalid">No mínimo 1 caractere especial</p>
-                            </div>
-                            <p id="passwordMatch" class="invalid">As senhas não coincidem</p>
                         </div>
                         <button type="submit" class="btn btn-primary w-100" id="registerBtn" disabled>Registrar</button>
                         <div id="error-message" class="alert alert-danger mt-3" style="display: none;"></div>
@@ -222,6 +229,8 @@
                     toggleButton.innerHTML = '<i class="fas fa-moon"></i>';
                 }
             });
+            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+            const tooltipList = [...tooltipTriggerList].map(el => new bootstrap.Tooltip(el));
         });
     </script>
     <script src="~/js/script.js"></script>

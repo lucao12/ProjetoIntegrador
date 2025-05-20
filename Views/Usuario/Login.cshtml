@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,19 +8,31 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
     <style>
-        .bg-white {
-            background-color: #f6ead4 !important;
+        :root {
+            --bg-light: #f6ead4;
+            --green: #426841;
+            --blue: #007bff;
+            --blue-dark: #0056b3;
+            --input-border: #ddd;
+            --input-focus: #007bff;
+            --dark-bg: #1e1e1e;
+            --dark-border: #555;
+            --dark-text: #eee;
         }
 
         body {
             font-family: 'Segoe UI', sans-serif;
-            background-color: #f6ead4;
+            background-color: var(--bg-light);
             margin: 0;
-            overflow: hidden; /* Impede a barra de rolagem */
+            overflow: hidden;
+        }
+
+        .bg-white {
+            background-color: var(--bg-light) !important;
         }
 
         .bg-image {
-            background: url('https://images.unsplash.com/photo-1555396273-367ea8b74c76?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed; /* Substitua pela imagem desejada */
+            background: url('https://images.unsplash.com/photo-1555396273-367ea8b74c76?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;
             background-size: cover;
             color: white;
         }
@@ -31,7 +44,7 @@
         }
 
         .tagline {
-            color: #426841 !important;
+            color: var(--green) !important;
             font-size: 1.8rem;
             font-weight: 500;
         }
@@ -42,7 +55,9 @@
             border-radius: 12px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
             max-width: 450px;
-            width: 90%; /* Adapta-se a telas menores */
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
         .logo-container-right {
@@ -53,7 +68,7 @@
         h2 {
             font-weight: 700;
             margin-bottom: 35px;
-            color: #426841;
+            color: var(--green);
             text-align: center;
             font-size: 2.5rem;
         }
@@ -68,18 +83,18 @@
 
         .form-control {
             border-radius: 8px;
-            border: 1px solid #ddd;
+            border: 1px solid var(--input-border);
             padding: 16px;
             margin-bottom: 30px;
             font-size: 1rem;
             transition: border-color 0.3s ease;
         }
 
-            .form-control:focus {
-                border-color: #007bff;
-                outline: none;
-                box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
-            }
+        .form-control:focus {
+            border-color: var(--input-focus);
+            outline: none;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+        }
 
         .input-group {
             margin-bottom: 30px;
@@ -87,7 +102,7 @@
 
         .input-group-text {
             background-color: #fff;
-            border: 1px solid #ddd;
+            border: 1px solid var(--input-border);
             border-radius: 0 8px 8px 0;
             cursor: pointer;
             margin-bottom: 9%;
@@ -96,7 +111,7 @@
         }
 
         .btn-primary {
-            background-color: #426841;
+            background-color: var(--green);
             border: none;
             border-radius: 8px;
             padding: 18px 30px;
@@ -106,14 +121,13 @@
             transition: background-color 0.3s ease, transform 0.2s ease-in-out;
         }
 
-            .btn-primary:hover {
-                background-color: #426841;
-                transform: scale(1.02);
-            }
+        .btn-primary:hover {
+            transform: scale(1.02);
+        }
 
-            .btn-primary:active {
-                transform: scale(0.98);
-            }
+        .btn-primary:active {
+            transform: scale(0.98);
+        }
 
         .btn-outline-secondary {
             color: #6c757d;
@@ -125,24 +139,24 @@
             transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
 
-            .btn-outline-secondary:hover {
-                background-color: #6c757d;
-                border-color: #6c757d;
-                color: #fff;
-            }
+        .btn-outline-secondary:hover {
+            background-color: #6c757d;
+            border-color: #6c757d;
+            color: #fff;
+        }
 
         .forgot-text {
             text-align: right;
             font-size: 1rem;
             margin-top: 15px;
-            color: #007bff;
+            color: var(--blue);
             cursor: pointer;
             transition: color 0.3s ease;
         }
 
-            .forgot-text:hover {
-                color: #0056b3;
-            }
+        .forgot-text:hover {
+            color: var(--blue-dark);
+        }
 
         .btn-dark-mode {
             position: fixed;
@@ -154,28 +168,29 @@
             padding: 14px 20px;
             border-radius: 50%;
             cursor: pointer;
-            z-index: 1000; /* Garante que fique acima de tudo */
+            z-index: 1000;
             transition: background-color 0.3s ease;
         }
 
-            .btn-dark-mode:hover {
-                background-color: #666;
-            }
-
-
+        .btn-dark-mode:hover {
+            background-color: #666;
+        }
 
         .dark-mode .bg-image {
-            opacity: 0.8; /* Suaviza a imagem de fundo no modo escuro */
+            opacity: 0.8;
         }
 
         .dark-mode .login-card {
             background: rgba(30, 30, 30, 0.9);
-            color: #eee;
+            color: var(--dark-text);
             box-shadow: 0 12px 50px rgba(0, 0, 0, 0.8);
         }
 
-        .dark-mode h2 {
-            color: #426841;
+        .dark-mode h2,
+        .dark-mode .btn-primary,
+        .dark-mode .btn-primary:hover {
+            color: var(--green);
+            background-color: var(--green);
         }
 
         .dark-mode .form-label {
@@ -184,39 +199,40 @@
 
         .dark-mode .form-control {
             background-color: #333;
-            color: #eee;
-            border-color: #555;
+            color: var(--dark-text);
+            border-color: var(--dark-border);
         }
 
-            .dark-mode .form-control:focus {
-                border-color: #66b3ff;
-                box-shadow: 0 0 8px rgba(102, 179, 255, 0.5);
-            }
+        .dark-mode .form-control:focus {
+            border-color: #66b3ff;
+            box-shadow: 0 0 8px rgba(102, 179, 255, 0.5);
+        }
 
         .dark-mode .input-group-text {
             background-color: #333;
-            color: #eee;
-            border-color: #555;
+            color: var(--dark-text);
+            border-color: var(--dark-border);
         }
-
-        .dark-mode .btn-primary {
-            background-color: #426841;
-        }
-
-            .dark-mode .btn-primary:hover {
-                background-color: #426841;
-            }
 
         .dark-mode .btn-outline-secondary {
             color: #ccc;
-            border-color: #555;
+            border-color: var(--dark-border);
         }
 
-            .dark-mode .btn-outline-secondary:hover {
-                background-color: #555;
-                border-color: #555;
-                color: #eee;
-            }
+        .dark-mode .btn-outline-secondary:hover {
+            background-color: var(--dark-border);
+            border-color: var(--dark-border);
+            color: var(--dark-text);
+        }
+
+        .dark-mode .btn-dark-mode {
+            background-color: #666;
+            color: var(--dark-text);
+        }
+
+        .dark-mode .btn-dark-mode:hover {
+            background-color: #888;
+        }
 
         #error-message {
             display: none;
@@ -226,21 +242,12 @@
             text-align: center;
         }
 
-        .dark-mode .btn-dark-mode {
-            background-color: #666;
-            color: #eee;
-        }
-
-            .dark-mode .btn-dark-mode:hover {
-                background-color: #888;
-            }
-
         .fundo-img {
             max-width: 85%;
             max-height: 85%;
         }
-
     </style>
+
 </head>
 
 <body>
@@ -264,13 +271,16 @@
                     <form id="authForm" method="post">
                         <div class="mb-3 text-start">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Digite seu e-mail" required />
+                            <input type="email" class="form-control" id="email" name="email"
+                                placeholder="Digite seu e-mail" required />
                         </div>
                         <div class="mb-3 text-start">
                             <label for="password" class="form-label">Senha</label>
                             <div class="input-group">
-                                <input type="password" class="form-control" id="password" name="password" placeholder="Digite sua senha" required />
-                                <span id="btnVeja" class="input-group-text"><i id="togglePassword" class="fas fa-eye"></i></span>
+                                <input type="password" class="form-control" id="password" name="password"
+                                    placeholder="Digite sua senha" required />
+                                <span id="btnVeja" class="input-group-text"><i id="togglePassword"
+                                        class="fas fa-eye"></i></span>
                             </div>
                         </div>
                         <div id="btnEsqueci" class="forgot-text">Esqueci minha senha</div>
@@ -374,4 +384,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
