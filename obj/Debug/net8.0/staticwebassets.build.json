@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "iLjSJLa4T6Dsn5hbfw4XwbE1DJbk7wuRqsMOzjlyaQo=",
+  "Hash": "FlE4pa6haxnQPdDU6S7jIYl8FbeDQTOEyusU5AD5pYA=",
   "Source": "ProjetoIntegrador",
   "BasePath": "_content/ProjetoIntegrador",
   "Mode": "Default",
@@ -36,48 +36,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\App_Data\\teste.db"
-    },
-    {
-      "Identity": "C:\\Users\\lucca\\Documents\\projeto\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-shm",
-      "SourceId": "ProjetoIntegrador",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lucca\\Documents\\projeto\\ProjetoIntegrador\\wwwroot\\",
-      "BasePath": "_content/ProjetoIntegrador",
-      "RelativePath": "App_Data/teste#[.{fingerprint}]?.db-shm",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "djzgq8d9vr",
-      "Integrity": "F14VK5UBLlqULfP9270TqBdalt5acijMF9EvbXbGODk=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\App_Data\\teste.db-shm"
-    },
-    {
-      "Identity": "C:\\Users\\lucca\\Documents\\projeto\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-wal",
-      "SourceId": "ProjetoIntegrador",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lucca\\Documents\\projeto\\ProjetoIntegrador\\wwwroot\\",
-      "BasePath": "_content/ProjetoIntegrador",
-      "RelativePath": "App_Data/teste#[.{fingerprint}]?.db-wal",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "q1qhzlysui",
-      "Integrity": "HjUyq3fXwscbdRzWzNgrSAxFDJ2U6pPiPNPZG/CO4vk=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\App_Data\\teste.db-wal"
     },
     {
       "Identity": "C:\\Users\\lucca\\Documents\\projeto\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.css",
@@ -143,27 +101,6 @@
       "OriginalItemSpec": "wwwroot\\default.png"
     },
     {
-      "Identity": "C:\\Users\\lucca\\Documents\\projeto\\ProjetoIntegrador\\wwwroot\\fundo.png",
-      "SourceId": "ProjetoIntegrador",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lucca\\Documents\\projeto\\ProjetoIntegrador\\wwwroot\\",
-      "BasePath": "_content/ProjetoIntegrador",
-      "RelativePath": "fundo#[.{fingerprint}]?.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "7fhk3inrt7",
-      "Integrity": "zc+wJXPc2in4CI5p8DgVBHHWAiLhs4SV/7rZEJ0KDH0=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\fundo.png"
-    },
-    {
       "Identity": "C:\\Users\\lucca\\Documents\\projeto\\ProjetoIntegrador\\wwwroot\\js\\script.js",
       "SourceId": "ProjetoIntegrador",
       "SourceType": "Discovered",
@@ -225,27 +162,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\NovaPasta\\loader.css"
-    },
-    {
-      "Identity": "C:\\Users\\lucca\\Documents\\projeto\\ProjetoIntegrador\\wwwroot\\nutria.png",
-      "SourceId": "ProjetoIntegrador",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lucca\\Documents\\projeto\\ProjetoIntegrador\\wwwroot\\",
-      "BasePath": "_content/ProjetoIntegrador",
-      "RelativePath": "nutria#[.{fingerprint}]?.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "njgud7u2p3",
-      "Integrity": "vUeNiaxxVXyGjG/7ZR+quC6EDbltwRL2Nzfb8OCHt3Y=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\nutria.png"
     }
   ],
   "Endpoints": [
@@ -328,170 +244,6 @@
         {
           "Name": "integrity",
           "Value": "sha256-IIHt1vWe2yfi3AFo9xErq50Wfg1iQgtUcWbHO7XHseM="
-        }
-      ]
-    },
-    {
-      "Route": "App_Data/teste.db-shm",
-      "AssetFile": "C:\\Users\\lucca\\Documents\\projeto\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-shm",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "32768"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/octet-stream"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"F14VK5UBLlqULfP9270TqBdalt5acijMF9EvbXbGODk=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 20 May 2025 02:54:45 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-F14VK5UBLlqULfP9270TqBdalt5acijMF9EvbXbGODk="
-        }
-      ]
-    },
-    {
-      "Route": "App_Data/teste.db-wal",
-      "AssetFile": "C:\\Users\\lucca\\Documents\\projeto\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-wal",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "12392"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/octet-stream"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"HjUyq3fXwscbdRzWzNgrSAxFDJ2U6pPiPNPZG/CO4vk=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 20 May 2025 02:54:50 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-HjUyq3fXwscbdRzWzNgrSAxFDJ2U6pPiPNPZG/CO4vk="
-        }
-      ]
-    },
-    {
-      "Route": "App_Data/teste.djzgq8d9vr.db-shm",
-      "AssetFile": "C:\\Users\\lucca\\Documents\\projeto\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-shm",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "32768"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/octet-stream"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"F14VK5UBLlqULfP9270TqBdalt5acijMF9EvbXbGODk=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 20 May 2025 02:54:45 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "djzgq8d9vr"
-        },
-        {
-          "Name": "label",
-          "Value": "App_Data/teste.db-shm"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-F14VK5UBLlqULfP9270TqBdalt5acijMF9EvbXbGODk="
-        }
-      ]
-    },
-    {
-      "Route": "App_Data/teste.q1qhzlysui.db-wal",
-      "AssetFile": "C:\\Users\\lucca\\Documents\\projeto\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-wal",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "12392"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/octet-stream"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"HjUyq3fXwscbdRzWzNgrSAxFDJ2U6pPiPNPZG/CO4vk=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 20 May 2025 02:54:50 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "q1qhzlysui"
-        },
-        {
-          "Name": "label",
-          "Value": "App_Data/teste.db-wal"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-HjUyq3fXwscbdRzWzNgrSAxFDJ2U6pPiPNPZG/CO4vk="
         }
       ]
     },
@@ -742,88 +494,6 @@
       ]
     },
     {
-      "Route": "fundo.7fhk3inrt7.png",
-      "AssetFile": "C:\\Users\\lucca\\Documents\\projeto\\ProjetoIntegrador\\wwwroot\\fundo.png",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "657901"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "image/png"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"zc+wJXPc2in4CI5p8DgVBHHWAiLhs4SV/7rZEJ0KDH0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 20 May 2025 02:30:30 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "7fhk3inrt7"
-        },
-        {
-          "Name": "label",
-          "Value": "fundo.png"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-zc+wJXPc2in4CI5p8DgVBHHWAiLhs4SV/7rZEJ0KDH0="
-        }
-      ]
-    },
-    {
-      "Route": "fundo.png",
-      "AssetFile": "C:\\Users\\lucca\\Documents\\projeto\\ProjetoIntegrador\\wwwroot\\fundo.png",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "657901"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "image/png"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"zc+wJXPc2in4CI5p8DgVBHHWAiLhs4SV/7rZEJ0KDH0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 20 May 2025 02:30:30 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=3600, must-revalidate"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-zc+wJXPc2in4CI5p8DgVBHHWAiLhs4SV/7rZEJ0KDH0="
-        }
-      ]
-    },
-    {
       "Route": "js/script.exvrtjijx8.js",
       "AssetFile": "C:\\Users\\lucca\\Documents\\projeto\\ProjetoIntegrador\\wwwroot\\js\\script.js",
       "Selectors": [],
@@ -1066,88 +736,6 @@
         {
           "Name": "integrity",
           "Value": "sha256-Nxo4ke4NMmTkLdznI8d/iapt2x+/91J2Do8ZDdHhYqw="
-        }
-      ]
-    },
-    {
-      "Route": "nutria.njgud7u2p3.png",
-      "AssetFile": "C:\\Users\\lucca\\Documents\\projeto\\ProjetoIntegrador\\wwwroot\\nutria.png",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1401337"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "image/png"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"vUeNiaxxVXyGjG/7ZR+quC6EDbltwRL2Nzfb8OCHt3Y=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 20 May 2025 02:05:17 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "njgud7u2p3"
-        },
-        {
-          "Name": "label",
-          "Value": "nutria.png"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-vUeNiaxxVXyGjG/7ZR+quC6EDbltwRL2Nzfb8OCHt3Y="
-        }
-      ]
-    },
-    {
-      "Route": "nutria.png",
-      "AssetFile": "C:\\Users\\lucca\\Documents\\projeto\\ProjetoIntegrador\\wwwroot\\nutria.png",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1401337"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "image/png"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"vUeNiaxxVXyGjG/7ZR+quC6EDbltwRL2Nzfb8OCHt3Y=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 20 May 2025 02:05:17 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=3600, must-revalidate"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-vUeNiaxxVXyGjG/7ZR+quC6EDbltwRL2Nzfb8OCHt3Y="
         }
       ]
     }

@@ -23,7 +23,7 @@
             max-width: 90%;
             max-height: 90%;
         }
-       
+
 
         .bg-image {
             background: url('https://images.unsplash.com/photo-1555396273-367ea8b74c76?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed; /* Substitua pela imagem desejada */
@@ -82,11 +82,11 @@
             transition: border-color 0.3s ease;
         }
 
-        .form-control:focus {
-            border-color: #007bff;
-            outline: none;
-            box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
-        }
+            .form-control:focus {
+                border-color: #007bff;
+                outline: none;
+                box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+            }
 
         .input-group {
             margin-bottom: 30px;
@@ -112,14 +112,14 @@
             transition: background-color 0.3s ease, transform 0.2s ease-in-out;
         }
 
-        .btn-primary:hover {
+            .btn-primary:hover {
                 background-color: #426841;
-            transform: scale(1.02);
-        }
+                transform: scale(1.02);
+            }
 
-        .btn-primary:active {
-            transform: scale(0.98);
-        }
+            .btn-primary:active {
+                transform: scale(0.98);
+            }
 
         .btn-outline-primary {
             color: #007bff;
@@ -131,11 +131,11 @@
             transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
 
-        .btn-outline-primary:hover {
-            background-color: #007bff;
-            border-color: #007bff;
-            color: #fff;
-        }
+            .btn-outline-primary:hover {
+                background-color: #007bff;
+                border-color: #007bff;
+                color: #fff;
+            }
 
         .btn-dark-mode {
             position: fixed;
@@ -151,9 +151,9 @@
             transition: background-color 0.3s ease;
         }
 
-        .btn-dark-mode:hover {
-            background-color: #666;
-        }
+            .btn-dark-mode:hover {
+                background-color: #666;
+            }
 
 
         .dark-mode .bg-image {
@@ -167,7 +167,7 @@
         }
 
         .dark-mode h2 {
-                color: #426841;
+            color: #426841;
         }
 
         .dark-mode .form-label {
@@ -180,10 +180,10 @@
             border-color: #555;
         }
 
-        .dark-mode .form-control:focus {
-            border-color: #66b3ff;
-            box-shadow: 0 0 8px rgba(102, 179, 255, 0.5);
-        }
+            .dark-mode .form-control:focus {
+                border-color: #66b3ff;
+                box-shadow: 0 0 8px rgba(102, 179, 255, 0.5);
+            }
 
         .dark-mode .input-group-text {
             background-color: #333;
@@ -192,23 +192,23 @@
         }
 
         .dark-mode .btn-primary {
-                background-color: #426841;
+            background-color: #426841;
         }
 
-        .dark-mode .btn-primary:hover {
-                    background-color: #426841;
-        }
+            .dark-mode .btn-primary:hover {
+                background-color: #426841;
+            }
 
         .dark-mode .btn-outline-primary {
             color: #ccc;
             border-color: #555;
         }
 
-        .dark-mode .btn-outline-primary:hover {
-            background-color: #555;
-            border-color: #555;
-            color: #eee;
-        }
+            .dark-mode .btn-outline-primary:hover {
+                background-color: #555;
+                border-color: #555;
+                color: #eee;
+            }
 
         #error-message {
             display: none;
@@ -225,7 +225,7 @@
         <div class="row h-100">
             <div class="col-md-6 bg-image d-flex align-items-center justify-content-center">
                 <div class="logo-container-left">
-                    <img src="~/fundo.png" alt="Logo Nutria" class="img-fluid fundo-img" >
+                    <img src="~/fundo.png" alt="Logo Nutria" class="img-fluid fundo-img">
                     <h1 class="text-white mt-4 text-center tagline">Redefina sua senha!</h1>
                 </div>
             </div>
@@ -240,20 +240,20 @@
                         <div class="mb-3">
                             <label for="email" class="form-label">Email:</label>
                             <input type="email" class="form-control" id="email" name="email"
-                                placeholder="Digite seu e-mail" required>
+                                   placeholder="Digite seu e-mail" required>
                         </div>
 
                         <div class="mb-3" id="codigoContainer" style="display: none;">
                             <label for="codigo" class="form-label">Código:</label>
                             <input type="text" class="form-control" id="codigo" name="codigo"
-                                placeholder="Digite seu código">
+                                   placeholder="Digite seu código">
                         </div>
 
                         <div class="mb-3" id="passwordContainer" style="display: none;">
                             <label for="password" class="form-label">Nova Senha:</label>
                             <div class="input-group">
                                 <input type="password" class="form-control" id="password" name="password"
-                                    placeholder="Digite sua nova senha" required>
+                                       placeholder="Digite sua nova senha" required>
                                 <span id="btnVeja" class="input-group-text">
                                     <i id="togglePassword" class="fas fa-eye"></i>
                                 </span>
@@ -268,11 +268,17 @@
                         </div>
 
                         <button id="btnEnviar" onclick="marceloTeixeira()" type="button"
-                            class="btn btn-primary w-100">Enviar</button>
+                                class="btn btn-primary w-100">
+                            Enviar
+                        </button>
                         <button id="btnValidar" type="button" class="btn btn-primary w-100"
-                            style="display: none;">Validar</button>
-                        <button id="btnReset" type="button" class="btn btn-primary w-100" style="display: none;">Resetar
-                            Senha</button>
+                                style="display: none;">
+                            Validar
+                        </button>
+                        <button id="btnReset" type="button" class="btn btn-primary w-100" style="display: none;">
+                            Resetar
+                            Senha
+                        </button>
 
                         <div id="error-message" class="alert alert-danger mt-3" style="display: none;"></div>
                     </form>

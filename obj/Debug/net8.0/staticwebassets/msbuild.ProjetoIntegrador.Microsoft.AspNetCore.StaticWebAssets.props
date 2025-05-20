@@ -18,42 +18,6 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Data\teste.db'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Data\teste.db-shm'))">
-      <SourceType>Package</SourceType>
-      <SourceId>ProjetoIntegrador</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/ProjetoIntegrador</BasePath>
-      <RelativePath>App_Data/teste.db-shm</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>djzgq8d9vr</Fingerprint>
-      <Integrity>F14VK5UBLlqULfP9270TqBdalt5acijMF9EvbXbGODk=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Data\teste.db-shm'))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Data\teste.db-wal'))">
-      <SourceType>Package</SourceType>
-      <SourceId>ProjetoIntegrador</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/ProjetoIntegrador</BasePath>
-      <RelativePath>App_Data/teste.db-wal</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>q1qhzlysui</Fingerprint>
-      <Integrity>HjUyq3fXwscbdRzWzNgrSAxFDJ2U6pPiPNPZG/CO4vk=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Data\teste.db-wal'))</OriginalItemSpec>
-    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\virtual-select.min.css'))">
       <SourceType>Package</SourceType>
       <SourceId>ProjetoIntegrador</SourceId>
@@ -108,24 +72,6 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\default.png'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\fundo.png'))">
-      <SourceType>Package</SourceType>
-      <SourceId>ProjetoIntegrador</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/ProjetoIntegrador</BasePath>
-      <RelativePath>fundo.png</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>7fhk3inrt7</Fingerprint>
-      <Integrity>zc+wJXPc2in4CI5p8DgVBHHWAiLhs4SV/7rZEJ0KDH0=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\fundo.png'))</OriginalItemSpec>
-    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\script.js'))">
       <SourceType>Package</SourceType>
       <SourceId>ProjetoIntegrador</SourceId>
@@ -179,24 +125,6 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\NovaPasta\loader.css'))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\nutria.png'))">
-      <SourceType>Package</SourceType>
-      <SourceId>ProjetoIntegrador</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/ProjetoIntegrador</BasePath>
-      <RelativePath>nutria.png</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>njgud7u2p3</Fingerprint>
-      <Integrity>vUeNiaxxVXyGjG/7ZR+quC6EDbltwRL2Nzfb8OCHt3Y=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\nutria.png'))</OriginalItemSpec>
     </StaticWebAsset>
   </ItemGroup>
 </Project>
