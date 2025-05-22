@@ -861,8 +861,65 @@
             --text-muted: #666666;
             --border: #cccccc;
             --shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-        }
 
+            /* Variáveis para o modal (novas ou ajustadas para o tema) */
+            --modal-bg: var(--bg-card);
+            --modal-text: var(--text-main);
+            --modal-header-bg: var(--primary);
+            --modal-header-text: #ffffff;
+            --modal-footer-bg: var(--bg-card);
+            --modal-button-primary-bg: var(--primary);
+            --modal-button-primary-text: #ffffff;
+            --modal-button-secondary-bg: var(--secondary);
+            --modal-button-secondary-text: #ffffff;
+            --modal-button-danger-bg: #dc3545;
+            --modal-button-danger-text: #ffffff;
+
+            /* Variáveis para o elemento .refeicao no dark mode */
+            --refeicao-dark-bg: #2a2a2a;
+            --refeicao-dark-border: #444;
+            --refeicao-dark-text: #f1f1f1;
+
+            /* Novas variáveis para o labels-container e alimento-container */
+            --labels-container-bg: #f8f9fa;
+            --labels-container-border: var(--border);
+            --alimento-label-color: var(--text-main);
+            --alimento-input-bg: var(--bg-card);
+            --alimento-input-border: var(--input-border);
+            --alimento-input-color: var(--text-main);
+
+            /* Variáveis para o dark mode do labels-container e alimento-container */
+            --labels-container-dark-bg: #2a2a2a;
+            --labels-container-dark-border: #444;
+            --alimento-label-dark-color: var(--dark-text);
+            --alimento-input-dark-bg: #1e1e1e;
+            --alimento-input-dark-border: #555;
+            --alimento-input-dark-color: var(--dark-text);
+
+            /* Novas variáveis para o VirtualSelect */
+            --virtual-select-bg: var(--bg-card);
+            --virtual-select-border: var(--input-border);
+            --virtual-select-text: var(--text-main);
+            --virtual-select-placeholder: var(--text-muted);
+            --virtual-select-option-hover-bg: #f0f0f0;
+            --virtual-select-active-option-bg: var(--primary);
+            --virtual-select-active-option-text: #ffffff;
+            --virtual-select-selected-item-bg: var(--primary);
+            --virtual-select-selected-item-text: #ffffff;
+            --virtual-select-clear-button: #dc3545;
+
+            /* Variáveis para o dark mode do VirtualSelect */
+            --virtual-select-dark-bg: #2a2a2a;
+            --virtual-select-dark-border: #555;
+            --virtual-select-dark-text: var(--dark-text);
+            --virtual-select-dark-placeholder: #ccc;
+            --virtual-select-dark-option-hover-bg: #3a3a3a;
+            --virtual-select-dark-active-option-bg: var(--blue-dark);
+            --virtual-select-dark-active-option-text: #ffffff;
+            --virtual-select-dark-selected-item-bg: var(--blue-dark);
+            --virtual-select-dark-selected-item-text: #ffffff;
+            --virtual-select-dark-clear-button: #e84d4d;
+        }
 
         body {
             font-family: 'Segoe UI', sans-serif;
@@ -963,21 +1020,78 @@
             padding-bottom: 8px;
         }
 
+        /* Estilos do Modal */
         .modal-content {
             border-radius: 15px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
             transition: background-color 0.3s, color 0.3s;
+            background-color: var(--modal-bg);
+            color: var(--modal-text);
         }
 
-        .modal-header,
-        .modal-footer {
-            border: none;
+        .modal-header {
+            border-bottom: 1px solid var(--border);
+            background-color: var(--modal-header-bg);
+            color: var(--modal-header-text);
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            padding: 1rem 1.5rem;
+        }
+
+        .modal-header .btn-close {
+            filter: invert(1);
         }
 
         .modal-title {
-            color: var(--primary);
+            color: var(--modal-header-text);
             font-size: 1.4rem;
             font-weight: 600;
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .modal-footer {
+            border-top: 1px solid var(--border);
+            background-color: var(--modal-footer-bg);
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            padding: 1rem 1.5rem;
+        }
+
+        /* Estilos dos inputs e labels dentro do modal (e agora para o .alimento-container também) */
+        .modal-body .form-label,
+        .alimento-container label {
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .modal-body .form-control,
+        .modal-body .form-select,
+        .alimento-container input[type="number"] {
+            border: 1px solid var(--input-border);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            color: var(--text-main);
+            background-color: var(--bg-card);
+            transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .modal-body .form-control:focus,
+        .modal-body .form-select:focus,
+        .alimento-container input[type="number"]:focus {
+            border-color: var(--input-focus);
+            box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+            outline: none;
+        }
+
+        .modal-body .mb-3 {
+            margin-bottom: 1rem !important;
         }
 
         .refeicao {
@@ -986,17 +1100,104 @@
             border-left: 4px solid var(--secondary);
             border-radius: 8px;
             margin-bottom: 10px;
+            color: var(--text-main);
         }
 
-        .refeicao h6 {
+        
+        .refeicao h5 {
             color: var(--secondary);
             font-size: 1.1rem;
             margin-bottom: 6px;
         }
 
-        .refeicao p {
-            color: var(--text-muted);
+        .refeicao strong,
+        .refeicao div {
+            color: var(--text-main);
             font-size: 0.95rem;
+        }
+
+        /* Estilos para o labels-container */
+        .labels-container {
+            background-color: var(--labels-container-bg);
+            border: 1px solid var(--labels-container-border);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        /* Estilos para cada alimento-container */
+        .alimento-container {
+            padding: 10px;
+            border: 1px solid var(--input-border);
+            border-radius: 8px;
+            background-color: var(--bg-card);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .alimento-container .mb-3 {
+            margin-bottom: 0 !important;
+        }
+
+        /* Estilos para o VirtualSelect */
+        .virtual-select-wrapper {
+            /* Container principal do VirtualSelect */
+            --vs-bg-color: var(--virtual-select-bg);
+            --vs-border-color: var(--virtual-select-border);
+            --vs-text-color: var(--virtual-select-text);
+            --vs-placeholder-color: var(--virtual-select-placeholder);
+            --vs-option-hover-bg: var(--virtual-select-option-hover-bg);
+            --vs-active-option-bg: var(--virtual-select-active-option-bg);
+            --vs-active-option-color: var(--virtual-select-active-option-text);
+            --vs-selected-item-bg: var(--virtual-select-selected-item-bg);
+            --vs-selected-item-color: var(--virtual-select-selected-item-text);
+            --vs-clear-button-color: var(--virtual-select-clear-button);
+
+            /* Propriedades customizadas para controlar sub-componentes */
+            --vs-dropdown-bg: var(--virtual-select-bg);
+            --vs-dropdown-border: var(--virtual-select-border);
+            --vs-dropdown-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            /* Sombra para o dropdown */
+            --vs-search-input-bg: var(--bg-card);
+            --vs-search-input-border: var(--input-border);
+            --vs-search-input-color: var(--text-main);
+            --vs-search-input-placeholder: var(--text-muted);
+        }
+
+        /* Ajustes específicos para o VirtualSelect que podem não ser cobertos pelas variáveis CSS */
+        .virtual-select-wrapper .vscomp-toggle-button {
+            background-color: var(--virtual-select-bg);
+            border-color: var(--virtual-select-border);
+            color: var(--virtual-select-text);
+        }
+
+        .virtual-select-wrapper .vscomp-search-input {
+            background-color: var(--virtual-select-bg);
+            color: var(--virtual-select-text);
+            border-color: var(--virtual-select-border);
+        }
+
+        .virtual-select-wrapper .vscomp-value-label {
+            color: var(--virtual-select-text);
+        }
+
+        .virtual-select-wrapper .vscomp-options-container {
+            background-color: var(--virtual-select-bg);
+            border-color: var(--virtual-select-border);
+        }
+
+        .virtual-select-wrapper .vscomp-option-selected {
+            background-color: var(--virtual-select-active-option-bg);
+            color: var(--virtual-select-active-option-text);
+        }
+
+        .virtual-select-wrapper .vscomp-option:hover {
+            background-color: var(--virtual-select-option-hover-bg);
         }
 
         /* Dark mode */
@@ -1009,19 +1210,144 @@
         .dark-mode #pedidosPendentes {
             background-color: #1e1e1e;
             border-width: 0;
-
         }
 
         .dark-mode .container,
         .dark-mode .list-group-item,
-        .dark-mode .chat-message.nutricionista,
-        .dark-mode .modal-content {
+        .dark-mode .chat-message.nutricionista {
             background-color: #1e1e1e;
             color: #fff;
         }
 
+        .dark-mode .modal-content {
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        .dark-mode .modal-header {
+            background-color: var(--primary);
+            color: var(--modal-header-text);
+            border-color: var(--dark-border);
+        }
+
+        .dark-mode .modal-header .btn-close {
+            filter: invert(1);
+        }
+
+        .dark-mode .modal-footer {
+            background-color: var(--dark-bg);
+            border-color: var(--dark-border);
+        }
+
+        .dark-mode .modal-body .form-label,
+        .dark-mode .alimento-container label {
+            color: var(--alimento-label-dark-color);
+        }
+
+        .dark-mode .modal-body .form-control,
+        .dark-mode .modal-body .form-select,
+        .dark-mode .alimento-container input[type="number"] {
+            background-color: var(--alimento-input-dark-bg);
+            border-color: var(--alimento-input-dark-border);
+            color: var(--alimento-input-dark-color);
+        }
+
+        .dark-mode .refeicao {
+            background-color: var(--refeicao-dark-bg);
+            border-left-color: var(--secondary);
+            color: var(--refeicao-dark-text);
+        }
+
+        .dark-mode .refeicao h5 {
+            color: var(--secondary);
+        }
+
+        .dark-mode .refeicao strong,
+        .dark-mode .refeicao div {
+            color: var(--refeicao-dark-text);
+        }
+
+        /* Dark mode para o labels-container e alimento-container */
+        .dark-mode .labels-container {
+            background-color: var(--labels-container-dark-bg);
+            border-color: var(--labels-container-dark-border);
+        }
+
+        .dark-mode .alimento-container {
+            background-color: var(--labels-container-dark-bg);
+            border-color: var(--labels-container-dark-border);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Dark mode para o VirtualSelect */
+        .dark-mode .virtual-select-wrapper {
+            --vs-bg-color: var(--virtual-select-dark-bg);
+            --vs-border-color: var(--virtual-select-dark-border);
+            --vs-text-color: var(--virtual-select-dark-text);
+            --vs-placeholder-color: var(--virtual-select-dark-placeholder);
+            --vs-option-hover-bg: var(--virtual-select-dark-option-hover-bg);
+            --vs-active-option-bg: var(--virtual-select-dark-active-option-bg);
+            --vs-active-option-color: var(--virtual-select-dark-active-option-text);
+            --vs-selected-item-bg: var(--virtual-select-dark-selected-item-bg);
+            --vs-selected-item-color: var(--virtual-select-dark-selected-item-text);
+            --vs-clear-button-color: var(--virtual-select-dark-clear-button);
+
+            --vs-dropdown-bg: var(--virtual-select-dark-bg);
+            --vs-dropdown-border: var(--virtual-select-dark-border);
+            --vs-dropdown-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            /* Sombra mais intensa no dark mode */
+            --vs-search-input-bg: #1e1e1e;
+            /* Fundo do input de busca no dark mode */
+            --vs-search-input-border: #666;
+            --vs-search-input-color: var(--dark-text);
+            --vs-search-input-placeholder: #aaa;
+        }
+
+        .dark-mode .virtual-select-wrapper .vscomp-toggle-button {
+            background-color: var(--virtual-select-dark-bg);
+            border-color: var(--virtual-select-dark-border);
+            color: var(--virtual-select-dark-text);
+        }
+
+        .dark-mode .virtual-select-wrapper .vscomp-search-input {
+            background-color: var(--virtual-select-dark-bg);
+            color: var(--virtual-select-dark-text);
+            border-color: var(--virtual-select-dark-border);
+        }
+
+        .dark-mode .virtual-select-wrapper .vscomp-value-label {
+            color: var(--virtual-select-dark-text);
+        }
+
+        .dark-mode .virtual-select-wrapper .vscomp-options-container {
+            background-color: var(--virtual-select-dark-bg);
+            border-color: var(--virtual-select-dark-border);
+        }
+
+        .dark-mode .virtual-select-wrapper .vscomp-option-selected {
+            background-color: var(--virtual-select-dark-active-option-bg);
+            color: var(--virtual-select-dark-active-option-text);
+        }
+
+        .dark-mode .virtual-select-wrapper .vscomp-option:hover {
+            background-color: var(--virtual-select-dark-option-hover-bg);
+        }
+
+        /* Cores dos ícones de seta e "x" no VirtualSelect no dark mode */
+        .dark-mode .virtual-select-wrapper .vscomp-arrow-btn,
+        .dark-mode .virtual-select-wrapper .vscomp-clear-btn {
+            filter: invert(1) hue-rotate(180deg);
+            /* Inverte e ajusta para ficar visível */
+            color: var(--virtual-select-dark-text);
+            /* Fallback */
+        }
+
+
         .dark-mode .chat-message.usuario {
+            align-self: flex-end;
             background-color: #9b59b6;
+            color: white;
         }
 
         .dark-mode .btn-dark-mode {
@@ -1036,8 +1362,6 @@
             background-color: #426841;
             color: white
         }
-
-
 
         .loader {
             border: 6px solid #f3f3f3;
@@ -1079,12 +1403,36 @@
             border-radius: 20px;
             padding: 10px 20px;
             transition: 0.3s;
+            cursor: pointer;
         }
 
-        button.btn-primary,
-        button.btn-secondary {
-            background-color: #426841;
+        button.btn-primary {
+            background-color: var(--modal-button-primary-bg);
+            color: var(--modal-button-primary-text);
         }
+
+        button.btn-primary:hover {
+            background-color: var(--blue-dark);
+        }
+
+        button.btn-secondary {
+            background-color: var(--modal-button-secondary-bg);
+            color: var(--modal-button-secondary-text);
+        }
+
+        button.btn-secondary:hover {
+            background-color: #314d31;
+        }
+
+        button.btn-danger {
+            background-color: var(--modal-button-danger-bg);
+            color: var(--modal-button-danger-text);
+        }
+
+        button.btn-danger:hover {
+            background-color: #c82333;
+        }
+
 
         #listPedidos li,
         #listPedidosAceitos li {

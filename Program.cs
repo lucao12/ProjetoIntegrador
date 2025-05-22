@@ -8,7 +8,7 @@ using ProjetoIntegrador.Services;
 using ProjetoIntegrador;
 using System.Text;
 using Hangfire;
-using Hangfire.SQLite;
+using Hangfire.SQLite; // Se você usa SQLite, certifique-se de que está configurado corretamente
 using Hangfire.MemoryStorage; // ou UseInMemoryStorage
 
 class Program
@@ -27,7 +27,7 @@ class Program
 
             c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
             {
-                Description = "Autoriza��o de JWT est� definida com o esquema Bearer",
+                Description = "Autorização de JWT está definida com o esquema Bearer",
                 Type = SecuritySchemeType.Http,
                 Scheme = "bearer"
             });
@@ -87,11 +87,14 @@ class Program
 
         builder.Services.AddScoped<EmailServices>();
 
+        // Usando Hangfire MemoryStorage, se essa for a intenção.
+        // Se quiser usar SQLite, certifique-se de ter a dependência correta e a string de conexão.
         builder.Services.AddHangfire(configuration =>
             configuration.UseSimpleAssemblyNameTypeSerializer()
                          .UseRecommendedSerializerSettings()
                          .UseMemoryStorage());
-;
+        // Se fosse SQLite, seria algo como:
+        // configuration.UseSQLiteStorage(builder.Configuration.GetConnectionString("HangfireConnection"));
 
         builder.Services.AddHangfireServer();
 
@@ -100,7 +103,10 @@ class Program
         if (app.Environment.IsDevelopment())
         {
             app.UseSwagger();
-            app.UseSwaggerUI();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "API Projeto Integrador v1");
+            });
         }
 
         app.UseCors("AllowAllOrigins");
@@ -109,6 +115,16 @@ class Program
         app.UseAuthorization();
 
         app.UseHangfireDashboard("/hangfire");
+
+        app.Use(async (context, next) =>
+        {
+            if (context.Request.Path == "/")
+            {
+                context.Response.Redirect("/login");
+                return;
+            }
+            await next();
+        });
 
         app.MapControllers();
         app.UseStaticFiles();
