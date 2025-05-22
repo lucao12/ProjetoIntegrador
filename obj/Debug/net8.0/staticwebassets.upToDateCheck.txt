@@ -1,7 +1,0 @@
-wwwroot\App_Data\teste.db
-wwwroot\css\virtual-select.min.css
-wwwroot\css\virtual-select.min.js
-wwwroot\default.png
-wwwroot\js\script.js
-wwwroot\js\script2.js
-wwwroot\NovaPasta\loader.css
