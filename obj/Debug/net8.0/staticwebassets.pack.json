@@ -1,47 +1,47 @@
 {
   "Files": [
     {
-      "Id": "D:\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db",
+      "Id": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db",
       "PackagePath": "staticwebassets\\App_Data\\teste.db"
     },
     {
-      "Id": "D:\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-shm",
+      "Id": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-shm",
       "PackagePath": "staticwebassets\\App_Data\\teste.db-shm"
     },
     {
-      "Id": "D:\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-wal",
+      "Id": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db-wal",
       "PackagePath": "staticwebassets\\App_Data\\teste.db-wal"
     },
     {
-      "Id": "D:\\ProjetoIntegrador\\wwwroot\\NovaPasta\\loader.css",
+      "Id": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\NovaPasta\\loader.css",
       "PackagePath": "staticwebassets\\NovaPasta\\loader.css"
     },
     {
-      "Id": "D:\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.css",
+      "Id": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.css",
       "PackagePath": "staticwebassets\\css\\virtual-select.min.css"
     },
     {
-      "Id": "D:\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.js",
+      "Id": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.js",
       "PackagePath": "staticwebassets\\css\\virtual-select.min.js"
     },
     {
-      "Id": "D:\\ProjetoIntegrador\\wwwroot\\default.png",
+      "Id": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\default.png",
       "PackagePath": "staticwebassets\\default.png"
     },
     {
-      "Id": "D:\\ProjetoIntegrador\\wwwroot\\fundo.png",
+      "Id": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\fundo.png",
       "PackagePath": "staticwebassets\\fundo.png"
     },
     {
-      "Id": "D:\\ProjetoIntegrador\\wwwroot\\js\\script.js",
+      "Id": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\js\\script.js",
       "PackagePath": "staticwebassets\\js\\script.js"
     },
     {
-      "Id": "D:\\ProjetoIntegrador\\wwwroot\\js\\script2.js",
+      "Id": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\js\\script2.js",
       "PackagePath": "staticwebassets\\js\\script2.js"
     },
     {
-      "Id": "D:\\ProjetoIntegrador\\wwwroot\\nutria.png",
+      "Id": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\nutria.png",
       "PackagePath": "staticwebassets\\nutria.png"
     },
     {

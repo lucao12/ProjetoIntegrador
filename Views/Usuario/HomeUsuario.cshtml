@@ -821,7 +821,6 @@
     </style>
 
     <style>
-
         :root {
             --bg-light: #f6ead4;
             --green: #426841;
@@ -909,15 +908,13 @@
         }
 
         @@keyframes spin {
-            0%
+            0% {
+                transform: rotate(0deg);
+            }
 
-        {
-            transform: rotate(0deg);
-        }
-
-        100% {
-            transform: rotate(360deg);
-        }
+            100% {
+                transform: rotate(360deg);
+            }
 
         }
 
@@ -1126,155 +1123,156 @@
 
         .chat-input button:hover {
             background-color: #0056b3;
+        }
 
-            .dieta-modal-body {
-                padding: 15px;
-            }
+        .dieta-modal-body {
+            padding: 15px;
+        }
 
-            .dieta-dia {
-                margin-bottom: 20px;
-                border: 1px solid #eee;
-                padding: 15px;
-                border-radius: 8px;
-                background-color: #f9f9f9;
-            }
+        .dieta-dia {
+            margin-bottom: 20px;
+            border: 1px solid #eee;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
 
-            .dieta-dia-titulo {
-                text-align: center;
-                color: #333;
-                margin-bottom: 15px;
-            }
+        .dieta-dia-titulo {
+            text-align: center;
+            color: #333;
+            margin-bottom: 15px;
+        }
 
-            .dieta-refeicao {
-                margin-bottom: 15px;
-                padding-left: 10px;
-            }
+        .dieta-refeicao {
+            margin-bottom: 15px;
+            padding-left: 10px;
+        }
 
-            .dieta-refeicao-titulo {
-                color: #555;
-                border-bottom: 1px dashed #ccc;
-                padding-bottom: 5px;
-                margin-bottom: 10px;
-            }
+        .dieta-refeicao-titulo {
+            color: #555;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
 
-            .dieta-alimento-item {
-                display: flex;
-                align-items: center;
-                margin-bottom: 8px;
-                padding: 5px 0;
-            }
+        .dieta-alimento-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            padding: 5px 0;
+        }
 
-            .alimento-nome {
-                flex-grow: 1;
-            }
+        .alimento-nome {
+            flex-grow: 1;
+        }
 
-            .btn-editar {
-                margin-left: 10px;
-            }
+        .btn-editar {
+            margin-left: 10px;
+        }
 
-            .nenhum-alimento {
-                color: #777;
-                font-style: italic;
-            }
+        .nenhum-alimento {
+            color: #777;
+            font-style: italic;
+        }
 
-            .dieta-divisor {
-                border-top: 1px solid #ddd;
-                margin-top: 20px;
-                margin-bottom: 15px;
-            }
+        .dieta-divisor {
+            border-top: 1px solid #ddd;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
 
-            .dieta-alimento-item select {
-                margin-left: 10px;
-                padding: 5px;
-                border-radius: 4px;
-                border: 1px solid #ccc;
-            }
+        .dieta-alimento-item select {
+            margin-left: 10px;
+            padding: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
 
-            /* Modo escuro */
+        /* Modo escuro */
         body.dark-mode {
-                background-color: #121212 !important;
-                color: white;
-            }
+            background-color: #121212 !important;
+            color: white;
+        }
 
         body.dark-mode .container {
             background-color: #1b1b1b !important;
             color: white;
         }
 
-            .dark-mode h1,
-            .dark-mode h3 {
-                color: white;
-            }
+        .dark-mode h1,
+        .dark-mode h3 {
+            color: white;
+        }
 
-            .dark-mode .card {
-                background-color: #1e1e1e;
-                color: white !important;
-            }
+        .dark-mode .card {
+            background-color: #1e1e1e;
+            color: white !important;
+        }
 
-            .dark-mode .card p {
-                color: rgba(255, 255, 255, 0.685);
-            }
+        .dark-mode .card p {
+            color: rgba(255, 255, 255, 0.685);
+        }
 
-            .dark-mode .form-control,
-            .dark-mode .form-select {
-                background-color: #333;
-                color: white;
-                border: 1px solid #555;
-            }
+        .dark-mode .form-control,
+        .dark-mode .form-select {
+            background-color: #333;
+            color: white;
+            border: 1px solid #555;
+        }
 
-            .dark-mode .form-control::placeholder,
-            .dark-mode .form-select::placeholder {
-                color: #bbb;
-            }
+        .dark-mode .form-control::placeholder,
+        .dark-mode .form-select::placeholder {
+            color: #bbb;
+        }
 
-            .dark-mode .btn-outline-dark {
-                background-color: #007bff;
-                color: white;
-            }
+        .dark-mode .btn-outline-dark {
+            background-color: #007bff;
+            color: white;
+        }
 
-            .dark-mode .list-group-item {
-                background-color: #333;
-                color: white;
-            }
+        .dark-mode .list-group-item {
+            background-color: #333;
+            color: white;
+        }
 
-            .dark-mode .btn-primary {
-                background-color: #007bff;
-                border: none;
-            }
+        .dark-mode .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
 
-            .dark-mode .btn-primary:hover {
-                background-color: #0056b3;
-            }
+        .dark-mode .btn-primary:hover {
+            background-color: #0056b3;
+        }
 
-            .dark-mode .modal-content,
-            .dark-mode .modal-header,
-            .dark-mode .modal-body,
-            .dark-mode .modal-footer {
-                background-color: #1e1e1e;
-                color: white;
-            }
+        .dark-mode .modal-content,
+        .dark-mode .modal-header,
+        .dark-mode .modal-body,
+        .dark-mode .modal-footer {
+            background-color: #1e1e1e;
+            color: white;
+        }
 
-            .dark-mode .modal-header .btn-close {
-                color: white;
-            }
+        .dark-mode .modal-header .btn-close {
+            color: white;
+        }
 
-            .dark-mode #ChatContainer {
-                background-color: #3b3b3b;
-            }
+        .dark-mode #ChatContainer {
+            background-color: #3b3b3b;
+        }
 
-            .dark-mode #ChatTextForm {
-                background-color: #3b3b3b;
-                border: 1px solid #ccc;
-            }
+        .dark-mode #ChatTextForm {
+            background-color: #3b3b3b;
+            border: 1px solid #ccc;
+        }
 
-            .dark-mode .chat-input {
-                background-color: #1e1e1e;
-            }
+        .dark-mode .chat-input {
+            background-color: #1e1e1e;
+        }
 
-            .dark-mode .chat-input input {
-                background-color: #333;
-                color: white;
-            }
+        .dark-mode .chat-input input {
+            background-color: #333;
+            color: white;
+        }
     </style>
 
 
@@ -1499,9 +1497,9 @@
         </div>
     </div>
 
-    
 
-    
+
+
     </div>
     <script>
         function ColocaCarregando() {
