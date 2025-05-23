@@ -911,9 +911,9 @@
             padding: 1rem 1.5rem;
         }
 
-            .modal-header .btn-close {
-                filter: invert(1);
-            }
+        .modal-header .btn-close {
+            filter: invert(1);
+        }
 
         .modal-title {
             color: var(--modal-header-text);
@@ -955,13 +955,13 @@
             box-sizing: border-box;
         }
 
-            .modal-body .form-control:focus,
-            .modal-body .form-select:focus,
-            .alimento-container input[type="number"]:focus {
-                border-color: var(--input-focus);
-                box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
-                outline: none;
-            }
+        .modal-body .form-control:focus,
+        .modal-body .form-select:focus,
+        .alimento-container input[type="number"]:focus {
+            border-color: var(--input-focus);
+            box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+            outline: none;
+        }
 
         .modal-body .mb-3 {
             margin-bottom: 1rem !important;
@@ -979,9 +979,9 @@
             border-color: var(--dark-border);
         }
 
-            .dark-mode .modal-header .btn-close {
-                filter: invert(1);
-            }
+        .dark-mode .modal-header .btn-close {
+            filter: invert(1);
+        }
 
         .dark-mode .modal-footer {
             background-color: var(--dark-bg);
@@ -1082,22 +1082,22 @@
             transition: transform 0.3s;
         }
 
-            .card:hover {
-                transform: translateY(-5px);
-            }
+        .card:hover {
+            transform: translateY(-5px);
+        }
 
-            .card h2 {
-                font-size: 1.9rem;
-                font-weight: 700;
-                margin-bottom: 15px;
-                color: #2c3e50;
-            }
+        .card h2 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
 
-            .card p {
-                font-size: 1rem;
-                color: #555;
-                margin: 10px 0;
-            }
+        .card p {
+            font-size: 1rem;
+            color: #555;
+            margin: 10px 0;
+        }
 
         .btn-instagram {
             display: inline-flex;
@@ -1114,9 +1114,9 @@
             margin: 15px 0;
         }
 
-            .btn-instagram:hover {
-                background-color: #c71d56;
-            }
+        .btn-instagram:hover {
+            background-color: #c71d56;
+        }
 
         .action-buttons {
             display: flex;
@@ -1139,10 +1139,10 @@
             gap: 10px;
         }
 
-            .btn-action:hover {
-                background-color: #e8e8e8;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            }
+        .btn-action:hover {
+            background-color: #e8e8e8;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
 
         .btn-blue {
             background-color: #007bff;
@@ -1150,9 +1150,9 @@
             border: none;
         }
 
-            .btn-blue:hover {
-                background-color: #005dc5;
-            }
+        .btn-blue:hover {
+            background-color: #005dc5;
+        }
 
         #insta {
             background: #e1306c;
@@ -1383,16 +1383,19 @@
             color: white;
         }
 
-            body.dark-mode .virtual-select,
-            body.dark-mode .virtual-select .options-wrapper,
-            body.dark-mode .virtual-select .search-wrapper,
-            body.dark-mode .virtual-select .option,
-            body.dark-mode .virtual-select .selected,
-            body.dark-mode .vscomp-toggle-button{
-                background-color: #1e1e1e !important; /* Fundo preto */
-                color: #fff !important; /* Texto branco */
-                border-color: #444 !important; /* Borda cinza escuro */
-            }
+        body.dark-mode .virtual-select,
+        body.dark-mode .virtual-select .options-wrapper,
+        body.dark-mode .virtual-select .search-wrapper,
+        body.dark-mode .virtual-select .option,
+        body.dark-mode .virtual-select .selected,
+        body.dark-mode .vscomp-toggle-button {
+            background-color: #1e1e1e !important;
+            /* Fundo preto */
+            color: #fff !important;
+            /* Texto branco */
+            border-color: #444 !important;
+            /* Borda cinza escuro */
+        }
 
         .dark-mode h1,
         .dark-mode h3 {
@@ -2185,6 +2188,12 @@
 
                     const modalBody = document.getElementById('modalDietaBody');
                     modalBody.innerHTML = '';
+
+                    if (!data.dietas || data.dietas.length === 0) {
+                        modalBody.innerHTML = '<div class="alert alert-warning" role="alert">Nenhuma dieta encontrada no momento.</div>';
+                        TiraCarregando();
+                        return;
+                    }
 
                     let cont = 0;
 
