@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "X+zh7HzaMzi7PTiDnUlGL2NYsvGbkbvEhBf331o+3K4=",
+  "Hash": "ltJmh/D+URUsOhq+P2PEYVSvzfYXJcKJrWCpvuY07E4=",
   "Source": "ProjetoIntegrador",
   "BasePath": "_content/ProjetoIntegrador",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "ProjetoIntegrador\\wwwroot",
       "Source": "ProjetoIntegrador",
-      "ContentRoot": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\",
+      "ContentRoot": "D:\\ProjetoIntegrador\\wwwroot\\",
       "BasePath": "_content/ProjetoIntegrador",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db",
+      "Identity": "D:\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db",
       "SourceId": "ProjetoIntegrador",
       "SourceType": "Discovered",
-      "ContentRoot": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\",
+      "ContentRoot": "D:\\ProjetoIntegrador\\wwwroot\\",
       "BasePath": "_content/ProjetoIntegrador",
       "RelativePath": "App_Data/teste#[.{fingerprint}]?.db",
       "AssetKind": "All",
@@ -38,10 +38,10 @@
       "OriginalItemSpec": "wwwroot\\App_Data\\teste.db"
     },
     {
-      "Identity": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.css",
+      "Identity": "D:\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.css",
       "SourceId": "ProjetoIntegrador",
       "SourceType": "Discovered",
-      "ContentRoot": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\",
+      "ContentRoot": "D:\\ProjetoIntegrador\\wwwroot\\",
       "BasePath": "_content/ProjetoIntegrador",
       "RelativePath": "css/virtual-select.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -59,10 +59,10 @@
       "OriginalItemSpec": "wwwroot\\css\\virtual-select.min.css"
     },
     {
-      "Identity": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.js",
+      "Identity": "D:\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.js",
       "SourceId": "ProjetoIntegrador",
       "SourceType": "Discovered",
-      "ContentRoot": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\",
+      "ContentRoot": "D:\\ProjetoIntegrador\\wwwroot\\",
       "BasePath": "_content/ProjetoIntegrador",
       "RelativePath": "css/virtual-select.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -80,10 +80,10 @@
       "OriginalItemSpec": "wwwroot\\css\\virtual-select.min.js"
     },
     {
-      "Identity": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\default.png",
+      "Identity": "D:\\ProjetoIntegrador\\wwwroot\\default.png",
       "SourceId": "ProjetoIntegrador",
       "SourceType": "Discovered",
-      "ContentRoot": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\",
+      "ContentRoot": "D:\\ProjetoIntegrador\\wwwroot\\",
       "BasePath": "_content/ProjetoIntegrador",
       "RelativePath": "default#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -101,10 +101,10 @@
       "OriginalItemSpec": "wwwroot\\default.png"
     },
     {
-      "Identity": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\fundo.png",
+      "Identity": "D:\\ProjetoIntegrador\\wwwroot\\fundo.png",
       "SourceId": "ProjetoIntegrador",
       "SourceType": "Discovered",
-      "ContentRoot": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\",
+      "ContentRoot": "D:\\ProjetoIntegrador\\wwwroot\\",
       "BasePath": "_content/ProjetoIntegrador",
       "RelativePath": "fundo#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -122,10 +122,10 @@
       "OriginalItemSpec": "wwwroot\\fundo.png"
     },
     {
-      "Identity": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\js\\script.js",
+      "Identity": "D:\\ProjetoIntegrador\\wwwroot\\js\\script.js",
       "SourceId": "ProjetoIntegrador",
       "SourceType": "Discovered",
-      "ContentRoot": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\",
+      "ContentRoot": "D:\\ProjetoIntegrador\\wwwroot\\",
       "BasePath": "_content/ProjetoIntegrador",
       "RelativePath": "js/script#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -143,10 +143,10 @@
       "OriginalItemSpec": "wwwroot\\js\\script.js"
     },
     {
-      "Identity": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\js\\script2.js",
+      "Identity": "D:\\ProjetoIntegrador\\wwwroot\\js\\script2.js",
       "SourceId": "ProjetoIntegrador",
       "SourceType": "Discovered",
-      "ContentRoot": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\",
+      "ContentRoot": "D:\\ProjetoIntegrador\\wwwroot\\",
       "BasePath": "_content/ProjetoIntegrador",
       "RelativePath": "js/script2#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -164,10 +164,10 @@
       "OriginalItemSpec": "wwwroot\\js\\script2.js"
     },
     {
-      "Identity": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\NovaPasta\\loader.css",
+      "Identity": "D:\\ProjetoIntegrador\\wwwroot\\NovaPasta\\loader.css",
       "SourceId": "ProjetoIntegrador",
       "SourceType": "Discovered",
-      "ContentRoot": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\",
+      "ContentRoot": "D:\\ProjetoIntegrador\\wwwroot\\",
       "BasePath": "_content/ProjetoIntegrador",
       "RelativePath": "NovaPasta/loader#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -185,10 +185,10 @@
       "OriginalItemSpec": "wwwroot\\NovaPasta\\loader.css"
     },
     {
-      "Identity": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\nutria.png",
+      "Identity": "D:\\ProjetoIntegrador\\wwwroot\\nutria.png",
       "SourceId": "ProjetoIntegrador",
       "SourceType": "Discovered",
-      "ContentRoot": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\",
+      "ContentRoot": "D:\\ProjetoIntegrador\\wwwroot\\",
       "BasePath": "_content/ProjetoIntegrador",
       "RelativePath": "nutria#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -209,7 +209,7 @@
   "Endpoints": [
     {
       "Route": "App_Data/teste.db",
-      "AssetFile": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db",
+      "AssetFile": "D:\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -230,7 +230,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 22 May 2025 19:20:47 GMT"
+          "Value": "Fri, 23 May 2025 01:20:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -246,7 +246,7 @@
     },
     {
       "Route": "App_Data/teste.g9cq7cch64.db",
-      "AssetFile": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db",
+      "AssetFile": "D:\\ProjetoIntegrador\\wwwroot\\App_Data\\teste.db",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -267,7 +267,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 22 May 2025 19:20:47 GMT"
+          "Value": "Fri, 23 May 2025 01:20:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -291,7 +291,7 @@
     },
     {
       "Route": "css/virtual-select.min.8vgn74yz30.js",
-      "AssetFile": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.js",
+      "AssetFile": "D:\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -312,7 +312,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 18 May 2025 17:22:03 GMT"
+          "Value": "Fri, 23 May 2025 01:20:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -336,7 +336,7 @@
     },
     {
       "Route": "css/virtual-select.min.css",
-      "AssetFile": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.css",
+      "AssetFile": "D:\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -357,7 +357,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 18 May 2025 17:22:03 GMT"
+          "Value": "Fri, 23 May 2025 01:20:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -373,7 +373,7 @@
     },
     {
       "Route": "css/virtual-select.min.hyh2dotrp4.css",
-      "AssetFile": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.css",
+      "AssetFile": "D:\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -394,7 +394,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 18 May 2025 17:22:03 GMT"
+          "Value": "Fri, 23 May 2025 01:20:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -418,7 +418,7 @@
     },
     {
       "Route": "css/virtual-select.min.js",
-      "AssetFile": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.js",
+      "AssetFile": "D:\\ProjetoIntegrador\\wwwroot\\css\\virtual-select.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -439,7 +439,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 18 May 2025 17:22:03 GMT"
+          "Value": "Fri, 23 May 2025 01:20:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -455,7 +455,7 @@
     },
     {
       "Route": "default.hc6qofo4g5.png",
-      "AssetFile": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\default.png",
+      "AssetFile": "D:\\ProjetoIntegrador\\wwwroot\\default.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -476,7 +476,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 18 May 2025 17:22:03 GMT"
+          "Value": "Fri, 23 May 2025 01:20:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -500,7 +500,7 @@
     },
     {
       "Route": "default.png",
-      "AssetFile": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\default.png",
+      "AssetFile": "D:\\ProjetoIntegrador\\wwwroot\\default.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -521,7 +521,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 18 May 2025 17:22:03 GMT"
+          "Value": "Fri, 23 May 2025 01:20:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -537,7 +537,7 @@
     },
     {
       "Route": "fundo.7fhk3inrt7.png",
-      "AssetFile": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\fundo.png",
+      "AssetFile": "D:\\ProjetoIntegrador\\wwwroot\\fundo.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -558,7 +558,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 22 May 2025 19:11:09 GMT"
+          "Value": "Fri, 23 May 2025 01:20:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -582,7 +582,7 @@
     },
     {
       "Route": "fundo.png",
-      "AssetFile": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\fundo.png",
+      "AssetFile": "D:\\ProjetoIntegrador\\wwwroot\\fundo.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -603,7 +603,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 22 May 2025 19:11:09 GMT"
+          "Value": "Fri, 23 May 2025 01:20:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -619,7 +619,7 @@
     },
     {
       "Route": "js/script.exvrtjijx8.js",
-      "AssetFile": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\js\\script.js",
+      "AssetFile": "D:\\ProjetoIntegrador\\wwwroot\\js\\script.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -640,7 +640,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 18 May 2025 17:22:03 GMT"
+          "Value": "Fri, 23 May 2025 01:20:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -664,7 +664,7 @@
     },
     {
       "Route": "js/script.js",
-      "AssetFile": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\js\\script.js",
+      "AssetFile": "D:\\ProjetoIntegrador\\wwwroot\\js\\script.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -685,7 +685,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 18 May 2025 17:22:03 GMT"
+          "Value": "Fri, 23 May 2025 01:20:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -701,7 +701,7 @@
     },
     {
       "Route": "js/script2.fc8dnft5ne.js",
-      "AssetFile": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\js\\script2.js",
+      "AssetFile": "D:\\ProjetoIntegrador\\wwwroot\\js\\script2.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -722,7 +722,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 18 May 2025 17:22:03 GMT"
+          "Value": "Fri, 23 May 2025 01:20:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -746,7 +746,7 @@
     },
     {
       "Route": "js/script2.js",
-      "AssetFile": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\js\\script2.js",
+      "AssetFile": "D:\\ProjetoIntegrador\\wwwroot\\js\\script2.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -767,7 +767,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 18 May 2025 17:22:03 GMT"
+          "Value": "Fri, 23 May 2025 01:20:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -783,7 +783,7 @@
     },
     {
       "Route": "NovaPasta/loader.51mxwi15a7.css",
-      "AssetFile": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\NovaPasta\\loader.css",
+      "AssetFile": "D:\\ProjetoIntegrador\\wwwroot\\NovaPasta\\loader.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -804,7 +804,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 18 May 2025 17:22:03 GMT"
+          "Value": "Fri, 23 May 2025 01:20:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -828,7 +828,7 @@
     },
     {
       "Route": "NovaPasta/loader.css",
-      "AssetFile": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\NovaPasta\\loader.css",
+      "AssetFile": "D:\\ProjetoIntegrador\\wwwroot\\NovaPasta\\loader.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -849,7 +849,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 18 May 2025 17:22:03 GMT"
+          "Value": "Fri, 23 May 2025 01:20:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -865,7 +865,7 @@
     },
     {
       "Route": "nutria.njgud7u2p3.png",
-      "AssetFile": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\nutria.png",
+      "AssetFile": "D:\\ProjetoIntegrador\\wwwroot\\nutria.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -886,7 +886,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 22 May 2025 19:11:09 GMT"
+          "Value": "Fri, 23 May 2025 01:20:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -910,7 +910,7 @@
     },
     {
       "Route": "nutria.png",
-      "AssetFile": "Z:\\Projetos\\ProjetoIntegrador\\wwwroot\\nutria.png",
+      "AssetFile": "D:\\ProjetoIntegrador\\wwwroot\\nutria.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -931,7 +931,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 22 May 2025 19:11:09 GMT"
+          "Value": "Fri, 23 May 2025 01:20:55 GMT"
         },
         {
           "Name": "Cache-Control",

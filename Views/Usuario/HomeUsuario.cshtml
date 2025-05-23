@@ -7,6 +7,7 @@
     <title>Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="wwwroot/NovaPasta/loader.css">
 
     <!-- Incluir o CSS do VirtualSelect -->
@@ -831,7 +832,6 @@
             --dark-bg: #1e1e1e;
             --dark-border: #555;
             --dark-text: #eee;
-
             /* Novas variáveis para substituir cores fixas */
             --primary: var(--blue);
             --secondary: var(--green);
@@ -840,7 +840,167 @@
             --text-muted: #666666;
             --border: #cccccc;
             --shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+            /* Variáveis para o modal (novas ou ajustadas para o tema) */
+            --modal-bg: var(--bg-card);
+            --modal-text: var(--text-main);
+            --modal-header-bg: var(--primary);
+            --modal-header-text: #ffffff;
+            --modal-footer-bg: var(--bg-card);
+            --modal-button-primary-bg: var(--primary);
+            --modal-button-primary-text: #ffffff;
+            --modal-button-secondary-bg: var(--secondary);
+            --modal-button-secondary-text: #ffffff;
+            --modal-button-danger-bg: #dc3545;
+            --modal-button-danger-text: #ffffff;
+            /* Variáveis para o elemento .refeicao no dark mode */
+            --refeicao-dark-bg: #2a2a2a;
+            --refeicao-dark-border: #444;
+            --refeicao-dark-text: #f1f1f1;
+            /* Novas variáveis para o labels-container e alimento-container */
+            --labels-container-bg: #f8f9fa;
+            --labels-container-border: var(--border);
+            --alimento-label-color: var(--text-main);
+            --alimento-input-bg: var(--bg-card);
+            --alimento-input-border: var(--input-border);
+            --alimento-input-color: var(--text-main);
+            /* Variáveis para o dark mode do labels-container e alimento-container */
+            --labels-container-dark-bg: #2a2a2a;
+            --labels-container-dark-border: #444;
+            --alimento-label-dark-color: var(--dark-text);
+            --alimento-input-dark-bg: #1e1e1e;
+            --alimento-input-dark-border: #555;
+            --alimento-input-dark-color: var(--dark-text);
+            /* Novas variáveis para o VirtualSelect */
+            --virtual-select-bg: var(--bg-card);
+            --virtual-select-border: var(--input-border);
+            --virtual-select-text: var(--text-main);
+            --virtual-select-placeholder: var(--text-muted);
+            --virtual-select-option-hover-bg: #f0f0f0;
+            --virtual-select-active-option-bg: var(--primary);
+            --virtual-select-active-option-text: #ffffff;
+            --virtual-select-selected-item-bg: var(--primary);
+            --virtual-select-selected-item-text: #ffffff;
+            --virtual-select-clear-button: #dc3545;
+            /* Variáveis para o dark mode do VirtualSelect */
+            --virtual-select-dark-bg: #2a2a2a;
+            --virtual-select-dark-border: #555;
+            --virtual-select-dark-text: var(--dark-text);
+            --virtual-select-dark-placeholder: #ccc;
+            --virtual-select-dark-option-hover-bg: #3a3a3a;
+            --virtual-select-dark-active-option-bg: var(--blue-dark);
+            --virtual-select-dark-active-option-text: #ffffff;
+            --virtual-select-dark-selected-item-bg: var(--blue-dark);
+            --virtual-select-dark-selected-item-text: #ffffff;
+            --virtual-select-dark-clear-button: #e84d4d;
         }
+
+        .modal-content {
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s, color 0.3s;
+            background-color: var(--modal-bg);
+            color: var(--modal-text);
+        }
+
+        .modal-header {
+            border-bottom: 1px solid var(--border);
+            background-color: var(--modal-header-bg);
+            color: var(--modal-header-text);
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            padding: 1rem 1.5rem;
+        }
+
+            .modal-header .btn-close {
+                filter: invert(1);
+            }
+
+        .modal-title {
+            color: var(--modal-header-text);
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .modal-footer {
+            border-top: 1px solid var(--border);
+            background-color: var(--modal-footer-bg);
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            padding: 1rem 1.5rem;
+        }
+
+        /* Estilos dos inputs e labels dentro do modal (e agora para o .alimento-container também) */
+        .modal-body .form-label,
+        .alimento-container label {
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .modal-body .form-control,
+        .modal-body .form-select,
+        .alimento-container input[type="number"] {
+            border: 1px solid var(--input-border);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            color: var(--text-main);
+            background-color: var(--bg-card);
+            transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+            .modal-body .form-control:focus,
+            .modal-body .form-select:focus,
+            .alimento-container input[type="number"]:focus {
+                border-color: var(--input-focus);
+                box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+                outline: none;
+            }
+
+        .modal-body .mb-3 {
+            margin-bottom: 1rem !important;
+        }
+
+        .dark-mode .modal-content {
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        .dark-mode .modal-header {
+            background-color: var(--primary);
+            color: var(--modal-header-text);
+            border-color: var(--dark-border);
+        }
+
+            .dark-mode .modal-header .btn-close {
+                filter: invert(1);
+            }
+
+        .dark-mode .modal-footer {
+            background-color: var(--dark-bg);
+            border-color: var(--dark-border);
+        }
+
+        .dark-mode .modal-body .form-label,
+        .dark-mode .alimento-container label {
+            color: var(--alimento-label-dark-color);
+        }
+
+        .dark-mode .modal-body .form-control,
+        .dark-mode .modal-body .form-select,
+        .dark-mode .alimento-container input[type="number"] {
+            background-color: var(--alimento-input-dark-bg);
+            border-color: var(--alimento-input-dark-border);
+            color: var(--alimento-input-dark-color);
+        }
+
 
         body {
             background-color: var(--bg-light);
@@ -885,19 +1045,6 @@
             z-index: 9999;
         }
 
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-        }
-
         .loader {
             width: 80px;
             height: 80px;
@@ -926,49 +1073,86 @@
 
         .card {
             max-width: 600px;
-            margin: 30px auto;
+            margin: 40px auto;
             background: #ffffff;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            border: none;
-        }
-
-        .card h2 {
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-            color: #2c3e50;
+            border-radius: 18px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+            padding: 35px 30px;
             text-align: center;
+            transition: transform 0.3s;
         }
 
-        .card p {
-            font-size: 1rem;
-            color: #555;
-            margin: 10px 0;
-            text-align: center;
-        }
+            .card:hover {
+                transform: translateY(-5px);
+            }
 
-        .card a.btn {
-            display: block;
-            width: 100%;
-            margin-bottom: 15px;
+            .card h2 {
+                font-size: 1.9rem;
+                font-weight: 700;
+                margin-bottom: 15px;
+                color: #2c3e50;
+            }
+
+            .card p {
+                font-size: 1rem;
+                color: #555;
+                margin: 10px 0;
+            }
+
+        .btn-instagram {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
             background-color: #e1306c;
             color: white;
-            font-weight: bold;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.3s;
+            margin: 15px 0;
+        }
+
+            .btn-instagram:hover {
+                background-color: #c71d56;
+            }
+
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn-action {
+            background-color: #f0f0f0;
+            color: #333;
+            border: 2px solid #ddd;
+            padding: 12px 18px;
+            font-weight: 600;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+            .btn-action:hover {
+                background-color: #e8e8e8;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            }
+
+        .btn-blue {
+            background-color: #007bff;
+            color: white;
             border: none;
         }
 
-        .card a.btn:hover {
-            background-color: #c7205e;
-        }
-
-        .card button {
-            display: block;
-            margin-top: 10px;
-            font-weight: bold;
-            transition: all 0.3s;
-        }
+            .btn-blue:hover {
+                background-color: #005dc5;
+            }
 
         #insta {
             background: #e1306c;
@@ -1198,6 +1382,17 @@
             background-color: #1b1b1b !important;
             color: white;
         }
+
+            body.dark-mode .virtual-select,
+            body.dark-mode .virtual-select .options-wrapper,
+            body.dark-mode .virtual-select .search-wrapper,
+            body.dark-mode .virtual-select .option,
+            body.dark-mode .virtual-select .selected,
+            body.dark-mode .vscomp-toggle-button{
+                background-color: #1e1e1e !important; /* Fundo preto */
+                color: #fff !important; /* Texto branco */
+                border-color: #444 !important; /* Borda cinza escuro */
+            }
 
         .dark-mode h1,
         .dark-mode h3 {
